@@ -1,0 +1,25 @@
+\begin{algorithm}
+\caption{Algorithme de division}
+\begin{algorithmic}
+\REQUIRE $f_1,\ldots,f_s,f$
+\ENSURE $a_1,\ldots,a_s,r$
+\STATE $a_1 :=0 ;\ldots ; a_s:=0 ; r:=0$
+\STATE $p:=0$
+\WHILE{$p \neq 0$}
+\STATE $i:=1$
+\STATE $divisionoccured:=false $
+\WHILE{$i \leq s $ et $divisionoccured = false $}
+\IF{$LT (f_i) | LT (p)$}
+\STATE $a_i:= a_i+LT (p)/LT (f_i)$
+\STATE $p:=p-(LT(p)/LT (f_i)) f_i$
+\ELSE
+\STATE $i:=i+1$
+\ENDIF
+\ENDWHILE
+\IF{divisionoccured=false}
+\STATE $r:=r+LT (p)$
+\STATE $p:=p-LT (p) $
+\ENDIF
+\ENDWHILE
+\end{algorithmic}
+\end{algorithm}

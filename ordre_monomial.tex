@@ -1,0 +1,100 @@
+\subsection{Généralités}
+\begin{Def} 
+Un ordre monomial est une relation d'ordre total $\geq$ de $\mathscr{M}$ telle que :
+
+\begin{enumerate}
+	\item  $\forall \alpha,\beta,\gamma \in \mathbb{N}^n, X^\alpha \geq X^\beta \Rightarrow X^{\alpha+\gamma} \geq X^{\beta +\gamma}$
+ \item $\geq$ est un bon ordre
+\end{enumerate}
+On note $X^\alpha > X^\beta$ si $X^\alpha \geq X^\beta$ et $\alpha \neq \beta$ (compatible avec l'addition) et $X^\alpha \leq X^\beta $ si $X^\beta \geq X^\alpha $
+\end{Def}
+
+\begin{prop}
+Soit $\geq$ un ordre monomial. $1$ est le plus petit élément de $\mathscr{M}$ pour $\geq$.
+\end{prop}
+
+\begin{demo}
+Comme $\geq$ est un bon ordre alors il existe un plus petit élément que l'on notera $x^\alpha$ alors :
+$X^\alpha \leq 1$ et donc $X^{2 \alpha} \leq X^\alpha$ (par la compatibilité avec l'addition). \\
+Or comme $X^\alpha$ est le petit élément de $\mathscr{M}$alors $X^\alpha \leq X^{2\alpha}$. \\
+Donc, par antisymétrie, $X^\alpha=X^{2\alpha}$ d'où $\alpha=2\alpha$ et donc $\alpha=0$. \\
+On en déduit que $1=X^0$ est le plus petit élément de $\mathscr{M}$.
+\end{demo}
+\begin{cor}
+
+Soit $\geq$ un ordre monomial et $\alpha,\beta \in \mathbb{N}^n$. Si $X^\alpha | X^\beta$ alors $X^\alpha \leq X^\beta$.
+\end{cor}
+
+\begin{demo}
+  Si $X^\alpha | X^\beta$ alors il existe $\gamma \in \mathbb{N}^n$ tel que : $X^\beta=X^\gamma X^\alpha$. Or comme $1 \leq X^\gamma$ alors par compatibilité avec l'addition, $X^\alpha \leq X^{\alpha+\gamma}=X^\beta$.
+\end{demo}
+
+\begin{Def}
+Soit $P:=\sum_{\alpha} p_{\alpha}X^\alpha$ et $\geq$ un ordre monomial. \\
+\begin{enumerate}
+	\item  Le monôme dominant de $P$ est : $LM(P):=max\{X^alpha \in \mathscr{M} | a_\alpha \neq 0\}$
+\item Le multidegré de $f$ est l'élément de $\mathbb{N}^n$, noté$multideg(P)$, tel que $x^{multideg(P)}=LM(P)$
+ \item Le coefficient dominant de $P$ est $LC(P):=a_{multideg(P)}$
+\item Le terme dominant de $P$ est $LT(P):=LC(P)\cdot LM(P)$
+\end{enumerate}
+
+
+\end{Def}
+\subsection{Exemples d'ordres monomiaux}
+\begin{Defprop}[Ordre lexicographique $\geq_{lex}$]
+Soient $\alpha=(\alpha_1,\ldots,\alpha_n), \beta=(\beta_1,\ldots,\beta_n) \in \mathbb{N}^n$ alors
+$X^\alpha \geq_{lex} X^\beta$ si, et seulement si, $\alpha=\beta$ ou le premier coefficient non nul en lisant par la gauche de $\alpha -\beta $ est positif.
+\end{Defprop}
+\begin{demo}
+Montrons que $\geq$ est un ordre monomial. \\
+$\alpha,\beta,\gamma$ désigneront des éléments quelconques de $\mathbb{N}^n$ et si $\alpha \neq \beta$, $\ell(\alpha,\beta)$ désignera la première composante ,en partant de la gauche,non nulle de $\alpha-\beta$  i.e. $\ell(\alpha,\beta):=min\{r \in [\![1,n]\!] | a_r \neq b_r \}$. \\
+Montrons tout d'abord que c'est bien une relation d'ordre. \\
+\textbf{Réflexivité :}\\
+$X^\alpha \geq X^\alpha$ (c.f. premier cas)\\
+\textbf{Antisymétrie :} \\
+Supposons que $X^\alpha \geq X^\beta $(i) et $X^\beta \geq X^\alpha$(ii). \\
+Supposons, par l'absurde, que $X^\alpha \neq X^\beta$. \\
+On a avec (i) que $\alpha_{\ell(\alpha,\beta)} >  \beta_{\ell(\alpha,\beta)}$ et avec (ii) que $\alpha_{\ell(\alpha,\beta)} <  \beta_{\ell(\alpha,\beta)}$. D'où une contradiction. \\
+On a donc $X^\alpha = X^\beta $. \\
+\textbf{Transitivité :} \\
+Supposons que $X^\alpha \geq X^\beta$(i) et $X^\beta \geq X^\gamma$(ii).\\
+Si $\alpha=\beta$, $\alpha=\gamma$ ou $\alpha=\beta$ alors l'inégalité $X^\alpha \geq X^\gamma$ est évidente.\\
+Sinon, posons $\ell:=min\{\ell(\alpha,\beta),\ell(\beta,\gamma)\}$. \\
+On a avec (i) et (ii),que : $\alpha_\ell < \beta_\ell \leq \gamma_\ell$ ou $\alpha_\ell \leq \beta_\ell <\gamma_\ell$ et pour tout $k < \ell$, $\alpha_\ell = \beta_\ell = \gamma_\ell$. \\
+On a donc $X^\alpha \geq X^\gamma$. \\
+\textbf{Montrons que $\geq_{lex}$ est compatible avec l'addition.}\\
+Si $\alpha=\beta$ alors $X^{\alpha+\gamma}=X^{\beta+\gamma}$ et donc $X^{\alpha+\gamma}\geq_{lex}X^{\beta+\gamma}$\\
+Sinon,  comme $(\alpha+\gamma)-(\beta+\gamma)=\alpha-\beta$ alors $\ell(\alpha,\beta)=\ell(\alpha+\gamma,\beta+\gamma)$ et donc si $X^{\alpha} \geq_{lex} X^\beta$ alors $X^{\alpha+\gamma} \geq_{lex} X^{\beta+\gamma}$.\\
+\textbf{Montrons maintenant que $\geq_{lex}$ est un bon ordre}, par l'absurde.\\
+Supposons donc que  $\geq_{lex}$ n'est pas un bon ordre et donc qu'il existe une suite $u:=\left(X^{(a_{1,i}\ldots,a_{n,i})}\right)_{i \in \mathbb{N}}$ strictement décroissante.\\
+On en déduit que la suite $u_1:=(a_{1,i})_{i \in \mathbb{N}}$ est décroissante (sinon $u$ ne serait pas décroissante) et est donc stationnaire car $\mathbb{N}$ est bien ordonné.\\
+Alors il existe $N_1 \in \mathbb{N}$ tel que $\forall p \geq N,u_{1,p}=u_{1,N_1}$. \\
+Considérons maintenant la suite $u_2:=(a_{2,i})_{i \geq N_1}$. Elle est décroissante et donc stationnaire ... \\
+On construit ainsi une suite $(N_i)_{i \geq 1}$ tel que $\forall n \geq N_i, u_{i,n} \geq u_{i,N_i}$.\\
+On en déduit que $\forall p \geq N_n,\forall i \in [\![1,n]\!], u_{i,p}=u_{i,N_n}$ ou encore $\forall p \geq N_n,, X^{u_{1,p},\ldots,u_{n,p}}=X^{u_{1,N_n},\ldots,u_{n,N_n}}$, ce qui est contradictoire avec la décroissance de $u$.
+\end{demo}
+\begin{Defprop}[Ordre lexicographique gradué $\geq_{grlex}$]
+Soient $\alpha=(\alpha_1,\ldots,\alpha_n), \beta=(\beta_1,\ldots,\beta_n) \in \mathbb{N}^n$ alors
+$X^\alpha \geq_{grlex} X^\beta$ si, et seulement si, $|\alpha|>|\beta|$ ou ($|\alpha|=|\beta|$ et $\alpha\geq_{lex} \beta$).
+\end{Defprop}
+\begin{Defprop}[Ordre lexicographique gradué renversé $\geq_{grevlex}$]
+Soient $\alpha=(\alpha_1,\ldots,\alpha_n), \beta=(\beta_1,\ldots,\beta_n) \in \mathbb{N}^n$ alors
+$X^\alpha \geq_{grevlex} X^\beta$ si, et seulement si, $|\alpha|>|\beta|$ ou ($|\alpha|=|\beta|$ et   le premier coefficient non nul en lisant par la droite de $\beta - \alpha $ est positif).
+\end{Defprop}
+\begin{Ex}
+Ordre lexicographique : \\
+$ X_1 >_{lex} X_2 >_{lex}\ldots >_{lex} X_n $
+Pour $n=3$,
+$X^2Y^2Z^4 >_{lex} X^1Y^4Z^{42} $ \\
+$X^3Y^2Z^4 >_{lex} X^3Y^2Z^3$\\
+Ordre lexicographique graduée : \\
+$ X_1 >_{grlex} X_2 >_{grlex}\ldots >_{lex} X_n $ \\
+Pour $n=3$, \\
+$XY^4Z^8 >_{grlex} X^7Y^2Z^3$\\
+$X^4Y^7Z >_{grlex} X^3Y^3Z^6$ \\
+Ordre lexicographique graduée renversée : \\
+$ X_1 >_{grevlex} X_2 >_{grevlex}\ldots >_{lex} X_n $ \\
+Pour $n=3$, \\
+$X^5Y^3Z^2 >_{grevlex} X^3Y^2Z^4$ \\
+$X^4Y^3Z^2 >_{grevlex} X^2Y^5Z^2$ \\
+\end{Ex}

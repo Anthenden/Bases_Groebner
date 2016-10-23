@@ -1,0 +1,34 @@
+  \begin{Lemme}Soit $\alpha,\alpha_1,\ldots,\alpha_n \in \mathbb{N}^n $ tel que : $X^\alpha >X^{\alpha_1}>\ldots >X^{\alpha_n}$. Soit $f,g \in k[X_1,\ldots,X_n]$ tels que $LT(f)=LT(g)$ alors $LM(f-g) <LT(f)=LT(g)$
+	\end{Lemme}
+	\begin{demo}
+	Soit $f:=pX^\alpha+\sum p_{\alpha_i}X^{\alpha_i}$ et $g:=pX^\alpha+\sum q_{\alpha_i}X^{\alpha_i}$ alors $LM(f-g)=LM(\sum p_{\alpha_i}X^{\alpha_i}) \leq X^{\alpha_1} < X^\alpha=LM(f)=LM(g)$
+\end{demo}
+%****************************************************************
+\begin{Thm}
+\include{algo_div}      %Problème typo 
+\end{Thm}
+
+
+%****************************************************************
+\begin{demo}
+Remarquons tout d'abord que lors de chaque itération de la boucle, une de ses deux instructions :
+\begin{enumerate}
+	\item Si $LT(f_i) | LT(p)$ alors on fait la division de $p$ par $f_i$
+ \item Sinon on ajoute $LT(p)$ à $r$ (et on retire $LT(p)$ à $p$).
+\end{enumerate}
+Montrons d'abord que l'algorithme s'arrête i.e. il existe une étape où $p=0$. \\
+Pour cela, montrons que la suite des monômes dominants des différentes valeurs $p$ est strictement décroissante tant que $p \neq 0$. Si l'algorithme ne s'arrêtait pas, on aurait une suite infinie strictement croissante ce qui contredit le fait que $\geq$ est un bon ordre. \\
+
+-Si on fait une division (par $f_j$) alors $p$ prend la valeur $p':=p-\frac{LT(p)}{LT(f_j)}f_j$. \\
+-Si cette valeur est nulle alors l'algorithme s'arrête sinon comme on a l'égalité : $LT\left(\underbrace{\frac{LT(p)}{LT(f_j)}}_{\in k^*\mathscr{M}}f_j\right)=\frac{LT(p)}{LT(f_j)}LT(f_j)=LT(p)$.\\
+On en déduit donc,d'après le lemme, que $LM(p') <LM(p)$. \\
+-Sinon, $p$ prend la valeur $p-LT(p)$. Par le même argument que précédemment, $LM(p-LT(p))<LT(p)$. \\
+Ce qui permet de conclure. \\
+Montrons maintenant qu'à chaque étape que $f=\sum_{i=0}^s a_if_i +p+r$. \\
+Initialisation de l'algorithme ("0ème itération") : Comme $a_1=\ldots=a_s=r=0$ et $p=f$ alors l'égalité est vérifiée. \\
+Hérédité : Soit $n \in \mathbb{N}$ et supposons qu'à la $n$ème itération de la boucle, $f=\sum_{i=0}^s a_if_i +p+r=\sum_{i=0,i \neq j}^s a_if_i +a_jf_j+p+r$ pour tout $j\in [\![1,n]\!]$  alors : \\
+- si on fait une division ( $p$ avec $f_j$) alors : la nouvelle valeur $p'$ de $p$ est $p-\frac{LT(p)}{LT(f_j)}f_j$ et celle de $a_i$ est $a'_j=a_j+\frac{LT(p)}{LT(f_j)}$. et donc : \\
+$\sum_{i=0,i \neq j}^s a_if_i +a'_jf_j+p'+r=\sum_{i=0,i \neq j}^s a_if_i +\left(a_j+\frac{LT(p)}{LT(f_j)}\right)f_j+p-\frac{LT(p)}{LT(f_j)}f_j+r$ \\
+$=\sum_{i=0,i \neq j}^s a_if_i +a_jf_j+p+r=f$.
+On obtient donc,lorsque $p=0$ (et on sait que cela arrivera), que  $f=\sum_{i=1}^s a_if_i+r$ et $r$ est, par définition dans l'algorithme, une somme d'éléments non divisibles par les $LT(f_i)$
+\end{demo}

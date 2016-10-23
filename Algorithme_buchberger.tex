@@ -1,0 +1,31 @@
+\begin{algorithm}
+
+\caption{Algorithme de Buchberger}
+
+\begin{algorithmic}
+
+\REQUIRE $F=(f_1,\ldots,f_s)$
+
+\ENSURE Une base de Gröbner $G=(g_1,\ldots,g_t)$ de $I $, avec $F \subset G $
+
+\STATE $G:=F $
+
+\REPEAT
+
+\STATE $G':=G $
+
+\FOR{chaque paire $\{p,q\}\in G'^2$, $p \neq q $}
+
+\STATE $S:=\overline{S (p,q)}^{G'} $
+
+\IF{$S \neq 0$}
+
+\STATE $G:=G \cup \{S\} $
+
+\ENDIF
+\ENDFOR
+\UNTIL $G=G'$
+
+\end{algorithmic}
+
+\end{algorithm}
