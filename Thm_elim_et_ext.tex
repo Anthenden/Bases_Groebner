@@ -1,0 +1,47 @@
+\begin{Def}Soit $I=\left\langle f_1,\ldots,f_s \right\rangle $ un idéal de $k[X_1,\ldots,X_n]$. On appelle $k$ème idéal d'élimination de $I$ l'idéal $I_k$ de $k[X_{k+1},\ldots,X_n]$ définit par : $I_k=k[X_{k+1},\ldots,X_n] \cap I$
+\end{Def}
+ 
+
+\begin{Thm}[ d'élimination ]
+
+Soit $I $ un idéal de $k[X_1,\ldots,X_n]$ et $G$ une base de Gröbner de $I$ selon l'ordre lexicographique (que l'on notera ici seulement $\geq$). Alors, pour tout $k \in [\![0,n]\!]$, l'ensemble $G_k =G \cap k[X_{k+1},\ldots,X_n]  $ est une base de Gröbner du $k$ème idéal d'élimination $I_k$.
+\end{Thm}
+
+\begin{demo}
+
+Soit $k \in [\![0,n]\!]$. Posons $G=\{g_1,\ldots,g_m\}$ et tel que $G_k=\{g_1,\ldots,g_r\}$ (quitte à renommer les éléments). \\
+Montrons que $G_k$ est une base de $I_k$. \\
+Comme $G_k \subset I_k$ (car $G \subset I$) alors $\left \langle G_k \right\rangle \subset I_k$.\\
+Soit $f \in I_k$ alors d'après le théorème de division par $G$,il existe $h_1,\ldots,h_m \in k[X_1,\ldots,X_n]$,\\
+$f=\sum_{k=1}^m h_ig_i$ car ($G$ est une base de Gröbner de $I$ et $f \in I$)\\
+or pour tout $k>r, g_i > X^{k+1} \geq LM(f) $ et donc aucun terme de $f$ ne peut être divisible par un $LT(g_i)$. L'algorithme n'incrémente pas les $h_k$($k >r$ et donc ils sont nuls.  \\
+D'où, $f=\sum_{k=1}^r h_ig_i$ et donc $f_k \in \left \langle G_k \right\rangle$, ce qui finit de montrer l'égalité $\left \langle G_k \right\rangle = I_k$.\\
+(Le même argument permet de montrer que si $f \in I_k$, $\overline{f}^G=\overline{f}^{G_k}$ ).\\
+Montrons maintenant que $G$ est une base de Gröbner de $I_k$.\\
+Il suffit, pour cela, de montrer que pour tout $1 \leq i < j \leq r$, $\overline{S(g_i,g_j)}^{G_k}=0$.\\
+Soit $i,j \in [\![1,r]\!]$,$ i<j$.\\
+Comme $S(g_i,g_j)$ est de la forme $Pg_i+Qg_j$ ($P,Q \in k[X_{k+1},\ldots,X_n]$) et $I_k$ est un idéal alors $S(g_i,g_j) \in I_k \subset I$ d'où comme $G$ est une base de Gröbner alors $\overline{S(g_i,g_j)}^{G}=0$ et donc d'après la remarque précédente, \\
+$\overline{S(g_i,g_j)}^{G_k}=0$. Ce qui permet de conclure.
+\end{demo}
+ 
+
+\begin{thm}[d'extension]
+
+ Soit $I=\left \langle f_1,\ldots,f_s \right\rangle$ un idéal de $\C[X_1,\ldots,X_n]$ et $I_1$ le premier idéal d'élimination.\\
+Ecrivons, pour $i \in [\![1,s]\!]$, $f_i$ sous la forme \\
+$f_i=g(X_2,\ldots,X_n)X_1^{N_i}$+termes de degré $<N_i$ en $X_1$\\
+où $N_i \geq 0$ et $g_i \in \mathbb{C}[X_2,\ldots,X_n]$ non nul si $f_i \neq 0$ ($g_i=0$ si $f_i=0$). \\
+Supposons qu'on ait une solution partiel $(a_2,\ldots,a_n) \in Z(I_1)$. Si $(a_2,\ldots,a_n) \notin Z(g_1,\ldots,g_s)$ alors il existe $a_1 \in \mathbb{C}$ tel que $(a_1,\ldots,a_n) \in Z(I)$.
+\end{thm}
+
+\begin{Cor}
+
+ Soit $I=\left \langle f_1,\ldots,f_s \right\rangle$ un idéal de $\mathbb{C}[X_1,\ldots,X_n]$ et supposons qu'il existe $i \in [\![1,n]\!]$ tel que $f_i$ s'écrit de la forme \\
+$f_i=cX_1^{N}$+termes de degré $<N$ en $X_1$\\
+où $N> 0$ et $c \in \mathbb{C}\neq \{0\}$ non nul. Si $I_1$ est le premier idéal d'élimination de $I$ et $(a_2,\ldots,a_n) \in Z(I_1)$ alors il existe $a_1 \in \mathbb{C}$ tel que $(a_1,\ldots,a_n) \in Z(I)$
+\end{Cor}
+
+\begin{demo}
+Conséquence immédiate du théorème d'extension.\\
+(Comme $g_i=c \neq 0$ alors $Z(g_1,\ldots,g_s) = \emptyset$ et donc $(a_2,\ldots,a_n) \notin Z(g_1,\ldots,g_s)$ pour tout $(a_2,\ldots,a_n) \in \mathbb{C}^{n-1}$).
+\end{demo}
