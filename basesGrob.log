@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.7.31)  23 OCT 2016 18:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.7.31)  26 OCT 2016 12:22
 entering extended mode
 **./basesGrob.tex
 (basesGrob.tex
@@ -285,12 +285,12 @@ Overfull \hbox (63.77022pt too wide) in paragraph at lines 81--83
 []
  []
 
-
+[3]
 Underfull \hbox (badness 10000) in paragraph at lines 85--100
 
  []
 
-[3]) (algodivision.tex [4]
+) (algodivision.tex [4]
 \openout2 = `algo_div.aux'.
 
  (algo_div.tex
@@ -418,16 +418,80 @@ Overfull \hbox (9.9852pt too wide) in paragraph at lines 6--7
 /m/it/12 alors $[] \OT1/cmr/m/n/12 =
  []
 
-[11]) [12] (basesGrob.aux (algo_div.aux))
+[11]) (Thm_elim_et_ext.tex
+Overfull \hbox (11.44875pt too wide) in paragraph at lines 30--35
+[]\OT1/cmr/m/it/12 Soit $\OML/cmm/m/it/12 I \OT1/cmr/m/n/12 = []$ \OT1/cmr/m/it/12 un ideal de $\U/msb/m/n/12 C\OT1/cmr
+/m/n/12 [\OML/cmm/m/it/12 X[]; [] ; X[]\OT1/cmr/m/n/12 ]$
+ []
+
+
+Overfull \hbox (4.82997pt too wide) in paragraph at lines 30--35
+\OT1/cmr/m/it/12 Supposons qu'on ait une so-lu-tion par-tiel $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a[]; [] ; a[]\OT1/cmr/m/
+n/12 ) \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 I[]\OT1/cmr/m/n/12 )$\OT1/cmr/m/it/12 . Si
+ $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a[]; [] ; a[]\OT1/cmr/m/n/12 ) []
+ []
+
+[12]
+Overfull \hbox (5.67786pt too wide) in paragraph at lines 45--47
+\OT1/cmr/m/it/12 (Comme $\OML/cmm/m/it/12 g[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 c \OMS/cmsy/m/n/12 6\OT1/cmr/m/n/12 = 0
+$ \OT1/cmr/m/it/12 alors $\OML/cmm/m/it/12 Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 g[]; [] ; g[]\OT1/cmr/m/n/12 ) = \OMS/cmsy
+/m/n/12 ;$ \OT1/cmr/m/it/12 et donc $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a[]; [] ; a[]\OT1/cmr/m/n/12 ) [] \OML/cmm/m/it/1
+2 Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 g[]; [] ; g[]\OT1/cmr/m/n/12 )$
+ []
+
+) (Geometrie.tex
+Overfull \hbox (5.10086pt too wide) in paragraph at lines 3--4
+\OT1/cmr/m/it/12 variete affine definie par $\OML/cmm/m/it/12 f[]; [] ; f[]$ \OT1/cmr/m/it/12 l'ensemble : $\OML/cmm/
+m/it/12 Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 f[]; [] ; f[]\OT1/cmr/m/n/12 ) = \OMS/cmsy/m/n/12 f\OT1/cmr/m/n/12 (\OML/cmm/
+m/it/12 a[]; [] ; a[]\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 2
+ []
+
+
+Overfull \hbox (26.6296pt too wide) in paragraph at lines 21--22
+\OT1/cmr/m/it/12 parametrique de $\OML/cmm/m/it/12 V$ \OT1/cmr/m/it/12 con-siste en des frac-tions ra-tionnelles $\OML/
+cmm/m/it/12 r[]; [] ; r[] \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 k\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 X[]; [] ; X[]\OT1/cmr/m
+/n/12 )$
+ []
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 36--39
+
+ []
+
+
+Overfull \hbox (36.60611pt too wide) in paragraph at lines 41--42
+[]\OT1/cmr/m/it/12 Soit $\OML/cmm/m/it/12 f[]; [] ; f[] \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 k\OT1/cmr/m/n/12 [\OML/cmm/m
+/it/12 X[]; [] ; X[]\OT1/cmr/m/n/12 ]$\OT1/cmr/m/it/12 . Alors $[] \OMS/cmsy/m/n/12  \OML/cmm/m/it/12 I\OT1/cmr/m/n/12 
+(\OML/cmm/m/it/12 Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 f[]; [] ; f[]\OT1/cmr/m/n/12 ))$\OT1/cmr/m/it/12 .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 59--63
+
+ []
+
+[14]
+Overfull \hbox (8.15392pt too wide) in paragraph at lines 67--69
+[]\OT1/cmr/m/it/12 Soit $\OML/cmm/m/it/12 []$ \OT1/cmr/m/it/12 la pro-jec-tion $\U/msb/m/n/12 C[] \OMS/cmsy/m/n/12 ! \U
+/msb/m/n/12 C[]$ \OT1/cmr/m/it/12 definie par : $\OMS/cmsy/m/n/12 8\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a[]; [] ; a[]\OT1/
+cmr/m/n/12 ) \OMS/cmsy/m/n/12 2
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 74--77
+
+ []
+
+) [15] (basesGrob.aux (algo_div.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 2049 strings out of 493335
- 25690 string characters out of 3136674
- 84246 words of memory out of 3000000
- 5543 multiletter control sequences out of 15000+200000
+ 2056 strings out of 493335
+ 25787 string characters out of 3136674
+ 85246 words of memory out of 3000000
+ 5544 multiletter control sequences out of 15000+200000
  14800 words of font info for 58 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  27i,10n,26p,420b,614s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -442,9 +506,9 @@ fb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><
 type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Prog
 ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1
 /public/rsfs/rsfs10.pfb>
-Output written on basesGrob.pdf (12 pages, 220335 bytes).
+Output written on basesGrob.pdf (15 pages, 238566 bytes).
 PDF statistics:
- 105 PDF objects out of 1000 (max. 8388607)
+ 115 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
