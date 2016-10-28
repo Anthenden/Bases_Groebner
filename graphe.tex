@@ -1,0 +1,20 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+
+\title{graphe}
+\author{Moi}
+\begin{document}
+\maketitle
+Soit $G:=(A,S)$ un graphe et $p\in \mathbb{N}^*$. \\
+Soit $n:=Card(A)$.\\
+Associons à chaque sommet de $G$ la variable $x_i$ et à chaque couleur une racine $p$ème de l'unité \emph{i.e.} $\forall i \in [\![1,n]\!],x_i^p=1$. \\
+On impose de plus que si $x_i$ et $x_j$ sont adjacents alors $x_i \neq x_j$.
+Cela revient à dire que $\sum_{k=0}^{p-1} x_i^k x_j^{p-1-k}=0$. \\
+En effet, $0=x_i^p-x_j^p=\underbrace{(x_i-x_j)}_{\neq 0}\sum_{k=0}^{p-1} x_i^k x_j^{p-1-k}$.
+
+$G$ est coloriable avec $p$ couleurs si, et seulement si, \\
+le système $\begin{cases} \forall i \in [\![1,n]\!],x_i^p=1 \\
+\forall i,j \in [\![1,n]\!], x_i \text{ et } x_j \text{ sont adjacents }, \sum_{k=0}^{p-1} x_i^k x_j^{p-1-k}=0
+\end{cases}$ a une solution
+\end{document}
