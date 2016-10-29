@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.7.31)  26 OCT 2016 12:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.7.31)  29 OCT 2016 16:04
 entering extended mode
 **./basesGrob.tex
 (basesGrob.tex
@@ -29,9 +29,52 @@ Package: inputenc 2015/03/17 v1.2c Input encoding file
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\Latin1.def"
 File: latin1.def 2015/03/17 v1.2c Input encoding file
 ))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\babel.sty"
+Package: babel 2016/04/23 3.9r The Babel package
+
+*************************************
+* Local config file bblopts.cfg used
+*
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\arabi\bblopts.cfg"
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of babel
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\babel-french\frenchb.ldf"
+Language: frenchb 2016/05/14 v3.2c French support from the babel system
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\babel.def"
+File: babel.def 2016/04/23 3.9r Babel common definitions
+\babel@savecnt=\count87
+\U@D=\dimen103
+)
+\l@acadian = a dialect from \language\l@french 
+\l@canadien = a dialect from \language\l@french 
+\FB@nonchar=\count88
+\FBcolonskip=\skip43
+\FBthinskip=\skip44
+Package babel Info: Making : an active character on input line 365.
+Package babel Info: Making ; an active character on input line 366.
+Package babel Info: Making ! an active character on input line 367.
+Package babel Info: Making ? an active character on input line 368.
+\FBguillskip=\skip45
+\FBguill@level=\count89
+\FB@everypar=\toks16
+\FB@Mht=\dimen104
+\std@mcc=\count90
+\dec@mcc=\count91
+\listindentFB=\skip46
+\labelwidthFB=\skip47
+\leftmarginFB=\skip48
+\parindentFFN=\dimen105
+\FBfnindent=\skip49
+))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\carlisle\scalefnt.sty")
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
 Package: amsmath 2016/03/10 v2.15b AMS math features
-\@mathmargin=\skip43
+\@mathmargin=\skip50
 
 For additional information on amsmath, use the `?' option.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
@@ -39,51 +82,51 @@ Package: amstext 2000/06/29 v2.01 AMS text
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks16
-\ex@=\dimen103
+\@emptytoks=\toks18
+\ex@=\dimen106
 ))
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen104
+\pmbraise@=\dimen107
 )
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count87
+\inf@bad=\count92
 LaTeX Info: Redefining \frac on input line 199.
-\uproot@=\count88
-\leftroot@=\count89
+\uproot@=\count93
+\leftroot@=\count94
 LaTeX Info: Redefining \overline on input line 297.
-\classnum@=\count90
-\DOTSCASE@=\count91
+\classnum@=\count95
+\DOTSCASE@=\count96
 LaTeX Info: Redefining \ldots on input line 394.
 LaTeX Info: Redefining \dots on input line 397.
 LaTeX Info: Redefining \cdots on input line 518.
 \Mathstrutbox@=\box26
 \strutbox@=\box27
-\big@size=\dimen105
+\big@size=\dimen108
 LaTeX Font Info:    Redeclaring font encoding OML on input line 634.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
-\macc@depth=\count92
-\c@MaxMatrixCols=\count93
+\macc@depth=\count97
+\c@MaxMatrixCols=\count98
 \dotsspace@=\muskip10
-\c@parentequation=\count94
-\dspbrk@lvl=\count95
-\tag@help=\toks17
-\row@=\count96
-\column@=\count97
-\maxfields@=\count98
-\andhelp@=\toks18
-\eqnshift@=\dimen106
-\alignsep@=\dimen107
-\tagshift@=\dimen108
-\tagwidth@=\dimen109
-\totwidth@=\dimen110
-\lineht@=\dimen111
-\@envbody=\toks19
-\multlinegap=\skip44
-\multlinetaggap=\skip45
-\mathdisplay@stack=\toks20
+\c@parentequation=\count99
+\dspbrk@lvl=\count100
+\tag@help=\toks19
+\row@=\count101
+\column@=\count102
+\maxfields@=\count103
+\andhelp@=\toks20
+\eqnshift@=\dimen109
+\alignsep@=\dimen110
+\tagshift@=\dimen111
+\tagwidth@=\dimen112
+\totwidth@=\dimen113
+\lineht@=\dimen114
+\@envbody=\toks21
+\multlinegap=\skip51
+\multlinetaggap=\skip52
+\mathdisplay@stack=\toks22
 LaTeX Info: Redefining \[ on input line 2739.
 LaTeX Info: Redefining \] on input line 2740.
 )
@@ -187,64 +230,67 @@ Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating environ
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\float\float.sty"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count99
-\float@exts=\toks21
+\c@float@type=\count104
+\float@exts=\toks23
 \float@box=\box28
-\@float@everytoks=\toks22
+\@float@everytoks=\toks24
 \@floatcapt=\box29
 )
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ifthen.sty"
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
-\@float@every@algorithm=\toks23
-\c@algorithm=\count100
+\@float@every@algorithm=\toks25
+\c@algorithm=\count105
 )
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\algorithms\algorithmic.sty"
 Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
-
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
-Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks24
-)
-\c@ALC@unique=\count101
-\c@ALC@line=\count102
-\c@ALC@rem=\count103
-\c@ALC@depth=\count104
-\ALC@tlm=\skip46
-\algorithmicindent=\skip47
+\c@ALC@unique=\count106
+\c@ALC@line=\count107
+\c@ALC@rem=\count108
+\c@ALC@depth=\count109
+\ALC@tlm=\skip53
+\algorithmicindent=\skip54
 ) (basesGrob.aux (algo_div.aux))
 \openout1 = `basesGrob.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 50.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 50.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 51.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 51.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Try loading font information for U+msa on input line 53.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Info: Redefining \degres on input line 51.
+LaTeX Info: Redefining \dots on input line 51.
+LaTeX Info: Redefining \up on input line 51.
 
+
+Package frenchb.ldf Warning: OT1 encoding should not be used for French.
+(frenchb.ldf)                Add \usepackage[T1]{fontenc} to the preamble
+(frenchb.ldf)                of your document, on input line 51.
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 54.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 53.
+LaTeX Font Info:    Try loading font information for U+msb on input line 54.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 53.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 54.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\jknappen\ursfs.fd"
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
@@ -252,19 +298,12 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 \tf@toc=\write3
 \openout3 = `basesGrob.toc'.
 
-\c@Thm=\count105
+\c@Thm=\count110
  (ordre_monomial.tex [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
 Underfull \hbox (badness 10000) in paragraph at lines 33--34
 
- []
-
-
-Overfull \hbox (32.11185pt too wide) in paragraph at lines 36--37
-[]\OT1/cmr/m/it/12 Le mul-ti-degre de $\OML/cmm/m/it/12 f$ \OT1/cmr/m/it/12 est l'element de $\U/msb/m/n/12 N[]$\OT1/
-cmr/m/it/12 , note$\OML/cmm/m/it/12 multideg\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 P\OT1/cmr/m/n/12 )$\OT1/cmr/m/it/12 , tel
- que $\OML/cmm/m/it/12 x[] \OT1/cmr/m/n/12 =
  []
 
 
@@ -280,12 +319,12 @@ Overfull \hbox (27.54448pt too wide) in paragraph at lines 77--79
 []\OT1/cmr/m/it/12 Soient
  []
 
-
+[3]
 Overfull \hbox (63.77022pt too wide) in paragraph at lines 81--83
 []
  []
 
-[3]
+
 Underfull \hbox (badness 10000) in paragraph at lines 85--100
 
  []
@@ -306,10 +345,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--21
  []
 
 
-Overfull \hbox (6.33096pt too wide) in paragraph at lines 22--34
-\OT1/cmr/m/it/12 -Sinon, $\OML/cmm/m/it/12 p$ \OT1/cmr/m/it/12 prend la valeur $\OML/cmm/m/it/12 p \OMS/cmsy/m/n/12   \O
-ML/cmm/m/it/12 LT\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 p\OT1/cmr/m/n/12 )$\OT1/cmr/m/it/12 . Par le m^eme ar-gu-ment que pr
-ecedemment,
+Overfull \hbox (5.55367pt too wide) in paragraph at lines 22--34
+\OT1/cmr/m/it/12 -Si cette va-leur est nulle alors l'al-go-rithme s'arr^ete si-non comme on a l'egalite :
+ []
+
+
+Overfull \hbox (4.0993pt too wide) in paragraph at lines 22--34
+\OT1/cmr/m/it/12 -Sinon, $\OML/cmm/m/it/12 p$ \OT1/cmr/m/it/12 prend la va-leur $\OML/cmm/m/it/12 p \OMS/cmsy/m/n/12   \
+OML/cmm/m/it/12 LT\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 p\OT1/cmr/m/n/12 )$\OT1/cmr/m/it/12 . Par le m^eme ar-gu-ment que pr
+ecedemment,
  []
 
 ) (ideaux_monom.tex [6
@@ -317,8 +361,8 @@ ecedemment,
 ]
 Overfull \hbox (10.80487pt too wide) in paragraph at lines 9--18
 \OMS/cmsy/m/n/12 )$ \OT1/cmr/m/it/12 Si $\OML/cmm/m/it/12 X[] \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 I$ \OT1/cmr/m/it/12 al
-ors il ex-iste une famille de polyn^omes $\OML/cmm/m/it/12 P[]; [] ; P[] \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 k\OT1/cmr/m
-/n/12 [\OML/cmm/m/it/12 X[]; [] ; X[]\OT1/cmr/m/n/12 ]$
+ors il existe une fa-mille de po-lyn^omes $\OML/cmm/m/it/12 P[]; [] ; P[] \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 k\OT1/cmr/
+m/n/12 [\OML/cmm/m/it/12 X[]; [] ; X[]\OT1/cmr/m/n/12 ]$
  []
 
 
@@ -336,21 +380,21 @@ m/m/it/12 X[]$$\OT1/cmr/m/n/12 (\OMS/cmsy/m/n/12 \OT1/cmr/m/n/12 )$ \OT1/cmr/m/
 
 [7]
 Overfull \hbox (14.53313pt too wide) in paragraph at lines 53--54
-[]\OT1/cmr/m/it/12 Un ideal mono-mial $\OML/cmm/m/it/12 I \OT1/cmr/m/n/12 := []$
+[]\OT1/cmr/m/it/12 Un ideal mo-no-mial $\OML/cmm/m/it/12 I \OT1/cmr/m/n/12 := []$
  []
 
 ) (basesGrobner.tex
-Overfull \hbox (2.27527pt too wide) in paragraph at lines 5--8
+Overfull \hbox (8.87532pt too wide) in paragraph at lines 5--8
 []\OT1/cmr/m/it/12 Soient $\OML/cmm/m/it/12 A \OMS/cmsy/m/n/12  \OML/cmm/m/it/12 k\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 X[]
 ; X[]\OT1/cmr/m/n/12 ]$ \OT1/cmr/m/it/12 et $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 p[]\OT1/cmr/m/n/12 )[]$ \OT1/cmr/m/it/12 
-une suite d'elements de $\OML/cmm/m/it/12 k[]$\OT1/cmr/m/it/12 .Alors
+une suite d'elements de $\OML/cmm/m/it/12 k[]$\OT1/cmr/m/it/12 .Alors : 
  []
 
 
-Overfull \hbox (34.30695pt too wide) in paragraph at lines 10--13
+Overfull \hbox (32.51053pt too wide) in paragraph at lines 10--13
 \OMS/cmsy/m/n/12 $ \OT1/cmr/m/it/12 : Soit $\OML/cmm/m/it/12 P \OT1/cmr/m/n/12 = [][] \OML/cmm/m/it/12 []f \OMS/cmsy/m
-/n/12 2 \OML/cmm/m/it/12 I[]$ \OT1/cmr/m/it/12 alors,par as-so-cia-tivite du produit,$\OML/cmm/m/it/12 P \OT1/cmr/m/n/1
-2 = [][] [](\OML/cmm/m/it/12 p[]f\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 2
+/n/12 2 \OML/cmm/m/it/12 I[]$ \OT1/cmr/m/it/12 alors,par as-so-cia-ti-vite du produit,$\OML/cmm/m/it/12 P \OT1/cmr/m/n/
+12 = [][] [](\OML/cmm/m/it/12 p[]f\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 2
  []
 
 
@@ -359,7 +403,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--13
  []
 
 
-Overfull \hbox (28.64304pt too wide) in paragraph at lines 25--28
+Overfull \hbox (28.40424pt too wide) in paragraph at lines 25--28
 []\OT1/cmr/m/it/12 (1)D'apres le lemme precedent, on a $[] \OT1/cmr/m/n/12 =
  []
 
@@ -369,8 +413,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--42
  []
 
 
-Overfull \hbox (12.41562pt too wide) in paragraph at lines 44--45
-[]\OT1/cmr/m/it/12 Soit $\OMS/cmsy/m/n/12 $ \OT1/cmr/m/it/12 un or-dre mono-mial. Un sous-ensemble $\OML/cmm/m/it/12 G 
+Overfull \hbox (10.42276pt too wide) in paragraph at lines 44--45
+[]\OT1/cmr/m/it/12 Soit $\OMS/cmsy/m/n/12 $ \OT1/cmr/m/it/12 un ordre mo-no-mial. Un sous-ensemble $\OML/cmm/m/it/12 G 
 \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 g[]; [] ; g[]\OMS/cmsy/m/n/12 g$
  []
 
@@ -390,15 +434,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 72--74
  []
 
 
-Overfull \hbox (31.42995pt too wide) in paragraph at lines 81--82
-\OT1/cmr/m/it/12 pe-tit mul-ti-ple com-mun de $\OML/cmm/m/it/12 LM\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 )$ 
-\OT1/cmr/m/it/12 et $\OML/cmm/m/it/12 LM\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 g\OT1/cmr/m/n/12 )$\OT1/cmr/m/it/12 , note $\
-OML/cmm/m/it/12 PPCM\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 LM\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 )\OML/cmm/m/i
-t/12 ; LM\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 g\OT1/cmr/m/n/12 )) :=
+Overfull \hbox (60.1663pt too wide) in paragraph at lines 81--82
+\OT1/cmr/m/it/12 plus pe-tit mul-tiple com-mun de $\OML/cmm/m/it/12 LM\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 f\OT1/cmr/m/n/12
+ )$ \OT1/cmr/m/it/12 et $\OML/cmm/m/it/12 LM\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 g\OT1/cmr/m/n/12 )$\OT1/cmr/m/it/12 , not
+e $\OML/cmm/m/it/12 PPCM\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 LM\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 )\OML/cmm
+/m/it/12 ; LM\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 g\OT1/cmr/m/n/12 )) :=
  []
 
 
-Overfull \hbox (3.1605pt too wide) in paragraph at lines 85--87
+Overfull \hbox (2.9217pt too wide) in paragraph at lines 85--87
 []\OT1/cmr/m/it/12 Soit $\OML/cmm/m/it/12 G \OT1/cmr/m/n/12 = [][] \OML/cmm/m/it/12 c[]X[]g[]$\OT1/cmr/m/it/12 , ou $\O
 ML/cmm/m/it/12 c[]; [] ; c[] \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 k$ \OT1/cmr/m/it/12 et $\OML/cmm/m/it/12 [] \OT1/cmr/m
 /n/12 + \OML/cmm/m/it/12 multideg\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 g[]\OT1/cmr/m/n/12 ) =
@@ -407,25 +451,25 @@ ML/cmm/m/it/12 c[]; [] ; c[] \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 k$ \OT1/cmr/m/i
 
 Overfull \hbox (47.67854pt too wide) in paragraph at lines 85--87
 \OT1/cmr/m/it/12 Si $\OML/cmm/m/it/12 LM\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 G\OT1/cmr/m/n/12 ) \OML/cmm/m/it/12 < X[]$ \OT
-1/cmr/m/it/12 alors il ex-iste des con-stantes $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 c[]\OT1/cmr/m/n/12 )$ \OT1/cmr/m/it/12
- tel que $\OML/cmm/m/it/12 G \OT1/cmr/m/n/12 = [][] \OML/cmm/m/it/12 c[]X[]S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 g[]; g[]\O
-T1/cmr/m/n/12 )$
+1/cmr/m/it/12 alors il existe des constantes $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 c[]\OT1/cmr/m/n/12 )$ \OT1/cmr/m/it/12 t
+el que $\OML/cmm/m/it/12 G \OT1/cmr/m/n/12 = [][] \OML/cmm/m/it/12 c[]X[]S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 g[]; g[]\OT1
+/cmr/m/n/12 )$
  []
 
-[10]) (Algobuchberger.tex (Algorithme_buchberger.tex)
+) (Algobuchberger.tex (Algorithme_buchberger.tex) [10]
 Overfull \hbox (9.9852pt too wide) in paragraph at lines 6--7
 []\OT1/cmr/m/it/12 Comme $\OML/cmm/m/it/12 G$ \OT1/cmr/m/it/12 est une base de Grobner de $\OML/cmm/m/it/12 I$ \OT1/cmr
 /m/it/12 alors $[] \OT1/cmr/m/n/12 =
  []
 
-[11]) (Thm_elim_et_ext.tex
+) (Thm_elim_et_ext.tex [11]
 Overfull \hbox (11.44875pt too wide) in paragraph at lines 30--35
 []\OT1/cmr/m/it/12 Soit $\OML/cmm/m/it/12 I \OT1/cmr/m/n/12 = []$ \OT1/cmr/m/it/12 un ideal de $\U/msb/m/n/12 C\OT1/cmr
 /m/n/12 [\OML/cmm/m/it/12 X[]; [] ; X[]\OT1/cmr/m/n/12 ]$
  []
 
 
-Overfull \hbox (4.82997pt too wide) in paragraph at lines 30--35
+Overfull \hbox (2.83711pt too wide) in paragraph at lines 30--35
 \OT1/cmr/m/it/12 Supposons qu'on ait une so-lu-tion par-tiel $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a[]; [] ; a[]\OT1/cmr/m/
 n/12 ) \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 I[]\OT1/cmr/m/n/12 )$\OT1/cmr/m/it/12 . Si
  $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a[]; [] ; a[]\OT1/cmr/m/n/12 ) []
@@ -440,17 +484,17 @@ $ \OT1/cmr/m/it/12 alors $\OML/cmm/m/it/12 Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 g[
  []
 
 ) (Geometrie.tex
-Overfull \hbox (5.10086pt too wide) in paragraph at lines 3--4
-\OT1/cmr/m/it/12 variete affine definie par $\OML/cmm/m/it/12 f[]; [] ; f[]$ \OT1/cmr/m/it/12 l'ensemble : $\OML/cmm/
-m/it/12 Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 f[]; [] ; f[]\OT1/cmr/m/n/12 ) = \OMS/cmsy/m/n/12 f\OT1/cmr/m/n/12 (\OML/cmm/
-m/it/12 a[]; [] ; a[]\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 2
+Overfull \hbox (3.30444pt too wide) in paragraph at lines 3--4
+\OT1/cmr/m/it/12 variete af-fine definie par $\OML/cmm/m/it/12 f[]; [] ; f[]$ \OT1/cmr/m/it/12 l'en-semble : $\OML/cm
+m/m/it/12 Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 f[]; [] ; f[]\OT1/cmr/m/n/12 ) = \OMS/cmsy/m/n/12 f\OT1/cmr/m/n/12 (\OML/cm
+m/m/it/12 a[]; [] ; a[]\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 2
  []
 
 
-Overfull \hbox (26.6296pt too wide) in paragraph at lines 21--22
-\OT1/cmr/m/it/12 parametrique de $\OML/cmm/m/it/12 V$ \OT1/cmr/m/it/12 con-siste en des frac-tions ra-tionnelles $\OML/
-cmm/m/it/12 r[]; [] ; r[] \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 k\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 X[]; [] ; X[]\OT1/cmr/m
-/n/12 )$
+Overfull \hbox (15.2295pt too wide) in paragraph at lines 21--22
+\OT1/cmr/m/it/12 rametrique de $\OML/cmm/m/it/12 V$ \OT1/cmr/m/it/12 consiste en des frac-tions ra-tion-nelles $\OML/cm
+m/m/it/12 r[]; [] ; r[] \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 k\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 X[]; [] ; X[]\OT1/cmr/m/n
+/12 )$
  []
 
 [13]
@@ -459,10 +503,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 36--39
  []
 
 
-Overfull \hbox (36.60611pt too wide) in paragraph at lines 41--42
+Overfull \hbox (34.61325pt too wide) in paragraph at lines 41--42
 []\OT1/cmr/m/it/12 Soit $\OML/cmm/m/it/12 f[]; [] ; f[] \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 k\OT1/cmr/m/n/12 [\OML/cmm/m
 /it/12 X[]; [] ; X[]\OT1/cmr/m/n/12 ]$\OT1/cmr/m/it/12 . Alors $[] \OMS/cmsy/m/n/12  \OML/cmm/m/it/12 I\OT1/cmr/m/n/12 
 (\OML/cmm/m/it/12 Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 f[]; [] ; f[]\OT1/cmr/m/n/12 ))$\OT1/cmr/m/it/12 .
+ []
+
+
+Overfull \hbox (7.71127pt too wide) in paragraph at lines 44--45
+\OML/cmm/m/it/12 f \OT1/cmr/m/n/12 = [][] \OML/cmm/m/it/12 h[]f[]$\OT1/cmr/m/it/12 . Comme $\OML/cmm/m/it/12 f[]; [] ; f
+[]$ \OT1/cmr/m/it/12 s'an-nule en $\OML/cmm/m/it/12 V\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 f[]; [] ; f[]\OT1/cmr/m/n/12 )$ \
+OT1/cmr/m/it/12 alors $\OML/cmm/m/it/12 f \OT1/cmr/m/n/12 = [][] \OML/cmm/m/it/12 h[]f[]$
  []
 
 
@@ -470,31 +521,36 @@ Underfull \hbox (badness 10000) in paragraph at lines 59--63
 
  []
 
-[14]
-Overfull \hbox (8.15392pt too wide) in paragraph at lines 67--69
+
+Overfull \hbox (6.3575pt too wide) in paragraph at lines 67--69
 []\OT1/cmr/m/it/12 Soit $\OML/cmm/m/it/12 []$ \OT1/cmr/m/it/12 la pro-jec-tion $\U/msb/m/n/12 C[] \OMS/cmsy/m/n/12 ! \U
 /msb/m/n/12 C[]$ \OT1/cmr/m/it/12 definie par : $\OMS/cmsy/m/n/12 8\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a[]; [] ; a[]\OT1/
 cmr/m/n/12 ) \OMS/cmsy/m/n/12 2
  []
 
-
+[14]
 Underfull \hbox (badness 10000) in paragraph at lines 74--77
 
  []
 
-) [15] (basesGrob.aux (algo_div.aux))
+) (graphe.tex [15]) (basesGrob.bbl
+Overfull \hbox (7.1024pt too wide) in paragraph at lines 13--1
+\OT1/cmr/m/n/12 le systeme $[]$ a une
+ []
+
+) [16] (basesGrob.aux (algo_div.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 2056 strings out of 493335
- 25787 string characters out of 3136674
- 85246 words of memory out of 3000000
- 5544 multiletter control sequences out of 15000+200000
+ 3169 strings out of 493335
+ 41754 string characters out of 3136674
+ 107738 words of memory out of 3000000
+ 6631 multiletter control sequences out of 15000+200000
  14800 words of font info for 58 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 27i,10n,26p,420b,614s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 28i,10n,30p,702b,662s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/
 type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/P
 rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/p
@@ -506,9 +562,9 @@ fb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><
 type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Prog
 ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1
 /public/rsfs/rsfs10.pfb>
-Output written on basesGrob.pdf (15 pages, 238566 bytes).
+Output written on basesGrob.pdf (16 pages, 245412 bytes).
 PDF statistics:
- 115 PDF objects out of 1000 (max. 8388607)
+ 118 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

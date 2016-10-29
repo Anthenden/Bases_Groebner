@@ -1,5 +1,6 @@
 \documentclass[a4paper,12pt]{article}
 \usepackage[Latin1]{inputenc}
+\usepackage[francais]{babel}
 \usepackage{amsmath,amssymb}
 \usepackage{textcomp}
 \usepackage{mathrsfs}
@@ -62,6 +63,7 @@
 \newtheorem{Def}[Thm]{Définition}
 \newtheorem{Not}[Thm]{Notation}
 \newtheorem{Defprop}[Thm]{Définition et propriété}
+\newtheorem{ThmDef}[Thm]{Théorème et définition}
 
 \section{Ordre monomial}
 \input{ordre_monomial}
@@ -77,4 +79,9 @@
 \input{Thm_elim_et_ext}
 \section{Géométrie}
 \input{Geometrie}
+\section{Graphe}
+\input{graphe}
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{biblio}
 \end{document}
