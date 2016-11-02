@@ -1,0 +1,56 @@
+Soit un ensemble $A$ et une relation d'ordre $\leq$ sur $A$.\\
+
+\begin{Def}
+On dit que $\leq $ est un bon ordre si toute partie non vide de $A$ admet un plus petit élément, c'est-à-dire :$\forall  C \subset A,C \neq \emptyset, \exists c \in C, \forall b \in B, c \leq b$.
+\end{Def}
+
+\begin{Def}
+
+On dit que $\leq $ est un ordre bien fondé si toute partie non vide de $A$ admet un élément minimal, c'est-à-dire :
+$\forall  C \subset A,C \neq \emptyset, \exists c \in C, \forall b \in B, b \leq c \Rightarrow c=b$.
+\end{Def}
+
+\begin{prop}
+
+Soit $A$ un ensemble et $\leq $ une relation d'ordre sur $A$.
+
+$\leq$ est total et bien fondé ssi $\leq$ est un bon ordre.
+\end{prop}
+ \begin{demo}
+ Supposons que $\leq$ est total et bien fondé.\\
+Soit $C \subset A$ non vide.     \\
+Alors il existe un élément minimal $c$ de $C$ (bien fondé)  tel que $ \forall b \in B, b \leq c \Rightarrow c=b$.\\
+D'où  $ \forall b \in B, b > c \text{ ou }  c=b$ car $\leq $ est total. \\
+c'est-à-dire $ \forall b \in B, b \geq c$.\\
+ou encore que $c$ est le plus petit élément que $C$.\\
+ $\leq $ est donc un bon ordre.\\
+Supposons que $\leq $ est un bon ordre.\\
+Soit $x,y \in A$. Alors $\{x,y\}$ admet un plus petit élément et donc $x \leq y$ ou $y \leq x$.\\
+$\leq$ est donc total.\\
+Soit $C \subset A$ alors il existe $c \in C$ tel que $\forall b \in C, c\leq b$.\\
+Alors si $b \leq c$ alors, par antisymétrie, $b=c$.\\
+Cela permet d'en déduire que $\leq $ est un ordre bien fondé.\\
+\end{demo}
+
+
+\begin{prop}
+
+
+Soit $A$ un ensemble et $\leq $ une relation d'ordre sur $A$.
+
+$\leq$ est bien fondé ssi il n'existe pas de suite infinie strictement décroissante.
+\end{prop}
+
+\begin{demo}
+Montrons cet énoncé par contraposée :\\
+$\leq $ n'est pas bien fondée ssi il existe une suite infinie strictement croissante c'est-à-dire
+il existe une partie $S$ de $A$ tel que pour tout $c \in S$, il existe $b \in S$ tel que $c > b$ \\
+(car $non(A \Rightarrow B) \Leftrightarrow (A \text{ et } non(B))$ et donc $ (b \leq c \Rightarrow c=b) \Leftrightarrow (b \leq c \text{ et } b \neq c)  \Leftrightarrow (b < c)$\\
+Soit $\alpha_1 \in S$ alors il existe $\alpha_2 \in S$  tel que $\alpha_1>\alpha_2$.\\
+En itérant ce processus, on construit une suite $(\alpha_i)_{i \in \mathbb{N}}$ strictement décroissante.\\
+Réciproquement, supposons l'existence d'une telle suite alors l'ensemble $\{a_i | i \in \mathbb{N}\}\subset A$ n'admet pas d'élément minimal donc $\leq$ n'est pas bien fondé.
+\end{demo}
+
+
+
+

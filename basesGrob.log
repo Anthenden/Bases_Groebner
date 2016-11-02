@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.7.31)  29 OCT 2016 16:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.7.31)  2 NOV 2016 15:34
 entering extended mode
 **./basesGrob.tex
 (basesGrob.tex
@@ -301,7 +301,7 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 \c@Thm=\count110
  (ordre_monomial.tex [1
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
+{C:/Users/Antoine/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 Underfull \hbox (badness 10000) in paragraph at lines 33--34
 
  []
@@ -463,20 +463,20 @@ Overfull \hbox (9.9852pt too wide) in paragraph at lines 6--7
  []
 
 ) (Thm_elim_et_ext.tex [11]
-Overfull \hbox (11.44875pt too wide) in paragraph at lines 30--35
+Overfull \hbox (11.44875pt too wide) in paragraph at lines 31--36
 []\OT1/cmr/m/it/12 Soit $\OML/cmm/m/it/12 I \OT1/cmr/m/n/12 = []$ \OT1/cmr/m/it/12 un ideal de $\U/msb/m/n/12 C\OT1/cmr
 /m/n/12 [\OML/cmm/m/it/12 X[]; [] ; X[]\OT1/cmr/m/n/12 ]$
  []
 
 
-Overfull \hbox (2.83711pt too wide) in paragraph at lines 30--35
+Overfull \hbox (2.83711pt too wide) in paragraph at lines 31--36
 \OT1/cmr/m/it/12 Supposons qu'on ait une so-lu-tion par-tiel $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a[]; [] ; a[]\OT1/cmr/m/
 n/12 ) \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 I[]\OT1/cmr/m/n/12 )$\OT1/cmr/m/it/12 . Si
  $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a[]; [] ; a[]\OT1/cmr/m/n/12 ) []
  []
 
 [12]
-Overfull \hbox (5.67786pt too wide) in paragraph at lines 45--47
+Overfull \hbox (5.67786pt too wide) in paragraph at lines 46--48
 \OT1/cmr/m/it/12 (Comme $\OML/cmm/m/it/12 g[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 c \OMS/cmsy/m/n/12 6\OT1/cmr/m/n/12 = 0
 $ \OT1/cmr/m/it/12 alors $\OML/cmm/m/it/12 Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 g[]; [] ; g[]\OT1/cmr/m/n/12 ) = \OMS/cmsy
 /m/n/12 ;$ \OT1/cmr/m/it/12 et donc $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a[]; [] ; a[]\OT1/cmr/m/n/12 ) [] \OML/cmm/m/it/1
@@ -533,19 +533,80 @@ Underfull \hbox (badness 10000) in paragraph at lines 74--77
 
  []
 
-) (graphe.tex [15]) (basesGrob.bbl
-Overfull \hbox (7.1024pt too wide) in paragraph at lines 13--1
+) (graphe.tex [15])
+Overfull \hbox (7.1024pt too wide) in paragraph at lines 13--84
 \OT1/cmr/m/n/12 le systeme $[]$ a une
  []
 
-) [16] (basesGrob.aux (algo_div.aux))
+(ordre.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--2
+
+ []
+
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 20--33
+
+ []
+
+
+Overfull \hbox (0.2617pt too wide) in paragraph at lines 41--42
+[]$\OMS/cmsy/m/n/12 $ \OT1/cmr/m/it/12 est bien fonde ssi il n'existe pas de suite in-fi-nie stric-te-ment decroissan
+te. 
+ []
+
+
+Overfull \hbox (6.66063pt too wide) in paragraph at lines 45--52
+\OT1/cmr/m/it/12 En iterant ce pro-ces-sus, on construit une suite $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 []\OT1/cmr/m/n/1
+2 )[]$ \OT1/cmr/m/it/12 stric-te-ment decroissante. 
+ []
+
+
+Overfull \hbox (5.9028pt too wide) in paragraph at lines 45--52
+\OT1/cmr/m/it/12 Reciproquement, sup-po-sons l'exis-tence d'une telle suite alors l'en-semble $\OMS/cmsy/m/n/12 f\OML/c
+mm/m/it/12 a[]\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 i \OMS/cmsy/m/n/12 2
+ []
+
+) (Ann_noeth.tex [17]
+Underfull \hbox (badness 10000) in paragraph at lines 13--27
+
+ []
+
+
+Overfull \hbox (37.6642pt too wide) in paragraph at lines 40--45
+[]\OT1/cmr/m/it/12 Soient $\OML/cmm/m/it/12 I$ \OT1/cmr/m/it/12 un ideal de $\OML/cmm/m/it/12 A\OT1/cmr/m/n/12 [\OML/cm
+m/m/it/12 X\OT1/cmr/m/n/12 ]$\OT1/cmr/m/it/12 ,$\OML/cmm/m/it/12 J \OT1/cmr/m/n/12 := []$
+ []
+
+
+Overfull \hbox (1.337pt too wide) in paragraph at lines 40--45
+\OT1/cmr/m/it/12 Comme $\OML/cmm/m/it/12 A$ \OT1/cmr/m/it/12 est noetherien alors il existe $\OML/cmm/m/it/12 x[]; [] ;
+ x[] \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 I$\OT1/cmr/m/it/12 ,tels que $\OML/cmm/m/it/12 J \OT1/cmr/m/n/12 = []$
+ []
+
+
+Overfull \hbox (1.8801pt too wide) in paragraph at lines 40--45
+\OT1/cmr/m/it/12 Montrons que $\OML/cmm/m/it/12 I \OT1/cmr/m/n/12 = []$ \OT1/cmr/m/it/12 ou $\OML/cmm/m/it/12 N \OT1/cm
+r/m/n/12 :=
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--45
+
+ []
+
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 46--47
+
+ []
+
+) (basesGrob.bbl) [19] (basesGrob.aux (algo_div.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 3169 strings out of 493335
- 41754 string characters out of 3136674
+ 3175 strings out of 493335
+ 41812 string characters out of 3136674
  107738 words of memory out of 3000000
  6631 multiletter control sequences out of 15000+200000
  14800 words of font info for 58 fonts, out of 3000000 for 9000
@@ -562,9 +623,9 @@ fb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><
 type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Prog
 ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1
 /public/rsfs/rsfs10.pfb>
-Output written on basesGrob.pdf (16 pages, 245412 bytes).
+Output written on basesGrob.pdf (19 pages, 258398 bytes).
 PDF statistics:
- 118 PDF objects out of 1000 (max. 8388607)
+ 128 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

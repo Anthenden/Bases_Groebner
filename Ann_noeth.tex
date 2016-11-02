@@ -1,0 +1,60 @@
+\begin{Defprop}
+
+Soit $A$ un anneau. Alors les deux conditions suivantes sont équivalentes :
+
+\begin{enumerate}
+	\item  Toute suite croissante d'idéaux de $A$ est stationnaire.
+\item Tout idéal $I$ de $A$ est de type fini c'est-à-dire qu'il existe une famille finie $f_1,\ldots,f_n \in I$ telle que : $I=\left\langle f_1,\ldots,f_n  \right\rangle$
+\end{enumerate}
+Un tel anneau est alors dit noethérien.
+\end{Defprop}
+
+\begin{demo}
+ Montrons $(1) \Rightarrow (2)$.\\
+Supposons donc que toute suite croissante d'idéaux de $A$ est stationnaire.\\
+Soit $\mathscr{I}$ un idéal de $A$ et considérons la suite d'idéal $(I_n)$ définie par : $I_0=\left\langle 0  \right\rangle$ et pour tout $n \in \mathbb{N}$,$I_{n+1}=\left\langle I_n,a_{n+1}  \right\rangle$ où $a_{n+1} \in \mathscr{I} \setminus I_n$ si $I_n \neq \mathscr{I}$ et $I_{n+1}=I_n$ sinon.\\
+Alors $(I_n)$ est croissante et plus précisément, elle est strictement croissante tant que $I_n \neq \mathscr{I}$ et constante sinon. \\
+On en déduit que $(I_n)$ est stationnaire (c.f. (1)) et donc qu'il existe $N \in \mathbb{N}$ tel que :\\
+$\forall n \geq N,\mathscr{I}=I_n=I_N=\left\langle a_1,\ldots,a_n  \right\rangle$ .\\
+Montrons maintenant que $(2) \Rightarrow (1)$. \\
+ Supposons donc que tout idéal $I$ de $A$ est de type fini.\\
+Soient  $(I_n)$ une suite croissante d'idéaux et $I:=\bigcup_{n \in \mathbb{N}} I_n$. \\
+ Par hypothèse, il existe donc $a_1,\ldots,a_p \in I$ tel que $I=\left\langle a_1,\ldots,a_p  \right\rangle$. De plus, comme $a_1,\ldots,a_p \in \bigcup_{n \in \mathbb{N}} I_n$ alors pour tout $a_i$ il existe $n_i$ tel que $a_i \in I_{n_i}$ avec $1 \leq i \leq p$. \\
+Posons maintenant $N:= max_{1 \leq i \leq p} n_i$.\\
+Alors pour tout $n \geq N$, $a_1,\ldots,a_p \in I_n$. D'où :\\
+$\left\langle a_1,\ldots,a_p \right\rangle \subset I_N \subset I_n \subset I=\left\langle a_1,\ldots,a_p \right\rangle$.\\
+ Et donc pour tout $n \geq N$,$I=I_n=I_N$. $(I_n)$ est donc stationnaire.\\
+\end{demo}
+
+\begin{Ex} Tout anneau principal est noethérien car chaque idéal d'un anneau principal $A$  est de la forme $aA$ où $a \in A$.\\
+En particulier, tout corps est noethérien.
+\end{Ex}
+
+\begin{Thm}[de la base de Hilbert]
+
+Soit $A$ un anneau noethérien. Alors $A[X]$ est aussi un anneau noethérien.
+\end{Thm}
+
+\begin{demo}
+
+Soient $I$ un idéal de $A[X]$,$J:=\left\langle \{a | aX^p+\sum_{k=0}^{p-1} a_kX^k \in I\} \right\rangle$ et pour tout $n \in \mathbb{N}$, $J_n=\left\langle \{a | aX^n+\sum_{k=0}^{n-1} a_kX^k \in I\} \right\rangle$ des idéaux de $A$.\\
+Comme $A$ est noethérien alors il existe $x_1,\ldots,x_r \in I$,tels que $J=\left\langle x_1,\ldots,x_r\right\rangle$ et pour tout $n \in \mathbb{N}, y_{1,n},\ldots,y_{m_n,n}$ tels que $J_n=\left\langle y_{1,n},\ldots,y_{m_n,n} \right\rangle$.\\
+Il existe donc des polynômes $Q_1,\ldots,Q_r$ de $I$ ayant pour coefficient dominant $x_i$ et pour tout $n \in \mathbb{N}$, des polynômes $R_{1,n},\ldots R_{m_n,n}$ qui ont pour coefficient en $X^n$ égale à $y_{m_n,n}$.\\
+Montrons que $I=\left\langle  Q_1,\ldots,Q_r, R_{1,1},\ldots,R_{m_1,1},\ldots,R_{1,N},\ldots,R_{m_N,N} \right \rangle$ où $N:=max_i \; deg(Q_i)$.\\
+Notons $I'$  cet idéal (inclus dans $I$ car engendré par des éléments de $I$) et montrons,par récurrence sur le degré de $P$, que si $P:=\sum a_iX^i \in I'$ alors $P \in I$.\\
+
+\textbf{Initialisation }: Si $P=0$ alors $P \in I$ et $P \in I'$ (car ce sont des sous-groupes additifs de $A[X]$)\\
+
+\textbf{Hérédité} : Soit $d \in \mathbb{N}$ et supposons que pour tout polynômes de degré $P$ de degré strictement inférieur à $d$ que si $P \in I$ alors $P \in I'$.\\
+Soit $P:=\sum_{k=0}^d a_k X^k \in I$.
+\begin{itemize}
+\item Si $d \leq N-1$ alors $a_d \in J_d$, il existe donc $\lambda_1,\ldots,\lambda_{m_d}$ tel que $a_d=\sum_{k=1}^{m_d} \lambda_k y_{k,d}$. On en déduit que $T:=P-\sum_{k=1}^{m_d} \lambda_k R_{k,d}$ est de degré inférieur à $n-1$. Comme $P$ et les $R_{k,d}$ sont dans $I$ alors $T$ aussi et par hypothèse de récurrence $T \in I$. Comme les $R_{k,d}$ sont aussi dans $I'$ alors $P=T+\sum_{k=1}^{m_d} \lambda_k R_{k,d}$ est dans $I'$.
+\item Si $d \geq N$, alors $a_d \in J$,il existe donc $\lambda_1,\lambda_r \in A$ tel que $a=\sum_{k=1}^r \lambda_k x_k$ et donc $P-\sum_{k=1}^m \lambda_i X^{n-deg(Q_i)} Q_i$ est de degré inférieur à $n-1$. On en déduit comme pour le cas $d \leq N-1$ que $P\in I'$.
+\end{itemize}
+Conclusion : D'après le principe de récurrence, $I \subset I'$  et donc $I=I'$
+$A[X]$ est donc noethérien.
+\end{demo}
+
+
+
+
