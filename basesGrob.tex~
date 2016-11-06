@@ -5,7 +5,7 @@
 \usepackage{textcomp}
 \usepackage{mathrsfs}
 \usepackage{ algorithm , algorithmic }
-\usepackage[all]{xy}
+
 %%% francisation des algorithmes
 
 \makeatletter
