@@ -1,4 +1,4 @@
-Soient $R$ un anneau commutatif intègre de corps de fractions $L$ ainsi que : \\
+Soient $R$ un anneau commutatif int\`egre de corps de fractions $L$ ainsi que : \\
 $A:=\sum_{k=0}^p a_kX^k \in R_p[X]$ et $B:=\sum_{k=0}^q b_kX^k \in R_p[X]$.\\
 On appelle la matrice de Sylvester la matrice : \\
 $S_{p,q}(A,B)=\begin{pmatrix}
@@ -13,7 +13,7 @@ a_p & a_{p-1} &\ddots & \vdots &0 & b_q &\vdots & \ddots & b_1 & b_0 \\
 \vdots & \vdots &\ddots & a_{p-1} &\vdots & \vdots &0 & \ddots & b_q & \vdots \\
 0 & 0& \ldots & a_p &0 & 0 &0 & \cdots & 0 & b_q \\
 \end{pmatrix}$. \\
-On notera par $Res_{p,q}(A,B)$ le déterminant de $S_{p,q}(A,B)$
+On notera par $Res_{p,q}(A,B)$ le d\'eterminant de $S_{p,q}(A,B)$
 \begin{prop}
 $Res_{p,q}(A,B)$ est nul si, et seulement si, il existe $P \in R_{q-1}[X]$ et $Q \in R_{p-1}[X]$ non tous deux nuls tels que $AP+BQ=0$
 \end{prop}
@@ -21,19 +21,19 @@ $Res_{p,q}(A,B)$ est nul si, et seulement si, il existe $P \in R_{q-1}[X]$ et $Q
 Il existe $P \in R_{q-1}[X]$ et $Q \in R_{p-1}[X]$ non tous deux nuls tels que $AP+BQ=Res_{p,q}(A,B)$
 \end{prop}
 \begin{Def}
-Le résultant des polynômes $A,B \in R[X]$ de degrés respectifs $p,q \geq 0$ est l'élément $Res(A,B)=Res_{p,q}(A,B)$
+Le r\'esultant des polyn\^omes $A,B \in R[X]$ de degr\'es respectifs $p,q \geq 0$ est l'\'el\'ement $Res(A,B)=Res_{p,q}(A,B)$
 \end{Def}
 \begin{Rq}
 Lien entre les valeurs de $Res_{p,q}(A,B)$ et de $Res(A,B)$ : 
 \begin{itemize}
-    \item Si $p=deg(A)$ et $q=deg(B)$ alors, par définition, $Res(A,B)=Res_{p,q}(A,B)$
+    \item Si $p=deg(A)$ et $q=deg(B)$ alors, par d\'efinition, $Res(A,B)=Res_{p,q}(A,B)$
     \item Si $p=deg(A)$ et $q>deg(B)$ alors $Res_{p,q}(A,B)=((-1)^p a_p)^{q-deg B}Res(A,B)$
     \item Si $p>deg(A)$ et $q=deg(B)$ alors $Res_{p,q}(A,B)=b_q^{p-deg A}Res(A,B)$
     \item Si $p>deg(A)$ et $q=deg(B)$ alors $Res_{p,q}(A,B)=0$
 \end{itemize}
 \end{Rq}
 \begin{prop}
-Soit $A=QB+A_1$ une division euclidienne, avec $A_1 \neq 0$. Alors, avec les mêmes notations que précédemment, $Res(A,B)=b_q^{deg(A)-deg(A_1} Res(A_1,B)$
+Soit $A=QB+A_1$ une division euclidienne, avec $A_1 \neq 0$. Alors, avec les m\^emes notations que pr\'ec\'edemment, $Res(A,B)=b_q^{deg(A)-deg(A_1} Res(A_1,B)$
 \end{prop}
 \begin{Lemme}
 Si $B=(X-\beta)*C$, alors $Res(A,B)=A(\beta)Res(A,C)$
@@ -45,6 +45,6 @@ $=b^pa^q \prod_{i=1}^p \prod_{j=1}^q (\beta_j-\alpha_i)$
 $=(-1)^{pq} a^q B(\alpha_1) \ldots B(\alpha_q)$
 \end{Thm}
 \begin{cor}
-Supposons le corps $L$ algébriquement clos. Alors $Res(A,B)=0$ si, et seulement si, les polynômes $A$ et $B$ ont une racine commune.
+Supposons le corps $L$ alg\'ebriquement clos. Alors $Res(A,B)=0$ si, et seulement si, les polyn\^omes $A$ et $B$ ont une racine commune.
 \end{cor}
 

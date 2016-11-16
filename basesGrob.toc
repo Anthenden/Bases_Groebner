@@ -17,3 +17,6 @@
 \contentsline {subsection}{\numberline {8.2}Equations polynomiales}{16}
 \contentsline {section}{\numberline {9}Ordre}{16}
 \contentsline {section}{\numberline {10}Anneau noeth\'erien}{17}
+\contentsline {section}{\numberline {11}Alg\`ebre}{19}
+\contentsline {subsection}{\numberline {11.1}Polyn\^omes irr\'eductibles et factorisation}{19}
+\contentsline {section}{\numberline {12}R\'esultant}{20}
