@@ -1,0 +1,39 @@
+\begin{Lemme}
+Soit $f \in k[X_1,\ldots,X_n]$. \\
+Alors il existe un point $(a_2,\ldots,a_n) \in k^{n-1}$tel que le polynôme $\widetilde{f}=f(x_1,x_2+a_2x_1,\ldots,x_n+a_nx_1)$ est de la forme $cx_1^N+$ termes de degré  $<N$ en $x_1$ avec $c \neq 0$ et $N>0$.
+\end{Lemme}
+\begin{demo}
+Soit $f \in k[X_1,\ldots,X_n] $.\\
+Pour montrer que $\widetilde{f}$ peut s'écrire sous la forme décrite, on va d'abord déterminer le coefficient en $X_1^N$, ce qui va montrer qu'il est constant puis montrer qu'il est non nul. \\
+On peut écrire $f $ sous la forme : $f=\sum_{l=1}^N h_l $ où  $h_l $ est $l$-homogène et $h_N \neq 0$.\\
+On en déduit que le coefficient en $x_1^N $ de $f (x_1,x_2+a_2x_1,\ldots,x_n+a_nx_1) $ est celui de $h_N(x_1,x_2+a_2x_1,\ldots,x_n+a_nx_1)$.\\
+$h_N $ est de la forme $\sum_{|l|=N} \alpha_lX^l $. \\
+D'où   $h_N(x_1,x_2+a_2x_1,\ldots,x_n+a_nx_1)=\sum_{|(l_1,\ldots,l_n)|=N} \alpha_l x_1^{l_1} \prod_{j=2}^n (x_j+a_jx_1)^{l_j}$. \\
+On en déduit que le coefficient  de  $f(x_1,x_2+a_2x_1,\ldots,x_n+a_nx_1)$ en $x_1^N $ est $\sum_{|(l_1,\ldots,l_n)|=N} \alpha_l a_2^{l_2} \ldots a_n^{l_n}=h_N (1,a_2,\ldots,a_n) $.\\
+Comme on a supposé $h_N \neq 0$ alors, en particulier, il existe $(a_1,\ldots,a_n) \in k^n$ tel que $a_1^N h_N(1,a_2,\ldots,a_n)=h_N(a_1,a_2,\ldots,a_n)\neq 0 $, autrement dit, par intégrité de $k$, $h_N(1,a_2,\ldots,a_n)\neq 0$. \\
+Ce qui termine la preuve que $ f(x_1,x_2+a_2x_1,\ldots,x_n+a_nx_1)$ est de la forme  $cx_1^N+$ termes de degré  $<N$ en $x_1$.
+\end{demo}
+\begin{Thm}[Nullstellensatz faible]
+Soit $k $ un corps algébriquement clos et $I $ un idéal de $k [X_1,\ldots,X_n] $ tel que $Z (I)=\emptyset$ alors $I=k [X_1,\ldots,X_n]$ .
+\end{Thm}
+\begin{demo}
+Par récurrence sur le nombre de variable,\\
+\textbf{Initialisation : }\\
+Soit $I \subset k[X]$ un idéal tel que $Z(I)=\emptyset$.\\
+On peut remarquer que $I \neq \{0\}$ car $Z(\{0\})=k[X]$. \\
+Comme $k[X]$ est principal alors il existe $P \neq 0$ tel que $I=Pk[X]$. \\
+D'où $Z(I)=Z(P)$ et donc $0=Card(Z(I))=card(Z(P)) $. \\
+Comme $k$ est algébriquement clos alors $P$ est constant et $I=k[X]$. \\
+\textbf{Hérédité : }\\
+Soit $n \in \N$ et supposons que pour tout idéal $I$ de $k[X_2,\ldots,X_n]$, $Z(I) =\emptyset \Rightarrow I=k[X_2,\ldots,X_n]$.\\
+Soit $I=\left \langle f_1,\ldots,f_s\right\rangle \subset k[X_1,\ldots,X_n]$ un idéal tel que $Z(I) =\emptyset$.\\
+Quitte à changer $I$ par $\widetilde{I}$ (cf. Lemme précédent), on peut supposer que $f_1$ est de la forme $cX_1^N + $ terme de degré $<N$ en $X_1$ avec $c \neq 0$ et $N > 0$. \\
+On peut donc utiliser le corollaire du théorème de fermeture : \\ 
+$Z(I_1)=\pi_1(Z(I))=\pi_1(\emptyset)=\emptyset$ où $\pi_1:k^n \to k^{n-1}$ est la projection canonique et $I_1$ le premier idéal d'élimination de $I$. \\
+D'où, par hypothèse de récurrence, $I_1=k[X_2,\ldots,X_n]$ c'est-à-dire $1 \in I_1 \subset I$.\\
+D'où $I=k[X_1,\ldots,X_n]$
+\end{demo}
+\begin{Thm}[Nullstellensatz]
+Soit $k $ un corps algébriquement clos. Si $f,f_1,\ldots,f_s \in k [X_1,\ldots,X_n] $ tel que $f\in I (Z (f_1,\ldots,f_s))$ alors il existe un $m\geq 1 $ tel que $$f^m \in \left\langle f_1,\ldots,f_s \right\rangle $$.
+(Et réciproquement)
+\end{Thm}
