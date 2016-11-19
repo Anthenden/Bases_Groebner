@@ -3,22 +3,22 @@
 \contentsline {subsection}{\numberline {1.1}G\'en\'eralit\'es}{2}
 \contentsline {subsection}{\numberline {1.2}Exemples d'ordres monomiaux}{3}
 \contentsline {section}{\numberline {2}Algorithme de division}{4}
-\contentsline {section}{\numberline {3}Id\'eaux monomiaux}{5}
-\contentsline {section}{\numberline {4}Bases de Gr\"obner}{7}
-\contentsline {subsection}{\numberline {4.1}G\'en\'eralit\'es}{7}
-\contentsline {subsection}{\numberline {4.2}Propri\'et\'es des bases de Gr\"obner}{8}
-\contentsline {section}{\numberline {5}Algorithme de Buchberger}{10}
-\contentsline {section}{\numberline {6}Th\'eor\`eme d'\'elimination et d'extension}{11}
-\contentsline {section}{\numberline {7}G\'eom\'etrie}{12}
-\contentsline {subsection}{\numberline {7.1}G\'en\'eralit\'es}{12}
-\contentsline {subsection}{\numberline {7.2}G\'eom\'etrie de l'\'elimination}{14}
-\contentsline {section}{\numberline {8}Graphe}{15}
-\contentsline {subsection}{\numberline {8.1}G\'en\'eralit\'es}{15}
-\contentsline {subsection}{\numberline {8.2}Equations polynomiales}{15}
-\contentsline {section}{\numberline {9}Ordre}{15}
-\contentsline {section}{\numberline {10}Anneau noeth\'erien}{16}
-\contentsline {section}{\numberline {11}Alg\`ebre}{18}
-\contentsline {subsection}{\numberline {11.1}Polyn\^omes irr\'eductibles et factorisation}{18}
-\contentsline {section}{\numberline {12}R\'esultant}{19}
-\contentsline {section}{\numberline {13}Implicitation}{20}
-\contentsline {section}{\numberline {14}Nullstellensatz}{20}
+\contentsline {section}{\numberline {3}Id\'eaux monomiaux}{6}
+\contentsline {section}{\numberline {4}Bases de Gr\"obner}{8}
+\contentsline {subsection}{\numberline {4.1}G\'en\'eralit\'es}{8}
+\contentsline {subsection}{\numberline {4.2}Propri\'et\'es des bases de Gr\"obner}{9}
+\contentsline {section}{\numberline {5}Algorithme de Buchberger}{11}
+\contentsline {section}{\numberline {6}Th\'eor\`eme d'\'elimination et d'extension}{12}
+\contentsline {section}{\numberline {7}G\'eom\'etrie}{13}
+\contentsline {subsection}{\numberline {7.1}G\'en\'eralit\'es}{13}
+\contentsline {subsection}{\numberline {7.2}G\'eom\'etrie de l'\'elimination}{15}
+\contentsline {section}{\numberline {8}Graphe}{16}
+\contentsline {subsection}{\numberline {8.1}G\'en\'eralit\'es}{16}
+\contentsline {subsection}{\numberline {8.2}Equations polynomiales}{16}
+\contentsline {section}{\numberline {9}Ordre}{16}
+\contentsline {section}{\numberline {10}Anneau noeth\'erien}{17}
+\contentsline {section}{\numberline {11}Alg\`ebre}{19}
+\contentsline {subsection}{\numberline {11.1}Polyn\^omes irr\'eductibles et factorisation}{19}
+\contentsline {section}{\numberline {12}R\'esultant}{20}
+\contentsline {section}{\numberline {13}Implicitation}{21}
+\contentsline {section}{\numberline {14}Nullstellensatz}{21}
