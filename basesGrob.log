@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.13)  14 NOV 2016 18:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.13)  18 NOV 2016 11:57
 entering extended mode
 **./basesGrob.tex
 (basesGrob.tex
@@ -385,14 +385,14 @@ LaTeX Font Info:    Try loading font information for U+rsfs on input line 51.
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 Package xypdf Info: Line width: 0.47998pt on input line 51.
- (basesGrob.toc)
+ (basesGrob.toc [1
+
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}])
 \tf@toc=\write4
 \openout4 = `basesGrob.toc'.
 
 \c@Thm=\count120
- [1
-
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] (ordre_monomial.tex
+ (Parties/ordre_monomial.tex
 Underfull \hbox (badness 10000) in paragraph at lines 33--34
 
  []
@@ -420,17 +420,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 85--100
 
  []
 
-) (algodivision.tex [4]
+) (Parties/algodivision.tex [4]
 \openout2 = `algo_div.aux'.
 
- (algo_div.tex
 
-LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
-(Font)              using `OT1/cmr/bx/n' instead on input line 4.
+No file algo_div.tex.
 
-) [5
-
-]
 Underfull \hbox (badness 10000) in paragraph at lines 19--21
 
  []
@@ -447,7 +442,8 @@ OML/cmm/m/it/12 LT\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 p\OT1/cmr/m/n/12 )$\OT1/cmr/
 ecedemment,
  []
 
-) (ideaux_monom.tex [6
+) (Parties/ideaux_monom.tex [5
+
 
 ]
 Overfull \hbox (10.80487pt too wide) in paragraph at lines 9--18
@@ -469,12 +465,12 @@ m/m/it/12 X[]$$\OT1/cmr/m/n/12 (\OMS/cmsy/m/n/12 \OT1/cmr/m/n/12 )$ \OT1/cmr/m/
 /m/n/12 = []$\OT1/cmr/m/it/12 . 
  []
 
-[7]
+[6]
 Overfull \hbox (14.53313pt too wide) in paragraph at lines 53--54
 []\OT1/cmr/m/it/12 Un ideal mo-no-mial $\OML/cmm/m/it/12 I \OT1/cmr/m/n/12 := []$
  []
 
-) (basesGrobner.tex
+) (Parties/basesGrobner.tex
 Overfull \hbox (8.87532pt too wide) in paragraph at lines 5--8
 []\OT1/cmr/m/it/12 Soient $\OML/cmm/m/it/12 A \OMS/cmsy/m/n/12  \OML/cmm/m/it/12 k\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 X[]
 ; X[]\OT1/cmr/m/n/12 ]$ \OT1/cmr/m/it/12 et $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 p[]\OT1/cmr/m/n/12 )[]$ \OT1/cmr/m/it/12 
@@ -498,7 +494,7 @@ Overfull \hbox (28.40424pt too wide) in paragraph at lines 25--28
 []\OT1/cmr/m/it/12 (1)D'apres le lemme precedent, on a $[] \OT1/cmr/m/n/12 =
  []
 
-[8]
+[7]
 Underfull \hbox (badness 10000) in paragraph at lines 33--42
 
  []
@@ -519,7 +515,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 63--67
 
  []
 
-[9]
+[8]
 Underfull \hbox (badness 10000) in paragraph at lines 72--74
 
  []
@@ -547,13 +543,18 @@ el que $\OML/cmm/m/it/12 G \OT1/cmr/m/n/12 = [][] \OML/cmm/m/it/12 c[]X[]S\OT1/c
 /cmr/m/n/12 )$
  []
 
-) (Algobuchberger.tex (Algorithme_buchberger.tex) [10]
+) (Parties/Algobuchberger.tex (Parties/Algorithme_buchberger.tex
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
+(Font)              using `OT1/cmr/bx/n' instead on input line 7.
+
+) [9]
 Overfull \hbox (9.9852pt too wide) in paragraph at lines 6--7
 []\OT1/cmr/m/it/12 Comme $\OML/cmm/m/it/12 G$ \OT1/cmr/m/it/12 est une base de Grobner de $\OML/cmm/m/it/12 I$ \OT1/cmr
 /m/it/12 alors $[] \OT1/cmr/m/n/12 =
  []
 
-) (Thm_elim_et_ext.tex [11]
+) (Parties/Thm_elim_et_ext.tex [10]
 Overfull \hbox (11.44875pt too wide) in paragraph at lines 31--36
 []\OT1/cmr/m/it/12 Soit $\OML/cmm/m/it/12 I \OT1/cmr/m/n/12 = []$ \OT1/cmr/m/it/12 un ideal de $\U/msb/m/n/12 C\OT1/cmr
 /m/n/12 [\OML/cmm/m/it/12 X[]; [] ; X[]\OT1/cmr/m/n/12 ]$
@@ -566,7 +567,7 @@ n/12 ) \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 I[
  $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a[]; [] ; a[]\OT1/cmr/m/n/12 ) []
  []
 
-[12]
+[11]
 Overfull \hbox (5.67786pt too wide) in paragraph at lines 46--48
 \OT1/cmr/m/it/12 (Comme $\OML/cmm/m/it/12 g[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 c \OMS/cmsy/m/n/12 6\OT1/cmr/m/n/12 = 0
 $ \OT1/cmr/m/it/12 alors $\OML/cmm/m/it/12 Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 g[]; [] ; g[]\OT1/cmr/m/n/12 ) = \OMS/cmsy
@@ -574,7 +575,7 @@ $ \OT1/cmr/m/it/12 alors $\OML/cmm/m/it/12 Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 g[
 2 Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 g[]; [] ; g[]\OT1/cmr/m/n/12 )$
  []
 
-) (Geometrie.tex
+) (Parties/Geometrie.tex
 Overfull \hbox (3.30444pt too wide) in paragraph at lines 3--4
 \OT1/cmr/m/it/12 variete af-fine definie par $\OML/cmm/m/it/12 f[]; [] ; f[]$ \OT1/cmr/m/it/12 l'en-semble : $\OML/cm
 m/m/it/12 Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 f[]; [] ; f[]\OT1/cmr/m/n/12 ) = \OMS/cmsy/m/n/12 f\OT1/cmr/m/n/12 (\OML/cm
@@ -588,7 +589,7 @@ m/m/it/12 r[]; [] ; r[] \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 k\OT1/cmr/m/n/12 (\O
 /12 )$
  []
 
-[13]
+[12]
 Underfull \hbox (badness 10000) in paragraph at lines 36--39
 
  []
@@ -619,22 +620,22 @@ Overfull \hbox (6.3575pt too wide) in paragraph at lines 67--69
 cmr/m/n/12 ) \OMS/cmsy/m/n/12 2
  []
 
-[14]
+[13]
 Underfull \hbox (badness 10000) in paragraph at lines 74--77
 
  []
 
-) (graphe.tex [15])
+) (Parties/graphe.tex [14])
 Overfull \hbox (7.1024pt too wide) in paragraph at lines 13--84
 \OT1/cmr/m/n/12 le systeme $[]$ a une
  []
 
-(ordre.tex
+(Parties/ordre.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--2
 
  []
 
-[16]
+[15]
 Underfull \hbox (badness 10000) in paragraph at lines 20--33
 
  []
@@ -657,7 +658,7 @@ Overfull \hbox (5.9028pt too wide) in paragraph at lines 45--52
 mm/m/it/12 a[]\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 i \OMS/cmsy/m/n/12 2
  []
 
-) (Ann_noeth.tex [17]
+) (Parties/Ann_noeth.tex [16]
 Underfull \hbox (badness 10000) in paragraph at lines 13--27
 
  []
@@ -685,18 +686,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 40--45
 
  []
 
-[18]
+[17]
 Underfull \hbox (badness 10000) in paragraph at lines 46--47
 
  []
 
-) (Algebre.tex
+) (Parties/Algebre.tex
 Overfull \hbox (3.96974pt too wide) in paragraph at lines 12--13
 []\OT1/cmr/m/it/12 Tout po-lyn^ome non constant $\OML/cmm/m/it/12 f \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 k\OT1/cmr/m/n/12
  [\OML/cmm/m/it/12 X[]; [] ; X[]\OT1/cmr/m/n/12 ]$ \OT1/cmr/m/it/12 peut s'ecrire
  []
 
-) (Resultant.tex [19]
+) (Parties/Resultant.tex [18]
 Overfull \hbox (5.46753pt too wide) in paragraph at lines 18--19
 []$\OML/cmm/m/it/12 Res[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 A; B\OT1/cmr/m/n/12 )$ \OT1/cmr/m/it/12 est nul si, et seule-
 ment si, il existe $\OML/cmm/m/it/12 P \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 R[]\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 X\OT1/cm
@@ -724,33 +725,63 @@ Overfull \hbox (10.6385pt too wide) in paragraph at lines 48--49
 2 Res\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 A; B\OT1/cmr/m/n/12 ) =
  []
 
-[20]) (basesGrob.bbl) [21] (basesGrob.aux (algo_div.aux))
+[19]) (Parties/implicitation.tex <xymatrix 3x2 149>
+Overfull \hbox (24.13295pt too wide) in paragraph at lines 1--29
+[]\OT1/cmr/m/n/12 Soit $\OML/cmm/m/it/12 S$ \OT1/cmr/m/n/12 l'en-semble pa-rametre par le systeme sui-vant : $[]$
+ []
+
+
+Overfull \hbox (7.6427pt too wide) in paragraph at lines 1--29
+\OT1/cmr/m/n/12 On a donc $\OML/cmm/m/it/12 V \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[];
+ [] ; t[]; x[]; [] ; x[]\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 k[]\OMS/cmsy/m/n/12 j8\OML/cmm/m/it/12 i \
+OMS/cmsy/m/n/12 2 \OT1/cmr/m/n/12 [ [1\OML/cmm/m/it/12 ; m\OT1/cmr/m/n/12 ] ]\OML/cmm/m/it/12 ; x[] \OMS/cmsy/m/n/12   \
+OML/cmm/m/it/12 f[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]; [] ; t[]\OT1/cmr/m/n/12 ) =
+ []
+
+
+Overfull \hbox (3.11893pt too wide) in paragraph at lines 1--29
+\OT1/cmr/m/n/12 D'ou, $\OML/cmm/m/it/12 V \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]; []
+ ; t[]; f[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]; [] ; t[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; [] ; f[]\OT1/cmr/m/n/12 (\
+OML/cmm/m/it/12 t[]; [] ; t[]\OT1/cmr/m/n/12 )) \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 k[]\OMS/cmsy/m/n/12 j\OT1/cmr/m/n/12
+ (\OML/cmm/m/it/12 t[]; [] ; t[]\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 2
+ []
+
+
+Overfull \hbox (94.34343pt too wide) in paragraph at lines 29--30
+\OT1/cmr/m/it/12 rametrisation po-ly-no-miale $\OT1/cmr/m/n/12 (\OMS/cmsy/m/n/12 y\OT1/cmr/m/n/12 )$\OT1/cmr/m/it/12 . 
+Soit $\OML/cmm/m/it/12 I$ \OT1/cmr/m/it/12 l'ideal $[] \OMS/cmsy/m/n/12  \U/msb/m/n/12 C\OT1/cmr/m/n/12 [\OML/cmm/m/it
+/12 T[]; [] ; T[]; X[]; [] ; X[]\OT1/cmr/m/n/12 ]$
+ []
+
+) (basesGrob.bbl [20]) [21] (basesGrob.aux (algo_div.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 5850 strings out of 493334
- 74245 string characters out of 3139245
+ 5875 strings out of 493334
+ 74642 string characters out of 3139245
  193394 words of memory out of 3000000
- 9225 multiletter control sequences out of 15000+200000
- 16626 words of font info for 68 fonts, out of 3000000 for 9000
+ 9247 multiletter control sequences out of 15000+200000
+ 16963 words of font info for 69 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 28i,10n,30p,3222b,662s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\Antoine\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcti1200.pk><C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
-onts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><
-C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/rsfs/rsfs10.pfb>
-Output written on basesGrob.pdf (21 pages, 265412 bytes).
+ 28i,13n,30p,3222b,606s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\Antoine\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1200.pk> <C:\Users\Antoine\AppData\
+Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcti1200.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
+C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/rsfs/rsfs10.pfb><C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/public/xypic/xyatip10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/xypic/xybtip10.
+pfb>
+Output written on basesGrob.pdf (21 pages, 277341 bytes).
 PDF statistics:
- 139 PDF objects out of 1000 (max. 8388607)
+ 152 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
