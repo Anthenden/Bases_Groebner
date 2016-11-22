@@ -1,0 +1,30 @@
+Soit $S$ l'ensemble param\'etr\'e par le syst\`eme suivant : $ \begin{cases}
+x_1=f_1(t_1,\ldots,t_m)& \\
+\vdots & (\dagger) \\
+x_n=f_n(t_1,\ldots,t_m)& \\
+\end{cases} $ o\`u $f_i \in k[T_1,\ldots,T_m]$ et $(t_1,\ldots,t_m) \in k^m$ .\\
+On peut voir $S$ comme l'image de la fonction $F : k^m \to k^n$ d\'efinie par : \\
+$\forall t \in k^m, F(t)=(f_1(t),\ldots,f_n(t))$.\\
+$S$ n'est pas n\'ecessairement une vari\'et\'e affine (cf exercices).\\
+Le syst\`eme $(\dagger)$ d\'efini tout de même une vari\'et\'e $V=Z(X_1-f_1,\ldots,X_n-f_n) \subset k^{n+m}$.\\
+On a donc $V=\{(t_1,\ldots,t_n,x_1,\ldots,x_m)\in k^{n+m} | \forall i \in [\![1,m]\!],x_i-f_i(t_1,\ldots,t_n)=0 \}$\\
+D'o\`u,  $V=\{(t_1,\ldots,t_n,f_1(t_1,\ldots,t_n),\ldots,f_m(t_1,\ldots,t_n))\in k^{n+m} | (t_1,\ldots,t_m) \in k^m \} (*)$. Autrement dit, $V$ est le graphe de $F$.\\
+Soient $\begin{array}{ccccc}
+i & : & k^m & \to & k ^{n+m} \\
+ & & (t_1,\ldots,t_m) & \mapsto & (t_1,\ldots,t_n,f_1(t_1,\ldots,t_n),\ldots,f_m(t_1,\ldots,t_n))\\
+\end{array}$\\
+ et $\begin{array}{ccccc}
+\pi_m & : & k^{n+m} & \to & k^n \\
+ & & (t_1,\ldots,t_n,x_1,\ldots,x_m) & \mapsto & (t_1,\ldots,t_n) \\
+\end{array}$
+Alors, on a : \\
+ \xymatrix{
+   &k^{n+m} \ar[rd]^{\pi_m}&  \\
+    k^m \ar[ru]^i\ar[rr]^F&& k^n
+  }\\
+i.e. $F=\pi_m \circ i$.\\
+Avec $(*)$, on a $i(k^m)=V$ et donc $\pi_m(V)=F(k^m)$.\\
+Autrement dit, l'image d'une param\'etrisation est la projection de son graphe.
+\begin{Thm}
+Soit $F:\C^m \to \C^n$ une fonction d\'etermin\'ee par la param\'etrisation polynomiale $(\dagger)$. Soit $I$ l'id\'eal $\left\langle X_1-f_1,\ldots,X_n-f_n \right\rangle \subset \C[T_1,\ldots,T_m,X_1,\ldots,X_n]$ et $I_m$ son $m$ \`eme id\'eal d'\'elimination. Alors $V(I_m)$ est le plus petit id\'eal de $\C^n$ contenant $F(\C^m)$
+\end{Thm}
