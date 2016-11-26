@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.13)  19 NOV 2016 02:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.13)  22 NOV 2016 20:52
 entering extended mode
 **./basesGrob.tex
 (basesGrob.tex
@@ -341,7 +341,12 @@ Xy-pic pdf driver: `curve' extension support ("C:\Program Files\MiKTeX 2.9\tex\g
 Xy-pic pdf driver: `frame' extension support ("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xypdf-fr.tex" loaded)
 Xy-pic pdf driver: `line' extension support ("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xypdf-li.tex" loaded)
 Xy-pic pdf driver: `rotate' extension support ("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xypdf-ro.tex" loaded)
-loaded)) (basesGrob.aux (Parties/algo_div.aux))
+loaded))
+
+LaTeX Warning: Unused global option(s):
+    [a4page].
+
+(basesGrob.aux)
 \openout1 = `basesGrob.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
@@ -385,19 +390,15 @@ LaTeX Font Info:    Try loading font information for U+rsfs on input line 51.
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 Package xypdf Info: Line width: 0.47998pt on input line 51.
- (basesGrob.toc [1
-
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}])
-\tf@toc=\write4
-\openout4 = `basesGrob.toc'.
-
 \c@Thm=\count120
  (Parties/ordre_monomial.tex
 Underfull \hbox (badness 10000) in paragraph at lines 33--34
 
  []
 
-[2]
+[1
+
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
 Overfull \hbox (36.31595pt too wide) in paragraph at lines 49--75
 \OT1/cmr/m/it/12 On en deduit que $\OMS/cmsy/m/n/12 8\OML/cmm/m/it/12 p \OMS/cmsy/m/n/12  \OML/cmm/m/it/12 N[]; \OMS/c
 msy/m/n/12 8\OML/cmm/m/it/12 i \OMS/cmsy/m/n/12 2 \OT1/cmr/m/n/12 [ [1\OML/cmm/m/it/12 ; n\OT1/cmr/m/n/12 ] ]\OML/cmm/m/
@@ -405,12 +406,12 @@ it/12 ; u[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 u[]$ \OT1/cmr/m/it/12 ou en-core 
 MS/cmsy/m/n/12  \OML/cmm/m/it/12 N[]; ; X[] \OT1/cmr/m/n/12 =
  []
 
-
+[2]
 Overfull \hbox (27.54448pt too wide) in paragraph at lines 77--79
 []\OT1/cmr/m/it/12 Soient
  []
 
-[3]
+
 Overfull \hbox (63.77022pt too wide) in paragraph at lines 81--83
 []
  []
@@ -420,22 +421,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 85--100
 
  []
 
-) (Parties/algodivision.tex [4]
-\openout2 = `Parties/algo_div.aux'.
-
- (Parties/algo_div.tex
+) (Parties/algodivision.tex [3] (Parties/algo_div.tex
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
 (Font)              using `OT1/cmr/bx/n' instead on input line 4.
 
-) [5
-
-]
+)
 Underfull \hbox (badness 10000) in paragraph at lines 19--21
 
  []
 
-
+[4]
 Overfull \hbox (5.55367pt too wide) in paragraph at lines 22--34
 \OT1/cmr/m/it/12 -Si cette va-leur est nulle alors l'al-go-rithme s'arr^ete si-non comme on a l'egalite :
  []
@@ -447,16 +443,14 @@ OML/cmm/m/it/12 LT\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 p\OT1/cmr/m/n/12 )$\OT1/cmr/
 ecedemment,
  []
 
-) (Parties/ideaux_monom.tex [6
-
-]
+) (Parties/ideaux_monom.tex
 Overfull \hbox (10.80487pt too wide) in paragraph at lines 9--18
 \OMS/cmsy/m/n/12 )$ \OT1/cmr/m/it/12 Si $\OML/cmm/m/it/12 X[] \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 I$ \OT1/cmr/m/it/12 al
 ors il existe une fa-mille de po-lyn^omes $\OML/cmm/m/it/12 P[]; [] ; P[] \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 k\OT1/cmr/
 m/n/12 [\OML/cmm/m/it/12 X[]; [] ; X[]\OT1/cmr/m/n/12 ]$
  []
 
-
+[5]
 Underfull \hbox (badness 10000) in paragraph at lines 38--42
 
  []
@@ -469,7 +463,7 @@ m/m/it/12 X[]$$\OT1/cmr/m/n/12 (\OMS/cmsy/m/n/12 \OT1/cmr/m/n/12 )$ \OT1/cmr/m/
 /m/n/12 = []$\OT1/cmr/m/it/12 . 
  []
 
-[7]
+[6]
 Overfull \hbox (14.53313pt too wide) in paragraph at lines 53--54
 []\OT1/cmr/m/it/12 Un ideal mo-no-mial $\OML/cmm/m/it/12 I \OT1/cmr/m/n/12 := []$
  []
@@ -498,7 +492,7 @@ Overfull \hbox (28.40424pt too wide) in paragraph at lines 25--28
 []\OT1/cmr/m/it/12 (1)D'apres le lemme precedent, on a $[] \OT1/cmr/m/n/12 =
  []
 
-[8]
+[7]
 Underfull \hbox (badness 10000) in paragraph at lines 33--42
 
  []
@@ -514,12 +508,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 56--57
 
  []
 
-
+[8]
 Underfull \hbox (badness 10000) in paragraph at lines 63--67
 
  []
 
-[9]
+
 Underfull \hbox (badness 10000) in paragraph at lines 72--74
 
  []
@@ -547,13 +541,13 @@ el que $\OML/cmm/m/it/12 G \OT1/cmr/m/n/12 = [][] \OML/cmm/m/it/12 c[]X[]S\OT1/c
 /cmr/m/n/12 )$
  []
 
-) (Parties/Algobuchberger.tex (Parties/Algorithme_buchberger.tex) [10]
+[9]) (Parties/Algobuchberger.tex (Parties/Algorithme_buchberger.tex)
 Overfull \hbox (9.9852pt too wide) in paragraph at lines 6--7
 []\OT1/cmr/m/it/12 Comme $\OML/cmm/m/it/12 G$ \OT1/cmr/m/it/12 est une base de Grobner de $\OML/cmm/m/it/12 I$ \OT1/cmr
 /m/it/12 alors $[] \OT1/cmr/m/n/12 =
  []
 
-) (Parties/Thm_elim_et_ext.tex [11]
+[10]) (Parties/Thm_elim_et_ext.tex [11]
 Overfull \hbox (11.44875pt too wide) in paragraph at lines 31--36
 []\OT1/cmr/m/it/12 Soit $\OML/cmm/m/it/12 I \OT1/cmr/m/n/12 = []$ \OT1/cmr/m/it/12 un ideal de $\U/msb/m/n/12 C\OT1/cmr
 /m/n/12 [\OML/cmm/m/it/12 X[]; [] ; X[]\OT1/cmr/m/n/12 ]$
@@ -566,7 +560,7 @@ n/12 ) \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 I[
  $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a[]; [] ; a[]\OT1/cmr/m/n/12 ) []
  []
 
-[12]
+
 Overfull \hbox (5.67786pt too wide) in paragraph at lines 46--48
 \OT1/cmr/m/it/12 (Comme $\OML/cmm/m/it/12 g[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 c \OMS/cmsy/m/n/12 6\OT1/cmr/m/n/12 = 0
 $ \OT1/cmr/m/it/12 alors $\OML/cmm/m/it/12 Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 g[]; [] ; g[]\OT1/cmr/m/n/12 ) = \OMS/cmsy
@@ -574,7 +568,14 @@ $ \OT1/cmr/m/it/12 alors $\OML/cmm/m/it/12 Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 g[
 2 Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 g[]; [] ; g[]\OT1/cmr/m/n/12 )$
  []
 
-) (Parties/Geometrie.tex
+
+Overfull \hbox (22.51225pt too wide) in paragraph at lines 50--59
+\OML/cmm/m/it/12 Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[] \OMS/cmsy/m/n/12   \OML/cmm/m/it/12 y; x[] \OMS/cmsy/m/n/12   \O
+ML/cmm/m/it/12 z\OT1/cmr/m/n/12 )$\OT1/cmr/m/it/12 . No-tons $\OML/cmm/m/it/12 I \OT1/cmr/m/n/12 = []$ \OT1/cmr/m/it/12 
+et $\OML/cmm/m/it/12 I[]$ \OT1/cmr/m/it/12 son pre-mier ideal d'elimination. 
+ []
+
+[12]) (Parties/Geometrie.tex
 Overfull \hbox (3.30444pt too wide) in paragraph at lines 3--4
 \OT1/cmr/m/it/12 variete af-fine definie par $\OML/cmm/m/it/12 f[]; [] ; f[]$ \OT1/cmr/m/it/12 l'en-semble : $\OML/cm
 m/m/it/12 Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 f[]; [] ; f[]\OT1/cmr/m/n/12 ) = \OMS/cmsy/m/n/12 f\OT1/cmr/m/n/12 (\OML/cm
@@ -612,34 +613,39 @@ Underfull \hbox (badness 10000) in paragraph at lines 59--63
 
  []
 
-
+[14]
 Overfull \hbox (6.3575pt too wide) in paragraph at lines 67--69
 []\OT1/cmr/m/it/12 Soit $\OML/cmm/m/it/12 []$ \OT1/cmr/m/it/12 la pro-jec-tion $\U/msb/m/n/12 C[] \OMS/cmsy/m/n/12 ! \U
 /msb/m/n/12 C[]$ \OT1/cmr/m/it/12 definie par : $\OMS/cmsy/m/n/12 8\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a[]; [] ; a[]\OT1/
 cmr/m/n/12 ) \OMS/cmsy/m/n/12 2
  []
 
-[14]
+
 Underfull \hbox (badness 10000) in paragraph at lines 74--77
 
  []
 
-) (Parties/graphe.tex [15])
-Overfull \hbox (7.1024pt too wide) in paragraph at lines 13--84
+) (Parties/nullstellensatz.tex [15]
+Overfull \hbox (12.93887pt too wide) in paragraph at lines 6--15
+\OT1/cmr/m/it/12 Pour mon-trer que $[]$ peut s'ecrire sous la forme decrite, on va d'abord determiner
+ []
+
+[16]) (Parties/graphe.tex)
+Overfull \hbox (7.1024pt too wide) in paragraph at lines 13--87
 \OT1/cmr/m/n/12 le systeme $[]$ a une
  []
 
-(Parties/ordre.tex
+[17] (Parties/ordre.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--2
 
  []
 
-[16]
+
 Underfull \hbox (badness 10000) in paragraph at lines 20--33
 
  []
 
-
+[18]
 Overfull \hbox (0.2617pt too wide) in paragraph at lines 41--42
 []$\OMS/cmsy/m/n/12 $ \OT1/cmr/m/it/12 est bien fonde ssi il n'existe pas de suite in-fi-nie stric-te-ment decroissan
 te. 
@@ -657,13 +663,18 @@ Overfull \hbox (5.9028pt too wide) in paragraph at lines 45--52
 mm/m/it/12 a[]\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 i \OMS/cmsy/m/n/12 2
  []
 
-) (Parties/Ann_noeth.tex [17]
+) (Parties/Ann_noeth.tex
 Underfull \hbox (badness 10000) in paragraph at lines 13--27
 
  []
 
+[19]
+Overfull \hbox (15.6794pt too wide) in paragraph at lines 35--36
+[]\OT1/cmr/m/it/12 Soit $\OML/cmm/m/it/12 A$ \OT1/cmr/m/it/12 un an-neau noetherien. Alors
+ []
 
-Overfull \hbox (37.6642pt too wide) in paragraph at lines 40--45
+
+Overfull \hbox (33.9142pt too wide) in paragraph at lines 40--45
 []\OT1/cmr/m/it/12 Soient $\OML/cmm/m/it/12 I$ \OT1/cmr/m/it/12 un ideal de $\OML/cmm/m/it/12 A\OT1/cmr/m/n/12 [\OML/cm
 m/m/it/12 X\OT1/cmr/m/n/12 ]$\OT1/cmr/m/it/12 ,$\OML/cmm/m/it/12 J \OT1/cmr/m/n/12 := []$
  []
@@ -685,19 +696,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 40--45
 
  []
 
-[18]
+
 Underfull \hbox (badness 10000) in paragraph at lines 46--47
 
  []
 
-) (Parties/Algebre.tex
-Overfull \hbox (3.96974pt too wide) in paragraph at lines 12--13
+[20]) (Parties/Algebre.tex
+Overfull \hbox (0.81697pt too wide) in paragraph at lines 12--13
 []\OT1/cmr/m/it/12 Tout po-lyn^ome non constant $\OML/cmm/m/it/12 f \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 k\OT1/cmr/m/n/12
  [\OML/cmm/m/it/12 X[]; [] ; X[]\OT1/cmr/m/n/12 ]$ \OT1/cmr/m/it/12 peut s'ecrire
  []
 
-) (Parties/Resultant.tex [19]
-Overfull \hbox (5.46753pt too wide) in paragraph at lines 18--19
+) (Parties/Resultant.tex [21]
+Overfull \hbox (0.82864pt too wide) in paragraph at lines 18--19
 []$\OML/cmm/m/it/12 Res[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 A; B\OT1/cmr/m/n/12 )$ \OT1/cmr/m/it/12 est nul si, et seule-
 ment si, il existe $\OML/cmm/m/it/12 P \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 R[]\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 X\OT1/cm
 r/m/n/12 ]$
@@ -719,12 +730,12 @@ Overfull \hbox (63.43495pt too wide) in paragraph at lines 36--37
  []
 
 
-Overfull \hbox (10.6385pt too wide) in paragraph at lines 48--49
+Overfull \hbox (5.99962pt too wide) in paragraph at lines 48--49
 []\OT1/cmr/m/it/12 Supposons le corps $\OML/cmm/m/it/12 L$ \OT1/cmr/m/it/12 algebriquement clos. Alors $\OML/cmm/m/it/1
 2 Res\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 A; B\OT1/cmr/m/n/12 ) =
  []
 
-[20]) (Parties/implicitation.tex <xymatrix 3x2 149>
+) (Parties/implicitation.tex <xymatrix 3x2 149>
 Overfull \hbox (24.13295pt too wide) in paragraph at lines 1--29
 []\OT1/cmr/m/n/12 Soit $\OML/cmm/m/it/12 S$ \OT1/cmr/m/n/12 l'en-semble pa-rametre par le systeme sui-vant : $[]$
  []
@@ -745,31 +756,26 @@ OML/cmm/m/it/12 t[]; [] ; t[]\OT1/cmr/m/n/12 )) \OMS/cmsy/m/n/12 2 \OML/cmm/m/it
  (\OML/cmm/m/it/12 t[]; [] ; t[]\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 2
  []
 
-
+[22]
 Overfull \hbox (94.34343pt too wide) in paragraph at lines 29--30
 \OT1/cmr/m/it/12 rametrisation po-ly-no-miale $\OT1/cmr/m/n/12 (\OMS/cmsy/m/n/12 y\OT1/cmr/m/n/12 )$\OT1/cmr/m/it/12 . 
 Soit $\OML/cmm/m/it/12 I$ \OT1/cmr/m/it/12 l'ideal $[] \OMS/cmsy/m/n/12  \U/msb/m/n/12 C\OT1/cmr/m/n/12 [\OML/cmm/m/it
 /12 T[]; [] ; T[]; X[]; [] ; X[]\OT1/cmr/m/n/12 ]$
  []
 
-) (Parties/nullstellensatz.tex [21]
-Overfull \hbox (12.93887pt too wide) in paragraph at lines 6--15
-\OT1/cmr/m/it/12 Pour mon-trer que $[]$ peut s'ecrire sous la forme decrite, on va d'abord determiner
- []
-
-[22]) (basesGrob.bbl) [23] (basesGrob.aux (Parties/algo_div.aux))
+) [23] (basesGrob.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 5880 strings out of 493334
- 74791 string characters out of 3139245
- 193394 words of memory out of 3000000
- 9247 multiletter control sequences out of 15000+200000
+ 5862 strings out of 493334
+ 74550 string characters out of 3139245
+ 197398 words of memory out of 3000000
+ 9239 multiletter control sequences out of 15000+200000
  16963 words of font info for 69 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 28i,13n,30p,3222b,662s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 28i,13n,30p,3222b,666s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Antoine\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1200.pk> <C:\Users\Antoine\AppData\
 Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcti1200.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files/MiKTeX 2.9/fon
@@ -783,7 +789,7 @@ fonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
 onts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/rsfs/rsfs10.pfb><C:/Progra
 m Files/MiKTeX 2.9/fonts/type1/public/xypic/xyatip10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/xypic/xybtip10.
 pfb>
-Output written on basesGrob.pdf (23 pages, 285239 bytes).
+Output written on basesGrob.pdf (23 pages, 284066 bytes).
 PDF statistics:
  158 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

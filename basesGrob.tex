@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4page,12pt]{article}
 \usepackage[Latin1]{inputenc}
 \usepackage[francais]{babel}
 \usepackage{amsmath,amssymb}
@@ -52,7 +52,7 @@
 \title{Bases de Gröbner}
 \author{Antoine BOIVIN}
 \maketitle
-\tableofcontents
+%\tableofcontents
 \newtheorem{Thm}{Théorème}[section]
 \newtheorem{prop}[Thm]{Propriété}
 \newtheorem{demo}[Thm]{Démonstration}
@@ -79,6 +79,9 @@
 \input{Parties/Thm_elim_et_ext}
 \section{Géométrie}
 \input{Parties/Geometrie}
+\section{Nullstellensatz}
+\input{Parties/nullstellensatz}
+\appendix
 \section{Graphe}
 \input{Parties/graphe}
 \section{Ordre}
@@ -91,9 +94,8 @@
 \input{Parties/Resultant}
 \section{Implicitation}
 \input{Parties/implicitation}
-\section{Nullstellensatz}
-\input{Parties/nullstellensatz}
-\nocite{*}
-\bibliographystyle{plain}
-\bibliography{biblio}
+
+%\nocite{*}
+%\bibliographystyle{plain}
+%\bibliography{biblio}
 \end{document}
