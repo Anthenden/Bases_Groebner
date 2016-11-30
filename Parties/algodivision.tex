@@ -1,8 +1,8 @@
   \begin{Lemme}Soit $\alpha,\alpha_1,\ldots,\alpha_n \in \mathbb{N}^n $ tel que : $X^\alpha >X^{\alpha_1}>\ldots >X^{\alpha_n}$. Soit $f,g \in k[X_1,\ldots,X_n]$ tels que $LT(f)=LT(g)$ alors $LM(f-g) <LT(f)=LT(g)$
 	\end{Lemme}
-	\begin{demo}
+	\begin{proof}
 	Soit $f:=pX^\alpha+\sum p_{\alpha_i}X^{\alpha_i}$ et $g:=pX^\alpha+\sum q_{\alpha_i}X^{\alpha_i}$ alors $LM(f-g)=LM(\sum p_{\alpha_i}X^{\alpha_i}) \leq X^{\alpha_1} < X^\alpha=LM(f)=LM(g)$
-\end{demo}
+\end{proof}
 %****************************************************************
 \begin{Thm}
 \input{Parties/algo_div}      %Problème typo 
@@ -10,7 +10,7 @@
 
 
 %****************************************************************
-\begin{demo}
+\begin{proof}
 Remarquons tout d'abord que lors de chaque itération de la boucle, une de ses deux instructions :
 \begin{enumerate}
 	\item Si $LT(f_i) | LT(p)$ alors on fait la division de $p$ par $f_i$
@@ -31,4 +31,4 @@ Hérédité : Soit $n \in \mathbb{N}$ et supposons qu'à la $n$ème itération de la b
 $\sum_{i=0,i \neq j}^s a_if_i +a'_jf_j+p'+r=\sum_{i=0,i \neq j}^s a_if_i +\left(a_j+\frac{LT(p)}{LT(f_j)}\right)f_j+p-\frac{LT(p)}{LT(f_j)}f_j+r$ \\
 $=\sum_{i=0,i \neq j}^s a_if_i +a_jf_j+p+r=f$.
 On obtient donc,lorsque $p=0$ (et on sait que cela arrivera), que  $f=\sum_{i=1}^s a_if_i+r$ et $r$ est, par définition dans l'algorithme, une somme d'éléments non divisibles par les $LT(f_i)$
-\end{demo}
+\end{proof}

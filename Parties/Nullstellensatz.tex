@@ -2,7 +2,7 @@
 Soit $f \in k[X_1,\ldots,X_n]$. \\
 Alors il existe un point $(a_2,\ldots,a_n) \in k^{n-1}$tel que le polynôme $\widetilde{f}=f(x_1,x_2+a_2x_1,\ldots,x_n+a_nx_1)$ est de la forme $cx_1^N+$ termes de degré  $<N$ en $x_1$ avec $c \neq 0$ et $N>0$.
 \end{Lemme}
-\begin{demo}
+\begin{proof}
 Soit $f \in k[X_1,\ldots,X_n] $.\\
 Pour montrer que $\widetilde{f}$ peut s'écrire sous la forme décrite, on va d'abord déterminer le coefficient en $X_1^N$, ce qui va montrer qu'il est constant puis montrer qu'il est non nul. \\
 On peut écrire $f $ sous la forme : $f=\sum_{l=1}^N h_l $ où  $h_l $ est $l$-homogène et $h_N \neq 0$.\\
@@ -12,11 +12,11 @@ D'où   $h_N(x_1,x_2+a_2x_1,\ldots,x_n+a_nx_1)=\sum_{|(l_1,\ldots,l_n)|=N} \alpha
 On en déduit que le coefficient  de  $f(x_1,x_2+a_2x_1,\ldots,x_n+a_nx_1)$ en $x_1^N $ est $\sum_{|(l_1,\ldots,l_n)|=N} \alpha_l a_2^{l_2} \ldots a_n^{l_n}=h_N (1,a_2,\ldots,a_n) $.\\
 Comme on a supposé $h_N \neq 0$ alors, en particulier, il existe $(a_1,\ldots,a_n) \in k^n$ tel que $a_1^N h_N(1,a_2,\ldots,a_n)=h_N(a_1,a_2,\ldots,a_n)\neq 0 $, autrement dit, par intégrité de $k$, $h_N(1,a_2,\ldots,a_n)\neq 0$. \\
 Ce qui termine la preuve que $ f(x_1,x_2+a_2x_1,\ldots,x_n+a_nx_1)$ est de la forme  $cx_1^N+$ termes de degré  $<N$ en $x_1$.
-\end{demo}
+\end{proof}
 \begin{Thm}[Nullstellensatz faible]
 Soit $k $ un corps algébriquement clos et $I $ un idéal de $k [X_1,\ldots,X_n] $ tel que $Z (I)=\emptyset$ alors $I=k [X_1,\ldots,X_n]$ .
 \end{Thm}
-\begin{demo}
+\begin{proof}
 Par récurrence sur le nombre de variable,\\
 \textbf{Initialisation : }\\
 Soit $I \subset k[X]$ un idéal tel que $Z(I)=\emptyset$.\\
@@ -32,7 +32,7 @@ On peut donc utiliser le corollaire du théorème de fermeture : \\
 $Z(I_1)=\pi_1(Z(I))=\pi_1(\emptyset)=\emptyset$ où $\pi_1:k^n \to k^{n-1}$ est la projection canonique et $I_1$ le premier idéal d'élimination de $I$. \\
 D'où, par hypothèse de récurrence, $I_1=k[X_2,\ldots,X_n]$ c'est-à-dire $1 \in I_1 \subset I$.\\
 D'où $I=k[X_1,\ldots,X_n]$
-\end{demo}
+\end{proof}
 \begin{Thm}[Nullstellensatz]
 Soit $k $ un corps algébriquement clos. Si $f,f_1,\ldots,f_s \in k [X_1,\ldots,X_n] $ tel que $f\in I (Z (f_1,\ldots,f_s))$ alors il existe un $m\geq 1 $ tel que $$f^m \in \left\langle f_1,\ldots,f_s \right\rangle $$.
 (Et réciproquement)

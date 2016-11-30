@@ -9,7 +9,7 @@ Soit $A$ un anneau. Alors les deux conditions suivantes sont équivalentes :
 Un tel anneau est alors dit noethérien.
 \end{Defprop}
 
-\begin{demo}
+\begin{proof}
  Montrons $(1) \Rightarrow (2)$.\\
 Supposons donc que toute suite croissante d'idéaux de $A$ est stationnaire.\\
 Soit $\mathscr{I}$ un idéal de $A$ et considérons la suite d'idéal $(I_n)$ définie par : $I_0=\left\langle 0  \right\rangle$ et pour tout $n \in \mathbb{N}$,$I_{n+1}=\left\langle I_n,a_{n+1}  \right\rangle$ où $a_{n+1} \in \mathscr{I} \setminus I_n$ si $I_n \neq \mathscr{I}$ et $I_{n+1}=I_n$ sinon.\\
@@ -24,7 +24,7 @@ Posons maintenant $N:= max_{1 \leq i \leq p} n_i$.\\
 Alors pour tout $n \geq N$, $a_1,\ldots,a_p \in I_n$. D'où :\\
 $\left\langle a_1,\ldots,a_p \right\rangle \subset I_N \subset I_n \subset I=\left\langle a_1,\ldots,a_p \right\rangle$.\\
  Et donc pour tout $n \geq N$,$I=I_n=I_N$. $(I_n)$ est donc stationnaire.\\
-\end{demo}
+\end{proof}
 
 \begin{Ex} Tout anneau principal est noethérien car chaque idéal d'un anneau principal $A$  est de la forme $aA$ où $a \in A$.\\
 En particulier, tout corps est noethérien.
@@ -35,7 +35,7 @@ En particulier, tout corps est noethérien.
 Soit $A$ un anneau noethérien. Alors $A[X]$ est aussi un anneau noethérien.
 \end{Thm}
 
-\begin{demo}
+\begin{proof}
 
 Soient $I$ un idéal de $A[X]$,$J:=\left\langle \{a | aX^p+\sum_{k=0}^{p-1} a_kX^k \in I\} \right\rangle$ et pour tout $n \in \mathbb{N}$, $J_n=\left\langle \{a | aX^n+\sum_{k=0}^{n-1} a_kX^k \in I\} \right\rangle$ des idéaux de $A$.\\
 Comme $A$ est noethérien alors il existe $x_1,\ldots,x_r \in I$,tels que $J=\left\langle x_1,\ldots,x_r\right\rangle$ et pour tout $n \in \mathbb{N}, y_{1,n},\ldots,y_{m_n,n}$ tels que $J_n=\left\langle y_{1,n},\ldots,y_{m_n,n} \right\rangle$.\\
@@ -53,7 +53,7 @@ Soit $P:=\sum_{k=0}^d a_k X^k \in I$.
 \end{itemize}
 Conclusion : D'après le principe de récurrence, $I \subset I'$  et donc $I=I'$
 $A[X]$ est donc noethérien.
-\end{demo}
+\end{proof}
 
 
 

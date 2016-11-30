@@ -13,21 +13,24 @@ On note $X^\alpha > X^\beta$ si $X^\alpha \geq X^\beta$ et $\alpha \neq \beta$ (
 Soit $\geq$ un ordre monomial. $1$ est le plus petit élément de $\mathscr{M}$ pour $\geq$.
 \end{prop}
 
-\begin{demo}
+\begin{proof}
+
 Comme $\geq$ est un bon ordre alors il existe un plus petit élément que l'on notera $x^\alpha$ alors :
 $X^\alpha \leq 1$ et donc $X^{2 \alpha} \leq X^\alpha$ (par la compatibilité avec l'addition). \\
 Or comme $X^\alpha$ est le petit élément de $\mathscr{M}$alors $X^\alpha \leq X^{2\alpha}$. \\
 Donc, par antisymétrie, $X^\alpha=X^{2\alpha}$ d'où $\alpha=2\alpha$ et donc $\alpha=0$. \\
 On en déduit que $1=X^0$ est le plus petit élément de $\mathscr{M}$.
-\end{demo}
+
+\end{proof}
+
 \begin{cor}
 
 Soit $\geq$ un ordre monomial et $\alpha,\beta \in \mathbb{N}^n$. Si $X^\alpha | X^\beta$ alors $X^\alpha \leq X^\beta$.
 \end{cor}
 
-\begin{demo}
+\begin{proof}
   Si $X^\alpha | X^\beta$ alors il existe $\gamma \in \mathbb{N}^n$ tel que : $X^\beta=X^\gamma X^\alpha$. Or comme $1 \leq X^\gamma$ alors par compatibilité avec l'addition, $X^\alpha \leq X^{\alpha+\gamma}=X^\beta$.
-\end{demo}
+\end{proof}
 
 \begin{Def}
 Soit $P:=\sum_{\alpha} p_{\alpha}X^\alpha$ et $\geq$ un ordre monomial. \\
@@ -45,7 +48,7 @@ Soit $P:=\sum_{\alpha} p_{\alpha}X^\alpha$ et $\geq$ un ordre monomial. \\
 Soient $\alpha=(\alpha_1,\ldots,\alpha_n), \beta=(\beta_1,\ldots,\beta_n) \in \mathbb{N}^n$ alors
 $X^\alpha \geq_{lex} X^\beta$ si, et seulement si, $\alpha=\beta$ ou le premier coefficient non nul en lisant par la gauche de $\alpha -\beta $ est positif.
 \end{Defprop}
-\begin{demo}
+\begin{proof}
 Montrons que $\geq$ est un ordre monomial. \\
 $\alpha,\beta,\gamma$ désigneront des éléments quelconques de $\mathbb{N}^n$ et si $\alpha \neq \beta$, $\ell(\alpha,\beta)$ désignera la première composante ,en partant de la gauche,non nulle de $\alpha-\beta$  i.e. $\ell(\alpha,\beta):=min\{r \in [\![1,n]\!] | a_r \neq b_r \}$. \\
 Montrons tout d'abord que c'est bien une relation d'ordre. \\
@@ -72,7 +75,7 @@ Alors il existe $N_1 \in \mathbb{N}$ tel que $\forall p \geq N,u_{1,p}=u_{1,N_1}
 Considérons maintenant la suite $u_2:=(a_{2,i})_{i \geq N_1}$. Elle est décroissante et donc stationnaire ... \\
 On construit ainsi une suite $(N_i)_{i \geq 1}$ tel que $\forall n \geq N_i, u_{i,n} \geq u_{i,N_i}$.\\
 On en déduit que $\forall p \geq N_n,\forall i \in [\![1,n]\!], u_{i,p}=u_{i,N_n}$ ou encore $\forall p \geq N_n,, X^{u_{1,p},\ldots,u_{n,p}}=X^{u_{1,N_n},\ldots,u_{n,N_n}}$, ce qui est contradictoire avec la décroissance de $u$.
-\end{demo}
+\end{proof}
 \begin{Defprop}[Ordre lexicographique gradué $\geq_{grlex}$]
 Soient $\alpha=(\alpha_1,\ldots,\alpha_n), \beta=(\beta_1,\ldots,\beta_n) \in \mathbb{N}^n$ alors
 $X^\alpha \geq_{grlex} X^\beta$ si, et seulement si, $|\alpha|>|\beta|$ ou ($|\alpha|=|\beta|$ et $\alpha\geq_{lex} \beta$).

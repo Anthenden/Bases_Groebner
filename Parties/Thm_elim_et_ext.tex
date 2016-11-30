@@ -8,7 +8,7 @@ Soit $I=\left\langle f_1,\ldots,f_s \right\rangle $ un idéal de $k[X_1,\ldots,X_
 Soit $I $ un idéal de $k[X_1,\ldots,X_n]$ et $G$ une base de Gröbner de $I$ selon l'ordre lexicographique (que l'on notera ici seulement $\geq$). Alors, pour tout $k \in [\![0,n]\!]$, l'ensemble $G_k =G \cap k[X_{k+1},\ldots,X_n]  $ est une base de Gröbner du $k$ème idéal d'élimination $I_k$.
 \end{Thm}
 
-\begin{demo}
+\begin{proof}
 
 Soit $k \in [\![0,n]\!]$. Posons $G=\{g_1,\ldots,g_m\}$ et tel que $G_k=\{g_1,\ldots,g_r\}$ (quitte à renommer les éléments). \\
 Montrons que $G_k$ est une base de $I_k$. \\
@@ -23,7 +23,7 @@ Il suffit, pour cela, de montrer que pour tout $1 \leq i < j \leq r$, $\overline
 Soit $i,j \in [\![1,r]\!]$,$ i<j$.\\
 Comme $S(g_i,g_j)$ est de la forme $Pg_i+Qg_j$ ($P,Q \in k[X_{k+1},\ldots,X_n]$) et $I_k$ est un idéal alors $S(g_i,g_j) \in I_k \subset I$ d'où comme $G$ est une base de Gröbner alors $\overline{S(g_i,g_j)}^{G}=0$ et donc d'après la remarque précédente, \\
 $\overline{S(g_i,g_j)}^{G_k}=0$. Ce qui permet de conclure.
-\end{demo}
+\end{proof}
  
 
 \begin{Thm}[d'extension]
@@ -42,10 +42,10 @@ $f_i=cX_1^{N}$+termes de degré $<N$ en $X_1$\\
 où $N> 0$ et $c \in \mathbb{C}\neq \{0\}$ non nul. Si $I_1$ est le premier idéal d'élimination de $I$ et $(a_2,\ldots,a_n) \in Z(I_1)$ alors il existe $a_1 \in \mathbb{C}$ tel que $(a_1,\ldots,a_n) \in Z(I)$
 \end{cor}
 
-\begin{demo}
+\begin{proof}
 Conséquence immédiate du théorème d'extension.\\
 (Comme $g_i=c \neq 0$ alors $Z(g_1,\ldots,g_s) = \emptyset$ et donc $(a_2,\ldots,a_n) \notin Z(g_1,\ldots,g_s)$ pour tout $(a_2,\ldots,a_n) \in \C^{n-1}$).
-\end{demo}
+\end{proof}
 \begin{Ex}
 Soit $S_1$ le syst\`eme $\begin{cases}x^2=y \\ x^2=z \end{cases}$ et son ensemble de solutions $Z(x^2-y,x^2-z)$. Notons $I=\left\langle x²-y,x²-z \right\rangle$ et $I_1$ son premier idéal d'élimination.\\
 On peut calculer une base de Gröbner de $I$ : $I=\left\langle x^2-z,y-z\right\rangle$ d'où $I_1=<y-z>$

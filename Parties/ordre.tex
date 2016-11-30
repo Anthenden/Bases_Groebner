@@ -16,7 +16,7 @@ Soit $A$ un ensemble et $\leq $ une relation d'ordre sur $A$.
 
 $\leq$ est total et bien fondé ssi $\leq$ est un bon ordre.
 \end{prop}
- \begin{demo}
+ \begin{proof}
  Supposons que $\leq$ est total et bien fondé.\\
 Soit $C \subset A$ non vide.     \\
 Alors il existe un élément minimal $c$ de $C$ (bien fondé)  tel que $ \forall b \in B, b \leq c \Rightarrow c=b$.\\
@@ -30,7 +30,7 @@ $\leq$ est donc total.\\
 Soit $C \subset A$ alors il existe $c \in C$ tel que $\forall b \in C, c\leq b$.\\
 Alors si $b \leq c$ alors, par antisymétrie, $b=c$.\\
 Cela permet d'en déduire que $\leq $ est un ordre bien fondé.\\
-\end{demo}
+\end{proof}
 
 
 \begin{prop}
@@ -41,7 +41,7 @@ Soit $A$ un ensemble et $\leq $ une relation d'ordre sur $A$.
 $\leq$ est bien fondé ssi il n'existe pas de suite infinie strictement décroissante.
 \end{prop}
 
-\begin{demo}
+\begin{proof}
 Montrons cet énoncé par contraposée :\\
 $\leq $ n'est pas bien fondée ssi il existe une suite infinie strictement croissante c'est-à-dire
 il existe une partie $S$ de $A$ tel que pour tout $c \in S$, il existe $b \in S$ tel que $c > b$ \\
@@ -49,7 +49,7 @@ il existe une partie $S$ de $A$ tel que pour tout $c \in S$, il existe $b \in S$
 Soit $\alpha_1 \in S$ alors il existe $\alpha_2 \in S$  tel que $\alpha_1>\alpha_2$.\\
 En itérant ce processus, on construit une suite $(\alpha_i)_{i \in \mathbb{N}}$ strictement décroissante.\\
 Réciproquement, supposons l'existence d'une telle suite alors l'ensemble $\{a_i | i \in \mathbb{N}\}\subset A$ n'admet pas d'élément minimal donc $\leq$ n'est pas bien fondé.
-\end{demo}
+\end{proof}
 
 
 

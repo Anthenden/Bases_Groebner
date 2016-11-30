@@ -7,10 +7,10 @@ $\left\langle p_f f | f \in A\right\rangle= \left\langle A \right\rangle \;(*)$\
 En particulier, $\left\langle LT(f) | f \in A \setminus \{0\}\right\rangle=\left\langle LM(f) |f \in A \setminus \{0\}\right\rangle$ car pour tout $f \in k[X_1,\ldots,X_n], f \neq 0$, $LT(f)=LC(f)LM(f)$
 \end{Lemme}
 
-\begin{demo} On notera $I_1$ l'idéal à gauche de l'égalité $(*)$ et $I_2$ celui de droite. \\
+\begin{proof} On notera $I_1$ l'idéal à gauche de l'égalité $(*)$ et $I_2$ celui de droite. \\
 $\subset$ : Soit $P=\sum_{f \in A} \alpha_f (p_ff) \in I_1$ alors,par associativité du produit, $P=\sum_{f \in A} (\alpha_f p_f)f \in I_2$ \\
 $\supset$ : Soit $P=\sum_{f \in A}\alpha_f f \in I_2$ alors,par associativité du produit,$P=\sum_{f \in A} \frac{\alpha_f}{p_f} (p_ff)\in I_1$ \\
-\end{demo}
+\end{proof}
 \begin{prop}
 
 Soit $I \subset k[X_1,\ldots,X_n]$ un idéal. Alors :
@@ -20,16 +20,16 @@ Soit $I \subset k[X_1,\ldots,X_n]$ un idéal. Alors :
 
 \end{enumerate}
 \end{prop}
-\begin{demo}
+\begin{proof}
 
 (1)D'après le lemme précédent, on a $\left\langle LM(g) | g \in I \setminus \{0\} \right\rangle =\left\langle LT(g) | g \in I \setminus \{0\}\right\rangle=LT(I)$ ce qui montre que $LT(I)$ est un idéal monomial. \\
 (2) Comme $LT(I)$ est un idéal monomial engendré par $LM(g)$ (avec $g \in I \setminus \{0\}$ ) alors, d'après le lemme de Dickson, il existe $g_1,\ldots,g_s$ tel que $LT(I)=\left\langle LM(g_1),\ldots,LM(g_s) \right\rangle$. On conclut en utilisant le lemme précédent : \\
 $LT(I)= \left\langle LM(g_1),\ldots,LM(g_s) \right\rangle=\left\langle LT(g_1),\ldots,LT(g_s) \right\rangle$
-\end{demo}
+\end{proof}
 
 \begin{Thm}[de la base d'Hilbert]  Tout idéal $I$ de $k[X_1,\ldots,X_n]$ admet une base finie.
 \end{Thm}
-\begin{demo}
+\begin{proof}
  Si $I=\{0\}$ alors $I$ est engendré par la famille finie $\{0\}$. \\
 Sinon,  on a, d'après la proposition précédente, l'existence de $f_1,\ldots,f_s \in I,$$LT(I)=\left\langle LT(f_1),\ldots,LT(f_s) \right\rangle$. Montrons que $I=\left\langle f_1,\ldots,f_s \right\rangle$.\\
 $\supset$ :  $f_1,\ldots,f_s \in I$ \\
@@ -39,7 +39,7 @@ Supposons, par l'absurde, que $r \neq 0$.\\
 On a $r=f-\sum_{i=1}^s \alpha_if_i \in I$ d'où $LT(r) \in \left\langle LT(I) \right\rangle=\left\langle f_1,\ldots,f_s \right\rangle$. \\
 Alors d'après le lemme $2$ du ch 4, on  a $LT(r)$ est divisible avec un des $LT(f_i)$ ce qui est en contradiction avec la définition de $r$. \\
 On en déduit alors que $r=0$ et donc $f \in \left\langle f_1,\ldots,f_s \right\rangle$. \\
-\end{demo}
+\end{proof}
 \begin{Def}
 Soit $\geq$ un ordre monomial. Un sous-ensemble $G=\{g_1,\ldots,g_s\}$ d'un idéal $I$ est une base de Gröbner si $\left\langle LT(I) \right\rangle=\left\langle LT(g_1),\ldots,LT(g_s)\right\rangle$.
 \end{Def}
@@ -48,9 +48,9 @@ Soit $\geq$ un ordre monomial. Un sous-ensemble $G=\{g_1,\ldots,g_s\}$ d'un idéa
 Corollaire : Soit $\geq$ un ordre monomial. Alors tout idéal de $k[X_1,\ldots,X_n]$ non réduit à $\{0\}$ a une base de Gröbner. De plus, tout base de Gröbner est une base de $I$.
 \end{Def}
 
-\begin{demo}
+\begin{proof}
  (cf celle du théorème de la base d'Hilbert.)
-\end{demo}
+\end{proof}
 \subsection{Propriétés des bases de Gröbner}
 \begin{prop}
  Soit $G=\{g_1,\ldots,g_s\}$ une base de Gröbner d'un idéal $I$ de $k[X_1,\ldots,X_n]$ et $f \in I$. Alors il existe un unique $r \in k[X_1,\ldots,X_n]$ vérifiant : \\
@@ -59,19 +59,19 @@ Corollaire : Soit $\geq$ un ordre monomial. Alors tout idéal de $k[X_1,\ldots,X_
 \item Il existe $g \in I$ tel que $f=g+r$
 \end{enumerate}
 \end{prop}
-\begin{demo}
+\begin{proof}
  L'algorithme de division nous donne l'existence d'un tel $r$. Montrons son unicité. \\
 Supposons, par l'absurde, l'existence de deux restes $r_1$ et $r_2$, $r_1 \neq r_2$ vérifiant $(1)$ et $(2)$. \\
 Alors : $\begin{cases} f=g_1+r_1 \\f=g_2+r_2 \end{cases}$ et donc $r_1-r_2=g_1-g_2 \in I$. \\
 D'où, comme $r_1 \neq r_2$ alors $LT(r_1-r_2) \in \left\langle LT(I) \right\rangle=\left\langle g_1,\ldots,g_s \right\rangle$ et donc $LT(r_1-r_2)$ est divisé par un des $LT(g_i)$ (cf Lemme 2 para 4). On obtient donc une contradiction car aucun terme de $r_1$ et $r_2$ n'est divisible par des $LT(g_i)$. D'où $r_1=r_2$. \\
-\end{demo}
+\end{proof}
 
 \begin{cor} Soit $G=\{g_1,\ldots,g_s\}$ une base de Gröbner d'un idéal $I$ de $k[X_,\ldots,X_n]$ et $f \in k[X_1,\ldots,X_n]$. Alors $f \in I$ ssi le reste de la division de $f$ par $G$ est nul.
 \end{cor}
 
-\begin{demo} $\Leftarrow$ : Evident \\
+\begin{proof} $\Leftarrow$ : Evident \\
 $\Rightarrow$ :  Soit $f \in I$. La décomposition $f=f+0$ respecte les deux conditions de la proposition. Alors par unicité du reste, le reste de la division de $f$ par $G$ est nul. \\
-\end{demo}
+\end{proof}
 
 \begin{Not} On notera $\overline{f}^F$ le reste de $f$ par le $n$-uple ordonné $F=\{f_1,\ldots,f_s\}$. Si $f$ est une base de Gröbner alors on peut considérer $F$ comme un ensemble.
 \end{Not}
@@ -85,9 +85,9 @@ $\Rightarrow$ :  Soit $f \in I$. La décomposition $f=f+0$ respecte les deux cond
 \begin{Lemme} Soit $G=\sum_{i=1}^s c_iX^{\alpha_i} g_i$, où $c_1,\ldots,c_s \in k$ et $\alpha_i+multideg(g_i)=\delta \in \mathbb{N}^n$ pour $c_i \neq 0$. \\
 Si $LM(G) < X^\delta$ alors il existe des constantes $(c_{jk})$ tel que $G=\sum_{j,k} c_{j,k} X^{\delta-\gamma_{j,k}} S(g_j,g_k)$ où $X^{\gamma_{j,k}}=PPCM(LT(g_j),LT(g_k))$. De plus, chacun des $X^{\delta-\gamma_{j,k}}$ est strictement inférieur à $X^\delta$.
 \end{Lemme}
-\begin{demo} A faire \end{demo}
+\begin{proof} A faire \end{proof}
 \begin{Thm} Soit $I$ un idéal de $k[X_1,\ldots,X_n]$. Alors une base $G=\{g_1,\ldots,g_n\}$ de $I$ est une base de Gröbner de $I$ ssi pour tout couple $(i,j)$, $i \neq j$, $\overline{S(g_i,g_j)}^G=0$
 \end{Thm}
-\begin{demo} A faire \end{demo}
+\begin{proof} A faire \end{proof}
 
 

@@ -1,11 +1,12 @@
 \documentclass[a4page,12pt]{article}
 \usepackage[Latin1]{inputenc}
 \usepackage[francais]{babel}
-\usepackage{amsmath,amssymb}
+\usepackage{amsmath,amssymb,amsthm}
 \usepackage{textcomp}
 \usepackage{mathrsfs}
 \usepackage{ algorithm , algorithmic }
 \usepackage[all]{xy}
+
 %%% francisation des algorithmes
 
 \makeatletter
@@ -24,6 +25,7 @@
 \renewcommand{\algorithmicend}{\textbf{fin}}
 \renewcommand{\algorithmicfor}{\textbf{Pour}}
 \renewcommand{\algorithmicuntil}{\textbf{Jusqu'à}}
+\renewcommand{\algorithmicrepeat}{\textbf{Répéter}}
 
 \newcommand{\F}{\mathbb{F}}
 \newcommand{\K}{\mathbb{K}}
@@ -52,16 +54,21 @@
 \title{Bases de Gröbner}
 \author{Antoine BOIVIN}
 \maketitle
-%\tableofcontents
+\tableofcontents
+
 \newtheorem{Thm}{Théorème}[section]
 \newtheorem{prop}[Thm]{Propriété}
-\newtheorem{demo}[Thm]{Démonstration}
 \newtheorem{Lemme}[Thm]{Lemme}
 \newtheorem{cor}[Thm]{Corollaire}
-\newtheorem{Rq}[Thm]{Remarque}
+
+\theoremstyle{definition}
+
 \newtheorem{Ex}[Thm]{Exemple}
 \newtheorem{Def}[Thm]{Définition}
 \newtheorem{Not}[Thm]{Notation}
+\theoremstyle{remark}
+\newtheorem{Rq}[Thm]{Remarque}
+
 \newtheorem{Defprop}[Thm]{Définition et propriété}
 \newtheorem{ThmDef}[Thm]{Théorème et définition}
 
@@ -95,7 +102,7 @@
 \section{Implicitation}
 \input{Parties/implicitation}
 
-%\nocite{*}
-%\bibliographystyle{plain}
-%\bibliography{biblio}
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{biblio}
 \end{document}
