@@ -37,10 +37,10 @@ Soit $A$ un anneau noethérien. Alors $A[X]$ est aussi un anneau noethérien.
 
 \begin{proof}
 
-Soient $I$ un idéal de $A[X]$, $J$ l'idéal engendré par les coeff et pour tout $n \in \mathbb{N}$, $J_n=\left\langle \{a | aX^n+\sum_{k=0}^{n-1} a_kX^k \in I\} \right\rangle$ des idéaux de $A$.\\
+Soient $I$ un idéal de $A[X]$, $J$ l'idéal engendré par les coeff et pour tout $n \in \mathbb{N}$, $J_n=\left\langle \{a | aX^n+\sum_{k=0}^{n-1} a_kX^k \in I \cap A_n[X]\} \right\rangle$ des idéaux de $A$.\\
 Comme $A$ est noethérien alors il existe $x_1,\ldots,x_r \in I$,tels que $J=\left\langle x_1,\ldots,x_r\right\rangle$ et pour tout $n \in \mathbb{N}, y_{1,n},\ldots,y_{m_n,n}$ tels que $J_n=\left\langle y_{1,n},\ldots,y_{m_n,n} \right\rangle$.\\
-Il existe donc des polynômes $Q_1,\ldots,Q_r$ de $I$ ayant pour coefficient dominant $x_i$ et pour tout $n \in \mathbb{N}$, des polynômes $R_{1,n},\ldots R_{m_n,n}$ qui ont pour coefficient en $X^n$ égale à $y_{m_n,n}$.\\
-Montrons que $I=\left\langle  Q_1,\ldots,Q_r, R_{1,1},\ldots,R_{m_1,1},\ldots,R_{1,N},\ldots,R_{m_N,N} \right \rangle$ où $N:=max_i \; deg(Q_i)$.\\
+Il existe donc des polynômes $Q_1,\ldots,Q_r$ de $I$ ayant pour coefficient dominant $x_i$ et pour tout $n \in \mathbb{N}$, des polynômes $R_{1,n},\ldots R_{m_n,n} \in I \cap A_n[X] $ dont le coefficient en $X^n$ est $y_{m_n,n}$.\\
+Montrons que $I=\left\langle  Q_1,\ldots,Q_r, R_{1,1},\ldots,R_{m_1,1},\ldots,R_{1,N},\ldots,R_{m_N,N} \right \rangle$ où $N:=\max_i \; deg(Q_i)$.\\
 Notons $I'$  cet idéal (inclus dans $I$ car engendré par des éléments de $I$) et montrons,par récurrence sur le degré de $P$, que si $P:=\sum a_iX^i \in I'$ alors $P \in I$.\\
 
 \textbf{Initialisation }: Si $P=0$ alors $P \in I$ et $P \in I'$ (car ce sont des sous-groupes additifs de $A[X]$)\\
@@ -51,11 +51,11 @@ Soit $P:=\sum_{k=0}^d a_k X^k \in I$.
 \item Si $d \leq N-1$ alors $a_d \in J_d$, il existe donc $\lambda_1,\ldots,\lambda_{m_d}$ tel que $a_d=\sum_{k=1}^{m_d} \lambda_k y_{k,d}$. On en déduit que $T:=P-\sum_{k=1}^{m_d} \lambda_k R_{k,d}$ est de degré inférieur à $n-1$. Comme $P$ et les $R_{k,d}$ sont dans $I$ alors $T$ aussi et par hypothèse de récurrence $T \in I$. Comme les $R_{k,d}$ sont aussi dans $I'$ alors $P=T+\sum_{k=1}^{m_d} \lambda_k R_{k,d}$ est dans $I'$.
 \item Si $d \geq N$, alors $a_d \in J$,il existe donc $\lambda_1,\lambda_r \in A$ tel que $a=\sum_{k=1}^r \lambda_k x_k$ et donc $P-\sum_{k=1}^m \lambda_i X^{n-deg(Q_i)} Q_i$ est de degré inférieur à $n-1$. On en déduit comme pour le cas $d \leq N-1$ que $P\in I'$.
 \end{itemize}
-Conclusion : D'après le principe de récurrence, $I \subset I'$  et donc $I=I'$
+Conclusion : D'après le principe de récurrence, $I \subset I'$  et donc $I=I'$. \\
 $A[X]$ est donc noethérien.
 \end{proof}
 \begin{cor}
-$\Z[X_1,\ldots,Z_n]$,$k[X_1,\ldots,X_n]$ sont des anneaux noethériens.
+$\Z[X_1,\ldots,X_n]$,$k[X_1,\ldots,X_n]$ sont des anneaux noethériens.
 \end{cor}
 
 
