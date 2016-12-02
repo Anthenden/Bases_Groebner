@@ -1,6 +1,6 @@
 \begin{Defprop}
 
-Soit $A$ un anneau. Alors les deux conditions suivantes sont équivalentes :
+Soit $A$ un anneau commutatif. Alors les deux conditions suivantes sont équivalentes :
 
 \begin{enumerate}
 	\item  Toute suite croissante d'idéaux de $A$ est stationnaire.
@@ -27,7 +27,7 @@ $\left\langle a_1,\ldots,a_p \right\rangle \subset I_N \subset I_n \subset I=\le
 \end{proof}
 
 \begin{Ex} Tout anneau principal est noethérien car chaque idéal d'un anneau principal $A$  est de la forme $aA$ où $a \in A$.\\
-En particulier, tout corps est noethérien.
+En particulier, tout corps est noethérien (les idéaux d'un corps sont $\{0\}$ et lui-même).
 \end{Ex}
 
 \begin{Thm}[de la base de Hilbert]
@@ -37,7 +37,7 @@ Soit $A$ un anneau noethérien. Alors $A[X]$ est aussi un anneau noethérien.
 
 \begin{proof}
 
-Soient $I$ un idéal de $A[X]$,$J:=\left\langle \{a | aX^p+\sum_{k=0}^{p-1} a_kX^k \in I\} \right\rangle$ et pour tout $n \in \mathbb{N}$, $J_n=\left\langle \{a | aX^n+\sum_{k=0}^{n-1} a_kX^k \in I\} \right\rangle$ des idéaux de $A$.\\
+Soient $I$ un idéal de $A[X]$, $J$ l'idéal engendré par les coeff et pour tout $n \in \mathbb{N}$, $J_n=\left\langle \{a | aX^n+\sum_{k=0}^{n-1} a_kX^k \in I\} \right\rangle$ des idéaux de $A$.\\
 Comme $A$ est noethérien alors il existe $x_1,\ldots,x_r \in I$,tels que $J=\left\langle x_1,\ldots,x_r\right\rangle$ et pour tout $n \in \mathbb{N}, y_{1,n},\ldots,y_{m_n,n}$ tels que $J_n=\left\langle y_{1,n},\ldots,y_{m_n,n} \right\rangle$.\\
 Il existe donc des polynômes $Q_1,\ldots,Q_r$ de $I$ ayant pour coefficient dominant $x_i$ et pour tout $n \in \mathbb{N}$, des polynômes $R_{1,n},\ldots R_{m_n,n}$ qui ont pour coefficient en $X^n$ égale à $y_{m_n,n}$.\\
 Montrons que $I=\left\langle  Q_1,\ldots,Q_r, R_{1,1},\ldots,R_{m_1,1},\ldots,R_{1,N},\ldots,R_{m_N,N} \right \rangle$ où $N:=max_i \; deg(Q_i)$.\\
@@ -54,6 +54,9 @@ Soit $P:=\sum_{k=0}^d a_k X^k \in I$.
 Conclusion : D'après le principe de récurrence, $I \subset I'$  et donc $I=I'$
 $A[X]$ est donc noethérien.
 \end{proof}
+\begin{cor}
+$\Z[X_1,\ldots,Z_n]$,$k[X_1,\ldots,X_n]$ sont des anneaux noethériens.
+\end{cor}
 
 
 

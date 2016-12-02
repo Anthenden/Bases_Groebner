@@ -1,20 +1,20 @@
-\begin{Def} Un idéal monomial est un idéal de $k[X_1,\ldots,X_n]$ tel qu'il existe une partie $A$ de $\mathbb{N}^n$ telle que $ I=\left\langle X^{\alpha} | \alpha \in A \right\rangle=\{\sum P_\alpha X^\alpha | P_\alpha \in k[X_1,\ldots,X_n]\}$.
+\begin{Def} Un idéal monomial est un idéal de $k[X_1,\ldots,X_n]$ tel qu'il existe une partie $A$ de $\mathbb{N}^n$ telle que : \\$ I=\left\langle X^{\alpha} | \alpha \in A \right\rangle=\{\sum P_\alpha X^\alpha | P_\alpha \in k[X_1,\ldots,X_n]\}$.
 \end{Def}
 
  \begin{Lemme}
-Soit $I:=\left\langle X^{\alpha} | \alpha \in A \right\rangle$ un idéal monomial. Alors $X^beta \in I$ ssi il existe un $\alpha \in A$ tel que $X^\alpha $divise $X^\beta$.
+Soit $I:=\left\langle X^{\alpha} | \alpha \in A \right\rangle$ un idéal monomial. Alors $X^\beta \in I$ si, et seulement si, il existe un $\alpha \in A$ tel que $X^\alpha $divise $X^\beta$.
 \end{Lemme}
 
 \begin{proof}
   $\Leftarrow $ Evident \\
-$\Rightarrow $ Si $X^\beta \in I$ alors il existe une famille de polynômes $P_1,\ldots,P_s \in k[X_1,\ldots,X_n]$ et d'exposants $\alpha_1,\ldots,\alpha_s \in \mathbb{N}^n$ telle que $X^\beta = \sum_{i=1}^s P_i X^{\alpha_i}$. \\
-On peut alors remarquer qu'en utilisant les expressions $P_i:=\sum p_{i,\alpha} X^\alpha$ alors $X^\beta$ est de la forme $\sum_{\gamma \in \Gamma} p_\gamma X^{\gamma}$ où $\Gamma:=\{\gamma \in \mathbb{N}^n | \exists n \in \mathbb{N}^n,\exists i \in [\![1,s]\!],\gamma=\alpha_i+n\}$. \\
+$\Rightarrow $ Si $X^\beta \in I$ alors il existe une famille de polynômes $P_1,\ldots,P_s \in k[X_1,\ldots,X_n]$ et d'exposants $\alpha_1,\ldots,\alpha_s \in A$ telle que $X^\beta = \sum_{i=1}^s P_i X^{\alpha_i}$. \\
+On peut alors remarquer, en utilisant les expressions $P_i:=\sum p_{i,\alpha} X^\alpha$, que $X^\beta$ est de la forme $\sum_{\gamma \in \Gamma} p_\gamma X^{\gamma}$ où $\Gamma:=\{\gamma \in \mathbb{N}^n | \exists n \in \mathbb{N}^n,\exists i \in [\![1,s]\!],\gamma=\alpha_i+n\}$. \\
 Et donc $X^\beta- \sum_{\gamma \in \Gamma} p_\gamma X^{\gamma}=0 \; (*)$ \\
-Comme $k[X_1,\ldots,X_n]$ est un $k$-espace vectoriel dont $\mathscr{M}$ est une base, on déduit de $(*)$ que $p_\gamma=\begin{cases}
+Comme $k[X_1,\ldots,X_n]$ est un $k$-espace vectoriel de base canonique$\mathscr{M}$, on déduit de $(*)$ que $p_\gamma=\begin{cases}
  0 \text{ si } \gamma \neq \beta \\
  1 \text{ sinon }
 \end{cases}$ 
-(dans le cas contraire, on aurait une combinaison linéaire (d'élément d'une base) nulle à coefficients non nuls). On en déduit que $\beta \in \Gamma$ et donc qu'il existe un $n \in \mathbb{N}^n$ et un  $i \in [\![1,s]\!]$, $\beta=a_i+n $ c'est-à-dire qu'il existe un $i \in [\![1,s]\!]$ tel que $X^{\alpha_i}$ divise $X^\beta$.
+(dans le cas contraire, on aurait une combinaison linéaire (d'élément d'une base) nulle à coefficients non nuls). On en déduit que $\beta \in \Gamma$ et donc qu'il existe un $p \in \mathbb{N}^n$ et un  $i \in [\![1,s]\!]$, $\beta=a_i+p $ c'est-à-dire qu'il existe un $i \in [\![1,s]\!]$ tel que $X^{\alpha_i}$ divise $X^\beta$.
 \end{proof}
 
 \begin{Lemme} Soit $I$ un idéal monomial et $f \in k[X_1,\ldots,X_n]$.
@@ -28,21 +28,21 @@ Les propositions suivantes sont équivalentes :
 \end{Lemme}
 \begin{proof} 
 $(3) \Rightarrow (2) \Rightarrow (1)$ est évident. \\
-$(1) \Leftrightarrow (3)$ se montre comme le lemme précédent.
+$(1) \Rightarrow (3)$ se montre comme le lemme précédent.
 \end{proof}
 
-\begin{cor}Deux idéaux monomiaux sont égaux ssi ils contiennent les mêmes monômes.
+\begin{cor}Deux idéaux monomiaux sont égaux si, et seulement si, ils contiennent les mêmes monômes.
 \end{cor}
 
 \begin{proof}
  $\Rightarrow $ Evident \\
- $\Leftarrow $ Soit $I,I'$ deux idéaux monomiaux tel que $I \cap \mathscr{M}=I' \cap \mathscr{M}$. \\
-Si $f:=\sum p_\alpha X^\alpha$ alors d'après le lemme précédent, pour tout $\alpha \in A$, le monôme $X^\alpha \in I$ alors, par hypothèse, $X^\alpha \in I' \cap \mathscr{M}$ d'où $X^\alpha \in I'$ et en réutilisant le lemme, $f \in I'$. \\
+ $\Leftarrow $ Soit $I,I'$ deux idéaux monomiaux tel que $I \cap \mathscr{M}=I' \cap \mathscr{M}$ $(*)$. \\
+Si $f:=\sum p_\alpha X^\alpha$ alors d'après le lemme précédent, pour tout $\alpha \in A$, le monôme $X^\alpha \in I$. Comme on a $(*)$ alors $X^\alpha \in I' \cap \mathscr{M}$ d'où $X^\alpha \in I'$ et en réutilisant le lemme, $f \in I'$. \\
 On en déduit que $I \subset I'$ et donc par symétrie de rôle de $I$ et $I'$, $I =I'$. \\
 \end{proof}
 
 \begin{Lemme} Soit $I:=\left \langle X^\alpha | \alpha \in A \right\rangle$ un idéal monomial et supposons qu'il ait une base finie $\left \langle X^{\beta_1},\ldots,X^{\beta_s} \right\rangle$.
-Supposons aussi qu'il existe une famille $\alpha_1,\ldots,\alpha_s$ tel que pour tout $i \in [\![1,s]\!]$,$X^{\alpha_i}$ divise $X^{\beta_i}$$(*)$ alors $I=\left\langle X^{\alpha_1},\ldots,X^{\alpha_s} \right\rangle$.
+Supposons aussi qu'il existe une famille $\alpha_1,\ldots,\alpha_s$ tel que, pour tout $i \in [\![1,s]\!]$,$X^{\alpha_i}$ divise $X^{\beta_i}$$(*)$ alors $I=\left\langle X^{\alpha_1},\ldots,X^{\alpha_s} \right\rangle$.
 \end{Lemme}
 \begin{proof} D'après $(*)$, on a : $\forall i \in [\![1,s]\!],X^{\beta_i} \in \left\langle X^{\alpha_1},\ldots,X^{\alpha_s}\right\rangle$. D'où,comme on a,de plus,$X^{\alpha_1},\ldots,X^{\alpha_s} \in I$,\\
 $I=\left\langle X^{\beta_1},\ldots,X^{\beta_s}\right\rangle \subset \left\langle X^{\alpha_1},\ldots,X^{\alpha_s}\right\rangle \subset I $.\\

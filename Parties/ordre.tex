@@ -1,13 +1,13 @@
 Soit un ensemble $A$ et une relation d'ordre $\leq$ sur $A$.\\
 
 \begin{Def}
-On dit que $\leq $ est un bon ordre si toute partie non vide de $A$ admet un plus petit élément, c'est-à-dire :$\forall  C \subset A,C \neq \emptyset, \exists c \in C, \forall b \in B, c \leq b$.
+On dit que $\leq $ est un bon ordre si toute partie non vide de $A$ admet un plus petit élément, c'est-à-dire : \\$\forall  C \subset A,C \neq \emptyset, \exists c \in C, \forall b \in B, c \leq b$.
 \end{Def}
 
 \begin{Def}
 
 On dit que $\leq $ est un ordre bien fondé si toute partie non vide de $A$ admet un élément minimal, c'est-à-dire :
-$\forall  C \subset A,C \neq \emptyset, \exists c \in C, \forall b \in B, b \leq c \Rightarrow c=b$.
+\\$\forall  C \subset A,C \neq \emptyset, \exists c \in C, \forall b \in B, b \leq c \Rightarrow c=b$.
 \end{Def}
 
 \begin{prop}
@@ -19,7 +19,7 @@ $\leq$ est total et bien fondé ssi $\leq$ est un bon ordre.
  \begin{proof}
  Supposons que $\leq$ est total et bien fondé.\\
 Soit $C \subset A$ non vide.     \\
-Alors il existe un élément minimal $c$ de $C$ (bien fondé)  tel que $ \forall b \in B, b \leq c \Rightarrow c=b$.\\
+Alors il existe un élément minimal $c$ de $C$ ($\leq$ bien fondé)  tel que : \\ $ \forall b \in B, b \leq c \Rightarrow c=b$.\\
 D'où  $ \forall b \in B, b > c \text{ ou }  c=b$ car $\leq $ est total. \\
 c'est-à-dire $ \forall b \in B, b \geq c$.\\
 ou encore que $c$ est le plus petit élément que $C$.\\

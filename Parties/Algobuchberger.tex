@@ -3,24 +3,24 @@
 Soit $G $ une base de Gröbner d'un idéal $I $ de $k[X_1,\ldots,X_n] $ et  $P\in G$ tel que $LT (P) \in \left\langle LT(G \setminus \{P\}) \right\rangle$. Alors $G \setminus \{P\} $ est une base de Gröbner de $I $.
 \end{Lemme}
 \begin{proof}
-Comme $G $ est une base de Gröbner de $I $ alors $\left\langle LT(G)\right\rangle=\left\langle LT(I) \right\rangle$. Si $LT (P) \in \left\langle LT(G \setminus \{P\}) \right\rangle$ alors $\left\langle LT(G \setminus \{P\} )\right\rangle=\left\langle LT(G )\right\rangle=\left\langle LT(I) \right\rangle$ d'où $G \setminus \{P\} $ est une base de Gröbner de $I $.
+Comme $G $ est une base de Gröbner de $I $ alors $\left\langle LT(G)\right\rangle=\left\langle LT(I) \right\rangle$. Si $LT (P) \in \left\langle LT(G \setminus \{P\}) \right\rangle$ alors $\left\langle LT(G \setminus \{P\} )\right\rangle=\left\langle LT(G )\right\rangle=\left\langle LT(I) \right\rangle$, d'où $G \setminus \{P\} $ est une base de Gröbner de $I $.
 \end{proof}
 
 \begin{Def}
-Une base de Gröbner minimale d'un idéal $I $ de $k [X_1,\ldots,X_n] $ est une base de Gröbner de $I $ telle que :
+Une base de Gröbner minimale $G$ d'un idéal $I $ de $k [X_1,\ldots,X_n] $ est une base de Gröbner de $I $ telle que :
 \begin{enumerate}
-	\item  $\forall P \in G,  LC(P)=1$
+	\item  $\forall P \in G,  \LC(P)=1$
 
- \item $\forall P \in G, LT (P) \notin \left\langle LT(G \setminus \{P\}) \right\rangle$
+ \item $\forall P \in G, \LT(P) \notin \left\langle \LT(G \setminus \{P\}) \right\rangle$
 \end{enumerate}
 \end{Def}
 \begin{Def}
 
-Une base de Gröbner réduite d'un idéal $I $ de $k [X_1,\ldots,X_n] $ est une base de Gröbner de $I $ telle que :
+Une base de Gröbner réduite $G$ d'un idéal $I $ de $k [X_1,\ldots,X_n] $ est une base de Gröbner de $I $ telle que :
 
 \begin{enumerate}
-	\item $\forall P \in G,  LC(P)=1$
-\item  Pour tout $P \in G$, aucun monôme de $P $ n'appartient à  $\left\langle LT(G \setminus \{P\}) \right\rangle$.
+	\item $\forall P \in G,  \LC(P)=1$
+\item  Pour tout $P \in G$, aucun monôme de $P $ n'appartient à  $\left\langle \LT(G \setminus \{P\}) \right\rangle$.
 \end{enumerate}
 \end{Def}
 \begin{prop}

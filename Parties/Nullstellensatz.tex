@@ -1,5 +1,5 @@
 \begin{Lemme}
-Soit $f \in k[X_1,\ldots,X_n]$. \\
+Soit $f \in k[X_1,\ldots,X_n]$, avec $k$ algébriquement clos. \\
 Alors il existe un point $(a_2,\ldots,a_n) \in k^{n-1}$tel que le polynôme $\widetilde{f}=f(x_1,x_2+a_2x_1,\ldots,x_n+a_nx_1)$ est de la forme $cx_1^N+$ termes de degré  $<N$ en $x_1$ avec $c \neq 0$ et $N>0$.
 \end{Lemme}
 \begin{proof}
@@ -10,7 +10,7 @@ On en déduit que le coefficient en $x_1^N $ de $f (x_1,x_2+a_2x_1,\ldots,x_n+a_n
 $h_N $ est de la forme $\sum_{|l|=N} \alpha_lX^l $. \\
 D'où   $h_N(x_1,x_2+a_2x_1,\ldots,x_n+a_nx_1)=\sum_{|(l_1,\ldots,l_n)|=N} \alpha_l x_1^{l_1} \prod_{j=2}^n (x_j+a_jx_1)^{l_j}$. \\
 On en déduit que le coefficient  de  $f(x_1,x_2+a_2x_1,\ldots,x_n+a_nx_1)$ en $x_1^N $ est $\sum_{|(l_1,\ldots,l_n)|=N} \alpha_l a_2^{l_2} \ldots a_n^{l_n}=h_N (1,a_2,\ldots,a_n) $.\\
-Comme on a supposé $h_N \neq 0$ alors, en particulier, il existe $(a_1,\ldots,a_n) \in k^n$ tel que $a_1^N h_N(1,a_2,\ldots,a_n)=h_N(a_1,a_2,\ldots,a_n)\neq 0 $, autrement dit, par intégrité de $k$, $h_N(1,a_2,\ldots,a_n)\neq 0$. \\
+Comme on a supposé $h_N \neq 0$ alors, en particulier, il existe $(a_1,\ldots,a_n) \in k^n$ tel que $a_1^N h_N(1,a_2,\ldots,a_n)=h_N(a_1,a_2,\ldots,a_n)\neq 0 $ (car $k$ est infini), autrement dit, par intégrité de $k$, $h_N(1,a_2,\ldots,a_n)\neq 0$. \\
 Ce qui termine la preuve que $ f(x_1,x_2+a_2x_1,\ldots,x_n+a_nx_1)$ est de la forme  $cx_1^N+$ termes de degré  $<N$ en $x_1$.
 \end{proof}
 \begin{Thm}[Nullstellensatz faible]
@@ -30,7 +30,7 @@ Soit $I=\left \langle f_1,\ldots,f_s\right\rangle \subset k[X_1,\ldots,X_n]$ un 
 Quitte à changer $I$ par $\widetilde{I}$ (cf. Lemme précédent), on peut supposer que $f_1$ est de la forme $cX_1^N + $ terme de degré $<N$ en $X_1$ avec $c \neq 0$ et $N > 0$. \\
 On peut donc utiliser le corollaire du théorème de fermeture : \\ 
 $Z(I_1)=\pi_1(Z(I))=\pi_1(\emptyset)=\emptyset$ où $\pi_1:k^n \to k^{n-1}$ est la projection canonique et $I_1$ le premier idéal d'élimination de $I$. \\
-D'où, par hypothèse de récurrence, $I_1=k[X_2,\ldots,X_n]$ c'est-à-dire $1 \in I_1 \subset I$.\\
+D'où, par hypothèse de récurrence, $I_1=k[X_2,\ldots,X_n]$ c'est-à-dire \\$1 \in I_1 \subset I$.\\
 D'où $I=k[X_1,\ldots,X_n]$
 \end{proof}
 \begin{Thm}[Nullstellensatz]

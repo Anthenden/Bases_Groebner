@@ -3,10 +3,10 @@
 Un ordre monomial est une relation d'ordre total $\geq$ de $\mathscr{M}$ telle que :
 
 \begin{enumerate}
-	\item  $\forall \alpha,\beta,\gamma \in \mathbb{N}^n, X^\alpha \geq X^\beta \Rightarrow X^{\alpha+\gamma} \geq X^{\beta +\gamma}$
+	\item  $\forall \alpha,\beta,\gamma \in \mathbb{N}^n, X^\alpha \geq X^\beta \Rightarrow X^{\alpha+\gamma} \geq X^{\beta +\gamma}$(compatible avec le produit)
  \item $\geq$ est un bon ordre
 \end{enumerate}
-On note $X^\alpha > X^\beta$ si $X^\alpha \geq X^\beta$ et $\alpha \neq \beta$ (compatible avec l'addition) et $X^\alpha \leq X^\beta $ si $X^\beta \geq X^\alpha $
+On note $X^\alpha > X^\beta$ si $X^\alpha \geq X^\beta$ et $\alpha \neq \beta$  et $X^\alpha \leq X^\beta $ si $X^\beta \geq X^\alpha $
 \end{Def}
 
 \begin{prop}
@@ -15,8 +15,8 @@ Soit $\geq$ un ordre monomial. $1$ est le plus petit élément de $\mathscr{M}$ po
 
 \begin{proof}
 
-Comme $\geq$ est un bon ordre alors il existe un plus petit élément que l'on notera $x^\alpha$ alors :
-$X^\alpha \leq 1$ et donc $X^{2 \alpha} \leq X^\alpha$ (par la compatibilité avec l'addition). \\
+Comme $\geq$ est un bon ordre alors il existe un plus petit élément que l'on notera $X^\alpha$ alors :
+$X^\alpha \leq 1$ et donc $X^{2 \alpha} \leq X^\alpha$ (par la compatibilité avec le produit). \\
 Or comme $X^\alpha$ est le petit élément de $\mathscr{M}$alors $X^\alpha \leq X^{2\alpha}$. \\
 Donc, par antisymétrie, $X^\alpha=X^{2\alpha}$ d'où $\alpha=2\alpha$ et donc $\alpha=0$. \\
 On en déduit que $1=X^0$ est le plus petit élément de $\mathscr{M}$.
@@ -25,20 +25,20 @@ On en déduit que $1=X^0$ est le plus petit élément de $\mathscr{M}$.
 
 \begin{cor}
 
-Soit $\geq$ un ordre monomial et $\alpha,\beta \in \mathbb{N}^n$. Si $X^\alpha | X^\beta$ alors $X^\alpha \leq X^\beta$.
+Soit $\geq$ un ordre monomial et $\alpha,\beta \in \mathbb{N}^n$. Si $X^\alpha$ divise $X^\beta$ alors $X^\alpha \leq X^\beta$.
 \end{cor}
 
 \begin{proof}
-  Si $X^\alpha | X^\beta$ alors il existe $\gamma \in \mathbb{N}^n$ tel que : $X^\beta=X^\gamma X^\alpha$. Or comme $1 \leq X^\gamma$ alors par compatibilité avec l'addition, $X^\alpha \leq X^{\alpha+\gamma}=X^\beta$.
+  Si $X^\alpha$ divise $X^\beta$ alors il existe $\gamma \in \mathbb{N}^n$ tel que : $X^\beta=X^\gamma X^\alpha$. Or, $1 \leq X^\gamma$, d'où, par compatibilité avec le produit, $X^\alpha \leq X^{\alpha+\gamma}=X^\beta$.
 \end{proof}
 
 \begin{Def}
-Soit $P:=\sum_{\alpha} p_{\alpha}X^\alpha$ et $\geq$ un ordre monomial. \\
+Soit $P:=\sum_{\alpha} p_{\alpha}X^\alpha \in k[X_1,\ldots,X_n]$ et $\geq$ un ordre monomial. \\
 \begin{enumerate}
-	\item  Le monôme dominant de $P$ est : $LM(P):=max\{X^\alpha \in \mathscr{M} | a_\alpha \neq 0\}$
-\item Le multidegré de $f$ est l'élément de $\mathbb{N}^n$, noté $multideg(P)$, tel que $x^{multideg(P)}=LM(P)$
- \item Le coefficient dominant de $P$ est $LC(P):=a_{multideg(P)}$
-\item Le terme dominant de $P$ est $LT(P):=LC(P)\cdot LM(P)$
+	\item  Le monôme dominant de $P$ est : $\LM(P):=\max\{X^\alpha \in \mathscr{M} | a_\alpha \neq 0\}$
+\item Le multidegré de $f$ est l'élément de $\mathbb{N}^n$, noté $\multideg(P)$, tel que $x^{\multideg(P)}=LM(P)$
+ \item Le coefficient dominant de $P$ est $\LC(P):=a_{\multideg(P)}$
+\item Le terme dominant de $P$ est $\LT(P):=\LC(P)\cdot \LM(P)$
 \end{enumerate}
 
 
@@ -49,11 +49,11 @@ Soient $\alpha=(\alpha_1,\ldots,\alpha_n), \beta=(\beta_1,\ldots,\beta_n) \in \m
 $X^\alpha \geq_{lex} X^\beta$ si, et seulement si, $\alpha=\beta$ ou le premier coefficient non nul en lisant par la gauche de $\alpha -\beta $ est positif.
 \end{Defprop}
 \begin{proof}
-Montrons que $\geq$ est un ordre monomial. \\
-$\alpha,\beta,\gamma$ désigneront des éléments quelconques de $\mathbb{N}^n$ et si $\alpha \neq \beta$, $\ell(\alpha,\beta)$ désignera la première composante ,en partant de la gauche,non nulle de $\alpha-\beta$  i.e. $\ell(\alpha,\beta):=min\{r \in [\![1,n]\!] | a_r \neq b_r \}$. \\
+Montrons que $\geq_{lex}$ est un ordre monomial. \\
+$\alpha,\beta,\gamma$ désigneront des éléments quelconques de $\mathbb{N}^n$ de composantes respectives $\alpha_i,\beta_i,\gamma_i$ et si $\alpha \neq \beta$, $\ell(\alpha,\beta)$ désignera la première composante ,en partant de la gauche,non nulle de $\alpha-\beta$  i.e. $\ell(\alpha,\beta):=\min\{r \in [\![1,n]\!] | a_r \neq b_r \}$. \\
 Montrons tout d'abord que c'est bien une relation d'ordre. \\
 \textbf{Réflexivité :}\\
-$X^\alpha \geq X^\alpha$ (c.f. premier cas)\\
+$X^\alpha \geq X^\alpha$ (\emph{c.f.} premier cas)\\
 \textbf{Antisymétrie :} \\
 Supposons que $X^\alpha \geq X^\beta $(i) et $X^\beta \geq X^\alpha$(ii). \\
 Supposons, par l'absurde, que $X^\alpha \neq X^\beta$. \\
@@ -62,10 +62,10 @@ On a donc $X^\alpha = X^\beta $. \\
 \textbf{Transitivité :} \\
 Supposons que $X^\alpha \geq X^\beta$(i) et $X^\beta \geq X^\gamma$(ii).\\
 Si $\alpha=\beta$, $\alpha=\gamma$ ou $\alpha=\beta$ alors l'inégalité $X^\alpha \geq X^\gamma$ est évidente.\\
-Sinon, posons $\ell:=min\{\ell(\alpha,\beta),\ell(\beta,\gamma)\}$. \\
+Sinon, posons $\ell:=\min\{\ell(\alpha,\beta),\ell(\beta,\gamma)\}$. \\
 On a avec (i) et (ii),que : $\alpha_\ell > \beta_\ell \geq \gamma_\ell$ ou $\alpha_\ell \geq \beta_\ell >\gamma_\ell$ et pour tout $k < \ell$, $\alpha_\ell = \beta_\ell = \gamma_\ell$. \\
 On a donc $X^\alpha \geq X^\gamma$. \\
-\textbf{Montrons que $\geq_{lex}$ est compatible avec l'addition.}\\
+\textbf{Montrons que $\geq_{lex}$ est compatible avec le produit.}\\
 Si $\alpha=\beta$ alors $X^{\alpha+\gamma}=X^{\beta+\gamma}$ et donc $X^{\alpha+\gamma}\geq_{lex}X^{\beta+\gamma}$\\
 Sinon,  comme $(\alpha+\gamma)-(\beta+\gamma)=\alpha-\beta$ alors $\ell(\alpha,\beta)=\ell(\alpha+\gamma,\beta+\gamma)$ et donc si $X^{\alpha} \geq_{lex} X^\beta$ alors $X^{\alpha+\gamma} \geq_{lex} X^{\beta+\gamma}$.\\
 \textbf{Montrons maintenant que $\geq_{lex}$ est un bon ordre}, par l'absurde.\\
@@ -74,7 +74,7 @@ On en déduit que la suite $u_1:=(a_{1,i})_{i \in \mathbb{N}}$ est décroissante (
 Alors il existe $N_1 \in \mathbb{N}$ tel que $\forall p \geq N,u_{1,p}=u_{1,N_1}$. \\
 Considérons maintenant la suite $u_2:=(a_{2,i})_{i \geq N_1}$. Elle est décroissante et donc stationnaire ... \\
 On construit ainsi une suite $(N_i)_{i \geq 1}$ tel que $\forall n \geq N_i, u_{i,n} \geq u_{i,N_i}$.\\
-On en déduit que $\forall p \geq N_n,\forall i \in [\![1,n]\!], u_{i,p}=u_{i,N_n}$ ou encore $\forall p \geq N_n,, X^{u_{1,p},\ldots,u_{n,p}}=X^{u_{1,N_n},\ldots,u_{n,N_n}}$, ce qui est contradictoire avec la décroissance de $u$.
+On en déduit que $\forall p \geq N_n,\forall i \in [\![1,n]\!], u_{i,p}=u_{i,N_n}$ ou encore \\$\forall p \geq N_n, X^{u_{1,p},\ldots,u_{n,p}}=X^{u_{1,N_n},\ldots,u_{n,N_n}}$, ce qui est contradictoire avec la stricte décroissance de $u$.
 \end{proof}
 \begin{Defprop}[Ordre lexicographique gradué $\geq_{grlex}$]
 Soient $\alpha=(\alpha_1,\ldots,\alpha_n), \beta=(\beta_1,\ldots,\beta_n) \in \mathbb{N}^n$ alors
@@ -82,12 +82,12 @@ $X^\alpha \geq_{grlex} X^\beta$ si, et seulement si, $|\alpha|>|\beta|$ ou ($|\a
 \end{Defprop}
 \begin{Defprop}[Ordre lexicographique gradué renversé $\geq_{grevlex}$]
 Soient $\alpha=(\alpha_1,\ldots,\alpha_n), \beta=(\beta_1,\ldots,\beta_n) \in \mathbb{N}^n$ alors
-$X^\alpha \geq_{grevlex} X^\beta$ si, et seulement si, $|\alpha|>|\beta|$ ou ($|\alpha|=|\beta|$ et   le premier coefficient non nul en lisant par la droite de $\beta - \alpha $ est positif).
+$X^\alpha \geq_{grevlex} X^\beta$ si, et seulement si, $|\alpha|>|\beta|$ ou ($|\alpha|=|\beta|$ et le premier coefficient non nul en lisant par la droite de $\beta - \alpha $ est positif).
 \end{Defprop}
 \begin{Ex}
 Ordre lexicographique : \\
 $ X_1 >_{lex} X_2 >_{lex}\ldots >_{lex} X_n $\\
-Pour $n=3$,
+Pour $n=3$,\\
 $X^2Y^2Z^4 >_{lex} X^1Y^4Z^{42} $ \\
 $X^3Y^2Z^4 >_{lex} X^3Y^2Z^3$\\
 Ordre lexicographique graduée : \\
