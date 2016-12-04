@@ -1,0 +1,37 @@
+Soient $A $ un anneau commutatif intègre et $K $ son corps de fractions.\\
+Soient $f\in A [X] $ et $g \in A [X] $. Posons $p:=\deg f $ et $q:=\deg g $.\\
+Soit $\varphi_{f,g} : K_{q-1}[X]\times K_{p-1}[X] \to K_{p+q-1}[X] $ l'application linéaire définie par :\\ $\forall (u,v) \in K_{q-1}[X]\times K_{p-1}[X], \varphi(u,v)=fu+gv $.\\
+On appelle matrice de Sylvester la matrice associée à l'application $\varphi_{f,g} $ dans la base $\B=((X^i,X^j) | 1 \leq i \leq q-1 ; 1 \leq j \leq p-1) $ que l'on notera $\Syl(f,g)$.\\
+On appelle résultant de $f $ et $g $ le déterminant de cette matrice et on le note $\Res(f,g)$.
+
+\begin{Lemme}
+
+$\Res(f,g) \in A$
+
+\end{Lemme}
+
+\begin{proof}
+
+Le determinant est polynomial en les coordonnées de la matrice et les composantes de $\Syl(f, g) $ sont dans   $A$.
+
+\end{proof}
+
+\begin{prop}
+
+Supposons que $A=k [Y] $ avec $k $ un corps. Alors :
+
+$\Res (f, g)\in\left\langle f,g \right \rangle \cap k[Y] $
+
+\end{prop}
+
+\begin{proof}
+
+ $\Res (f,g) \in k [Y] $ grâce au lemme précédent. \\
+Montrons maintenant que $\Res (f,g) \in \left\langle f,g \right\rangle $.\\
+Notons $M $ la matrice de Sylvester de $f $ et $g $. \\
+Alors $M {}^t \Com(M)=\det (M)I $ $(*) $ où $\Com(M)$ est la matrice des cofacteurs. \\
+Comme les cofacteurs de $M $ sont dans $A $ (car polynomial en les coordonnées) alors $\Com (M) $ est dans $\Mcal_{p+q-1}(A) $. \\
+Donc en posant $M=(C_1,\ldots,C_{p+q-1})$ alors d'après $(*) $, on a : \\
+$MC_1=\begin{pmatrix} \det (A) \\ 0 \\ \vdots\\ 0 \end{pmatrix} $. \\
+En notant par $c $ l'élément de $ A_{q-1}[X]\times A_{p-1}[X] $ de colonne de coordonnées $C_1$ dans la base $\B  $ définie plus haut, on a : $\varphi_{f,g}(c)=det (A) $, ce qui permet de conclure.
+\end{proof}
