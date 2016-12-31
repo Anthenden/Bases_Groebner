@@ -1,11 +1,12 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4page,12pt]{article}
 \usepackage[Latin1]{inputenc}
 \usepackage[francais]{babel}
-\usepackage{amsmath,amssymb}
+\usepackage{amsmath,amssymb,amsthm}
 \usepackage{textcomp}
 \usepackage{mathrsfs}
 \usepackage{ algorithm , algorithmic }
 \usepackage[all]{xy}
+
 %%% francisation des algorithmes
 
 \makeatletter
@@ -24,6 +25,7 @@
 \renewcommand{\algorithmicend}{\textbf{fin}}
 \renewcommand{\algorithmicfor}{\textbf{Pour}}
 \renewcommand{\algorithmicuntil}{\textbf{Jusqu'à}}
+\renewcommand{\algorithmicrepeat}{\textbf{Répéter}}
 
 \newcommand{\F}{\mathbb{F}}
 \newcommand{\K}{\mathbb{K}}
@@ -48,20 +50,31 @@
 \newcommand{\ybar}{\overline{y}}
 \newcommand{\fbar}{\overline{f}}
 
+
+\DeclareMathOperator{\multideg}{\mathrm{multideg}}
+\DeclareMathOperator{\LM}{\mathrm{LM}}
+\DeclareMathOperator{\LT}{\mathrm{LT}}
+\DeclareMathOperator{\LC}{\mathrm{LC}}
+\DeclareMathOperator{\PPCM}{\mathrm{PPCM}}
 \begin{document}
 \title{Bases de Gröbner}
 \author{Antoine BOIVIN}
 \maketitle
 \tableofcontents
+
 \newtheorem{Thm}{Théorème}[section]
 \newtheorem{prop}[Thm]{Propriété}
-\newtheorem{demo}[Thm]{Démonstration}
 \newtheorem{Lemme}[Thm]{Lemme}
 \newtheorem{cor}[Thm]{Corollaire}
-\newtheorem{Rq}[Thm]{Remarque}
+
+\theoremstyle{definition}
+
 \newtheorem{Ex}[Thm]{Exemple}
 \newtheorem{Def}[Thm]{Définition}
 \newtheorem{Not}[Thm]{Notation}
+\theoremstyle{remark}
+\newtheorem{Rq}[Thm]{Remarque}
+
 \newtheorem{Defprop}[Thm]{Définition et propriété}
 \newtheorem{ThmDef}[Thm]{Théorème et définition}
 
@@ -75,10 +88,13 @@
 \input{Parties/basesGrobner}
 \section{Algorithme de Buchberger}
 \input{Parties/Algobuchberger}
-\section{Théorème d'élimination et d'extension}
+\section{Théorèmes d'élimination et d'extension}
 \input{Parties/Thm_elim_et_ext}
 \section{Géométrie}
 \input{Parties/Geometrie}
+\section{Nullstellensatz}
+\input{Parties/nullstellensatz}
+\appendix
 \section{Graphe}
 \input{Parties/graphe}
 \section{Ordre}
@@ -91,8 +107,7 @@
 \input{Parties/Resultant}
 \section{Implicitation}
 \input{Parties/implicitation}
-\section{Nullstellensatz}
-\input{Parties/nullstellensatz}
+
 \nocite{*}
 \bibliographystyle{plain}
 \bibliography{biblio}

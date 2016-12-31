@@ -7,9 +7,9 @@
 Soit $G:=(A,S)$ un graphe non orienté. Les sommets $s,t$ sont dits adjacents si $(s,t) \in A$ 
 \end{Def}  
 \begin{Def} 
-Soit $p\in \mathbb{N}^*$ Notons $C_p=\{x_1,\ldots,x_p\}$ un ensemble de couleurs. Un graphe $G:=(A,S)$ est coloriable si on peut associer à chaque sommet de $G$ une couleur de $C_p$ tel que deux sommets adjacents n'aient pas la même couleur.  
+Soit $p\in \mathbb{N}^*$.\\ Notons $C_p=\{x_1,\ldots,x_p\}$ un ensemble de couleurs. Un graphe $G:=(A,S)$ est coloriable si on peut associer à chaque sommet de $G$ une couleur de $C_p$ tel que deux sommets adjacents n'aient pas la même couleur.  
 \end{Def}
   \subsection{Equations polynomiales} 
 	Soit $G:=(A,S)$ un graphe non orienté et $p\in \mathbb{N}^*$. \\ 
 	Soit $n:=Card(A)$.\\ 
-	Associons à chaque sommet de $G$ la variable $x_i$ et à chaque couleur une racine $p$ème de l'unité \emph{i.e.} $\forall i \in [\![1,n]\!],x_i^p=1$. \\ On impose de plus que si $x_i$ et $x_j$ sont adjacents alors $x_i \neq x_j$. Cela revient à dire que $\sum_{k=0}^{p-1} x_i^k x_j^{p-1-k}=0$. \\ En effet, $0=x_i^p-x_j^p=\underbrace{(x_i-x_j)}_{\neq 0}\sum_{k=0}^{p-1} x_i^k x_j^{p-1-k}$.  $G$ est coloriable avec $p$ couleurs si, et seulement si, \\ le système $\begin{cases} \forall i \in [\![1,n]\!],x_i^p=1 \\ \forall i,j \in [\![1,n]\!], x_i \text{ et } x_j \text{ sont adjacents }, \sum_{k=0}^{p-1} x_i^k x_j^{p-1-k}=0 \end{cases}$ a une solution 
+	Associons à chaque sommet de $G$ la variable $x_i$ et à chaque couleur une racine $p$ème de l'unité \emph{i.e.} $\forall i \in [\![1,n]\!],x_i^p=1$. \\ On impose de plus, que si $x_i$ et $x_j$ sont adjacents alors $x_i \neq x_j$. Cela revient à dire que $\sum_{k=0}^{p-1} x_i^k x_j^{p-1-k}=0$. \\ En effet, $0=x_i^p-x_j^p=\underbrace{(x_i-x_j)}_{\neq 0}\sum_{k=0}^{p-1} x_i^k x_j^{p-1-k}$.  $G$ est coloriable avec $p$ couleurs si, et seulement si, \\ le système $\begin{cases} \forall i \in [\![1,n]\!],x_i^p=1 \\ \forall i,j \in [\![1,n]\!], x_i \text{ et } x_j \text{ sont adjacents }, \sum_{k=0}^{p-1} x_i^k x_j^{p-1-k}=0 \end{cases}$ a une solution 

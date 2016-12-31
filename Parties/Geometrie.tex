@@ -1,6 +1,6 @@
 \subsection{Généralités}
 \begin{Def}
- Soit $f_1,\ldots,f_s$ des polynômes de $k[X_1,\ldots,X_n]$. On appelle variété affine définie par $f_1,\ldots,f_s$ l'ensemble : $Z(f_1,\ldots,f_s)=\{(a_1,\ldots,a_n) \in k^n | \forall i \in [\![1,s]\!],f_i(a_1,\ldots,a_n)=0 \}$.
+ Soit $f_1,\ldots,f_s$ des polynômes de $k[X_1,\ldots,X_n]$.\\ On appelle variété affine définie par $f_1,\ldots,f_s$ l'ensemble : $Z(f_1,\ldots,f_s)=\{(a_1,\ldots,a_n) \in k^n | \forall i \in [\![1,s]\!],f_i(a_1,\ldots,a_n)=0 \}$.
 \end{Def}
 
 \begin{Ex} Cercle ;  graphe d'une fonction polynomiale / fonction rationnelle ; Paraboloïde de révolution ; Cône ; "Twisted Cubic"
@@ -9,14 +9,14 @@
 \begin{Lemme} : Si $V,W \subset k^n$ sont des variétés affines alors $V \cup W$ et $V \cap W$ aussi.
 \end{Lemme}
 
-\begin{demo}
+\begin{proof}
 Supposons $V=Z(f_1,\ldots,f_s)$ et $W=Z(g_1,\ldots,g_r)$. \\
 Alors $V \cap W=Z(f_1,\ldots,f_s,g_1,\ldots,g_r)$ et $V \cup W=Z(f_ig_j | 1 \leq i \leq s, 1 \leq j \leq r )$ (que l'on notera $Z(f_ig_j)$).\\
 Montrons la deuxième égalité : \\
 Soit $a=(a_1,\ldots,a_n) \in V$ alors $\forall i \in [\![1,s]\!], f_i(a)=0$ et donc $\forall i \in [\![1,s]\!],\forall j \in [\![1,r]\!],  f_ig_j(a)=0$ d'où $V \subset Z(f_ig_j)$. On obtient de la même façon que $W \subset Z(f_ig_j)$. D'où $V \cup W \subset Z(f_ig_j)$.\\
-Soit $a=(a_1,\ldots,a_n) \in Z(f_ig_j)$. Si $a \in V$ alors c'est fini. Sinon, il existe un $i_0 \in [\![1,s]\!]$ tel que $f_{i_0}(a)=0$. Alors,comme pour tout $j \in [\![1,r]\!]$, $f_{i_0}(a)g_j(a)=0$, tous les $g_j(a)$ sont nuls et donc $a \in W$.\\
+Soit $a=(a_1,\ldots,a_n) \in Z(f_ig_j)$. Si $a \in V$ alors c'est fini. Sinon, il existe un $i_0 \in [\![1,s]\!]$ tel que $f_{i_0}(a)=0$. Alors,comme pour tout $j \in [\![1,r]\!]$, $f_{i_0}(a)g_j(a)=0$,alors, par intégrité de $k$, tous les $g_j(a)$ sont nuls et donc $a \in W$.\\
 On en déduit donc $Z(f_ig_j) \subset V \cup W$ et donc l'égalité voulue.
-\end{demo}
+\end{proof}
 
 \begin{Def} Soit $V=Z(f_1,\ldots,f_s) \subset k^n$. Alors une représentation paramétrique de $V$ consiste en des fractions rationnelles   $r_1,\ldots, r_n \in k(X_1,\ldots,X_n)$ telles que les points $(x_1,\ldots,x_n)$ tels que $\forall j \in [\![1,n]\!], x_i=r_i(t_1,\ldots,t_n)$ sont dans $V$.
 \end{Def}
@@ -33,18 +33,20 @@ On en déduit donc $Z(f_ig_j) \subset V \cup W$ et donc l'égalité voulue.
 \begin{Lemme} Soit $V \subset k^n$ une variété affine. Alors $I(V)$ est un idéal de $k[X_1,\ldots,X_n]$, appelé idéal de $V$.
 \end{Lemme}
 
-\begin{demo} $ 0_{k[X_1,\ldots,X_n]} \in I(V)$ car $\forall x \in k^n,0_{k[X_1,\ldots,X_n]}(x)=0$. \\
+\begin{proof} $ 0_{k[X_1,\ldots,X_n]} \in I(V)$ car $\forall x \in k^n,0_{k[X_1,\ldots,X_n]}(x)=0$. \\
 Soit $f,g \in I(V)$ et $a \in V$ alors $(f+g)(a)=f(a)+g(a)=0$ et donc $f+g \in I(V)$. \\
   Soit $f \in I(V)$, $h \in k[X_1,\ldots, X_n]$ et $a \in V$ alors $(fh)(a)=f(a)h(a)=0h(a)=0$ et donc $fh \in I(V)$. \\
-\end{demo}
+\end{proof}
 
 \begin{Lemme} Soit $f_1,\ldots,f_s \in k[X_1,\ldots,X_n]$. Alors $\left\langle f_1,\ldots,f_s \right\rangle \subset I(Z(f_1,\ldots,f_s))$. L'inclusion réciproque n'est pas toujours vraie.
 \end{Lemme}
 
-\begin{demo} Soit $f \in \left\langle f_1,\ldots,f_s \right\rangle$ i.e. il existe $h_1,\ldots,h_s$ tels que : $f=\sum_{i=1}^s h_if_i$. Comme $f_1,\ldots,f_s$ s'annule en $V(f_1,\ldots,f_s)$ alors $f=\sum_{i=1}^n h_if_i$ aussi, ce qui permet de dire que $f \in I(Z(f_1,\ldots,f_s))$
-\end{demo}
+\begin{proof} Soit $f \in \left\langle f_1,\ldots,f_s \right\rangle$ i.e. il existe $h_1,\ldots,h_s$ tels que : $f=\sum_{i=1}^s h_if_i$. Comme $f_1,\ldots,f_s$ s'annule en $V(f_1,\ldots,f_s)$ alors $f=\sum_{i=1}^n h_if_i$ aussi, ce qui permet de dire que $f \in I(Z(f_1,\ldots,f_s))$
+\end{proof}
 
-\begin{Ex} $\left \langle X^2,Y^2 \right\rangle \neq I(Z(X^2,Y^2))$.
+\begin{Ex} $\left \langle X^2,Y^2 \right\rangle \neq I(Z(X^2,Y^2))$.\\
+$x^2=y^2=0 \Rightarrow x=y=0$. \\
+D'où $Z(X^2,Y^2)=\{(0,0)\}$ et donc $I(Z(X^2,Y^2))=\left\langle X,Y\right\rangle \neq \left \langle X^2,Y^2 \right\rangle $
 \end{Ex}
 
 \begin{prop} Soit $V \subset W$ des variétés affines de $k^n$. Alors :
@@ -56,47 +58,47 @@ Soit $f,g \in I(V)$ et $a \in V$ alors $(f+g)(a)=f(a)+g(a)=0$ et donc $f+g \in I
 \end{enumerate}
 \end{prop}
 
-\begin{demo} $(1) \Rightarrow (2)$ . Montrons donc $(1)$.\\
+\begin{proof} $(1) \Rightarrow (2)$ . Montrons donc $(1)$.\\
 $\Rightarrow$ : Supposons $V \subset W$. Soit $f \in I(W)$ alors pour tout $a \in W$ et, en  particulier, pour tout $a \in V$,$f(a)=0$, c'est-à-dire $f \in I(V)$ d'où $I(W) \subset I(V)$.\\
 $\Leftarrow$: Supposons $I(W) \subset I(V)$. Comme $W$ est une variété alors il existe $g_1,\ldots,g_s \in k[X_1,\ldots,X_n]$ tels que $W=Z(g_1,\ldots,g_s)$ alors $g_1,\ldots,g_s \in I(W) \subset I(V)$ et donc les $g_i$ s'annulent sur $V$. \\
 Comme $W$ est l'ensemble des points sur lesquels les $g_i$ s'annulent alors $V \subset W$.\\
-\end{demo}
+\end{proof}
 \subsection{Géométrie de l'élimination}
 Soit $V=Z(f_1,\ldots,f_s) \subset \C^n $
 \begin{Def} 
-Soit $\pi_k $ la projection $\C^n \to \C^{n-k} $ définie par : $\forall (a_1,\ldots,a_n) \in \mathbb{C}^n, \pi_k (a_1,\ldots,a_n) =(a_{k+1},\ldots,a_n) $.
+Soit $\pi_p $ la projection $\C^n \to \C^{n-p} $ définie par : $\forall (a_1,\ldots,a_n) \in \mathbb{C}^n, \pi_p (a_1,\ldots,a_n) =(a_{p+1},\ldots,a_n) $.
 (Cette application est surjective)
 \end{Def}
 \begin{Lemme}
-Soit $I_k $ le $k $ème idéal d'élimination de l'idéal $\left\langle f_1,\ldots,f_s \right \rangle $ de $\C[X_1,\ldots,X_n] $. Alors, dans $\C^{n-k} $, $\pi_k (V) \subset Z (I_k) $.
+Soit $I_p $ le $p $ème idéal d'élimination de l'idéal $\left\langle f_1,\ldots,f_s \right \rangle $ de $\C[X_1,\ldots,X_n] $. Alors, dans $\C^{n-p} $, $\pi_p (V) \subset Z (I_p) $.
 \end{Lemme}
-\begin{demo}
- Pour montrer cette égalité, il faut montrer que $\forall a \in \pi_k (V),\forall f \in I_k, f (a)=0$.\\
-Soient $a=(a_{k+1},\ldots,a_n) \in \pi_k(V) $ et $f\in I_k  $.\\
-Comme $\pi_k $ est surjective alors il existe un $a'=(a_1,\ldots,a_n) $ qui appartient à $V $. Alors $f (a') =0$ (car $f \in \left\langle f_1,\ldots,f_s \right\rangle$). Or comme $f $ ne dépend que de $X_{k+1},\ldots,X_n$ alors $f (a)=f (a')=0$. \\
-\end{demo}
+\begin{proof}
+ Pour montrer cette égalité, il faut montrer que $\forall a \in \pi_p (V),\forall f \in I_p, f (a)=0$.\\
+Soient $a=(a_{p+1},\ldots,a_n) \in \pi_p(V) $ et $f\in I_p  $.\\
+Comme $\pi_p $ est surjective alors il existe un $a'=(a_1,\ldots,a_n) $ qui appartient à $V $. Alors $f (a') =0$ (car $f \in \left\langle f_1,\ldots,f_s \right\rangle$). Or comme $f $ ne dépend que de $X_{p+1},\ldots,X_n$ alors $f (a)=f (a')=0$. \\
+\end{proof}
 \begin{Thm}  Soit $g_i $ défini dans le théorème d'extension et $I_1$ le premier idéal d'élimination de $\left\langle f_1,\ldots,f_s \right\rangle$. On a alors l'égalité, dans $\C^{n-1} $,\\
 $Z (I_1)=\pi(V) \cup (Z (g_1,\ldots,g_s) \cap Z (I_1))$
 \end{Thm}
-\begin{demo}
-$\supset $ : c.f. Lemme 1 \\
+\begin{proof}
+$\supset $ : c.f. Lemme \ref{} \\
 $\subset  $ : Soit $a:=(a_2,\ldots,a_n) \in Z (I_1)$ .
 Alors si $a\notin\left\langle g_1,\ldots,g_s \right \rangle $, on a, d'après le théorème d'extension, l'existence d'un $a_1 \in \C $ tel que $(a_1,\ldots,a_n) \in V$ et donc  $a \in \pi_1 (V) $.\\
 Sinon $a \in \left\langle f_1,\ldots,f_s \right \rangle$ et donc dans $\left\langle f_1,\ldots,f_s \right \rangle \cap V (I_1) $
-\end{demo}
+\end{proof}
 \begin{Thm}[de fermeture]
 
- Soit $V=Z(f_1,\ldots,f_s) \subset \C^n$ et soit $I_k$ le $k$ème idéal d'élimination de $\left\langle f_1,\ldots,f_s \right\rangle$. Alors \ 
+ Soit $V=Z(f_1,\ldots,f_s) \subset \C^n$ et soit $I_p$ le $p$ème idéal d'élimination de $\left\langle f_1,\ldots,f_s \right\rangle$. Alors \ 
 \begin{enumerate}
-\item $Z(I_k)$ est la plus petite (au sens de l'inclusion) variété contenant $\pi_k(V)$
+\item $Z(I_p)$ est la plus petite (au sens de l'inclusion) variété contenant $\pi_p(V)$
 
-\item Si $V \neq 0$, alors il existe une variété affine $W \subsetneqq Z(I_k)$ telle que $Z(I_k) \setminus W \subset \pi_k(V)$
+\item Si $V \neq 0$, alors il existe une variété affine $W \subsetneqq Z(I_p)$ telle que $Z(I_p) \setminus W \subset \pi_p(V)$
 \end{enumerate}
 \end{Thm}
 \begin{cor}
 
 Supposons qu'il existe $i \in [\![1,n]\!]$ tel que $f_i$ s'écrit de la forme : 
-$f_i=cX_1^{N}$+termes de degré $<N$ en $X_1$ où $N> 0$ et $c \in \mathbb{C}\setminus \{0\}$ non nul.\\
+$f_i=cX_1^{N}$+termes de degré $<N$ en $X_1$\\ où $N> 0$ et $c \in \mathbb{C}\setminus \{0\}$ non nul.\\
 Alors $\pi(V)=Z(I_1)$
 \end{cor}
 
