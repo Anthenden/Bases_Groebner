@@ -1,11 +1,28 @@
+Lemme 1 : 
 Soit $A$ un anneau intègre.\\
 Montrons que $A[X]$ est principal ssi $A$ est un corps. \\
-$\Rightarrow$ : $A[X] $ est euclidien pour le stathme euclidien du degré. Comme $A[X]$ est aussi intègre alors $A[X]$ est principal.\\
-$\Leftarrow$ : Soit $a \in A\setminus\{0\}$.\\
+Démo : 
+$\Leftarrow$  : $A[X] $ est euclidien pour le stathme euclidien du degré. Comme $A[X]$ est aussi intègre alors $A[X]$ est principal.\\
+$\Rightarrow$ : Soit  $a \in A\setminus\{0\}$.\\
 Soit $I=\left\langle a,X \right\rangle=\left\langle P \right\rangle$ car $A[X]$ est principal.\\
 Comme $P$ divise $a$ et que $A[X]$ est intègre(car $A$ est intègre) alors $P$ est constant (degré).\\
 De plus, comme $P$ divise $X$ alors il existe $a,b \in A$ tel que $X=P(aX+b)$ (degré).\\
 D'où $X=aPX+bP$ ou encore, par unicité des coefficients, $aP=1$ et donc $a$ est inversible.
+Lemme 2 : 
+Soit $A$ un anneau intègre. $A[X]$ n'est pas un corps.
+Démo : 
+$X$ n'a pas d'inverse pour des questions de degré (par intégrité de $A$).
+Thm : 
+$k[X_1,\ldots,X_n]$ n'est pas principal pour $n>1$.
+Démo : 
+On le montre par récurrence sur le nombre d'indéterminées : 
+En utilisant les deux lemmes précédents, on obtient que $ k[X_1,X_2]=k[X_1][X_2]$ n'est pas principal car $k[X_1]$ n'est pas un corps.
+Soit $n>1$ et supposons que $k[X_1,\ldots,X_n]$ n'est pas principal (et \emph{ a fortiori } n'est pas un corps).
+$k[X_1,\ldots,X_{n+1}]=k[X_1,\ldots,X_n][X_{n+1}]$ n'est pas principal par le lemme $1$.
 
+
+
+
+   
 
 
