@@ -1,0 +1,24 @@
+Théorème d'extension pour $s=2$
+Soient $f=\sum_{i=0}^p f_i(X_2,\ldots,X_n)X_1^i$ et $g=\sum_{j=0}^q g_j(X_2,\ldots,X_n)X_1^j$ où $f_p \neq 0 \neq g_q$. \\
+Soit $I$ l'idéal engendré par $f$ et $g$ et $I_1$ son premier idéal d'élimination.\\
+Soit $c=(c_2,\ldots,c_n) \in Z(I_1)$.\\
+Montrons que soit $f_p(c)=g_q(c)=0$ ou il existe $c_1 \in k$ tel que $(c_1,\ldots,c_n) \in Z(I)$.\\
+
+Pour cela, montrons, tout d'abord, que $\Res_{X_1}(f,g)(c)=\Res_{p,q}(f(X_1,c),g(X_1,c))$.\\
+Considérons,pour cela, le morphisme $\varphi : k[X_1,\ldots,X_n]\to k[X_1]$ défini par : \\
+$\forall f \in k[X_1,\ldots,X_n],\varphi(f)=f(X_1,c)$.\\
+On a donc $\Res_{X_1}(f,g)(c)=\varphi(\Res_{X_1}(f,g))$ (en identifiant $k[X_2,\ldots,X_n]$ avec le sous-anneau de $k[X_1,\ldots,X_n]$ des polynomes de degré 0 en $X_1$).
+Posons $\left(a_{i,j}(X_2,\ldots,X_n)\right):=\Syl_{X_1}(f,g)$.
+Alors $\Res_{X_1}(f,g)(c)=\varphi(\Res_{X_1}(f,g))=\varphi(\det\left(a_{i,j}(X_2,\ldots,X_n)\right))$.
+En utilisant la formule explicite du déterminant, on obtient : 
+$\Res_{X_1}(f,g)(c)=\varphi\left(\sum_{\sigma \in S_n } \varepsilon(\sigma) \prod_i a_{i,\sigma(i)}(X_2,\ldots,X_n)\right)=\sum_{\sigma \in S_n } \varepsilon(\sigma) \prod_i \varphi(a_{i,\sigma(i)}(X_2,\ldots,X_n))=\sum_{\sigma \in S_n } \varepsilon(\sigma) \prod_i \varphi(a_{i,\sigma(i)}(c))$
+Ce qui permet d'en déduire la formule voulue.\\
+
+Comme $c \in Z(I_1)$ et que $Res_{X_1}(f,g) \in I_1$ alors $\Res_{X_1}(f,g)(c)=0$ et donc $\Res_{p,q}(f(X_1,c),g(X_1,c))=0$.\\
+Supposons maintenant que $f_p(c) \neq 0$. \\
+Alors, d'après les propriétés du résultant (c.f. lemme \ref{}), on a : $\Res(A,B)=\left(\frac{(-1)^p}{f_p(c)}\right)^{deg(f(X_1,c)-q}Res_{p,q}(A,B)=0$.
+Ce qui permet de conclure que $f(X_1,c)$ et $g(X_1,c)$ ont une racine commune $c_1$ et donc $(c_1,\ldots,c_n) \in Z(I)$.
+On obtient la m\^eme chose en supposant $g_q(c) \neq 0$.
+
+
+
