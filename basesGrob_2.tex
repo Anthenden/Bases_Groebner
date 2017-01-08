@@ -1,4 +1,4 @@
-\documentclass[a4page,12pt]{article}
+\documentclass[a4page,10pt]{article}
 \usepackage[Latin1]{inputenc}
 \usepackage[francais]{babel}
 \usepackage{amsmath,amssymb,amsthm}
@@ -59,7 +59,7 @@
 \DeclareMathOperator{\Syl}{\mathrm{Syl}}
 \DeclareMathOperator{\Res}{\mathrm{Res}}
 \DeclareMathOperator{\Com}{\mathrm{Com}}
-\DeclareMathOperator{\det}{\mathrm{det}}
+
 \begin{document}
 \title{Bases de Gröbner}
 \author{Antoine BOIVIN}
@@ -81,6 +81,306 @@
 
 \newtheorem{Defprop}[Thm]{Définition et propriété}
 \newtheorem{ThmDef}[Thm]{Théorème et définition}
+\section{??}
+\subsection{$k[X_1,\ldots,X_n]$ n'est pas principal}
+\begin{Lemme}
+Soit $A$ un anneau intègre.\\
+$A[X]$ est principal si, et seulement si, $A$ est un corps. 
+\end{Lemme}
+\begin{proof} 
+$\Leftarrow$  : $A[X] $ est euclidien pour le stathme euclidien du degré. Comme $A[X]$ est aussi intègre alors $A[X]$ est principal.\\
+$\Rightarrow$ : Soit  $a \in A\setminus\{0\}$.\\
+Soit $I=\left\langle a,X \right\rangle=\left\langle P \right\rangle$ car $A[X]$ est principal.\\
+Comme $P$ divise $a$ et que $A[X]$ est intègre(car $A$ est intègre) alors $P$ est constant (degré).\\
+De plus, comme $P$ divise $X$ alors il existe $a,b \in A$ tel que $X=P(aX+b)$ (degré).\\
+D'où $X=aPX+bP$ ou encore, par unicité des coefficients, $aP=1$ et donc $a$ est inversible.
+\end{proof}
+\begin{Lemme}
+Soit $A$ un anneau intègre (??). $A[X]$ n'est pas un corps.
+\end{Lemme}
+\begin{proof} 
+$X$ n'a pas d'inverse pour des questions de degré (par intégrité de $A$).
+\end{proof}
+\begin{Thm}
+$k[X_1,\ldots,X_n]$ n'est pas principal pour $n>1$.
+\end{Thm}
+\begin{proof}
+On le montre par récurrence sur le nombre d'indéterminées : \\
+En utilisant les deux lemmes précédents, on obtient que $ k[X_1,X_2]=k[X_1][X_2]$ n'est pas principal car $k[X_1]$ n'est pas un corps.\\
+Soit $n>1$ et supposons que $k[X_1,\ldots,X_n]$ n'est pas principal (et \emph{ a fortiori } n'est pas un corps).\\
+$k[X_1,\ldots,X_{n+1}]=k[X_1,\ldots,X_n][X_{n+1}]$ n'est pas principal par le lemme $1$.
+\end{proof}
+\subsection{$k[X_1,\ldots,X_n]$ est noethérien}
+\begin{Def}
+
+Soit $A$ un anneau commutatif. On dit que $A$ est un anneau noethérien si tout idéal $I$ de $A$ est engendré par un nombre fini d'éléments.
+\end{Def}
+
+
+\begin{Ex} Tout anneau principal est noethérien car chaque idéal d'un anneau principal $A$  est de la forme $aA$ où $a \in A$.\\
+En particulier, tout corps est noethérien (les idéaux d'un corps sont $\{0\}$ et lui-même).
+\end{Ex}
+
+\begin{Thm}[de la base de Hilbert]
+
+Soit $A$ un anneau noethérien. Alors $A[X]$ est aussi un anneau noethérien.
+\end{Thm}
+
+\begin{proof}
+
+Soient $I$ un idéal de $A[X]$, $J$ l'idéal engendré par les coefficients dominants des polynômes de $A[X]$ et pour tout $n \in \mathbb{N}$, $J_n=\left\langle \{a | aX^n+\sum_{k=0}^{n-1} a_kX^k \in I \cap A_n[X]\} \right\rangle$ des idéaux de $A$.\\
+Comme $A$ est noethérien alors il existe $x_1,\ldots,x_r \in I$,tels que $J=\left\langle x_1,\ldots,x_r\right\rangle$ et pour tout $n \in \mathbb{N}, y_{1,n},\ldots,y_{m_n,n}$ tels que $J_n=\left\langle y_{1,n},\ldots,y_{m_n,n} \right\rangle$.\\
+Il existe donc des polynômes $Q_1,\ldots,Q_r$ de $I$ ayant pour coefficient dominant $x_i$ et pour tout $n \in \mathbb{N}$, des polynômes $R_{1,n},\ldots R_{m_n,n} \in I \cap A_n[X] $ dont le coefficient en $X^n$ est $y_{m_n,n}$.\\
+Montrons que $I=\left\langle  Q_1,\ldots,Q_r, R_{1,1},\ldots,R_{m_1,1},\ldots,R_{1,N},\ldots,R_{m_N,N} \right \rangle$ où $N:=\max_i \; deg(Q_i)$.\\
+Notons $I'$  cet idéal (inclus dans $I$ car engendré par des éléments de $I$) et montrons,par récurrence sur le degré de $P$, que si $P:=\sum a_iX^i \in I'$ alors $P \in I$.\\
+
+\textbf{Initialisation }: Si $P=0$ alors $P \in I$ et $P \in I'$ (car ce sont des sous-groupes additifs de $A[X]$)\\
+
+\textbf{Hérédité} : Soit $d \in \mathbb{N}$ et supposons que pour tout polynômes de degré $P$ de degré strictement inférieur à $d$ que si $P \in I$ alors $P \in I'$.\\
+Soit $P:=\sum_{k=0}^d a_k X^k \in I$.
+\begin{itemize}
+\item Si $d \leq N-1$ alors $a_d \in J_d$, il existe donc $\lambda_1,\ldots,\lambda_{m_d}$ tel que $a_d=\sum_{k=1}^{m_d} \lambda_k y_{k,d}$. On en déduit que $T:=P-\sum_{k=1}^{m_d} \lambda_k R_{k,d}$ est de degré inférieur à $n-1$. Comme $P$ et les $R_{k,d}$ sont dans $I$ alors $T$ aussi et par hypothèse de récurrence $T \in I$. Comme les $R_{k,d}$ sont aussi dans $I'$ alors $P=T+\sum_{k=1}^{m_d} \lambda_k R_{k,d}$ est dans $I'$.
+\item Si $d \geq N$, alors $a_d \in J$,il existe donc $\lambda_1,\lambda_r \in A$ tel que $a=\sum_{k=1}^r \lambda_k x_k$ et donc $P-\sum_{k=1}^m \lambda_i X^{n-deg(Q_i)} Q_i$ est de degré inférieur à $n-1$. On en déduit comme pour le cas $d \leq N-1$ que $P\in I'$.
+\end{itemize}
+Conclusion : D'après le principe de récurrence, $I \subset I'$  et donc $I=I'$. \\
+$A[X]$ est donc noethérien.
+\end{proof}
+\begin{cor}
+$\Z[X_1,\ldots,X_n]$,$k[X_1,\ldots,X_n]$ sont des anneaux noethériens.
+\end{cor}
+
+\section{Ordre monomial}
+\subsection{Généralités}
+\begin{Def} 
+Un ordre monomial est une relation d'ordre total $\geq$ de $\mathscr{M}$ telle que :
+
+\begin{enumerate}
+	\item  $\forall \alpha,\beta,\gamma \in \mathbb{N}^n, X^\alpha \geq X^\beta \Rightarrow X^{\alpha+\gamma} \geq X^{\beta +\gamma}$(compatibilité avec le produit)
+ \item $\geq$ est un bon ordre
+\end{enumerate}
+On note $X^\alpha > X^\beta$ si $X^\alpha \geq X^\beta$ et $\alpha \neq \beta$  et $X^\alpha \leq X^\beta $ si $X^\beta \geq X^\alpha $
+\end{Def}
+
+\begin{prop}
+Soit $\geq$ un ordre monomial. $1$ est le plus petit élément de $\mathscr{M}$ pour $\geq$.
+\end{prop}
+
+\begin{proof}
+
+Comme $\geq$ est un bon ordre alors il existe un plus petit élément que l'on notera $X^\alpha$ alors :
+$X^\alpha \leq 1$ et donc $X^{2 \alpha} \leq X^\alpha$ (par la compatibilité avec le produit). \\
+Or comme $X^\alpha$ est le petit élément de $\mathscr{M}$alors $X^\alpha \leq X^{2\alpha}$. \\
+Donc, par antisymétrie, $X^\alpha=X^{2\alpha}$ d'où $\alpha=2\alpha$ et donc $\alpha=0$. \\
+On en déduit que $1=X^0$ est le plus petit élément de $\mathscr{M}$.
+
+\end{proof}
+
+\begin{cor}
+
+Soit $\geq$ un ordre monomial et $\alpha,\beta \in \mathbb{N}^n$. Si $X^\alpha$ divise $X^\beta$ alors $X^\alpha \leq X^\beta$.
+\end{cor}
+
+\begin{proof}
+  Si $X^\alpha$ divise $X^\beta$ alors il existe $\gamma \in \mathbb{N}^n$ tel que : $X^\beta=X^\gamma X^\alpha$. Or, $1 \leq X^\gamma$, d'où, par compatibilité avec le produit, $X^\alpha \leq X^{\alpha+\gamma}=X^\beta$.
+\end{proof}
+
+\begin{Def}
+Soit $P:=\sum_{\alpha} p_{\alpha}X^\alpha \in k[X_1,\ldots,X_n]$ et $\geq$ un ordre monomial. \\
+\begin{enumerate}
+	\item  Le monôme dominant de $P$ est : $\LM(P):=\max\{X^\alpha \in \mathscr{M} | a_\alpha \neq 0\}$
+\item Le multidegré de $f$ est l'élément de $\mathbb{N}^n$, noté $\multideg(P)$, tel que $x^{\multideg(P)}=LM(P)$
+ \item Le coefficient dominant de $P$ est $\LC(P):=a_{\multideg(P)}$
+\item Le terme dominant de $P$ est $\LT(P):=\LC(P)\cdot \LM(P)$
+\end{enumerate}
+
+
+\end{Def}
+\subsection{Exemples d'ordres monomiaux}
+\begin{Defprop}[Ordre lexicographique $\geq_{lex}$]
+Soient $\alpha=(\alpha_1,\ldots,\alpha_n), \beta=(\beta_1,\ldots,\beta_n) \in \mathbb{N}^n$ alors
+$X^\alpha \geq_{lex} X^\beta$ si, et seulement si, $\alpha=\beta$ ou le premier coefficient non nul en lisant par la gauche de $\alpha -\beta $ est positif.
+\end{Defprop}
+\begin{proof}
+Montrons que $\geq_{lex}$ est un ordre monomial. \\
+$\alpha,\beta,\gamma$ désigneront des éléments quelconques de $\mathbb{N}^n$ de composantes respectives $\alpha_i,\beta_i,\gamma_i$ et si $\alpha \neq \beta$, $\ell(\alpha,\beta)$ désignera la première composante ,en partant de la gauche,non nulle de $\alpha-\beta$  i.e. $\ell(\alpha,\beta):=\min\{r \in [\![1,n]\!] | a_r \neq b_r \}$. \\
+Montrons tout d'abord que c'est bien une relation d'ordre. \\
+\textbf{Réflexivité :}\\
+$X^\alpha \geq X^\alpha$ (\emph{c.f.} premier cas)\\
+\textbf{Antisymétrie :} \\
+Supposons que $X^\alpha \geq X^\beta $(i) et $X^\beta \geq X^\alpha$(ii). \\
+Supposons, par l'absurde, que $X^\alpha \neq X^\beta$. \\
+On a avec (i) que $\alpha_{\ell(\alpha,\beta)} >  \beta_{\ell(\alpha,\beta)}$ et avec (ii) que $\alpha_{\ell(\alpha,\beta)} <  \beta_{\ell(\alpha,\beta)}$. D'où une contradiction. \\
+On a donc $X^\alpha = X^\beta $. \\
+\textbf{Transitivité :} \\
+Supposons que $X^\alpha \geq X^\beta$(i) et $X^\beta \geq X^\gamma$(ii).\\
+Si $\alpha=\beta$, $\alpha=\gamma$ ou $\alpha=\beta$ alors l'inégalité $X^\alpha \geq X^\gamma$ est évidente.\\
+Sinon, posons $\ell:=\min\{\ell(\alpha,\beta),\ell(\beta,\gamma)\}$. \\
+On a avec (i) et (ii),que : $\alpha_\ell > \beta_\ell \geq \gamma_\ell$ ou $\alpha_\ell \geq \beta_\ell >\gamma_\ell$ et pour tout $k < \ell$, $\alpha_\ell = \beta_\ell = \gamma_\ell$. \\
+On a donc $X^\alpha \geq X^\gamma$. \\
+\textbf{Montrons que $\geq_{lex}$ est compatible avec le produit.}\\
+Si $\alpha=\beta$ alors $X^{\alpha+\gamma}=X^{\beta+\gamma}$ et donc $X^{\alpha+\gamma}\geq_{lex}X^{\beta+\gamma}$\\
+Sinon,  comme $(\alpha+\gamma)-(\beta+\gamma)=\alpha-\beta$ alors $\ell(\alpha,\beta)=\ell(\alpha+\gamma,\beta+\gamma)$ et donc si $X^{\alpha} \geq_{lex} X^\beta$ alors $X^{\alpha+\gamma} \geq_{lex} X^{\beta+\gamma}$.\\
+\textbf{Montrons maintenant que $\geq_{lex}$ est un bon ordre}, par l'absurde.\\
+Supposons donc que  $\geq_{lex}$ n'est pas un bon ordre et donc qu'il existe une suite $u:=\left(X^{(a_{1,i}\ldots,a_{n,i})}\right)_{i \in \mathbb{N}}$ strictement décroissante.\\
+On en déduit que la suite $u_1:=(a_{1,i})_{i \in \mathbb{N}}$ est décroissante (sinon $u$ ne serait pas décroissante) et est donc stationnaire car $\mathbb{N}$ est bien ordonné.\\
+Alors il existe $N_1 \in \mathbb{N}$ tel que $\forall p \geq N,u_{1,p}=u_{1,N_1}$. \\
+Considérons maintenant la suite $u_2:=(a_{2,i})_{i \geq N_1}$. Elle est décroissante et donc stationnaire ... \\
+On construit ainsi une suite $(N_i)_{i \geq 1}$ tel que $\forall n \geq N_i, u_{i,n} = u_{i,N_i}$.\\
+On en déduit que $\forall p \geq N_n,\forall i \in [\![1,n]\!], u_{i,p}=u_{i,N_n}$ ou encore \\$\forall p \geq N_n, X^{u_{1,p},\ldots,u_{n,p}}=X^{u_{1,N_n},\ldots,u_{n,N_n}}$, ce qui est contradictoire avec la stricte décroissance de $u$.
+\end{proof}
+\begin{Defprop}[Ordre lexicographique gradué $\geq_{grlex}$]
+Soient $\alpha=(\alpha_1,\ldots,\alpha_n), \beta=(\beta_1,\ldots,\beta_n) \in \mathbb{N}^n$ alors
+$X^\alpha \geq_{grlex} X^\beta$ si, et seulement si, $|\alpha|>|\beta|$ ou ($|\alpha|=|\beta|$ et $\alpha\geq_{lex} \beta$).
+\end{Defprop}
+\begin{Defprop}[Ordre lexicographique gradué renversé $\geq_{grevlex}$]
+Soient $\alpha=(\alpha_1,\ldots,\alpha_n), \beta=(\beta_1,\ldots,\beta_n) \in \mathbb{N}^n$ alors
+$X^\alpha \geq_{grevlex} X^\beta$ si, et seulement si, $|\alpha|>|\beta|$ ou ($|\alpha|=|\beta|$ et le premier coefficient non nul en lisant par la droite de $\beta - \alpha $ est positif).
+\end{Defprop}
+\begin{Ex}
+Ordre lexicographique : \\
+$ X_1 >_{lex} X_2 >_{lex}\ldots >_{lex} X_n $\\
+Pour $n=3$,\\
+$X^2Y^2Z^4 >_{lex} X^1Y^4Z^{42} $ \\
+$X^3Y^2Z^4 >_{lex} X^3Y^2Z^3$\\
+Ordre lexicographique graduée : \\
+$ X_1 >_{grlex} X_2 >_{grlex}\ldots >_{lex} X_n $ \\
+Pour $n=3$, \\
+$XY^4Z^8 >_{grlex} X^7Y^2Z^3$\\
+$X^4Y^7Z >_{grlex} X^3Y^3Z^6$ \\
+Ordre lexicographique graduée renversée : \\
+$ X_1 >_{grevlex} X_2 >_{grevlex}\ldots >_{lex} X_n $ \\
+Pour $n=3$, \\
+$X^5Y^3Z^2 >_{grevlex} X^3Y^2Z^4$ \\
+$X^4Y^3Z^2 >_{grevlex} X^2Y^5Z^2$ \\
+\end{Ex}
+\section{Algorithme de division}
+  \begin{Lemme} Soit $f,g \in k[X_1,\ldots,X_n]$ tels que $\LT(f)=\LT(g)$ alors $\LM(f-g) <\LM(f)=\LM(g)$
+	\end{Lemme}
+	\begin{proof}
+	Soit $\alpha,\alpha_1,\ldots,\alpha_n \in \mathbb{N}^n $ tel que : $X^\alpha >X^{\alpha_1}>\ldots >X^{\alpha_n}$ \\ et $f=pX^\alpha+\sum p_{\alpha_i}X^{\alpha_i}$ et $g=pX^\alpha+\sum q_{\alpha_i}X^{\alpha_i}$ alors $\LM(f-g)=\LM(\sum (p_{\alpha_i}-q_{\alpha_i})X^{\alpha_i}) \leq X^{\alpha_1} < X^\alpha=\LM(f)=\LM(g)$
+\end{proof}
+%****************************************************************
+\begin{Thm}
+
+\input{Algo/algo_div}      %Problème typo 
+
+\end{Thm}
+
+
+%****************************************************************
+\begin{proof}
+Remarquons tout d'abord que lors de chaque itération de la boucle, une de ses deux instructions est exécutée :
+\begin{enumerate}
+	\item Si $\LT(f_i) | \LT(p)$ alors on fait la division de $p$ par $f_i$
+ \item Sinon on ajoute $\LT(p)$ à $r$ (et on retire $\LT(p)$ à $p$).
+\end{enumerate}
+Montrons d'abord que l'algorithme s'arrête i.e. il existe une étape où $p=0$. \\
+Pour cela, montrons que la suite des monômes dominants des différentes valeurs de $p$ est strictement décroissante tant que $p \neq 0$. Si l'algorithme ne s'arrêtait pas, on aurait alors une suite infinie strictement croissante ce qui contredirait le fait que $\geq$ soit un bon ordre. \\
+
+-Si on fait une division (par $f_j$) alors $p$ prend la valeur $p':=p-\frac{\LT(p)}{\LT(f_j)}f_j$. \\
+-Si cette valeur est nulle alors l'algorithme s'arrête sinon, comme on a l'égalité : $\LT\left(\underbrace{\frac{\LT(p)}{\LT(f_j)}}_{\in k^*\mathscr{M}}f_j\right)=\frac{\LT(p)}{\LT(f_j)}\LT(f_j)=\LT(p)$,\\
+On en déduit ,d'après le lemme \ref{}, que $LM(p') <LM(p)$. \\
+-Sinon, $p$ prend la valeur $p-\LT(p)$. Par le même argument que précédemment, $LM(p-\LT(p))<\LT(p)$. \\
+Ce qui permet de conclure. \\
+Montrons maintenant qu'à chaque étape que $f=\sum_{i=0}^s a_if_i +p+r$. \\
+Initialisation de l'algorithme ("0ème itération") : Comme $a_1=\ldots=a_s=r=0$ et $p=f$ alors l'égalité est vérifiée. \\
+Hérédité : Soit $n \in \mathbb{N}$ et supposons qu'à la $n$ème itération de la boucle, $f=\sum_{i=0}^s a_if_i +p+r=\sum_{i=0,i \neq j}^s a_if_i +a_jf_j+p+r$ pour tout $j\in [\![1,n]\!]$  alors : \\
+- si on fait une division ( $p$ avec $f_j$) alors : la nouvelle valeur $p'$ de $p$ est $p-\frac{\LT(p)}{\LT(f_j)}f_j$ et celle de $a_i$ est $a'_j=a_j+\frac{\LT(p)}{\LT(f_j)}$. et donc : \\
+$\sum_{i=0,i \neq j}^s a_if_i +a'_jf_j+p'+r=\sum_{i=0,i \neq j}^s a_if_i +\left(a_j+\frac{\LT(p)}{\LT(f_j)}\right)f_j+p-\frac{\LT(p)}{\LT(f_j)}f_j+r$ \\
+$=\sum_{i=0,i \neq j}^s a_if_i +a_jf_j+p+r=f$.\\
+- sinon, $f=\sum_{i=0,i \neq j}^s a_if_i +a_jf_j+p+r=\sum_{i=0,i \neq j}^s a_if_i +a_jf_j+(p-\LT(p))+(r+\LT(p))$. \\
+On finit par obtenir que,lorsque $p=0$ (et on sait que cela arrivera),  $f=\sum_{i=1}^s a_if_i+r$ où $r$ est, par définition, une somme d'éléments non divisibles par les $\LT(f_i)$
+\end{proof}
+\section{Bases de Gröbner}
+\subsection{Propriétés}
+\begin{Def}
+Soit $\geq$ un ordre monomial. Un sous-ensemble $G=\{g_1,\ldots,g_s\}$ d'un idéal $I$ est une base de Gröbner si $\left\langle LT(I) \right\rangle=\left\langle LT(g_1),\ldots,LT(g_s)\right\rangle$.
+\end{Def}
+
+\begin{cor}
+ Soit $\geq$ un ordre monomial. Alors tout idéal de $k[X_1,\ldots,X_n]$ non réduit à $\{0\}$ a une base de Gröbner. De plus, tout base de Gröbner est une base de $I$.
+\end{cor}
+
+\begin{proof}
+ A faire
+ \begin{enumerate}
+ 
+	 \item \emph{c.f.} prop \ref{}
+	\item \emph{c.f.} démonstration du théorème de la base de Hilbert.
+ \end{enumerate}
+\end{proof}
+\begin{prop}
+ Soit $G=\{g_1,\ldots,g_s\}$ une base de Gröbner d'un idéal $I$ de $k[X_1,\ldots,X_n]$ et $f \in I$. Alors il existe un unique $r \in k[X_1,\ldots,X_n]$ vérifiant : \\
+\begin{enumerate}
+	\item  Tous les termes de $r$ ne sont divisible par aucun des $LT(g_i)$
+\item Il existe $g \in I$ tel que $f=g+r$
+\end{enumerate}
+\end{prop}
+\begin{proof}
+ L'algorithme de division nous donne l'existence d'un tel $r$. Montrons son unicité. \\
+Supposons, par l'absurde, l'existence de deux restes $r_1$ et $r_2$, $r_1 \neq r_2$ vérifiant $(1)$ et $(2)$. \\
+Alors : $\begin{cases} f=g_1+r_1 \\f=g_2+r_2 \end{cases}$ et donc $r_1-r_2=g_1-g_2 \in I$. \\
+D'où, comme $r_1 \neq r_2$ alors $LT(r_1-r_2) \in \left\langle LT(I) \right\rangle=\left\langle g_1,\ldots,g_s \right\rangle$ et donc $LT(r_1-r_2)$ est divisé par un des $LT(g_i)$ (cf Lemme \ref{}). On obtient donc une contradiction car aucun terme de $r_1$ et $r_2$ n'est divisible par des $LT(g_i)$. D'où $r_1=r_2$. \\
+\end{proof}
+
+\begin{cor} Soit $G=\{g_1,\ldots,g_s\}$ une base de Gröbner d'un idéal $I$ de $k[X_,\ldots,X_n]$ et $f \in k[X_1,\ldots,X_n]$. Alors $f \in I$ si, et seulement si, le reste de la division de $f$ par $G$ est nul.
+\end{cor}
+
+\begin{proof} $\Leftarrow$ : Evident \\
+$\Rightarrow$ :  Soit $f \in I$. La décomposition $f=f+0$ respecte les deux conditions de la proposition. Alors par unicité du reste, le reste de la division de $f$ par $G$ est nul. \\
+\end{proof}
+
+\begin{Not} On notera $\overline{f}^F$ le reste de $f$ par le $n$-uple ordonné $F=\{f_1,\ldots,f_s\}$. Si $F$ est une base de Gröbner alors on peut considérer $F$ comme un ensemble.
+\end{Not}
+
+\begin{Def} Soit $f,g \in k[X_1,\ldots,X_n]$ des polynômes non nuls.
+\begin{enumerate}
+\item Si $\multideg(f)=\alpha=(\alpha_1,\ldots,\alpha_n)$ et $\multideg(f)=\beta=(\beta_1,\ldots,\beta_n)$ alors posons $\gamma=(\gamma_,\ldots,\gamma_n)$ où $\gamma_i=\max(\alpha_i,\beta_i)$. On appelle $X^\gamma$ le plus petit multiple commun de $\LM(f)$ et $\LM(g)$, noté $\PPCM(\LM(f),\LM(g)):=X^\gamma$.
+\item Le $S$-polynôme de $f$ et $g$ est le polynôme : $S(f,g):=\frac{X^\gamma}{\LT(f)}f-\frac{X^\gamma}{\LT(g)} g$
+\end{enumerate}
+\end{Def}
+\begin{Lemme} Soit $G=\sum_{i=1}^s c_iX^{\alpha_i} g_i$, où $c_1,\ldots,c_s \in k$ et $\alpha_i+\multideg(g_i)=\delta \in \mathbb{N}^n$ pour $i$ tel que $c_i \neq 0$. \\
+Si $LM(G) < X^\delta$ alors il existe des constantes $(c_{jk})$ tel que $G=\sum_{j,k} c_{j,k} X^{\delta-\gamma_{j,k}} S(g_j,g_k)$ où $X^{\gamma_{j,k}}=\PPCM(\LT(g_j),\LT(g_k))$. De plus, chacun des $X^{\delta-\gamma_{j,k}}$ est strictement inférieur à $X^\delta$.
+\end{Lemme}
+\begin{proof} A faire \end{proof}
+\begin{Thm} Soit $I$ un idéal de $k[X_1,\ldots,X_n]$. Alors une base $G=\{g_1,\ldots,g_n\}$ de $I$ est une base de Gröbner de $I$ si, et seulement si, pour tout couple $(i,j)$, $i \neq j$, $\overline{S(g_i,g_j)}^G=0$
+\end{Thm}
+\begin{proof} A faire \end{proof}
+
+\subsection{Algorithme de Buchberger}
+\input{Algo/Algorithme_buchberger}
+\begin{Lemme}
+Soit $G $ une base de Gröbner d'un idéal $I $ de $k[X_1,\ldots,X_n] $ et  $P\in G$ tel que $LT (P) \in \left\langle LT(G \setminus \{P\}) \right\rangle$. Alors $G \setminus \{P\} $ est une base de Gröbner de $I $.
+\end{Lemme}
+\begin{proof}
+Comme $G $ est une base de Gröbner de $I $ alors $\left\langle LT(G)\right\rangle=\left\langle LT(I) \right\rangle$. Si $LT (P) \in \left\langle LT(G \setminus \{P\}) \right\rangle$ alors $\left\langle LT(G \setminus \{P\} )\right\rangle=\left\langle LT(G )\right\rangle=\left\langle LT(I) \right\rangle$, d'où $G \setminus \{P\} $ est une base de Gröbner de $I $.
+\end{proof}
+
+\begin{Def}
+Une base de Gröbner minimale $G$ d'un idéal $I $ de $k [X_1,\ldots,X_n] $ est une base de Gröbner de $I $ telle que :
+\begin{enumerate}
+	\item  $\forall P \in G,  \LC(P)=1$
+
+ \item $\forall P \in G, \LT(P) \notin \left\langle \LT(G \setminus \{P\}) \right\rangle$
+\end{enumerate}
+\end{Def}
+\begin{Def}
+
+Une base de Gröbner réduite $G$ d'un idéal $I $ de $k [X_1,\ldots,X_n] $ est une base de Gröbner de $I $ telle que :
+
+\begin{enumerate}
+	\item $\forall P \in G,  \LC(P)=1$
+\item  Pour tout $P \in G$, aucun monôme de $P $ n'appartient à  $\left\langle \LT(G \setminus \{P\}) \right\rangle$.
+\end{enumerate}
+\end{Def}
+\begin{prop}
+Soit $I $ un idéal non nul de $k [X_1,\ldots,X_n] $. Alors, pour un ordre monomial fixé, $I $ a une unique base de Gröbner réduite.
+\end{prop}
+\begin{proof} A faire \end{proof}
+\section{Théorème d'extension et d'élimination}
+\section{Géométrie}
+\section{Implicitation}
+
 
 
 \nocite{*}
