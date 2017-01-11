@@ -59,7 +59,13 @@
 \DeclareMathOperator{\Syl}{\mathrm{Syl}}
 \DeclareMathOperator{\Res}{\mathrm{Res}}
 \DeclareMathOperator{\Com}{\mathrm{Com}}
-
+\headheight=0mm
+\topmargin=-10mm
+\oddsidemargin=-1cm
+\evensidemargin=-1cm
+\textwidth=18cm
+\textheight=25.5cm
+\parindent=0mm
 \begin{document}
 \title{Bases de Gröbner}
 \author{Antoine BOIVIN}
@@ -84,7 +90,7 @@
 \section{??}
 \subsection{$k[X_1,\ldots,X_n]$ n'est pas principal}
 \begin{Lemme}
-Soit $A$ un anneau intègre.\\
+Soit $A$ un anneau intègre commutatif.\\
 $A[X]$ est principal si, et seulement si, $A$ est un corps. 
 \end{Lemme}
 \begin{proof} 
@@ -96,7 +102,7 @@ De plus, comme $P$ divise $X$ alors il existe $a,b \in A$ tel que $X=P(aX+b)$ (d
 D'où $X=aPX+bP$ ou encore, par unicité des coefficients, $aP=1$ et donc $a$ est inversible.
 \end{proof}
 \begin{Lemme}
-Soit $A$ un anneau intègre (??). $A[X]$ n'est pas un corps.
+Soit $A$ un anneau intègre commutatif. $A[X]$ n'est pas un corps.
 \end{Lemme}
 \begin{proof} 
 $X$ n'a pas d'inverse pour des questions de degré (par intégrité de $A$).
@@ -128,22 +134,26 @@ Soit $A$ un anneau noethérien. Alors $A[X]$ est aussi un anneau noethérien.
 
 \begin{proof}
 
-Soient $I$ un idéal de $A[X]$, $J$ l'idéal engendré par les coefficients dominants des polynômes de $A[X]$ et pour tout $n \in \mathbb{N}$, $J_n=\left\langle \{a | aX^n+\sum_{k=0}^{n-1} a_kX^k \in I \cap A_n[X]\} \right\rangle$ des idéaux de $A$.\\
+Soient $I$ un idéal de $A[X]$. Soit $J$ l'idéal engendré par les coefficients dominants des polynômes de $A[X]$ et pour tout $n \in \mathbb{N}$, $J_n$ l'idéal engendré par les coefficient en $X^n$ de $A_{n+1}[X]$, deux idéaux de $A$.\\
 Comme $A$ est noethérien alors il existe $x_1,\ldots,x_r \in I$,tels que $J=\left\langle x_1,\ldots,x_r\right\rangle$ et pour tout $n \in \mathbb{N}, y_{1,n},\ldots,y_{m_n,n}$ tels que $J_n=\left\langle y_{1,n},\ldots,y_{m_n,n} \right\rangle$.\\
 Il existe donc des polynômes $Q_1,\ldots,Q_r$ de $I$ ayant pour coefficient dominant $x_i$ et pour tout $n \in \mathbb{N}$, des polynômes $R_{1,n},\ldots R_{m_n,n} \in I \cap A_n[X] $ dont le coefficient en $X^n$ est $y_{m_n,n}$.\\
 Montrons que $I=\left\langle  Q_1,\ldots,Q_r, R_{1,1},\ldots,R_{m_1,1},\ldots,R_{1,N},\ldots,R_{m_N,N} \right \rangle$ où $N:=\max_i \; deg(Q_i)$.\\
-Notons $I'$  cet idéal (inclus dans $I$ car engendré par des éléments de $I$) et montrons,par récurrence sur le degré de $P$, que si $P:=\sum a_iX^i \in I'$ alors $P \in I$.\\
+Notons $I'$  cet idéal (inclus dans $I$ car engendré par des éléments de $I$). \\
+Pour montrer l'inclusion réciproque, il suffit de montrer que, pour tout $d \in \mathbb{N}$, $I \cup A_d[X] \subset I'$
+Montrons donc,par récurrence, la propriété suivante : \\$\forall d \in \mathbb{N}, \forall P \in I, deg(P) <d \Rightarrow P \in I'$
 
-\textbf{Initialisation }: Si $P=0$ alors $P \in I$ et $P \in I'$ (car ce sont des sous-groupes additifs de $A[X]$)\\
+\textbf{Initialisation }: Si $n=0$, $I \cap A_n[X]=\{0\} \subset I' $ (car $0$ est le seul polynôme de degré strictement négatif et $0$ est dans tout idéal de $A[X]$)
 
-\textbf{Hérédité} : Soit $d \in \mathbb{N}$ et supposons que pour tout polynômes de degré $P$ de degré strictement inférieur à $d$ que si $P \in I$ alors $P \in I'$.\\
-Soit $P:=\sum_{k=0}^d a_k X^k \in I$.
+\textbf{Hérédité} : Soit $n \in \mathbb{N}$ et supposons que pour tout polynômes $P$ de $I$ de degré strictement inférieur à $n$ appartient à $I$.\\
+Soit $P:=\sum_{k=0}^n a_k X^k \in I$.
 \begin{itemize}
-\item Si $d \leq N-1$ alors $a_d \in J_d$, il existe donc $\lambda_1,\ldots,\lambda_{m_d}$ tel que $a_d=\sum_{k=1}^{m_d} \lambda_k y_{k,d}$. On en déduit que $T:=P-\sum_{k=1}^{m_d} \lambda_k R_{k,d}$ est de degré inférieur à $n-1$. Comme $P$ et les $R_{k,d}$ sont dans $I$ alors $T$ aussi et par hypothèse de récurrence $T \in I$. Comme les $R_{k,d}$ sont aussi dans $I'$ alors $P=T+\sum_{k=1}^{m_d} \lambda_k R_{k,d}$ est dans $I'$.
-\item Si $d \geq N$, alors $a_d \in J$,il existe donc $\lambda_1,\lambda_r \in A$ tel que $a=\sum_{k=1}^r \lambda_k x_k$ et donc $P-\sum_{k=1}^m \lambda_i X^{n-deg(Q_i)} Q_i$ est de degré inférieur à $n-1$. On en déduit comme pour le cas $d \leq N-1$ que $P\in I'$.
+\item Si $d \leq N-1$ alors $a_d \in J_d$, il existe donc $\lambda_1,\ldots,\lambda_{m_d}$ tel que $a_d=\sum_{k=1}^{m_d} \lambda_k y_{k,d}$. On en déduit que $T:=P-\sum_{k=1}^{m_d} \lambda_k R_{k,d}$ est de degré inférieur à $d-1$. Comme $P$ et les $R_{k,d}$ sont dans $I$ alors $T$ aussi et par hypothèse de récurrence $T \in I$. Comme les $R_{k,d}$ sont aussi dans $I'$ alors $P=T+\sum_{k=1}^{m_d} \lambda_k R_{k,d}$ est dans $I'$.
+\item Si $d \geq N$, alors $a_d \in J$,il existe donc $\lambda_1,\lambda_r \in A$ tel que $a=\sum_{k=1}^r \lambda_k x_k$ et donc $P-\sum_{k=1}^m \lambda_i X^{d-deg(Q_i)} Q_i$ est de degré inférieur à $d-1$. On en déduit de la même façon que dans le cas précédent que $P\in I'$.
 \end{itemize}
-Conclusion : D'après le principe de récurrence, $I \subset I'$  et donc $I=I'$. \\
-$A[X]$ est donc noethérien.
+Conclusion : D'après le principe de récurrence, pour tout $d \in \mathbb{N}$, $I \cup A_d[X] \subset I'$.\\
+On en déduit que $I \subset I'$  et donc $I=I'$. 
+Ce qui nous permet de conclure que $I$ est engendré par un nombre fini d'éléments. \\
+Ce qui montre que $A[X]$ est donc noethérien.
 \end{proof}
 \begin{cor}
 $\Z[X_1,\ldots,X_n]$,$k[X_1,\ldots,X_n]$ sont des anneaux noethériens.
