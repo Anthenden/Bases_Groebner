@@ -1,0 +1,32 @@
+\subsection{Cas simple 1 : $k[X]$}
+L'anneau de polynôme $k[X]$ est un anneau euclidien et donc principal. De ce fait, on a un description simple des idéaux de $k[X]$ qui sont tous engendrés par un unique élément. \\
+De plus, grâce à l'algorithme d'Euclide, on peut aisément vérifier l'appartenance d'un polynôme à un idéal de $k[X]$. \\
+Soient $I=\left\langle P\right\rangle \subset k[X]$ et $f \in k[X]$. \\
+En effectuant la division euclidienne de $f$ par $P$, on a : $f=PQ+R$ où $\deg(R) < \deg(P)$. \\
+On a alors la caractérisation suivante :  $f \in I \Leftrightarrow R=0$. \\
+Ce qui règle les problèmes 1 et 2 de l'introduction pour $k[X]$.
+
+\subsection{Cas simple 2 : les polynômes de $k[X_1,\ldots,X_n]$ de degré 1}
+En identifiant les polynômes de degré 1 et les applications affines, on peut résoudre les systèmes de la forme $$f_i(x_1,\ldots,x_n)=0, 1 \leq i \leq s \; (*)$$ en utilisant le pivot de Gauss.\\ 
+Le système $(*)$ se résume à : $AX=B$ où $A$ est la matrice représentative de la partie linéaire de $(f_1,\ldots,f_s)$ et $-B$ sa partie constante.\\
+Avec le pivot de Gauss, on obtient une matrice échelonnée $\widetilde{A}$ et une colonne de constante $\widetilde{B}=\begin{pmatrix} \widetilde{b_1} \\ \vdots \\ \widetilde{b_s} \end{pmatrix}$ tel que : \\$(*) \Leftrightarrow \widetilde{A}X=\widetilde{B}$. \\
+Ce qui nous permet de trouver les solutions de $(*)$ : \\
+Soit $r=rg(A)(\leq \min(n,s))$
+\begin{itemize}
+	\item S'il existe un $\widetilde{b_k}$ avec $k>r$ alors $(*)$ n'a pas de solution. \\
+\item Si $r<n$ alors on peut exprimer les $r$ premières coordonnées des solutions de $(*)$ grâce aux $n-r$ dernières. L'ensemble des solutions de $(*)$ est un espace affine de dimension $n-r$.
+\item Si $r=n$ alors $(*)$ admet une seule solution.
+\end{itemize}
+
+De la même façon, on peut trouver les équations que vérifient les éléments d'un espace affine $V$ paramétré par les équations $$x_i=f_i(t_1,\ldots,t_s), 1 \leq i \leq n (**)$$ où $(t_1,\ldots,t_s) \in k^s$.
+On peut écrire le système $(**)$ sous la forme $X=AT+B$ où $A$ est la matrice représentative de la partie linéaire de $(f_1,\ldots,f_s)$ (que l'on supposera,quitte à échelonner $A$ et supprimer des variables,de rang $s\leq n$)  et $-B$ sa partie constante.\\
+Ou encore sous la forme $\begin{pmatrix}-A&I\end{pmatrix}\begin{pmatrix}T\\X\end{pmatrix}=B$. \\
+On obtient, grâce au pivot de Gauss, l'équation : $\begin{pmatrix} \widetilde{a_{1,1}}&\cdots&\cdots&\cdots& \widetilde{a_{1,n+s}}\\0&\ddots \\   \vdots&&\widetilde{a_{n,n}}&\cdots & \widetilde{a_{n,n+s}} \\ &&\bigzero\end{pmatrix}\begin{pmatrix}T\\X\end{pmatrix}=\widetilde{B}$.\\
+On obtient alors que : 
+\begin{itemize}
+	\item Si $s=n$ alors $V=k^n$
+\item Sinon les coordonnées des éléments de $V$ vérifient les équations $\sum_{j=k}^n \widetilde{a_{j,k}} x_{j-k}=\widetilde{b_k}$ pour $s+1 \leq k \leq n$.
+\end{itemize}
+
+
+
