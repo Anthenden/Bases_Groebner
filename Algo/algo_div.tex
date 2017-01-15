@@ -9,8 +9,8 @@
 \STATE $p:=0$
 \WHILE{$p \neq 0$}
 \STATE $i:=1$
-\STATE $divisionoccured:=false $
-\WHILE{$i \leq s $ et $divisionoccured = false $}
+\STATE div:=false 
+\WHILE{$i \leq s $ et div = false }
 \IF{$\LT (f_i) | \LT (p)$}
 \STATE $a_i:= a_i+\LT (p)/\LT (f_i)$
 \STATE $p:=p-(\LT(p)/\LT (f_i)) f_i$
@@ -18,7 +18,7 @@
 \STATE $i:=i+1$
 \ENDIF
 \ENDWHILE
-\IF{divisionoccured=false}
+\IF{div=false}
 \STATE $r:=r+\LT (p)$
 \STATE $p:=p-\LT (p) $
 \ENDIF
