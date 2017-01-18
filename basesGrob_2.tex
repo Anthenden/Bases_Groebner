@@ -71,7 +71,7 @@
 \title{Bases de Gröbner}
 \author{Antoine BOIVIN}
 \maketitle
-\tableofcontents
+
 
 \newtheorem{Thm}{Théorème}[section]
 \newtheorem{prop}[Thm]{Propriété}
@@ -88,8 +88,43 @@
 
 \newtheorem{Defprop}[Thm]{Définition et propriété}
 \newtheorem{ThmDef}[Thm]{Théorème et définition}
-\section{??}
+
+
+\section*{Introduction}
+La notion de base de Gröbner d'un idéal d'un anneau de polynômes a été introduite de manière indépendante par Heisuke Hironaka (qu'il nomma "bases standard") et un peu plus tard par Bruno Buchberger (qu'il nomma "Bases de Gröbner" en l'honneur de son directeur de thèse Wolgang Gröbner).
+
+Une base de Gröbner d'un idéal est une famille de "bons" générateurs de cet idéal afin de décrire plus facilement celui-ci.
+
+Dans ce mémoire, nous allons, à travers l'étude des bases de Gröbner, traiter les quatre problèmes suivants : 
+\begin{enumerate}
+\item  La description d'un idéal : Peut-on trouver une famille génératrice pour chaque idéal $I \subset k[X_1,\ldots,X_n]$?
+\item L'appartenance à un idéal : Soit $f \in k[X_1,\ldots,X_n]$ et un idéal $I:=\left \langle f_1,\ldots,f_s \right \rangle$. Comment montrer que $f \in I$ ?
+ \item La résolution de systèmes polynomiaux : Trouver les zéros communs dans $k^n$ d'une famille de polynômes.
+ \item Le problème d'implicitation : Soit $V$  le sous-ensemble de $k^n $ paramétré par : $x_i=g_i(t_1,\ldots,t_n) , 1 \leq i \leq n $ où les $g_i$ est des polynômes ou des fractions rationelles.
+Peut-on trouver des équations polynomiales en $X_i$ décrivant $V$ ?
+\end{enumerate}
+
+En premier lieu, nous allons introduire la notion de base de Gröbner et répondre aux problèmes 1 et 2 grâce, notamment,  à un algorithme de division généralisant l'algorithme d'Euclide pour les polynômes à une indéterminée.
+Nous allons ensuite discuter de l'élimination des variables dans les systèmes polynomiaux (afin de résoudre le problème 3) et de sa géométrie. Pour finir, nous allons utiliser ses résultats pour trouver les équations décrivant un ensemble dont on a la paramétrisation.
+
+\section*{Conventions et Notations}
+Dans ce rapport, $k$ est un corps commutatif de caractéristique 0 et $n$ un entier naturel strictement positif. \\
+On considérera l'anneau de polynômes $k[X_1,\ldots,X_n]$ à $n$ indéterminées $X_1,\ldots,X_n$ construit par récurrence par : $\forall k<n, k[X_1,\ldots,X_{k+1}]:=k[X_1,\ldots,X_k][X_{k+1}]$
+On appelle monômes tout polynôme de la forme $X_1^{\alpha_1}\ldots X_n^{\alpha_n}$ où $\alpha_i \in \N$ que l'on abrégera $X^{(\alpha_1,\ldots,\alpha_n})$. On notera $\mathscr{M}$ l'ensemble des monômes. Pour tout $p \in \N$ et pour tout anneau $A$, on appelera $A_n[X]$ l'ensemble des polynômes de degré strictement inférieur à $n$.
+
+\tableofcontents
+\section{Motivation}
+On va commencer par traiter le cas simple de l'anneau des polynômes à un indéterminée $k[X]$. \\
+$k[X]$ est un anneau euclidien et donc principal. De ce fait, on a un description simple des idéaux de $k[X]$ qui sont tous engendrés par un unique élément. \\
+De plus, grâce à l'algorithme d'Euclide, on peut aisément vérifier l'appartenance d'un polynôme à un idéal de $k[X]$. \\
+Soient $I=\left\langle P\right\rangle \subset k[X]$ et $f \in k[X]$. \\
+En effectuant la division euclidienne de $f$ par $P$, on a : $f=PQ+R$ où $\deg(R) < \deg(P)$. \\
+On a alors la caractérisation suivante :  $f \in I \Leftrightarrow R=0$. \\
+Ce qui règle les problèmes 1 et 2 de l'introduction pour $k[X]$.\\
+Cependant, lorsque $n>1$, $k[X_1,\ldots,X_n]$ n'est plus euclidien et même plus principal. Nous allons montrer ce résultat et définir la notion plus faible d'anneau noethérien qui convient à $k[X_1,\ldots,X_n]$
+
 \subsection{$k[X_1,\ldots,X_n]$ n'est pas principal}
+Pour montrer que $k[X_1,\ldots,X_n]$ n'est pas principal, nous allons montrer deux lemmes : le premier qui est la réciproque à la principalité de $k[X]$ et le second pour faire marcher l'autre lemme dans une récurrence sur le nombre d'indéterminées.
 \begin{Lemme}
 Soit $A$ un anneau intègre commutatif.\\
 $A[X]$ est principal si, et seulement si, $A$ est un corps. 
@@ -118,16 +153,16 @@ Soit $n>1$ et supposons que $k[X_1,\ldots,X_n]$ n'est pas principal (et \emph{ a
 $k[X_1,\ldots,X_{n+1}]=k[X_1,\ldots,X_n][X_{n+1}]$ n'est pas principal par le lemme $1$.
 \end{proof}
 \subsection{$k[X_1,\ldots,X_n]$ est noethérien}
-\begin{Def}
 
+\begin{Def}
 Soit $A$ un anneau commutatif. On dit que $A$ est un anneau noethérien si tout idéal $I$ de $A$ est engendré par un nombre fini d'éléments.
 \end{Def}
-
 
 \begin{Ex} Tout anneau principal est noethérien car chaque idéal d'un anneau principal $A$  est de la forme $aA$ où $a \in A$.\\
 En particulier, tout corps est noethérien (les idéaux d'un corps sont $\{0\}$ et lui-même).
 \end{Ex}
 
+Maintenant que nous avons la définition d'anneau noethérien, nous allons montrer que $k[X_1,\ldots,X_n]$ est noethérien grâce au théorème de transfert suivant : 
 \begin{Thm}[de la base de Hilbert]
 
 Soit $A$ un anneau noethérien. Alors $A[X]$ est aussi un anneau noethérien.
@@ -159,7 +194,12 @@ Ce qui montre que $A[X]$ est donc noethérien.
 \begin{cor}
 $\Z[X_1,\ldots,X_n]$,$k[X_1,\ldots,X_n]$ sont des anneaux noethériens.
 \end{cor}
+Ce qui clos le problème 1 de l'introduction : la description des idéaux de $k[X_1,\ldots,X_n]$
 \section{Algorithme de division}
+Nous avons rappelé dans la première section que l'on a la caractérisation suivante dans $k[X]$ :
+pour tout idéal $I:=\left\langle P \right\rangle$ et pour tout $f \in k[X]$, on peut écrire $f$ sous la forme $QP+R$ (grâce à l'algorithme d'Euclide) où $\deg R < \deg P$ et $f \in I \Leftrightarrow R=0$. \\
+
+Pour le cas général, pour montrer que le polynôme $f$ de $k[X_1,\ldots,X_n]$ appartient à un idéal $I:=\left\langle f_1,\ldots,f_s \right\rangle$, nous allons décrire un algorithme permettant d'écrire $f$ sous la forme  $\sum g_if_i+r$. Avant cela,en analogie à l'algorithme en une indéterminée, il nous faut définir un ordre, afin qu'à chaque étape, on puisse dire que le "terme dominant" du reste est strictement inférieur à celui d'avant (celui sur $k[X]$ est $X^n \geq X^m \Leftrightarrow n \geq m$). Cet ordre doit être, de plus, un bon ordre pour ne pas avoir de suites infinies strictement décroissantes et donc que l'algorithme finisse.
 \subsection{Ordres monomiaux}
 \subsubsection{Définitions}
 \begin{Def} 
@@ -171,6 +211,7 @@ Un ordre monomial est une relation d'ordre total $\geq$ de $\mathscr{M}$ telle q
 \end{enumerate}
 On note $X^\alpha > X^\beta$ si $X^\alpha \geq X^\beta$ et $\alpha \neq \beta$  et $X^\alpha \leq X^\beta $ si $X^\beta \geq X^\alpha $
 \end{Def}
+On peut remarquer que l'ordre induit par le degré dans $k[X]$ est un ordre monomial.
 
 \begin{Def}
 Soit $P:=\sum_{\alpha} p_{\alpha}X^\alpha \in k[X_1,\ldots,X_n]$ et $\geq$ un ordre monomial. \\
@@ -181,13 +222,17 @@ Soit $P:=\sum_{\alpha} p_{\alpha}X^\alpha \in k[X_1,\ldots,X_n]$ et $\geq$ un or
 \item Le terme dominant de $P$ est $\LT(P):=\LC(P)\cdot \LM(P)$
 \end{enumerate}
 
-
 \end{Def}
 \subsubsection{Exemples d'ordres monomiaux}
-\begin{Defprop}[Ordre lexicographique $\geq_{lex}$]
+Nous allons maintenant donner quelques exemples d'ordres monomiaux et en premier lieu, l'ordre lexicographique que nous allons utiliser pour l'élimination.
+
+\begin{Def}[Ordre lexicographique $\geq_{lex}$]
 Soient $\alpha=(\alpha_1,\ldots,\alpha_n), \beta=(\beta_1,\ldots,\beta_n) \in \mathbb{N}^n$ alors
 $X^\alpha \geq_{lex} X^\beta$ si, et seulement si, $\alpha=\beta$ ou le premier coefficient non nul en lisant par la gauche de $\alpha -\beta $ est positif.
-\end{Defprop}
+\end{Def}
+\begin{prop}
+$\geq_{lex}$ est un ordre monomial.
+\end{prop}
 \begin{proof}
 Montrons, par l'absurde, que $\geq_{lex}$ est un bon ordre. \\
 Supposons donc que  $\geq_{lex}$ n'est pas un bon ordre et donc qu'il existe une suite $u:=\left(X^{(a_{1,i}\ldots,a_{n,i})}\right)_{i \in \mathbb{N}}$ strictement décroissante.\\
@@ -197,6 +242,8 @@ Considérons maintenant la suite $u_2:=(a_{2,i})_{i \geq N_1}$. Elle est décroiss
 On construit ainsi une suite $(N_i)_{i \geq 1}$ telle que : $\forall i \in \N^*,\forall n \geq N_i, u_{i,n} = u_{i,N_i}$.\\
 On en déduit que $\forall p \geq N_n,\forall i \in [\![1,n]\!], u_{i,p}=u_{i,N_n}$ ou encore \\$\forall p \geq N_n, X^{u_{1,p},\ldots,u_{n,p}}=X^{u_{1,N_n},\ldots,u_{n,N_n}}$, ce qui est contradictoire avec la stricte décroissance de $u$.
 \end{proof}
+Les deux ordres suivants comparent les degrés totaux des monômes qui est défini ainsi : 
+le degré total de $X_1^{\alpha_1}\ldots X_n^{\alpha_n}$ est $|\alpha_1,\ldots,\alpha_n|:=\sum \alpha_i$
 \begin{Def}[Ordre lexicographique gradué $\geq_{grlex}$]
 Soient $\alpha=(\alpha_1,\ldots,\alpha_n), \beta=(\beta_1,\ldots,\beta_n) \in \mathbb{N}^n$ alors
 $X^\alpha \geq_{grlex} X^\beta$ si, et seulement si, $|\alpha|>|\beta|$ ou ($|\alpha|=|\beta|$ et $\alpha\geq_{lex} \beta$).
@@ -205,8 +252,12 @@ $X^\alpha \geq_{grlex} X^\beta$ si, et seulement si, $|\alpha|>|\beta|$ ou ($|\a
 Soient $\alpha=(\alpha_1,\ldots,\alpha_n), \beta=(\beta_1,\ldots,\beta_n) \in \mathbb{N}^n$ alors
 $X^\alpha \geq_{grevlex} X^\beta$ si, et seulement si, $|\alpha|>|\beta|$ ou ($|\alpha|=|\beta|$ et le premier coefficient non nul en lisant par la droite de $\beta - \alpha $ est positif).
 \end{Def}
+La différence entre ses deux ordres sont dans la manière où ils décident des égalités des monômes de même degré total : le premier se base sur l'ordre lexicographique et le second sur un ordre lexicographique "renversé", dans le sens où il commence par la droite et regarde la premier entrée négative de $\alpha-\beta$.
 \begin{Ex}
-
+On va comparer les polynômes $f=X^2Z^2$,$g=X^2Z$ et $h=XY^2Z$ de  $k[X,Y,Z]$ avec ces trois différents ordres : \\
+$f>_{lex}g >_{lex}h$ \\
+$f>_{grlex}h >_{grlex}g$ \\
+$h>_{grevlex}f >_{grevlex}g$ \\
 \end{Ex}
 
 \subsection{Algorithme de division}
