@@ -408,8 +408,11 @@ Si $LM(G) < X^\delta$ alors il existe des constantes $(c_{jk})$ tel que $G=\sum_
 \begin{proof} A faire \end{proof}
 
 \subsection{Algorithme de Buchberger}
-Maintenant que l'on a une caractérisation simple à vérifier d'une base de Gröbner, on va l'utiliser afin de
+Maintenant que l'on a une caractérisation simple à vérifier d'une base de Gröbner, on va l'utiliser afin de faire un algorithme permettant d'en créer une.
+\begin{Thm}
+Soit $I:=\left\langle f_1,\ldots,f_s \right\rangle$ un idéal non nul de $k[X_1,\ldots,X_n]$. A lors on peut construire, en temps fini, une base de Gröbner de $I$ grâce à l'algorithme suivant.
 \input{Algo/Algorithme_buchberger}
+\end{Thm}
 \begin{Lemme}
 Soit $G $ une base de Gröbner d'un idéal $I $ de $k[X_1,\ldots,X_n] $ et  $P\in G$ tel que $LT (P) \in \left\langle LT(G \setminus \{P\}) \right\rangle$. Alors $G \setminus \{P\} $ est une base de Gröbner de $I $.
 \end{Lemme}
