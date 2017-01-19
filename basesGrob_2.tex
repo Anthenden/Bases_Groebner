@@ -86,9 +86,6 @@
 \theoremstyle{remark}
 \newtheorem{Rq}[Thm]{Remarque}
 
-\newtheorem{Defprop}[Thm]{Définition et propriété}
-\newtheorem{ThmDef}[Thm]{Théorème et définition}
-
 
 \section*{Introduction}
 La notion de base de Gröbner d'un idéal d'un anneau de polynômes a été introduite de manière indépendante par Heisuke Hironaka (qu'il nomma "bases standard") et un peu plus tard par Bruno Buchberger (qu'il nomma "Bases de Gröbner" en l'honneur de son directeur de thèse Wolgang Gröbner).
@@ -110,10 +107,12 @@ Nous allons ensuite discuter de l'élimination des variables dans les systèmes po
 \section*{Conventions et Notations}
 Dans ce rapport, $k$ est un corps commutatif de caractéristique 0 et $n$ un entier naturel strictement positif. \\
 On considérera l'anneau de polynômes $k[X_1,\ldots,X_n]$ à $n$ indéterminées $X_1,\ldots,X_n$ construit par récurrence par : $\forall k<n, k[X_1,\ldots,X_{k+1}]:=k[X_1,\ldots,X_k][X_{k+1}]$
-On appelle monômes tout polynôme de la forme $X_1^{\alpha_1}\ldots X_n^{\alpha_n}$ où $\alpha_i \in \N$ que l'on abrégera $X^{(\alpha_1,\ldots,\alpha_n})$. On notera $\mathscr{M}$ l'ensemble des monômes. Pour tout $p \in \N$ et pour tout anneau $A$, on appelera $A_n[X]$ l'ensemble des polynômes de degré strictement inférieur à $n$.
+On appelle monômes tout polynôme de la forme $X_1^{\alpha_1}\ldots X_n^{\alpha_n}$ où $\alpha_i \in \N$ que l'on abrégera $X^{(\alpha_1,\ldots,\alpha_n)}$. On notera $\mathscr{M}$ l'ensemble des monômes. Pour tout $p \in \N$ et pour tout anneau $A$, on appelera $A_n[X]$ l'ensemble des polynômes de degré strictement inférieur à $n$.\\
+On appelera base d'un idéal $I$ une famille $F=(f_1,\ldots,f_s)$ telle que $I=\left\langle F\right\rangle$.
 
 \tableofcontents
 \section{Motivation}
+\subsection{Exemple introductif}
 On va commencer par traiter le cas simple de l'anneau des polynômes à un indéterminée $k[X]$. \\
 $k[X]$ est un anneau euclidien et donc principal. De ce fait, on a un description simple des idéaux de $k[X]$ qui sont tous engendrés par un unique élément. \\
 De plus, grâce à l'algorithme d'Euclide, on peut aisément vérifier l'appartenance d'un polynôme à un idéal de $k[X]$. \\
@@ -157,7 +156,10 @@ $k[X_1,\ldots,X_{n+1}]=k[X_1,\ldots,X_n][X_{n+1}]$ n'est pas principal par le le
 \begin{Def}
 Soit $A$ un anneau commutatif. On dit que $A$ est un anneau noethérien si tout idéal $I$ de $A$ est engendré par un nombre fini d'éléments.
 \end{Def}
-
+Dans la suite, on aura aussi besoin d'une autre caractérisation des anneaux noethériens
+\begin{Rq}
+Une suite décroissante d'idéal d'un anneau noethérien est stationnaire.
+\end{Rq}
 \begin{Ex} Tout anneau principal est noethérien car chaque idéal d'un anneau principal $A$  est de la forme $aA$ où $a \in A$.\\
 En particulier, tout corps est noethérien (les idéaux d'un corps sont $\{0\}$ et lui-même).
 \end{Ex}
@@ -242,8 +244,10 @@ Considérons maintenant la suite $u_2:=(a_{2,i})_{i \geq N_1}$. Elle est décroiss
 On construit ainsi une suite $(N_i)_{i \geq 1}$ telle que : $\forall i \in \N^*,\forall n \geq N_i, u_{i,n} = u_{i,N_i}$.\\
 On en déduit que $\forall p \geq N_n,\forall i \in [\![1,n]\!], u_{i,p}=u_{i,N_n}$ ou encore \\$\forall p \geq N_n, X^{u_{1,p},\ldots,u_{n,p}}=X^{u_{1,N_n},\ldots,u_{n,N_n}}$, ce qui est contradictoire avec la stricte décroissance de $u$.
 \end{proof}
-Les deux ordres suivants comparent les degrés totaux des monômes qui est défini ainsi : 
-le degré total de $X_1^{\alpha_1}\ldots X_n^{\alpha_n}$ est $|\alpha_1,\ldots,\alpha_n|:=\sum \alpha_i$
+Les deux ordres suivants comparent les degrés totaux des monômes.
+\begin{Def}
+Le degré total du monôme $X_1^{\alpha_1}\ldots X_n^{\alpha_n}$ est $|\alpha_1,\ldots,\alpha_n|:=\sum \alpha_i$
+\end{Def}
 \begin{Def}[Ordre lexicographique gradué $\geq_{grlex}$]
 Soient $\alpha=(\alpha_1,\ldots,\alpha_n), \beta=(\beta_1,\ldots,\beta_n) \in \mathbb{N}^n$ alors
 $X^\alpha \geq_{grlex} X^\beta$ si, et seulement si, $|\alpha|>|\beta|$ ou ($|\alpha|=|\beta|$ et $\alpha\geq_{lex} \beta$).
@@ -252,7 +256,7 @@ $X^\alpha \geq_{grlex} X^\beta$ si, et seulement si, $|\alpha|>|\beta|$ ou ($|\a
 Soient $\alpha=(\alpha_1,\ldots,\alpha_n), \beta=(\beta_1,\ldots,\beta_n) \in \mathbb{N}^n$ alors
 $X^\alpha \geq_{grevlex} X^\beta$ si, et seulement si, $|\alpha|>|\beta|$ ou ($|\alpha|=|\beta|$ et le premier coefficient non nul en lisant par la droite de $\beta - \alpha $ est positif).
 \end{Def}
-La différence entre ses deux ordres sont dans la manière où ils décident des égalités des monômes de même degré total : le premier se base sur l'ordre lexicographique et le second sur un ordre lexicographique "renversé", dans le sens où il commence par la droite et regarde la premier entrée négative de $\alpha-\beta$.
+La différence entre ses deux ordres sont dans la manière où ils décident des égalités des monômes de même degré total : le premier se base sur l'ordre lexicographique et le second sur un ordre lexicographique "renversé", dans le sens où il commence par la droite et regarde la première entrée négative de $\alpha-\beta$.
 \begin{Ex}
 On va comparer les polynômes $f=X^2Z^2$,$g=X^2Z$ et $h=XY^2Z$ de  $k[X,Y,Z]$ avec ces trois différents ordres : \\
 
@@ -262,8 +266,9 @@ $h>_{grevlex}f >_{grevlex}g$ \\
 \end{Ex}
 
 \subsection{Algorithme de division}
+Dans ce paragraphe, nous allons énoncer et démontrer l'algorithme de division.
   \begin{Lemme} Soit $f,g \in k[X_1,\ldots,X_n]$ tels que $\LT(f)=\LT(g)$ alors $\LM(f-g) <\LM(f)=\LM(g)$
-	\label{LM_decroissant}
+	\label{LM_dec}
 	\end{Lemme}
 	\begin{proof}
 	Soit $\alpha,\alpha_1,\ldots,\alpha_n \in \mathbb{N}^n $ tel que : $X^\alpha >X^{\alpha_1}>\ldots >X^{\alpha_n}$ et $f=pX^\alpha+\sum p_{\alpha_i}X^{\alpha_i}$ et $g=pX^\alpha+\sum q_{\alpha_i}X^{\alpha_i}$ alors $\LM(f-g)=\LM(\sum (p_{\alpha_i}-q_{\alpha_i})X^{\alpha_i}) \leq X^{\alpha_1} < X^\alpha=\LM(f)=\LM(g)$\end{proof}
@@ -278,15 +283,18 @@ $h>_{grevlex}f >_{grevlex}g$ \\
 	\end{proof}
 
 
-%****************************************************************
-\begin{Thm}
-Enoncé à faire
-\input{Algo/algo_div}      %Problème typo 
+
+\begin{Thm}[Algorithme de division]
+
+Soit $\geq$ un ordre monomial et $(f_1,\ldots,f_s)$ un $n$-uplet de polynôme de $k[X_1,\ldots,X_n]$. Alors tout polynôme $f$ de $k[X_1,\ldots,X_n]$ peut s'écrire sous la forme $f=\sum_{i=1}^n a_if_i+r$ où $a_i \in k[X_1,\ldots,X_n]$ et $r$ est une combinaison linéaire de monômes qui ne sont pas divisibles par les $\LT(f_i)$
+   
 
 \end{Thm}
-
-%****************************************************************
+  
+\input{Algo/algo_div} 
 \begin{proof}
+Pour montrer ce théorème, nous allons que l'algorithme ci-dessus donne le bon résultat et finit pour tous polynômes mis en entrée du polynôme.\\
+
 Remarquons tout d'abord que lors de chaque itération de la boucle, une de ses deux instructions est exécutée :
 \begin{enumerate}
 	\item Si $\LT(f_i) | \LT(p)$ alors on fait la division de $p$ par $f_i$
@@ -308,8 +316,20 @@ $=\sum_{i=0,i \neq j}^s a_if_i +a_jf_j+p+r=f$.\\
 - sinon, $f=\sum_{i=0,i \neq j}^s a_if_i +a_jf_j+p+r=\sum_{i=0,i \neq j}^s a_if_i +a_jf_j+(p-\LT(p))+(r+\LT(p))$. \\
 On finit par obtenir que,lorsque $p=0$ (et on sait que cela arrivera),  $f=\sum_{i=1}^s a_if_i+r$ où $r$ est, par définition, une somme d'éléments non divisibles par les $\LT(f_i)$
 \end{proof}
+Cet algorithme ne permet pas de savoir, en général, si un polynôme appartient à un idéal. En effet, le reste dépend du $s$-uplet choisi et dans quel ordre sont les polynômes de celui-ci, comme l'illustre cet exemple.
+\begin{Ex}
+Soient $f=X^2+Y^2+Z^2-4$, $g=Y^2+2*Z^2-5$ et $h=XY-1$ trois polynômes de $k[X,Y,Z]$ et appliquons au polynôme $P=YZf-Yg+2Zh$ l'algorithme de division pour l'ordre lexicographique.
+\begin{itemize}
+	\item Avec la famille $(f,g,h)$, on obtient $P=2Zf+(XZ-Y)g+(-2XZ^3+5XZ-YZ)$
+	\item Avec la famille $(h,g,f)$, on obtient $P=YZf-Yg+2Zh$
+\end{itemize}
+Ce phénomène n'existe pas lorsque les $f_i$ forment une "base de Gröbner" que l'on étudiera dans la section prochaine.
+\end{Ex}
+
+
 \section{Bases de Gröbner}
-\subsection{Propriétés}
+Dans cette section, nous allons commencer par définir et donner quelques propriétés des bases de Gröbner. Puis nous allons énoncer l'algorithme de Buchberger permettant de récupérer une base de Gröbner à partir d'une base d'un idéal.
+\subsection{Généralités}
 \begin{Not}
 Soit $I$ un idéal de $k[X_1,\ldots,X_n]$ non nul. \\
 $LT(I)$ est l'ensemble des termes dominants des polynômes de $I$ i.e. $\LT(I):=\{\LT(f) |f \in I \}$.
@@ -317,13 +337,14 @@ $LT(I)$ est l'ensemble des termes dominants des polynômes de $I$ i.e. $\LT(I):=\
 \begin{Def}
 Soit $\geq$ un ordre monomial. Un sous-ensemble $G=\{g_1,\ldots,g_s\}$ d'un idéal $I$ est une base de Gröbner si $\left\langle \LT(I) \right\rangle=\left\langle \LT(g_1),\ldots,\LT(g_s)\right\rangle$.
 \end{Def}
+
+On va commencer par montrer qu'une base de Gröbner de $I$ est effectivement une base de $I$.
 \begin{Lemme}
 \label{lem_div}
 Soit $I:=\left\langle X^{\alpha} | \alpha \in A \right\rangle$ un idéal de $k[X_1,\ldots,X_n]$. Alors $X^\beta \in I$ si, et seulement si, il existe un $\alpha \in A$ tel que $X^\alpha $divise $X^\beta$.
 \end{Lemme}
 
 \begin{proof}
-  $\Leftarrow $ Evident \\
 $\Rightarrow $ Si $X^\beta \in I$ alors il existe une famille de polynômes $P_1,\ldots,P_s \in k[X_1,\ldots,X_n]$ et d'exposants $\alpha_1,\ldots,\alpha_s \in A$ telle que $X^\beta = \sum_{i=1}^s P_i X^{\alpha_i}$. \\
 On peut alors remarquer, en utilisant les expressions $P_i:=\sum p_{i,\alpha} X^\alpha$, que $X^\beta$ est de la forme $\sum_{\gamma \in \Gamma} p_\gamma X^{\gamma}$ où $\Gamma:=\{\gamma \in \mathbb{N}^n | \exists n \in \mathbb{N}^n,\exists i \in [\![1,s]\!],\gamma=\alpha_i+n\}$. \\
 Et donc $X^\beta- \sum_{\gamma \in \Gamma} p_\gamma X^{\gamma}=0 \; (*)$ \\
@@ -347,6 +368,9 @@ Alors $f-\frac{\LT(f)}{\LT(g_i)}g_i \in I$ (car $f$ et $g_i$ sont dans $I$).\\
 En itérant ce raisonnement, on obtient que le reste de la division de $f$ par $g_1,\ldots,g_s$ est nul car tous les termes dominants de polynôme de $I$ sont divisibles par un $LT(g_i)$. On en déduit que $f$ est de la forme $\sum g_ih_i$ et donc $f\in I'$.
 
 \end{proof}
+
+Nous allons maintenant montrer la propriété des bases de Gröbner promise à la fin de la section précédente : l'unicité du reste de la division par une base de Gröbner.
+
 \begin{prop}
  Soit $G=\{g_1,\ldots,g_s\}$ une base de Gröbner d'un idéal $I$ de $k[X_1,\ldots,X_n]$ et $f \in I$. Alors il existe un unique $r \in k[X_1,\ldots,X_n]$ vérifiant : 
 \begin{enumerate}
@@ -363,14 +387,15 @@ D'où, comme $r_1 \neq r_2$ alors $LT(r_1-r_2) \in \left\langle LT(I) \right\rang
 
 \begin{cor} Soit $G=\{g_1,\ldots,g_s\}$ une base de Gröbner d'un idéal $I$ de $k[X_,\ldots,X_n]$ et $f \in k[X_1,\ldots,X_n]$. Alors $f \in I$ si, et seulement si, le reste de la division de $f$ par $G$ est nul.
 \end{cor}
-
+ 
+Ce corollaire nous permet de répondre au problème 2 de l'introduction : l'appartenance d'un polynôme à un idéal donné. Maintenant pour pouvoir appliquer ce corollaire, on va énoncer une caractérisation des bases de Gröbner plus maniable que celle de la définition.
 
 \begin{Not} On notera $\overline{f}^G$ le reste de $f$ par la base de Gröbner $G$.
 \end{Not}
 
 \begin{Def} Soient $f,g \in k[X_1,\ldots,X_n]$ des polynômes non nuls.
 \begin{enumerate}
-\item Posons $\multideg(f)=(\alpha_1,\ldots,\alpha_n)$ et $\multideg(g)(\beta_1,\ldots,\beta_n)$. Soit $\gamma=(\gamma_1,\ldots,\gamma_n)$ où $\gamma_i=\max(\alpha_i,\beta_i)$. $X^\gamma$ est appelé plus petit multiple commun de $\LM(f)$ et $\LM(g)$ et noté $\PPCM(\LM(f),\LM(g)):=X^\gamma$.
+\item Posons $\multideg(f)=(\alpha_1,\ldots,\alpha_n)$ et $\multideg(g)=(\beta_1,\ldots,\beta_n)$. Soit $\gamma=(\gamma_1,\ldots,\gamma_n)$ où $\gamma_i=\max(\alpha_i,\beta_i)$. $X^\gamma$ est appelé plus petit multiple commun de $\LM(f)$ et $\LM(g)$ et noté $\PPCM(\LM(f),\LM(g)):=X^\gamma$.
 \item Le $S$-polynôme de $f$ et $g$ est le polynôme : $S(f,g):=\frac{X^\gamma}{\LT(f)}f-\frac{X^\gamma}{\LT(g)} g$
 \end{enumerate}
 \end{Def}
@@ -383,6 +408,7 @@ Si $LM(G) < X^\delta$ alors il existe des constantes $(c_{jk})$ tel que $G=\sum_
 \begin{proof} A faire \end{proof}
 
 \subsection{Algorithme de Buchberger}
+Maintenant que l'on a une caractérisation simple à vérifier d'une base de Gröbner, on va l'utiliser afin de
 \input{Algo/Algorithme_buchberger}
 \begin{Lemme}
 Soit $G $ une base de Gröbner d'un idéal $I $ de $k[X_1,\ldots,X_n] $ et  $P\in G$ tel que $LT (P) \in \left\langle LT(G \setminus \{P\}) \right\rangle$. Alors $G \setminus \{P\} $ est une base de Gröbner de $I $.
