@@ -14,7 +14,7 @@ Soit $p \in [\![0,n]\!]$. Posons $G=\{g_1,\ldots,g_m\}$ et tel que $G_p=\{g_1,\l
 Montrons que $G_p$ est une base de $I_p$. \\
 Comme $G_p \subset I_p$ (car $G \subset I$) alors $\left \langle G_p \right\rangle \subset I_p$.\\
 Soit $f \in I_p$ alors d'après le théorème de division par $G$,il existe $h_1,\ldots,h_m \in k[X_1,\ldots,X_n]$ tels que 
-$f=\sum_{k=1}^m h_ig_i$// car $G$ est une base de Gröbner de $I$ et $f \in I$.\\
+$f=\sum_{k=1}^m h_ig_i$ car $G$ est une base de Gröbner de $I$ et $f \in I$.\\
 Or pour tout $p>r, g_i > X^{p+1} \geq LM(f) $ et donc aucun terme de $f$ ne peut être divisible par un $LT(g_i)$. L'algorithme n'incrémente pas les $h_p$(avec $p >r$) et donc sont tous nuls.  \\
 D'où, $f=\sum_{k=1}^r h_ig_i$ et donc $f_p \in \left \langle G_p \right\rangle$, ce qui finit de montrer l'égalité $\left \langle G_p \right\rangle = I_p$.\\
 (Le même argument permet de montrer que si $f \in I_p$, $\overline{f}^G=\overline{f}^{G_p}$ ).\\
