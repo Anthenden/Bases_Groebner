@@ -1,0 +1,44 @@
+Soit $S$ l'ensemble param\'etr\'e par le syst\`eme suivant : $ \begin{cases}
+x_1=f_1(t_1,\ldots,t_m)& \\
+\vdots & (\dagger) \\
+x_n=f_n(t_1,\ldots,t_m)& \\
+\end{cases} $ o\`u $f_i \in k[T_1,\ldots,T_m]$ et $(t_1,\ldots,t_m) \in k^m$ .\\
+On peut voir $S$ comme l'image de la fonction $F : k^m \to k^n$ d\'efinie par : \\
+$\forall t \in k^m, F(t)=(f_1(t),\ldots,f_n(t))$.\\
+$S$ n'est pas n\'ecessairement une vari\'et\'e affine (cf exercices).\\
+Le syst\`eme $(\dagger)$ d\'efini tout de même une vari\'et\'e $V=Z(X_1-f_1,\ldots,X_n-f_n) \subset k^{n+m}$.\\
+On a donc $V=\{(t_1,\ldots,t_n,x_1,\ldots,x_m)\in k^{n+m} | \forall i \in [\![1,m]\!],x_i-f_i(t_1,\ldots,t_n)=0 \}$\\
+D'o\`u,  $V=\{(t_1,\ldots,t_n,f_1(t_1,\ldots,t_n),\ldots,f_m(t_1,\ldots,t_n))\in k^{n+m} | (t_1,\ldots,t_m) \in k^m \} (*)$. Autrement dit, $V$ est le graphe de $F$.\\
+Soient $\begin{array}{ccccc}
+i & : & k^m & \to & k ^{n+m} \\
+ & & (t_1,\ldots,t_m) & \mapsto & (t_1,\ldots,t_n,f_1(t_1,\ldots,t_n),\ldots,f_m(t_1,\ldots,t_n))\\
+\end{array}$\\
+ et $\begin{array}{ccccc}
+\pi_m & : & k^{n+m} & \to & k^n \\
+ & & (t_1,\ldots,t_n,x_1,\ldots,x_m) & \mapsto & (t_1,\ldots,t_n) \\
+\end{array}$
+Alors, on a : \\
+ \xymatrix{
+   &k^{n+m} \ar[rd]^{\pi_m}&  \\
+    k^m \ar[ru]^i\ar[rr]^F&& k^n
+  }\\
+i.e. $F=\pi_m \circ i$.\\
+Avec $(*)$, on a $i(k^m)=V$ et donc $\pi_m(V)=F(k^m)$.\\
+Autrement dit, l'image d'une param\'etrisation est la projection de son graphe.
+\begin{Thm}
+Soit $F:k^m \to k^n$ une fonction d\'etermin\'ee par la param\'etrisation polynomiale $(\dagger)$.\\ Soit $I$ l'id\'eal $\left\langle X_1-f_1,\ldots,X_n-f_n \right\rangle \subset k[T_1,\ldots,T_m,X_1,\ldots,X_n]$ et $I_m$ son $m$ \`eme id\'eal d'\'elimination. Alors $Z(I_m)$ est le plus petit id\'eal de $k^n$ contenant $F(k^m)$.
+\end{Thm}
+\begin{proof}
+Supposon que $k$ est un sous-corps de $\C$ ($k$ est infini car $\forall p \in \N, \sum_{i=1}^p 1 \in k$ ). \\
+Si $k=\C$ alors, d'après le théorème de fermeture, $Z(I_m)$ est la plus petite variété contenant $\pi_m(V)=F(k^m)$. \\
+Si $k$ est un sous-corps strict de $\C$ alors on ne peut pas utiliser le théorème de fermeture immédiatement. \\
+Posons $Z_k(I):=\{ x \in k^n | \forall f \in I, f(x)=0\} \subset Z_k(I):=\{ x \in \C^n | \forall f \in I, f(x)=0\}$. \\
+On cherche à montrer que $Z_k(I_m)$ est la plus petite variété de $k^n$ contenant $F(k^m)$. \\
+Remarquons, tout d'abord, que $F(k^m)=\pi_m(V) \subset Z_k(I_m)$ (\emph{c.f.} lemme \ref{}).\\ 
+Ensuite, considérons une variété $V_k:=Z_k(g_1,\ldots,g_s)$ contenant $F(k^m)$ et montrons que $Z_k(I_m) \subset V_k$. \\
+Soit $i \in [\![1,s]\!]$. Alors $g_i$ s'annule sur $V_k$(par définition) et en particulier sur $F(k^m)$ et donc $g_i\circ F$ s'annule sur $k^m$. \\ Comme $g_i \circ F \in k[T_1,\ldots,T_m]$ et que $k$ est infini, alors, d'après le lemme $\ref{}$, $g_i \circ F$ est le polynôme nul. \\
+On en déduit que $g_i \circ F$ s'annule sur $\C^m$ ou encore $g_i$ s'annule sur $F(\C^m)$. \\
+D'où $F(\C^m) \subset V_\C$. D'après ce que l'on a montré pour le cas $k=\C$, on a $Z_\C(I_m) \subset V_\C$. En intersectant par $k^n$ à gauche et à droite de l'inclusion, on obtient $Z_k(I_m) \subset V_k$.
+
+
+\end{proof}
