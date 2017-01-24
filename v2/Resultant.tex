@@ -4,17 +4,6 @@ Soit $\varphi_{f,g} : K_{q-1}[X]\times K_{p-1}[X] \to K_{p+q-1}[X] $ l'applicati
 On appelle matrice de Sylvester la matrice associée à l'application $\varphi_{f,g} $ dans la base $\B=((X^i,X^j) | 1 \leq i \leq q-1 ; 1 \leq j \leq p-1) $ que l'on notera $\Syl(f,g)$.\\
 On appelle résultant de $f $ et $g $ le déterminant de cette matrice et on le note $\Res(f,g)$.
 
-\begin{Lemme}
-
-$\Res(f,g) \in A$
-
-\end{Lemme}
-
-\begin{proof}
-
-Le determinant est polynomial en les coordonnées de la matrice et les composantes de $\Syl(f, g) $ sont dans   $A$.
-
-\end{proof}
 
 \begin{prop}
 
@@ -26,7 +15,7 @@ $\Res (f, g)\in\left\langle f,g \right \rangle \cap k[Y] $
 
 \begin{proof}
 
- $\Res (f,g) \in k [Y] $ grâce au lemme précédent. \\
+ $\Res (f,g) \in k[Y] $ car le determinant est polynomial en les coordonnées de la matrice et les composantes de $\Syl(f,g) $ sont dans $k[Y]$. \\
 Montrons maintenant que $\Res (f,g) \in \left\langle f,g \right\rangle $.\\
 Notons $M $ la matrice de Sylvester de $f $ et $g $. \\
 Alors $M {}^t \Com(M)=\det (M)I $ $(*) $ où $\Com(M)$ est la matrice des cofacteurs. \\
