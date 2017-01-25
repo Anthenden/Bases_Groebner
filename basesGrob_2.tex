@@ -88,8 +88,11 @@
 
 
 %\input{intro_BG} 
-\section{Théorème d'extension et d'élimination}
+\section{Théorème d'élimination et d'extension}
 \subsection{Théorème d'élimination}
+\begin{Def}
+Soit $I=\left\langle f_1,\ldots,f_s \right\rangle $ un idéal de $k[X_1,\ldots,X_n]$. On appelle $p$ème idéal d'élimination de $I$ l'idéal $I_p$ de $k[X_{p+1},\ldots,X_n]$ définit par : $I_p=k[X_{p+1},\ldots,X_n] \cap I$, $0 \leq p \leq n-1$
+\end{Def}
 \begin{Thm}[d'élimination]
 Soit $I $ un idéal de $k[X_1,\ldots,X_n]$ et $G$ une base de Gröbner de $I$ selon l'ordre lexicographique (que l'on notera ici seulement $\geq$). Alors, pour tout $p \in [\![0,n]\!]$, l'ensemble $G_p =G \cap k[X_{p+1},\ldots,X_n]  $ est une base de Gröbner du $p$ème idéal d'élimination $I_p$.
 \end{Thm}
@@ -99,31 +102,27 @@ Soit $I $ un idéal de $k[X_1,\ldots,X_n]$ et $G$ une base de Gröbner de $I$ selo
 Soit $p \in [\![0,n]\!]$. Posons $G=\{g_1,\ldots,g_m\}$ et tel que $G_p=\{g_1,\ldots,g_r\}$ (quitte à renommer les éléments). \\
 Montrons que $G_p$ est une base de $I_p$. \\
 Comme $G_p \subset I_p$ (car $G \subset I$) alors $\left \langle G_p \right\rangle \subset I_p$.\\
-Soit $f \in I_p$ alors d'après le théorème de division par $G$,il existe $h_1,\ldots,h_m \in k[X_1,\ldots,X_n]$ tels que 
-$f=\sum_{k=1}^m h_ig_i$ car $G$ est une base de Gröbner de $I$ et $f \in I$.\\
-Or pour tout $p>r, g_i > X^{p+1} \geq LM(f) $ et donc aucun terme de $f$ ne peut être divisible par un $LT(g_i)$. L'algorithme n'incrémente pas les $h_p$(avec $p >r$) et donc sont tous nuls.  \\
+On peut écrire, grâce à l'algorithme de division, $f \in I$ sous la forme $f=\sum_{k=1}^m h_ig_i$, l'absence de reste est assuré par le fait que $G$ est une base de Gröbner de $I$ et $f \in I$.\\
+Or pour tout $p>r,  \LM(g_i) > X^{p+1} \geq \LM(f) $ et donc aucun terme de $f$ ne peut être divisible par un $\LT(g_i)$. L'algorithme n'incrémente pas les $h_p$(avec $p >r$) et donc ceux-ci sont tous nuls.  \\
 D'où, $f=\sum_{k=1}^r h_ig_i$ et donc $f_p \in \left \langle G_p \right\rangle$, ce qui finit de montrer l'égalité $\left \langle G_p \right\rangle = I_p$.\\
-(Le même argument permet de montrer que si $f \in I_p$, $\overline{f}^G=\overline{f}^{G_p}$ ).\\
+(Le même argument permet de montrer que si $f \in I_p$, $\overline{f}^G=\overline{f}^{G_p}$ $(*)$ ).\\
 Montrons maintenant que $G$ est une base de Gröbner de $I_p$.\\
 Il suffit, pour cela, de montrer que pour tout $1 \leq i < j \leq r$, $\overline{S(g_i,g_j)}^{G_p}=0$.\\
 Soit $i,j \in [\![1,r]\!]$,$ i<j$.\\
-Comme $S(g_i,g_j)$ est de la forme $Pg_i+Qg_j$ ($P,Q \in k[X_{p+1},\ldots,X_n]$) et $I_p$ est un idéal alors $S(g_i,g_j) \in I_p \subset I$ d'où comme $G$ est une base de Gröbner alors $\overline{S(g_i,g_j)}^{G}=0$ et donc d'après la remarque précédente, \\
-$\overline{S(g_i,g_j)}^{G_k}=0$. Ce qui permet de conclure.
+Comme $S(g_i,g_j)$ est de la forme $Pg_i+Qg_j$ ($P,Q \in k[X_{p+1},\ldots,X_n]$) et $I_p$ est un idéal alors $S(g_i,g_j) \in I_p \subset I$ d'où comme $G$ est une base de Gröbner alors $\overline{S(g_i,g_j)}^{G}=0$ et donc d'après $(*)$, $\overline{S(g_i,g_j)}^{G_k}=0$. Ce qui permet de conclure.
 \end{proof}
 \subsection{Résultant}
 Soient $A $ un anneau commutatif intègre et $K $ son corps de fractions.\\
-Soient $f\in A [X] $ et $g \in A [X] $. Soient $p,q \in \N$, tels que $p\geq\deg f $ et $q\geq\deg g $.\\
-Soit $\varphi_{f,g} : K_{q-1}[X]\times K_{p-1}[X] \to K_{p+q-1}[X] $ l'application linéaire définie par :\\ $\forall (u,v) \in K_{q-1}[X]\times K_{p-1}[X], \varphi(u,v)=fu+gv $.\\
-On appelle matrice de Sylvester la matrice associée à l'application $\varphi_{f,g} $ dans la base $\B=((X^i,X^j) | 1 \leq i \leq q-1 ; 1 \leq j \leq p-1) $ que l'on notera $\Syl_{p,q}(f,g)$.\\
+Soient $f\in A[X] $ et $g \in A[X] $. Soient $p,q \in \N$, tels que $p\geq\deg f $ et $q\geq\deg g $.\\
+Soit $\varphi_{f,g} : K_{q}[X]\times K_{p}[X] \to K_{p+q}[X] $ l'application linéaire définie par :\\ $\forall (u,v) \in K_{q}[X]\times K_{p}[X], \varphi(u,v)=fu+gv $.
+On appelle matrice de Sylvester la matrice associée à l'application $\varphi_{f,g} $ dans la base $\B=((X^i,X^j) | 0 \leq i \leq q-1 ; 0 \leq j \leq p-1) $ que l'on notera $\Syl_{p,q}(f,g)$.\\
 On notera $\Res_{p,q}(f,g)$ le déterminant de $\Syl_{p,q}(f,g)$
 On appelle résultant de $f $ et $g $  l'élément $\Res_{\deg(f),\deg(q)}(f,g)$.
 
 
 \begin{prop}
 
-Supposons que $A=k [Y] $ avec $k $ un corps. Alors :
-
-$\Res (f, g)\in\left\langle f,g \right \rangle \cap k[Y] $
+Supposons que $A=k [Y] $ . Alors : $\Res (f, g)\in\left\langle f,g \right \rangle \cap k[Y] $
 
 \end{prop}
 
@@ -132,30 +131,31 @@ $\Res (f, g)\in\left\langle f,g \right \rangle \cap k[Y] $
  $\Res (f,g) \in k[Y] $ car le déterminant est polynomial en les coordonnées de la matrice et les composantes de $\Syl(f,g) $ sont dans $k[Y]$. \\
 Montrons maintenant que $\Res (f,g) \in \left\langle f,g \right\rangle $.\\
 Notons $M $ la matrice de Sylvester de $f $ et $g $. \\
-Alors $M {}^t \Com(M)=\det (M)I $ $(*) $ où $\Com(M)$ est la matrice des cofacteurs. \\
-Comme les cofacteurs de $M $ sont dans $A $ (car polynomial en les coordonnées) alors $\Com (M) $ est dans $\Mcal_{p+q-1}(A) $. \\
-Donc en posant $M=(C_1,\ldots,C_{p+q-1})$ alors d'après $(*) $, on a : \\
+Alors $M {}^t \Com(M)=\det (M)I_{p,q} $ $(*) $ où $\Com(M)$ est la matrice des cofacteurs de $M$. \\
+Comme les cofacteurs de $M $ sont dans $A $ (car ceux-ci sont polynomiaux en les coordonnées) alors $\Com (M) $ est dans $\Mcal_{p+q}(A) $. \\
+Donc, en posant $M=(C_1,\ldots,C_{p+q})$, on a, d'après $(*) $, : \\
 $MC_1=\begin{pmatrix} \det (A) \\ 0 \\ \vdots\\ 0 \end{pmatrix} $. \\
-En notant par $c $ l'élément de $ A_{q-1}[X]\times A_{p-1}[X] $ de colonne de coordonnées $C_1$ dans la base $\B  $ définie plus haut, on a : $\varphi_{f,g}(c)=det (A) $, ce qui permet de conclure.
+En notant par $c $ l'élément de $ A_{q}[X]\times A_{p}[X] $ de colonne de coordonnées $C_1$ dans la base $\B  $ définie plus haut, on a : $\varphi_{f,g}(c)=\det (A) $, ce qui permet de conclure.
 \end{proof}
 \begin{prop}
-Soit $A=QB+A_1$ une division euclidienne, avec $A_1 \neq 0$. Alors, avec les m\^emes notations que pr\'ec\'edemment, $Res(A,B)=b_q^{deg(A)-deg(A_1)} Res(A_1,B)$
+\begin{itemize}
+\label{result_deg}
+    \item Si $p=deg(A)$ et $q=deg(B)$ alors, par d\'efinition, $Res(A,B)=Res_{p,q}(A,B)$
+    \item Si $p=deg(A)$ et $q>deg(B)$ alors $Res_{p,q}(A,B)=((-1)^p a_p)^{q-deg B}Res(A,B)$
+    \item Si $p>deg(A)$ et $q=deg(B)$ alors $Res_{p,q}(A,B)=b_q^{p-deg A}Res(A,B)$
+    \item Si $p>deg(A)$ et $q>deg(B)$ alors $Res_{p,q}(A,B)=0$
+\end{itemize}
 \end{prop}
-\begin{Lemme}
-Si $B=(X-\beta)C$, alors $Res(A,B)=A(\beta)Res(A,C)$
-\end{Lemme}
 \begin{Thm}
-Si $A:=a(X-\alpha_1)\ldots (X-\alpha_p)$ et $B:=b(X-\beta_1)\ldots(X-\beta_q)$, alors :\\
-$Res(A,B)=b^pA(\beta_1)\ldots A(\beta_q)$
-$=b^pa^q \prod_{i=1}^p \prod_{j=1}^q (\beta_j-\alpha_i)$
-$=(-1)^{pq} a^q B(\alpha_1) \ldots B(\alpha_q)$
-\end{Thm}
-\begin{cor}
+\label{zeros}
 Supposons le corps $L$ alg\'ebriquement clos. Alors $Res(A,B)=0$ si, et seulement si, les polyn\^omes $A$ et $B$ ont une racine commune.
-\end{cor}
+\end{Thm}
 \subsection{Théorème d'extension}
 \begin{Not}
-On note $Z(I)$ l'ensemble des zéros communs à tous les polynômes de $I$ i.e. $Z(I):=\{a \in k^n | \forall f \in I, f(a)=0 \}$
+\begin{itemize}
+	\item On note $Z(I)$ l'ensemble des zéros communs à tous les polynômes de $I$ i.e. $Z(I):=\{a \in k^n | \forall f \in I, f(a)=0 \}$.
+	\item Soient $f,g \in k[X_1,\ldots,X_n]$. On note par $\Syl_{X_i}(f,g), \Res_{X_i}(f,g)$ la matrice de Sylvester (resp. résultant) de $f$ et $g$ vu comme polynôme de $k[X_1,\ldots,X_{i-1},X_{i+1},\ldots,X_n][X_i]$
+\end{itemize}
 \end{Not}
 \begin{Thm}[d'extension]
 
@@ -166,24 +166,21 @@ où $N_i \geq 0$ et $g_i \in \mathbb{C}[X_2,\ldots,X_n]$ non nul si $f_i \neq 0$ 
 Supposons qu'on ait une solution partielle $(a_2,\ldots,a_n) \in Z(I_1)$. Si $(a_2,\ldots,a_n) \notin Z(g_1,\ldots,g_s)$ alors il existe $a_1 \in \mathbb{C}$ tel que $(a_1,\ldots,a_n) \in Z(I)$.
 \end{Thm}
 \begin{proof}
-Supposons $s=2$ : \\
+Montrons ce résultat pour $s=2$. \\
 Soient $f=\sum_{i=0}^p f_i(X_2,\ldots,X_n)X_1^i$ et $g=\sum_{j=0}^q g_j(X_2,\ldots,X_n)X_1^j$ où $f_p \neq 0 \neq g_q$. \\
 Soit $I$ l'idéal engendré par $f$ et $g$ et $I_1$ son premier idéal d'élimination.\\
 Soit $c=(c_2,\ldots,c_n) \in Z(I_1)$.\\
-Montrons que soit $f_p(c)=g_q(c)=0$ ou il existe $c_1 \in k$ tel que $(c_1,\ldots,c_n) \in Z(I)$.\\
+Montrons que soit $f_p(c)=g_q(c)=0$ soit il existe $c_1 \in k$ tel que $(c_1,\ldots,c_n) \in Z(I)$.\\
 Pour cela, montrons, tout d'abord, que $\Res_{X_1}(f,g)(c)=\Res_{p,q}(f(X_1,c),g(X_1,c))$.\\
 Considérons,pour cela, le morphisme $\varphi : k[X_1,\ldots,X_n]\to k[X_1]$ défini par : 
 $\forall f \in k[X_1,\ldots,X_n],\varphi(f)=f(X_1,c)$.\\
 On a donc $\Res_{X_1}(f,g)(c)=\varphi(\Res_{X_1}(f,g))$ (en identifiant $k[X_2,\ldots,X_n]$ avec le sous-anneau de $k[X_1,\ldots,X_n]$ des polynômes de degré 0 en $X_1$).
-Posons $\left(a_{i,j}(X_2,\ldots,X_n)\right):=\Syl_{X_1}(f,g)$.
-Alors $\Res_{X_1}(f,g)(c)=\varphi(\Res_{X_1}(f,g))=\varphi(\det\left(a_{i,j}(X_2,\ldots,X_n)\right))$.
-En utilisant la formule explicite du déterminant, on obtient : \\
-$\Res_{X_1}(f,g)(c)=\varphi\left(\sum_{\sigma \in S_n } \varepsilon(\sigma) \prod_i a_{i,\sigma(i)}(X_2,\ldots,X_n)\right)=\sum_{\sigma \in S_n } \varepsilon(\sigma) \prod_i \varphi(a_{i,\sigma(i)}(X_2,\ldots,X_n))=\sum_{\sigma \in S_n } \varepsilon(\sigma) \prod_i \varphi(a_{i,\sigma(i)}(c))$. \\
-Ce qui permet d'en déduire la formule voulue.\\
-Comme $c \in Z(I_1)$ et que $Res_{X_1}(f,g) \in I_1$ alors $\Res_{X_1}(f,g)(c)=0$ et donc $\Res_{p,q}(f(X_1,c),g(X_1,c))=0$.\\
+Notons $\left(a_{i,j}(X_2,\ldots,X_n)\right)$ les coefficients de $\Syl_{X_1}(f,g)$.
+Alors, comme $\varphi$ est un morphisme d'anneaux, $\Res_{X_1}(f,g)(c)=\varphi(\Res_{X_1}(f,g))=\varphi(\det\left(a_{i,j}(X_2,\ldots,X_n)\right))$. \\
+De plus, comme $c \in Z(I_1)$ et que $Res_{X_1}(f,g) \in I_1$ alors $\Res_{X_1}(f,g)(c)=0$ et donc $\Res_{p,q}(f(X_1,c),g(X_1,c))=0$.\\
 Supposons maintenant que $f_p(c) \neq 0$. \\
-Alors, d'après les propriétés du résultant (c.f. lemme \ref{}), on a : $\Res(A,B)=\left(\frac{(-1)^p}{f_p(c)}\right)^{deg(f(X_1,c)-q}Res_{p,q}(A,B)=0$.
-Ce qui permet de conclure que $f(X_1,c)$ et $g(X_1,c)$ ont une racine commune $c_1$ et donc $(c_1,\ldots,c_n) \in Z(I)$.
+Alors, d'après les propriétés du résultant (c.f. lemme \ref{result_deg}), on a : $\Res(A,B)=\left((-1)^pf_p(c)\right)^{deg(f(X_1,c))-q}Res_{p,q}(A,B)=0$.
+Ce qui permet de conclure que $f(X_1,c)$ et $g(X_1,c)$ ont une racine commune $c_1$(grâce au théorème \ref{zeros}) et donc $(c_1,\ldots,c_n) \in Z(I)$.
 On obtient la m\^eme chose en supposant $g_q(c) \neq 0$.
 \end{proof}
 \begin{cor}
@@ -201,22 +198,23 @@ Soit $f_1,\ldots,f_s$ des polynômes de $k[X_1,\ldots,X_n]$.\\ On appelle variété
 \end{Lemme}
 
 \begin{proof}
-Supposons $V=Z(f_1,\ldots,f_s)$ et $W=Z(g_1,\ldots,g_r)$. \\
+Supposons que $V=Z(f_1,\ldots,f_s)$ et $W=Z(g_1,\ldots,g_r)$. \\
 Alors $V \cap W=Z(f_1,\ldots,f_s,g_1,\ldots,g_r)$ et $V \cup W=Z(f_ig_j | 1 \leq i \leq s, 1 \leq j \leq r )$ (que l'on notera $Z(f_ig_j)$).\\
 Montrons la deuxième égalité : \\
 Soit $a=(a_1,\ldots,a_n) \in V$ alors $\forall i \in [\![1,s]\!], f_i(a)=0$ et donc $\forall i \in [\![1,s]\!],\forall j \in [\![1,r]\!],  f_ig_j(a)=0$ d'où $V \subset Z(f_ig_j)$. On obtient de la même façon que $W \subset Z(f_ig_j)$. D'où $V \cup W \subset Z(f_ig_j)$.\\
 Soit $a=(a_1,\ldots,a_n) \in Z(f_ig_j)$. Si $a \in V$ alors c'est fini. Sinon, il existe un $i_0 \in [\![1,s]\!]$ tel que $f_{i_0}(a)=0$. Alors,comme pour tout $j \in [\![1,r]\!]$, $f_{i_0}(a)g_j(a)=0$,alors, par intégrité de $k$, tous les $g_j(a)$ sont nuls et donc $a \in W$.\\
 On en déduit donc $Z(f_ig_j) \subset V \cup W$ et donc l'égalité voulue.
 \end{proof}
-\begin{prop} Si $\{f_1,\ldots,f_s\}$ et $\{g_1,\ldots,g_r\}$ sont des bases d'un même idéal de $k[X_1,\ldots,X_n]$ alors $Z(f_1,\ldots,f_s)=Z(g_1,\ldots,g_r)$
+\begin{prop} Si $\{f_1,\ldots,f_s\}$ et $\{g_1,\ldots,g_r\}$ sont des bases d'un même idéal $I$ de $k[X_1,\ldots,X_n]$ alors $Z(f_1,\ldots,f_s)=Z(g_1,\ldots,g_r)$
 \end{prop}
 \subsubsection{Géométrie de l'élimination}
 Soit $V=Z(f_1,\ldots,f_s) \subset \C^n $
 \begin{Def} 
+\label{Def_proj}
 Soit $\pi_p $ la projection $\C^n \to \C^{n-p} $ définie par : $\forall (a_1,\ldots,a_n) \in \mathbb{C}^n, \pi_p (a_1,\ldots,a_n) =(a_{p+1},\ldots,a_n) $.
-(Cette application est surjective)
 \end{Def}
 \begin{Lemme}
+\label{lemme_inclus}
 Soit $I_p $ le $p $ème idéal d'élimination de l'idéal $\left\langle f_1,\ldots,f_s \right \rangle $ de $\C[X_1,\ldots,X_n] $. Alors, dans $\C^{n-p} $, $\pi_p (V) \subset Z (I_p) $.
 \end{Lemme}
 \begin{proof}
@@ -228,10 +226,10 @@ Comme $\pi_p $ est surjective alors il existe un $a'=(a_1,\ldots,a_n) $ qui appa
 $Z (I_1)=\pi(V) \cup (Z (g_1,\ldots,g_s) \cap Z (I_1))$
 \end{Thm}
 \begin{proof}
-$\supset $ : c.f. Lemme \ref{} \\
+$\supset $ : c.f. Lemme \ref{lemme_inclus} \\
 $\subset  $ : Soit $a:=(a_2,\ldots,a_n) \in Z (I_1)$ .
 Alors si $a\notin\left\langle g_1,\ldots,g_s \right \rangle $, on a, d'après le théorème d'extension, l'existence d'un $a_1 \in \C $ tel que $(a_1,\ldots,a_n) \in V$ et donc  $a \in \pi_1 (V) $.\\
-Sinon $a \in \left\langle f_1,\ldots,f_s \right \rangle$ et donc dans $\left\langle f_1,\ldots,f_s \right \rangle \cap V (I_1) $
+Sinon $a \in \left\langle g_1,\ldots,g_s \right \rangle$ et donc dans $\left\langle g_1,\ldots,g_s \right \rangle \cap Z (I_1) $
 \end{proof}
 \begin{Thm}[de fermeture]
 
@@ -243,9 +241,8 @@ Sinon $a \in \left\langle f_1,\ldots,f_s \right \rangle$ et donc dans $\left\lan
 \end{enumerate}
 \end{Thm}
 \begin{cor}
-
 Supposons qu'il existe $i \in [\![1,n]\!]$ tel que $f_i$ s'écrit de la forme : 
-$f_i=cX_1^{N}$+termes de degré $<N$ en $X_1$\\ où $N> 0$ et $c \in \mathbb{C}\setminus \{0\}$ non nul. Alors $\pi(V)=Z(I_1)$.
+$f_i=cX_1^{N}$+termes de degré $<N$ en $X_1$\\ où $N> 0$ et $c \in \mathbb{C}\setminus \{0\}$. Alors $\pi(V)=Z(I_1)$.
 \end{cor}
 
 \section{Implicitation}
@@ -260,35 +257,33 @@ $S$ n'est pas n\'ecessairement une vari\'et\'e affine (cf exercices).\\
 Le syst\`eme $(\dagger)$ d\'efini tout de même une vari\'et\'e $V=Z(X_1-f_1,\ldots,X_n-f_n) \subset k^{n+m}$.\\
 On a donc $V=\{(t_1,\ldots,t_n,x_1,\ldots,x_m)\in k^{n+m} | \forall i \in [\![1,m]\!],x_i-f_i(t_1,\ldots,t_n)=0 \}$\\
 D'o\`u,  $V=\{(t_1,\ldots,t_n,f_1(t_1,\ldots,t_n),\ldots,f_m(t_1,\ldots,t_n))\in k^{n+m} | (t_1,\ldots,t_m) \in k^m \} (*)$. Autrement dit, $V$ est le graphe de $F$.\\
-Soient $\begin{array}{ccccc}
+De plus, on peut remarquer que $V$ est l'image de l'application 
+$\begin{array}{ccccc}
 i & : & k^m & \to & k ^{n+m} \\
  & & (t_1,\ldots,t_m) & \mapsto & (t_1,\ldots,t_n,f_1(t_1,\ldots,t_n),\ldots,f_m(t_1,\ldots,t_n))\\
 \end{array}$\\
- et $\begin{array}{ccccc}
-\pi_m & : & k^{n+m} & \to & k^n \\
- & & (t_1,\ldots,t_n,x_1,\ldots,x_m) & \mapsto & (t_1,\ldots,t_n) \\
-\end{array}$
-Alors, on a : \\
+On en déduit le diagramme suivant :  \\
  \xymatrix{
    &k^{n+m} \ar[rd]^{\pi_m}&  \\
     k^m \ar[ru]^i\ar[rr]^F&& k^n
   }
 i.e. $F=\pi_m \circ i$.\\
-Avec $(*)$, on a $i(k^m)=V$ et donc $\pi_m(V)=F(k^m)$.\\
+où $\pi_m : k^{n+m} \to k^n$ est une projection définie de manière analogue à \ref{Def_proj}. \\
+On a donc $\pi_m(V)=F(k^m)$.\\
 Autrement dit, l'image d'une param\'etrisation est la projection de son graphe.
 \begin{Thm}
 Soit $F:k^m \to k^n$ une fonction d\'etermin\'ee par la param\'etrisation polynomiale $(\dagger)$.\\ Soit $I$ l'id\'eal $\left\langle X_1-f_1,\ldots,X_n-f_n \right\rangle \subset k[T_1,\ldots,T_m,X_1,\ldots,X_n]$ et $I_m$ son $m$ \`eme id\'eal d'\'elimination. Alors $Z(I_m)$ est le plus petit id\'eal de $k^n$ contenant $F(k^m)$.
 \end{Thm}
 \begin{proof}
-Supposon que $k$ est un sous-corps de $\C$ ($k$ est infini car $\forall p \in \N, \sum_{i=1}^p 1 \in k$ ). \\
+Supposons que $k$ est un sous-corps de $\C$. \\
 Si $k=\C$ alors, d'après le théorème de fermeture, $Z(I_m)$ est la plus petite variété contenant $\pi_m(V)=F(k^m)$. \\
 Si $k$ est un sous-corps strict de $\C$ alors on ne peut pas utiliser le théorème de fermeture immédiatement. \\
-Posons $Z_k(I):=\{ x \in k^n | \forall f \in I, f(x)=0\} \subset Z_k(I):=\{ x \in \C^n | \forall f \in I, f(x)=0\}$. \\
+Posons $Z_k(I):=\{ x \in k^n | \forall f \in I, f(x)=0\} \subset Z_\C(I):=\{ x \in \C^n | \forall f \in I, f(x)=0\}$. \\
 On cherche à montrer que $Z_k(I_m)$ est la plus petite variété de $k^n$ contenant $F(k^m)$. \\
-Remarquons, tout d'abord, que $F(k^m)=\pi_m(V) \subset Z_k(I_m)$ (\emph{c.f.} lemme \ref{}).\\ 
+Remarquons, tout d'abord, que $F(k^m)=\pi_m(V) \subset Z_k(I_m)$ (\emph{c.f.} lemme \ref{lemme_inclus}).\\ 
 Ensuite, considérons une variété $V_k:=Z_k(g_1,\ldots,g_s)$ contenant $F(k^m)$ et montrons que $Z_k(I_m) \subset V_k$. \\
-Soit $i \in [\![1,s]\!]$. Alors $g_i$ s'annule sur $V_k$(par définition) et en particulier sur $F(k^m)$ et donc $g_i\circ F$ s'annule sur $k^m$. \\ Comme $g_i \circ F \in k[T_1,\ldots,T_m]$ et que $k$ est infini, alors, d'après le lemme $\ref{}$, $g_i \circ F$ est le polynôme nul. \\
-On en déduit que $g_i \circ F$ s'annule sur $\C^m$ ou encore $g_i$ s'annule sur $F(\C^m)$. \\
+Soit $i \in [\![1,s]\!]$. Alors $g_i$ s'annule sur $V_k$(par définition) et en particulier sur $F(k^m)$. D'où $g_i\circ F$ s'annule sur $k^m$. \\ Comme $g_i \circ F \in k[T_1,\ldots,T_m]$ et que $k$ est infini, alors, d'après le lemme $\ref{}$, $g_i \circ F$ est le polynôme nul. \\
+On en déduit que $g_i \circ F$ s'annule sur $\C^m$ ou encore que $g_i$ s'annule sur $F(\C^m)$. \\
 D'où $F(\C^m) \subset V_\C$. D'après ce que l'on a montré pour le cas $k=\C$, on a $Z_\C(I_m) \subset V_\C$. En intersectant par $k^n$ à gauche et à droite de l'inclusion, on obtient $Z_k(I_m) \subset V_k$.
 
 
