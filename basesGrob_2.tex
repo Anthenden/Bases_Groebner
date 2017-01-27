@@ -121,14 +121,13 @@ On appelle résultant de $f $ et $g $  l'élément $\Res_{\deg(f),\deg(q)}(f,g)$.
 
 
 \begin{prop}
-
-Supposons que $A=k [Y] $ . Alors : $\Res (f, g)\in\left\langle f,g \right \rangle \cap k[Y] $
+ $\Res (f, g)\in\left\langle f,g \right \rangle \cap A $
 
 \end{prop}
 
 \begin{proof}
 
- $\Res (f,g) \in k[Y] $ car le déterminant est polynomial en les coordonnées de la matrice et les composantes de $\Syl(f,g) $ sont dans $k[Y]$. \\
+ $\Res (f,g) \in A $ car le déterminant est polynomial en les coordonnées de la matrice et les composantes de $\Syl(f,g) $ sont dans $A$. \\
 Montrons maintenant que $\Res (f,g) \in \left\langle f,g \right\rangle $.\\
 Notons $M $ la matrice de Sylvester de $f $ et $g $. \\
 Alors $M {}^t \Com(M)=\det (M)I_{p,q} $ $(*) $ où $\Com(M)$ est la matrice des cofacteurs de $M$. \\
@@ -137,6 +136,8 @@ Donc, en posant $M=(C_1,\ldots,C_{p+q})$, on a, d'après $(*) $, : \\
 $MC_1=\begin{pmatrix} \det (A) \\ 0 \\ \vdots\\ 0 \end{pmatrix} $. \\
 En notant par $c $ l'élément de $ A_{q}[X]\times A_{p}[X] $ de colonne de coordonnées $C_1$ dans la base $\B  $ définie plus haut, on a : $\varphi_{f,g}(c)=\det (A) $, ce qui permet de conclure.
 \end{proof}
+\begin{Corollaire}
+Si $A=k[X_2,\ldots,X_n]$ alors $Res(f,g) \in I_1$
 \begin{prop}
 \begin{itemize}
 \label{result_deg}
