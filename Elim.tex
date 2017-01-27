@@ -1,0 +1,13 @@
+Remarques : 
+1)Si $f=a_1(X_2,\ldots,X_n)X_1+a_0(X_2,\ldots,X_n)$ et $g=b_1(X_2,\ldots,X_n)X_1+b_0(X_2,\ldots,X_n)$ sont des polyn\^omes de degré 1  alors leur résultant $a_0b_1-a_1b_0$, ce qui est le m\^eme résultat que l'on obtient lorsqu'on applique le pivot de Gauss à $f$ et $g$.
+2) Lorsqu'on considère un idéal engendré par $n$ polyn\^omes premiers entre eux, on peut utiliser le résultant afin d'avoir une idée suffisante de $I_{n-1}$ pour trouver toutes les solutions. En effet, à l'instar du pivot de Gauss utilisé pour les polyn\^omes de degré 1, on peut utilisé le résultant pour éliminer les variables d'un système : 
+Soit $I:=\left \langle f_1,\ldots,f_n \right\rangle$ alors les $n-1$ polyn\omes $\Res_{X_1}(f_1,f_2),\ldots, \Res_{X_1}(f_1,f_n)$ sont dans $I_1$. En itérant ce processus, on obtient un polyn\^ome $f$  non nul (car les $f_i$ sont premiers entre eux) qui est dans $I_{n-1}$. Comme $k[X_n]$ est principal alors $I_{n-1}$ est engendré par un seul polyn\^ome $P$  qui divise $f$. D'où l'ensemble des zéros de $P$ est inclus dans celui de $f$.
+
+Exemple : En reprenant les polyn\^omes de l'exemple \ref{}, on a $P:=Res_{X}(f,g)=g^2$, $Q:=Res_{X}(f,h)=Y^4+Y^2Z^2-4Y^2+1$. Ensuite on a $Res_Y(f,g)=4Z^8 - 28Z^6 + 73Z^4 - 84Z^2 + 36=4(Z^4-7/2Z^2+3)^2$
+
+
+
+Thm d'extension : En reprenant les polyn\^omes de l'exemple \ref{}, on a $I_1=\left\langle g,Z^4-7/2Z^2+3 \right\rangle$ et $I_2=\left\langle Z^4-7/2Z^2+3 \right\rangle$. \\
+On a $Z(I_2)=Z(\left\langle Z^4-7/2Z^2+3\right\rangle)=\{\pm \sqrt{2},\pm \sqrt{3/2}\}$. Puis, comme le terme dominat de $g$ est constant alors on peut utiliser le théorème d'extension pour montrer que $Z(I_1)=\{(\pm 1,\pm \sqrt{2}),(\pm \sqrt{3/2},\sqrt{2})}$ puis de la m\^eme façon, on a que $Z(I)=\{(-1,-1,-\sqrt{2}), (1,1,-\sqrt{2}), (-1/\sqrt{2},-\sqrt{2},-\sqrt{3/2}), (1/\sqrt{2},\sqrt{2}, -\sqrt{3/2})
+(-1/\sqrt{2},-\sqrt{2}, \sqrt{3/2}), (1/\sqrt{2},\sqrt{2}, \sqrt{3/2}), (-1,-1,\sqrt{2}),(1,1,\sqrt{2})\}
+
