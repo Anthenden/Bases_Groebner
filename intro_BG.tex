@@ -17,7 +17,7 @@ Nous allons ensuite discuter de l'élimination des variables dans les systèmes po
 
 \section*{Conventions et Notations}
 Dans ce rapport, $k$ est un corps commutatif de caractéristique 0 et $n$ un entier naturel strictement positif. \\
-On considérera l'anneau de polynômes $k[X_1,\ldots,X_n]$ à $n$ indéterminées $X_1,\ldots,X_n$ construit par récurrence par : $\forall k<n, k[X_1,\ldots,X_{k+1}]:=k[X_1,\ldots,X_k][X_{k+1}]$
+On considérera l'anneau de polynômes $k[X_1,\ldots,X_n]$ à $n$ indéterminées $X_1,\ldots,X_n$ construit par récurrence par : $\forall k<n, k[X_1,\ldots,X_{k+1}]:=k[X_1,\ldots,X_k][X_{k+1}]$. On pourra identifier cet anneau à celui des fonctions polynômiales à $n$ variables (grâce à l'infinité de $k$). \\
 On appelle monômes tout polynôme de la forme $X_1^{\alpha_1}\ldots X_n^{\alpha_n}$ où $\alpha_i \in \N$ que l'on abrégera $X^{(\alpha_1,\ldots,\alpha_n)}$. On notera $\mathscr{M}$ l'ensemble des monômes. Pour tout $p \in \N$ et pour tout anneau $A$, on appelera $A_n[X]$ l'ensemble des polynômes de degré strictement inférieur à $n$.\\
 On appelera base d'un idéal $I$ une famille $F=(f_1,\ldots,f_s)$ telle que $I=\left\langle F\right\rangle$.
 
@@ -157,7 +157,9 @@ On en déduit que $\forall p \geq N_n,\forall i \in [\![1,n]\!], u_{i,p}=u_{i,N_n
 \end{proof}
 Les deux ordres suivants comparent les degrés totaux des monômes.
 \begin{Def}
-Le degré total du monôme $X_1^{\alpha_1}\ldots X_n^{\alpha_n}$ est $|\alpha_1,\ldots,\alpha_n|:=\sum \alpha_i$
+Le degré total du monôme $X_1^{\alpha_1}\ldots X_n^{\alpha_n}$ est $|\alpha_1,\ldots,\alpha_n|:=\sum \alpha_i$\\
+Le degré d'un polynôme $f \in k[X_1,\ldots,X_n]$ est le maximum des degrés totaux des monômes le constituant.
+
 \end{Def}
 \begin{Def}[Ordre lexicographique gradué $\geq_{grlex}$]
 Soient $\alpha=(\alpha_1,\ldots,\alpha_n), \beta=(\beta_1,\ldots,\beta_n) \in \mathbb{N}^n$ alors
@@ -229,6 +231,7 @@ On finit par obtenir que,lorsque $p=0$ (et on sait que cela arrivera),  $f=\sum_
 \end{proof}
 Cet algorithme ne permet pas de savoir, en général, si un polynôme appartient à un idéal. En effet, le reste dépend du $s$-uplet choisi et dans quel ordre sont les polynômes de celui-ci, comme l'illustre cet exemple.
 \begin{Ex}
+\label{ex}
 Soient $f=X^2+Y^2+Z^2-4$, $g=Y^2+2*Z^2-5$ et $h=XY-1$ trois polynômes de $k[X,Y,Z]$ et appliquons au polynôme $P=YZf-Yg+2Zh$ l'algorithme de division pour l'ordre lexicographique.
 \begin{itemize}
 	\item Avec la famille $(f,g,h)$, on obtient $P=2Zf+(XZ-Y)g+(-2XZ^3+5XZ-YZ)$
@@ -337,7 +340,7 @@ De plus, comme $k[X_1,\ldots,X_n]$est noethérien alors la suite $(\left\langle \
 
 La base de Gröbner obtenue par cet algorithme contient trop d'éléments que nécessaire comme l'illustre cet exemple : 
 \begin{Ex}
-Lorsqu'on calcule une base de Gröbner pour l'idéal $\left\langle X^2 + Y^2 + Z^2 - 4, Y^2 + 2*Z^2 - 5,X*Y - 1\right\rangle$, on obtient la famille $G=\{X^2 + Y^2 + Z^2 - 4, Y^2 + 2*Z^2 - 5, X*Y - 1, X - Y*Z^2 +Y, 2*X*Z^2 - 5*X + Y, -Z^4 + 7/2*Z^2 - 3, 2*Y*Z^6 - 12*Y*Z^4+ 47/2*Y*Z^2 - 15*Y, -2*Z^4 + 7*Z^2 - 6, -Y*Z^4 + 7/2*Y*Z^2 -3*Y\}$. On peut remarquer $X^2 + Y^2 + Z^2 - 4=Y^2 + 2*Z^2 - 5+(Z^2 - 1)(X*Y - 1)+X(X - Y*Z^2 +Y)$ et que $G \setminus \{ X^2+Y^2+Z^2-5\}$ est toujours une base de Gröbner. 
+Lorsqu'on calcule une base de Gröbner pour l'idéal $\left\langle X^2 + Y^2 + Z^2 - 4, Y^2 + 2Z^2 - 5,XY - 1\right\rangle$, on obtient la famille $G=\{X^2 + Y^2 + Z^2 - 4, Y^2 + 2Z^2 - 5, XY - 1, X - YZ^2 +Y, 2XZ^2 - 5X + Y, -Z^4 + 7/2Z^2 - 3, 2YZ^6 - 12YZ^4+ 47/2YZ^2 - 15Y, -2Z^4 + 7Z^2 - 6, -YZ^4 + 7/2YZ^2 -3Y\}$. On peut remarquer $X^2 + Y^2 + Z^2 - 4=Y^2 + 2*Z^2 - 5+(Z^2 - 1)(XY - 1)+X(X - YZ^2 +Y)$ et que $G \setminus \{ X^2+Y^2+Z^2-5\}$ est toujours une base de Gröbner. 
 \end{Ex}
 Le lemme suivant généralise cette remarque :
 \begin{Lemme}
@@ -392,4 +395,6 @@ On en déduit un critère d'égalité entre idéaux :
 \begin{cor}
 Soient $I,J$ deux idéaux non nuls de $k[X_1,\ldots,X_n]$. Soient $G,H$ deux bases de Gröbner réduites de respectivement $I, J$.Alors $G=H \Leftrightarrow I=J$.
 \end{cor}
-
+\begin{Ex}
+Soit $f,g,h$ définie dans l'exemple \ref{ex}. Alors la base réduite de $\left\langle f,g,h\right\rangle $ est : $\{X - Y*Z^2 + Y, Y^2 + 2*Z^2 - 5, Z^4 - 7/2*Z^2 + 3\}$
+\end{Ex}
