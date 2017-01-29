@@ -18,10 +18,13 @@ Nous allons ensuite discuter de l'élimination des variables dans les systèmes po
 \section*{Conventions et Notations}
 Dans ce rapport, $k$ est un corps commutatif de caractéristique 0 et $n$ un entier naturel strictement positif. \\
 On considérera l'anneau de polynômes $k[X_1,\ldots,X_n]$ à $n$ indéterminées $X_1,\ldots,X_n$ construit par récurrence par : $\forall k<n, k[X_1,\ldots,X_{k+1}]:=k[X_1,\ldots,X_k][X_{k+1}]$. On pourra identifier cet anneau à celui des fonctions polynômiales à $n$ variables (grâce à l'infinité de $k$). \\
-On appelle monômes tout polynôme de la forme $X_1^{\alpha_1}\ldots X_n^{\alpha_n}$ où $\alpha_i \in \N$ que l'on abrégera $X^{(\alpha_1,\ldots,\alpha_n)}$. On notera $\mathscr{M}$ l'ensemble des monômes. Pour tout $p \in \N$ et pour tout anneau $A$, on appelera $A_n[X]$ l'ensemble des polynômes de degré strictement inférieur à $n$.\\
+On appelle monômes tout polynôme de la forme $X_1^{\alpha_1}\ldots X_n^{\alpha_n}$ où $\alpha_i \in \N$ que l'on abrégera $X^{(\alpha_1,\ldots,\alpha_n)}$. On notera $\mathscr{M}$ l'ensemble des monômes. Pour tout $p \in \N$ et pour tout anneau $A$, on appelera $A_p[X]$ l'ensemble des polynômes de degré strictement inférieur à $p$.\\
 On appelera base d'un idéal $I$ une famille $F=(f_1,\ldots,f_s)$ telle que $I=\left\langle F\right\rangle$.
 
-\tableofcontents
+%\tableofcontents
+\newpage
+
+
 \section{Motivation}
 \subsection{Exemple introductif}
 On va commencer par traiter le cas simple de l'anneau des polynômes à un indéterminée $k[X]$. \\
@@ -31,6 +34,7 @@ Soient $I=\left\langle P\right\rangle \subset k[X]$ et $f \in k[X]$. \\
 En effectuant la division euclidienne de $f$ par $P$, on a : $f=PQ+R$ où $\deg(R) < \deg(P)$. \\
 On a alors la caractérisation suivante :  $f \in I \Leftrightarrow R=0$. \\
 Ce qui règle les problèmes 1 et 2 de l'introduction pour $k[X]$.\\
+
 Cependant, lorsque $n>1$, $k[X_1,\ldots,X_n]$ n'est plus euclidien et même plus principal. Nous allons montrer ce résultat et définir la notion plus faible d'anneau noethérien qui convient à $k[X_1,\ldots,X_n]$
 
 \subsection{$k[X_1,\ldots,X_n]$ n'est pas principal}
@@ -69,7 +73,7 @@ Soit $A$ un anneau commutatif. On dit que $A$ est un anneau noethérien si tout i
 \end{Def}
 Dans la suite, on aura aussi besoin d'une autre caractérisation des anneaux noethériens
 \begin{Rq}
-Une suite décroissante d'idéal d'un anneau noethérien est stationnaire.
+Une suite croissante d'idéaux d'un anneau noethérien est stationnaire.
 \end{Rq}
 \begin{Ex} Tout anneau principal est noethérien car chaque idéal d'un anneau principal $A$  est de la forme $aA$ où $a \in A$.\\
 En particulier, tout corps est noethérien (les idéaux d'un corps sont $\{0\}$ et lui-même).
@@ -105,14 +109,14 @@ Ce qui nous permet de conclure que $I$ est engendré par un nombre fini d'élément
 Ce qui montre que $A[X]$ est donc noethérien.
 \end{proof}
 \begin{cor}
-$\Z[X_1,\ldots,X_n]$,$k[X_1,\ldots,X_n]$ sont des anneaux noethériens.
+$k[X_1,\ldots,X_n]$ est un anneau noethérien.
 \end{cor}
-Ce qui clos le problème 1 de l'introduction : la description des idéaux de $k[X_1,\ldots,X_n]$
+Ce qui clôt le problème 1 de l'introduction : la description des idéaux de $k[X_1,\ldots,X_n]$
 \section{Algorithme de division}
-Nous avons rappelé dans la première section que l'on a la caractérisation suivante dans $k[X]$ :
+Nous avons rappelé, dans la première section, que l'on a la caractérisation suivante dans $k[X]$ :
 pour tout idéal $I:=\left\langle P \right\rangle$ et pour tout $f \in k[X]$, on peut écrire $f$ sous la forme $QP+R$ (grâce à l'algorithme d'Euclide) où $\deg R < \deg P$ et $f \in I \Leftrightarrow R=0$. \\
 
-Pour le cas général, pour montrer que le polynôme $f$ de $k[X_1,\ldots,X_n]$ appartient à un idéal $I:=\left\langle f_1,\ldots,f_s \right\rangle$, nous allons décrire un algorithme permettant d'écrire $f$ sous la forme  $\sum g_if_i+r$. Avant cela,en analogie à l'algorithme en une indéterminée, il nous faut définir un ordre, afin qu'à chaque étape, on puisse dire que le "terme dominant" du reste est strictement inférieur à celui d'avant (celui sur $k[X]$ est $X^n \geq X^m \Leftrightarrow n \geq m$). Cet ordre doit être, de plus, un bon ordre pour ne pas avoir de suites infinies strictement décroissantes et donc que l'algorithme finisse.
+Pour le cas général, pour montrer que le polynôme $f$ de $k[X_1,\ldots,X_n]$ appartient à un idéal $I:=\left\langle f_1,\ldots,f_s \right\rangle$, nous allons décrire un algorithme permettant d'écrire $f$ sous la forme  $\sum g_if_i+r$. Avant cela,en analogie à l'algorithme en une indéterminée, il nous faut définir un ordre, afin qu'à chaque étape, on puisse dire que le "terme dominant" du reste est strictement inférieur à celui d'avant (celui sur $k[X]$ est $X^n \geq X^m \Leftrightarrow n \geq m$). Cet ordre doit être, de plus, un bon ordre pour ne pas avoir de suites infinies strictement décroissantes et donc pour que l'algorithme finisse.
 \subsection{Ordres monomiaux}
 \subsubsection{Définitions}
 \begin{Def} 
@@ -129,9 +133,9 @@ On peut remarquer que l'ordre induit par le degré dans $k[X]$ est un ordre monom
 \begin{Def}
 Soit $P:=\sum_{\alpha} p_{\alpha}X^\alpha \in k[X_1,\ldots,X_n]$ et $\geq$ un ordre monomial. \\
 \begin{enumerate}
-	\item  Le monôme dominant de $P$ est : $\LM(P):=\max\{X^\alpha \in \mathscr{M} | a_\alpha \neq 0\}$
+	\item  Le monôme dominant de $P$ est : $\LM(P):=\max\{X^\alpha \in \mathscr{M} | p_\alpha \neq 0\}$
 \item Le multidegré de $f$ est l'élément de $\mathbb{N}^n$, noté $\multideg(P)$, tel que $x^{\multideg(P)}=LM(P)$
- \item Le coefficient dominant de $P$ est $\LC(P):=a_{\multideg(P)}$
+ \item Le coefficient dominant de $P$ est $\LC(P):=p_{\multideg(P)}$
 \item Le terme dominant de $P$ est $\LT(P):=\LC(P)\cdot \LM(P)$
 \end{enumerate}
 
@@ -172,7 +176,6 @@ $X^\alpha \geq_{grevlex} X^\beta$ si, et seulement si, $|\alpha|>|\beta|$ ou ($|
 La différence entre ses deux ordres sont dans la manière où ils décident des égalités des monômes de même degré total : le premier se base sur l'ordre lexicographique et le second sur un ordre lexicographique "renversé", dans le sens où il commence par la droite et regarde la première entrée négative de $\alpha-\beta$.
 \begin{Ex}
 On va comparer les polynômes $f=X^2Z^2$,$g=X^2Z$ et $h=XY^2Z$ de  $k[X,Y,Z]$ avec ces trois différents ordres : \\
-
 $f>_{lex}g >_{lex}h$ \\
 $f>_{grlex}h >_{grlex}g$ \\
 $h>_{grevlex}f >_{grevlex}g$ \\
@@ -242,7 +245,7 @@ Ce phénomène n'existe pas lorsque les $f_i$ forment une "base de Gröbner" que l'
 
 
 \section{Bases de Gröbner}
-Dans cette section, nous allons commencer par définir et donner quelques propriétés des bases de Gröbner. Puis nous allons énoncer l'algorithme de Buchberger permettant de récupérer une base de Gröbner à partir d'une base d'un idéal.
+Dans cette section, nous allons commencer par définir et donner quelques propriétés des bases de Gröbner. Puis nous allons énoncer l'algorithme de Buchberger permettant de créer une base de Gröbner à partir d'une base d'un idéal.
 \subsection{Généralités}
 \begin{Not}
 Soit $I$ un idéal de $k[X_1,\ldots,X_n]$ non nul. \\
@@ -313,22 +316,21 @@ Ce corollaire nous permet de répondre au problème 2 de l'introduction : l'appart
 \item Le $S$-polynôme de $f$ et $g$ est le polynôme : $S(f,g):=\frac{X^\gamma}{\LT(f)}f-\frac{X^\gamma}{\LT(g)} g$
 \end{enumerate}
 \end{Def}
-\begin{Lemme} Soit $G=\sum_{i=1}^s c_iX^{\alpha_i} g_i$, où $c_1,\ldots,c_s \in k$ et $\alpha_i+\multideg(g_i)=\delta \in \mathbb{N}^n$ pour $i$ tel que $c_i \neq 0$. \\
-Si $LM(G) < X^\delta$ alors il existe des constantes $(c_{jk})$ tel que $G=\sum_{j,k} c_{j,k} X^{\delta-\gamma_{j,k}} S(g_j,g_k)$ où $X^{\gamma_{j,k}}=\PPCM(\LT(g_j),\LT(g_k))$. De plus, chacun des $X^{\delta-\gamma_{j,k}}$ est strictement inférieur à $X^\delta$.
-\end{Lemme}
-\begin{proof} A faire \end{proof}
+
 \begin{Thm} Soit $I$ un idéal de $k[X_1,\ldots,X_n]$. Alors une base $G=\{g_1,\ldots,g_n\}$ de $I$ est une base de Gröbner de $I$ si, et seulement si, pour tout couple $(i,j)$, $i \neq j$, $\overline{S(g_i,g_j)}^G=0$
 \end{Thm}
-\begin{proof} A faire \end{proof}
+
 
 \subsection{Algorithme de Buchberger}
-Maintenant que l'on a une caractérisation simple à vérifier d'une base de Gröbner, on va l'utiliser afin de créer un algorithme permettant d'en construire une. On va présenter l'algorithme dit de Buchberger créé par celui-ci. Cet algorithme consiste, pour une ensemble$F$ de polynômes, à calculer tous les restes $\overline{S(g_i,g_j)^F}$ et les ajouter à l'ensemble s'ils sont non nuls et recommencer avec le nouvel ensemble obtenu jusqu'à ce que cela converge. 
+Maintenant que l'on a une caractérisation simple à vérifier d'une base de Gröbner, on va l'utiliser afin de créer un algorithme permettant d'en construire une. On va présenter l'algorithme dit de Buchberger créé par celui-ci. Cet algorithme consiste, pour une ensemble $F$ de polynômes, à calculer tous les restes $\overline{S(g_i,g_j)}^F$ et les ajouter à l'ensemble s'ils sont non nuls et recommencer avec le nouvel ensemble obtenu jusqu'à ce que cela converge. 
 \begin{Thm}
 Soit $I:=\left\langle f_1,\ldots,f_s \right\rangle$ un idéal non nul de $k[X_1,\ldots,X_n]$. Alors on peut construire, en temps fini, une base de Gröbner de $I$ grâce à l'algorithme suivant.
+
+
 \input{Algo/Algorithme_buchberger}
 \end{Thm}
 \begin{proof}
-Tout d'abord, on peut remarquer que $G \subset I$ à chaque étape de l'algorithme car pour tout polynôme $p,q \in I$, $S(p,q)$ est de la forme $fp+gq$ et sont donc dans $I$. De ce fait, $S:=\overline{S(p,q)}^G$ appartient à $I$ et donc $G \subset \{S\} \subset I$. \\
+Tout d'abord, on peut remarquer que $G \subset I$ à chaque étape de l'algorithme car pour tout polynôme $p,q \in I$, $S(p,q)$ est de la forme $fp+gq$ et est donc dans $I$. De ce fait, $S:=\overline{S(p,q)}^G$ appartient à $I$ et donc $G \cup \{S\} \subset I$. \\
 Montrons maintenant que l'algorithme termine, c'est-à-dire que l'on a obtenu un ensemble $G$ tel que pour tout $p,q \in G, \overline{S(p,q)}^G=0$ c'est-à-dire une base de Gröbner. \\
 Considérons pour cela la suite $(G_j)_{j \in \N}$ définie comme la suite d'ensemble obtenu grâce à cet algorithme.\\
 Comme pour tout $j \in \N$, $G_j \subset G_{j+1}$ alors $\left\langle \LT(G_j)\right\rangle\subset\left\langle \LT(G_{j+1})\right\rangle$. De plus, si $G_j \neq G_{j+1}$ alors $\left\langle \LT(G_j)\right\rangle\neq\left\langle \LT(G_{j+1})\right\rangle$. En effet, si $r \in G_{j+1} \setminus G_j$ alors, par définition du reste, $\LT(r)$ n'est pas divisible par aucun des éléments de $G_j$ et donc n'appartient pas à $\LT(G_j)$.
@@ -340,7 +342,7 @@ De plus, comme $k[X_1,\ldots,X_n]$est noethérien alors la suite $(\left\langle \
 
 La base de Gröbner obtenue par cet algorithme contient trop d'éléments que nécessaire comme l'illustre cet exemple : 
 \begin{Ex}
-Lorsqu'on calcule une base de Gröbner pour l'idéal $\left\langle X^2 + Y^2 + Z^2 - 4, Y^2 + 2Z^2 - 5,XY - 1\right\rangle$, on obtient la famille $G=\{X^2 + Y^2 + Z^2 - 4, Y^2 + 2Z^2 - 5, XY - 1, X - YZ^2 +Y, 2XZ^2 - 5X + Y, -Z^4 + 7/2Z^2 - 3, 2YZ^6 - 12YZ^4+ 47/2YZ^2 - 15Y, -2Z^4 + 7Z^2 - 6, -YZ^4 + 7/2YZ^2 -3Y\}$. On peut remarquer $X^2 + Y^2 + Z^2 - 4=Y^2 + 2*Z^2 - 5+(Z^2 - 1)(XY - 1)+X(X - YZ^2 +Y)$ et que $G \setminus \{ X^2+Y^2+Z^2-5\}$ est toujours une base de Gröbner. 
+Lorsqu'on calcule une base de Gröbner pour l'idéal $\left\langle X^2 + Y^2 + Z^2 - 4, Y^2 + 2Z^2 - 5,XY - 1\right\rangle$, on obtient la famille $G=\{X^2 + Y^2 + Z^2 - 4, Y^2 + 2Z^2 - 5, XY - 1, X - YZ^2 +Y, 2XZ^2 - 5X + Y, -Z^4 + 7/2Z^2 - 3, 2YZ^6 - 12YZ^4+ 47/2YZ^2 - 15Y, -2Z^4 + 7Z^2 - 6, -YZ^4 + 7/2YZ^2 -3Y\}$. On peut remarquer que $X^2 + Y^2 + Z^2 - 4=Y^2 + 2Z^2 - 5+(Z^2 - 1)(XY - 1)+X(X - YZ^2 +Y)$ et que $G \setminus \{ X^2+Y^2+Z^2-4\}$ est toujours une base de Gröbner. 
 \end{Ex}
 Le lemme suivant généralise cette remarque :
 \begin{Lemme}
@@ -362,7 +364,7 @@ Cependant pour un idéal donné, on n'a pas l'unicité de la base de Gröbner minima
 \begin{Ex}
 Soit $I:= \left\langle X^2, XY, Y^2-1/2 X\right\rangle$ alors les familles $G_a=\{X^2+aXY, XY, Y^2-1/2 X \}$ sont des bases de Gröbner minimale de $I$ pour tout $a \in k$.\\
 \end{Ex}
-L'unicité est perdue à cause du fait qu'il y a des monômes d'un élément $f$ de la base de $G_a$ qui sont dans $G \setminus{f}$. La notion de base de Gröbner réduite permet de contourner ce problème.
+L'unicité est perdue à cause du fait qu'il y a des monômes d'un élément $f$ de la base de $G_a$ qui sont dans $G \setminus\{f\}$. La notion de base de Gröbner réduite permet de contourner ce problème.
 \begin{Def}
 
 Une base de Gröbner réduite $G$ d'un idéal $I $ de $k [X_1,\ldots,X_n] $ est une base de Gröbner de $I $ telle que :
@@ -378,8 +380,8 @@ Soit $I $ un idéal non nul de $k [X_1,\ldots,X_n] $. Alors, pour un ordre monomi
 
 \begin{proof} 
 Soit $I $ un idéal non nul de $k [X_1,\ldots,X_n] $. \\
-Commencons par montrer l'existence d'une base de Gröbner réduite d'un idéal $I$. \\
-Soit $G$ une base de Gröbner minimale de $I$. $g \in G$ est dite réduit pour $G$ si aucun monôme de $g$ n'est dans $\left\langle \LT(G \setminus \{g\})\right\rangle$. \\
+Commençons par montrer l'existence d'une base de Gröbner réduite d'un idéal $I$. \\
+Soit $G$ une base de Gröbner minimale de $I$. $g \in G$ est dit réduit pour $G$ si aucun monôme de $g$ n'est dans $\left\langle \LT(G \setminus \{g\})\right\rangle$. \\
 On peut remarquer que $g$ est aussi réduite pour n'importe quel base de Gröbner minimale $G'$ telle que $\left\langle \LT(G)\right\rangle=\left\langle \LT(G')\right\rangle$.\\
 Pour $g \in G$, posons $g':=\overline{g}^{G \setminus \{g\}}$ et $G':=(G \setminus \{g\} \cup \{g'\}$. Montrons que $G'$ est une base de Gröbner minimale pour $I$. \\
 Comme $G$ est une base de Gröbner minimale alors $\LT(g) \notin \left\langle \LT(G \setminus \{g\}) \right\rangle$ et donc lorsqu'on divise $g$ par $G\setminus \{g\}$, $\LT(g')$ est ajouté au reste. De ce fait, $\LT(g)=\LT(g')$ et donc $\left\langle \LT(G)\right\rangle=\left\langle \LT(G')\right\rangle$. Comme $g' \in I$ alors $G' \subset I'$ et donc $G$ est une base de Gröbner de $I$. De plus, la minimalité de $G'$ se déduit de celle de $G$ et $g'$ est réduit pour $G'$ par construction (grâce à la condition sur le reste de l'algorithme de division) \\
@@ -396,5 +398,5 @@ On en déduit un critère d'égalité entre idéaux :
 Soient $I,J$ deux idéaux non nuls de $k[X_1,\ldots,X_n]$. Soient $G,H$ deux bases de Gröbner réduites de respectivement $I, J$.Alors $G=H \Leftrightarrow I=J$.
 \end{cor}
 \begin{Ex}
-Soit $f,g,h$ définie dans l'exemple \ref{ex}. Alors la base réduite de $\left\langle f,g,h\right\rangle $ est : $\{X - Y*Z^2 + Y, Y^2 + 2*Z^2 - 5, Z^4 - 7/2*Z^2 + 3\}$
+Soit $f,g,h$ définie dans l'exemple \ref{ex}. Alors la base réduite de $\left\langle f,g,h\right\rangle $ est : $\{X - YZ^2 + Y, Y^2 + 2Z^2 - 5, Z^4 - 7/2Z^2 + 3\}$
 \end{Ex}
