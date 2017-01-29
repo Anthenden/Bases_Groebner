@@ -65,7 +65,7 @@
 \oddsidemargin=-1cm
 \evensidemargin=-1cm
 \textwidth=18cm
-\textheight=22cm
+\textheight=24cm
 \parindent=0mm
 \begin{document}
 \title{Bases de Gröbner}
@@ -87,24 +87,8 @@
 \newtheorem{Rq}[Thm]{Remarque}
 
 
-\input{intro_BG} 
-\section{Résolution de système polynomiaux}
-Dans cette section, nous allons étudier comment utiliser les bases de Gröbner afin de résoudre les systèmes d'équations polynomiales. On va commencer par donner l'exemple des polynômes de degré $1$ qui peuvent se résoudre avec le pivot de Gauss et voir que les idées du pivot peuvent se généraliser pour toutes familles de polynômes.
-\subsection{Exemples préliminaires}
-Comme dit plus haut, lorsque les $f_i$ sont des polynômes de degré 1, on peut résoudre les systèmes de la forme $$f_i(x_1,\ldots,x_n)=0, 1 \leq i \leq s \; (*)$$ en utilisant le pivot de Gauss.\\ 
-Le système $(*)$ se résume à : $AX=B$ où $A$ est la matrice représentative de la partie linéaire de $(f_1,\ldots,f_s)$ et $-B$ sa partie constante.\\
-Avec le pivot de Gauss, on obtient une matrice échelonnée $\widetilde{A}$ et une colonne de constante $\widetilde{B}=\begin{pmatrix} \widetilde{b_1} \\ \vdots \\ \widetilde{b_s} \end{pmatrix}$ tel que : \\$(*) \Leftrightarrow \widetilde{A}X=\widetilde{B}$. \\
-Ce qui nous permet de trouver les solutions de $(*)$ : \\
-Soit $r=rg(A)(\leq \min(n,s))$
-\begin{itemize}
-	\item S'il existe un $\widetilde{b_k}$ avec $k>r$ alors $(*)$ n'a pas de solution. \\
-\item Si $r<n$ alors on peut exprimer les $r$ premières coordonnées des solutions de $(*)$ grâce aux $n-r$ dernières. L'ensemble des solutions de $(*)$ est un espace affine de dimension $n-r$.
-\item Si $r=n$ alors $(*)$ admet une seule solution.
-\end{itemize}
-~\\
-On peut voir que le pivot de Gauss consiste à obtenir, à partir des polynômes données au départ, des polynômes ayant une variable en moins puis continuer jusqu'à ce que l'on obtienne un système échelonné. On "remonte" ensuite le système afin de trouver les solutions du système. \\
-Dans la suite, nous allons montrer le théorème d'élimination qui va nous permettre d'éliminer les variables dans les système polynomiaux et ensuite le théorème d'extension pour obtenir les solutions dudit système à partir de celles obtenues par les sytèmes ayant des variables éliminées .
-
+%\input{intro_BG} 
+\section{Théorème d'élimination et d'extension}
 \subsection{Théorème d'élimination}
 \begin{Def}
 Soit $I=\left\langle f_1,\ldots,f_s \right\rangle $ un idéal de $k[X_1,\ldots,X_n]$. On appelle $p$ème idéal d'élimination de $I$ l'idéal $I_p$ de $k[X_{p+1},\ldots,X_n]$ définit par : $I_p=k[X_{p+1},\ldots,X_n] \cap I$, $0 \leq p \leq n-1$
@@ -128,9 +112,8 @@ Soit $i,j \in [\![1,r]\!]$,$ i<j$.\\
 Comme $S(g_i,g_j)$ est de la forme $Pg_i+Qg_j$ ($P,Q \in k[X_{p+1},\ldots,X_n]$) et $I_p$ est un idéal alors $S(g_i,g_j) \in I_p \subset I$ d'où comme $G$ est une base de Gröbner alors $\overline{S(g_i,g_j)}^{G}=0$ et donc d'après $(*)$, $\overline{S(g_i,g_j)}^{G_k}=0$. Ce qui permet de conclure.
 \end{proof}
 \begin{Ex}
-Avec les $f,g,h$ de l'exemple \ref{ex}, le premier idéal d'élimination est : \\$I_1=\left\langle X - YZ^2 + Y, Y^2 + 2*Z^2 - 5, Z^4 - 7/2Z^2 + 3\right\rangle$ et le second $I_2=\left\langle X - YZ^2 + Y, Y^2 + 2Z^2 - 5, Z^4 - 7/2Z^2 + 3\right\rangle$
+Avec les $f,g,h$ de l'exemple \ref{Ex}, le premier idéal d'élimination est $I_1=\left\langle X - YZ^2 + Y, Y^2 + 2*Z^2 - 5, Z^4 - 7/2Z^2 + 3\right\rangle$ et le second $I_2=\left\langle X - YZ^2 + Y, Y^2 + 2Z^2 - 5, Z^4 - 7/2Z^2 + 3\right\rangle$
 \end{Ex}
-Lorsque l'on a calculé le $(n-1)$ème idéal d'élimination, on obtient lorsqu'il n'est pas réduit à 0, un idéal de la forme $\left\langle P\right\rangle$ (car $k[X_n]$ est principal) et donc un nombre fini de solutions. On va essayer d'étendre les solutions partielles des idéaux d'élimination en des solutions de l'idéal de départ. Pour cela, on va commencer par présenter des résultats sur les résultants qui vont permettre de montrer le théorème d'extension.
 \subsection{Résultant}
 Soient $A $ un anneau commutatif intègre et $K $ son corps de fractions.\\
 Soient $f\in A[X] $ et $g \in A[X] $. Soient $p,q \in \N$, tels que $p\geq\deg f $ et $q\geq\deg g $.\\
@@ -156,23 +139,23 @@ On appelle résultant de $f $ et $g $  l'élément $\Res_{\deg(f),\deg(q)}(f,g)$.
  $\Res (f,g) \in A $ car le déterminant est polynomial en les coordonnées de la matrice et les composantes de $\Syl(f,g) $ sont dans $A$. \\
 Montrons maintenant que $\Res (f,g) \in \left\langle f,g \right\rangle $.\\
 Notons $M $ la matrice de Sylvester de $f $ et $g $. \\
-Alors $M {}^t \Com(M)=\det (M)I_{\deg(f)+\deg(g)} $ $(*) $ où $\Com(M)$ est la matrice des cofacteurs de $M$. \\
-Comme les cofacteurs de $M $ sont dans $A $ (car ceux-ci sont polynomiaux en les coordonnées) alors $\Com (M) $ est dans $\Mcal_{\deg(f)+\deg(g)}(A) $. \\
-Donc, en posant $M=(C_1,\ldots,C_{\deg(f)+\deg(g)})$, on a, d'après $(*) $, : \\
+Alors $M {}^t \Com(M)=\det (M)I_{p,q} $ $(*) $ où $\Com(M)$ est la matrice des cofacteurs de $M$. \\
+Comme les cofacteurs de $M $ sont dans $A $ (car ceux-ci sont polynomiaux en les coordonnées) alors $\Com (M) $ est dans $\Mcal_{p+q}(A) $. \\
+Donc, en posant $M=(C_1,\ldots,C_{p+q})$, on a, d'après $(*) $, : \\
 $MC_1=\begin{pmatrix} \det (A) \\ 0 \\ \vdots\\ 0 \end{pmatrix} $. \\
-En notant par $c $ l'élément de $ A_{\deg(g)}[X]\times A_{\deg(f)}[X] $ de colonne de coordonnées $C_1$ dans la base $\B  $ définie plus haut, on a : $\varphi_{f,g}(c)=\det (A) $, ce qui permet de conclure.
+En notant par $c $ l'élément de $ A_{q}[X]\times A_{p}[X] $ de colonne de coordonnées $C_1$ dans la base $\B  $ définie plus haut, on a : $\varphi_{f,g}(c)=\det (A) $, ce qui permet de conclure.
 \end{proof}
 \begin{cor}
 Si $A=k[X_2,\ldots,X_n]$ alors $Res(f,g) \in I_1$
 \end{cor}
 \begin{Rq}
 \begin{enumerate}
-\item Si $f=a_1(X_2,\ldots,X_n)X_1+a_0(X_2,\ldots,X_n)$ et $g=b_1(X_2,\ldots,X_n)X_1+b_0(X_2,\ldots,X_n)$ sont des polynômes de degré 1  alors leur résultant $a_0b_1-a_1b_0$, ce qui est le m\^eme résultat que l'on obtient lorsqu'on applique le pivot de Gauss à $f$ et $g$.
+\item Si $f=a_1(X_2,\ldots,X_n)X_1+a_0(X_2,\ldots,X_n)$ et $g=b_1(X_2,\ldots,X_n)X_1+b_0(X_2,\ldots,X_n)$ sont des polyn\^omes de degré 1  alors leur résultant $a_0b_1-a_1b_0$, ce qui est le m\^eme résultat que l'on obtient lorsqu'on applique le pivot de Gauss à $f$ et $g$.
 \item Lorsqu'on considère un idéal engendré par $n$ polyn\^omes premiers entre eux, on peut utiliser le résultant afin d'avoir une idée suffisante de $I_{n-1}$ pour trouver toutes les solutions. En effet, à l'instar du pivot de Gauss utilisé pour les polyn\^omes de degré 1, on peut utilisé le résultant pour éliminer les variables d'un système : 
 Soit $I:=\left \langle f_1,\ldots,f_n \right\rangle$ alors les $n-1$ polynômes $\Res_{X_1}(f_1,f_2),\ldots, \Res_{X_1}(f_1,f_n)$ sont dans $I_1$. En itérant ce processus, on obtient un polyn\^ome $f$  non nul (car les $f_i$ sont premiers entre eux) qui est dans $I_{n-1}$. Comme $k[X_n]$ est principal alors $I_{n-1}$ est engendré par un seul polyn\^ome $P$  qui divise $f$. D'où l'ensemble des zéros de $P$ est inclus dans celui de $f$.
 \end{enumerate}
 \end{Rq}
-\begin{Ex} En reprenant les polynômes de l'exemple \ref{ex}, on a $P:=\Res_{X}(f,g)=g^2$, $Q:=\Res_{X}(f,h)=Y^4+Y^2Z^2-4Y^2+1$. Ensuite on a $\Res_Y(P,Q)=4Z^8 - 28Z^6 + 73Z^4 - 84Z^2 + 36=4(Z^4-7/2Z^2+3)^2$
+\begin{Ex} En reprenant les polyn\^omes de l'exemple \ref{}, on a $P:=Res_{X}(f,g)=g^2$, $Q:=Res_{X}(f,h)=Y^4+Y^2Z^2-4Y^2+1$. Ensuite on a $Res_Y(f,g)=4Z^8 - 28Z^6 + 73Z^4 - 84Z^2 + 36=4(Z^4-7/2Z^2+3)^2$
 \end{Ex}
 
 
@@ -187,9 +170,8 @@ Soit $I:=\left \langle f_1,\ldots,f_n \right\rangle$ alors les $n-1$ polynômes $
 \end{prop}
 \begin{Thm}
 \label{zeros}
-Supposons le corps $K$ alg\'ebriquement clos. Alors $Res(A,B)=0$ si, et seulement si, les polyn\^omes $A$ et $B$ ont une racine commune.
+Supposons le corps $L$ alg\'ebriquement clos. Alors $Res(A,B)=0$ si, et seulement si, les polyn\^omes $A$ et $B$ ont une racine commune.
 \end{Thm}
-C'est ce théorème qui va faire marcher la preuve du théorème d'extension.
 \subsection{Théorème d'extension}
 
 \begin{Thm}[d'extension]
@@ -224,25 +206,11 @@ On obtient la m\^eme chose en supposant $g_q(c) \neq 0$.
 $f_i=cX_1^{N}$+termes de degré $<N$ en $X_1$\\
 où $N> 0$ et $c \in \mathbb{C}\setminus \{0\}$. Si $I_1$ est le premier idéal d'élimination de $I$ et $(a_2,\ldots,a_n) \in Z(I_1)$ alors il existe $a_1 \in \mathbb{C}$ tel que $(a_1,\ldots,a_n) \in Z(I)$
 \end{cor}
-On va commencer par donner un contre-exemple montrant que toutes les hypothèses sont nécessaires.
 \begin{Ex}
-Soit $S_1$ le syst\`eme $\begin{cases}x^2=y \\ x^2=z \end{cases}$ et son ensemble de solutions $Z(X^2-Y,X^2-Z)$. Notons $I=\left\langle X²-Y,X²-Z \right\rangle$ et $I_1$ son premier idéal d'élimination.\\
-On peut calculer une base de Gröbner de $I$ : $I=\left\langle X^2-Z,Y-Z\right\rangle$ d'où $I_1=<Y-Z>$. Et donc $Z(I_1)=\{(c,c) | c \in k\}$ \\
-On peut remarquer que les termes dominants de $X^2-Y$ et $X^2-Z$ ne s'annulent pas. D'où, d'après le théorème d'extension, on peut étendre toutes les solutions partielles dans $\C$.\\
-Si on travaille dans $\R$, on peut étendre la solution $(c,c)$ en une solution de $S_1$ si, et seulement si $c\geq 0$ car les solutions de $S_1$ ont leur deuxième et troisième coordonnées positives. \\
-Soit $S_2$ le syst\`eme $\begin{cases}xy=1 \\ xz=1 \end{cases}$ et $I=\left\langle XY-1,XZ-1 \right\rangle$. \\
-On peut calculer une base de Gröbner de $I$ : $I=\left\langle xz-1,y-z\right\rangle$ d'où $I_1=<y-z>$.
-On en déduit que $Z(I_1)=\{(c,c) | c \in \C\}$ \\
-On peut étendre toutes les solutions partielles sauf la solution $(0,0)$ (car $0x=1$ n'a pas de solutions) où les termes dominants de $XY-1$ et $XZ-1$ en $X$ s'annulent
+En reprenant les polyn\^omes de l'exemple \ref{ex}, on a $I_1=\left\langle g,Z^4-7/2Z^2+3 \right\rangle$ et $I_2=\left\langle Z^4-7/2Z^2+3 \right\rangle$. \\
+On a $Z(I_2)=Z(\left\langle Z^4-7/2Z^2+3\right\rangle)=\{\pm \sqrt{2},\pm \sqrt{3/2}\}$. Puis, comme le terme dominat de $g$ est constant alors on peut utiliser le théorème d'extension pour montrer que $Z(I_1)=\{(\pm 1,\pm \sqrt{2}),(\pm \sqrt{3/2},\sqrt{2})\}$ puis de la m\^eme façon, on a que $Z(I)=\{(-1,-1,-\sqrt{2}), (1,1,-\sqrt{2}), (-1/\sqrt{2},-\sqrt{2},-\sqrt{3/2}), (1/\sqrt{2},\sqrt{2}, -\sqrt{3/2}),(-1/\sqrt{2},-\sqrt{2}, \sqrt{3/2}), (1/\sqrt{2},\sqrt{2}, \sqrt{3/2}), (-1,-1,\sqrt{2}),(1,1,\sqrt{2})\}$
 \end{Ex}
-On va maintenant finir d'étudier notre exemple (celui de \ref{ex}).
-\begin{Ex}
-On a $I_1=\left\langle g,Z^4-7/2Z^2+3 \right\rangle$ et $I_2=\left\langle Z^4-7/2Z^2+3 \right\rangle$. \\
-On a $Z(I_2)=Z(\left\langle Z^4-7/2Z^2+3\right\rangle)=\{\pm \sqrt{2},\pm \sqrt{3/2}\}$. Puis, comme le terme dominant de $g$ est constant alors on peut utiliser le théorème d'extension pour montrer que $Z(I_1)=\{(\pm 1,\pm \sqrt{2}),(\pm\sqrt{2},\pm \sqrt{3/2})\}$ puis de la m\^eme façon, on a que $Z(I)=\{\pm(1,1,\pm\sqrt{2}),\pm(1/\sqrt{2},\sqrt{2},\pm\sqrt{2})\}$
-\end{Ex}
-Ces deux théorèmes permettent de répondre à la troisième question de l'introduction.
 \subsection{Géométrie de l'élimination}
-Nous allons, dans cette sous-section, donner une interprétation géométrique aux théorèmes d'élimination et d'extension. On va commencer par donner quelques résultats de géométrie.
 \subsubsection{Résultats préliminaires}
 \begin{Def}
 Soit $f_1,\ldots,f_s$ des polynômes de $k[X_1,\ldots,X_n]$.\\ On appelle variété affine définie par $f_1,\ldots,f_s$ l'ensemble : $Z(f_1,\ldots,f_s)=\{(a_1,\ldots,a_n) \in k^n | \forall i \in [\![1,s]\!],f_i(a_1,\ldots,a_n)=0 \}$.
@@ -251,33 +219,28 @@ Soit $f_1,\ldots,f_s$ des polynômes de $k[X_1,\ldots,X_n]$.\\ On appelle variété
 Dans $\R^2$, le cercle ($=Z(X^2+Y^2-R^2)$ où $R\in \R$), la parabole ($=Z(2pX^2-Y)$ où $p\in \R$) et plus généralement, les coniques sont des variétés affines. \\
 Les sous-espaces affines de $k^n$ sont aussi des variétés affines.
 \end{Ex}
-\begin{Lemme} : Si $V,W \subset k^n$ sont des variétés affines alors $V \cup W$ aussi.
+\begin{Lemme} : Si $V,W \subset k^n$ sont des variétés affines alors $V \cup W$ et $V \cap W$ aussi.
 \end{Lemme}
-\begin{proof}
-Supposons que $V=Z(f_1,\ldots,f_s)$ et $W=Z(g_1,\ldots,g_r)$. 
-Alors $V \cap W=Z(f_1,\ldots,f_s,g_1,\ldots,g_r)$.\\
-En effet,$x \in V \cap W$ si, et seulement si, pour tous $i,j$, $f_i(x)=g_j(x)=0$, c'est-à-dire si, et seulement si, $x \in Z(f_1,\ldots,f_s,g_1,\ldots,g_r)$.
-\end{proof}
 
+\begin{proof}
+Supposons que $V=Z(f_1,\ldots,f_s)$ et $W=Z(g_1,\ldots,g_r)$. \\
+Alors $V \cap W=Z(f_1,\ldots,f_s,g_1,\ldots,g_r)$ et $V \cup W=Z(f_ig_j | 1 \leq i \leq s, 1 \leq j \leq r )$ (que l'on notera $Z(f_ig_j)$).\\
+Montrons la deuxième égalité : \\
+Soit $a=(a_1,\ldots,a_n) \in V$ alors $\forall i \in [\![1,s]\!], f_i(a)=0$ et donc $\forall i \in [\![1,s]\!],\forall j \in [\![1,r]\!],  f_ig_j(a)=0$ d'où $V \subset Z(f_ig_j)$. On obtient de la même façon que $W \subset Z(f_ig_j)$. D'où $V \cup W \subset Z(f_ig_j)$.\\
+Soit $a=(a_1,\ldots,a_n) \in Z(f_ig_j)$. Si $a \in V$ alors c'est fini. Sinon, il existe un $i_0 \in [\![1,s]\!]$ tel que $f_{i_0}(a)=0$. Alors,comme pour tout $j \in [\![1,r]\!]$, $f_{i_0}(a)g_j(a)=0$,alors, par intégrité de $k$, tous les $g_j(a)$ sont nuls et donc $a \in W$.\\
+On en déduit donc $Z(f_ig_j) \subset V \cup W$ et donc l'égalité voulue.
+\end{proof}
 \begin{prop} Si $\{f_1,\ldots,f_s\}$ et $\{g_1,\ldots,g_r\}$ sont des bases d'un même idéal $I$ de $k[X_1,\ldots,X_n]$ alors $Z(f_1,\ldots,f_s)=Z(g_1,\ldots,g_r)$
 \end{prop}
-\begin{proof}
-Comme $\{f_1,\ldots,f_s\}$ et $\{g_1,\ldots,g_r\}$ sont des bases d'un même idéal alors on peut écrire les $g_i$ sous la forme $\sum_{i=1}^s h_{i,j}f_i$. De ce fait, si $x \in Z(f_1,\ldots,f_s)$ alors pour tout $j$, $f_j(x)=0$  et donc $g_i(x)=sum_{i=1}^s h_{i,j}(x)f_i(x)=0$. Et donc $x\in Z(g_1,\ldots,g_r)$.\\
-Par symétrie de rôles, on obtient l'inclusion réciproque.
-\end{proof}
-En particulier, $Z(f_1,\ldots,f_s)=Z(\left\langle f_1,\ldots,f_s\right\rangle)$
+\subsubsection{Géométrie de l'élimination}
+Soit $V=Z(f_1,\ldots,f_s) \subset \C^n $
 \begin{Def} 
 \label{Def_proj}
 Soit $\pi_p $ la projection $\C^n \to \C^{n-p} $ définie par : $\forall (a_1,\ldots,a_n) \in \mathbb{C}^n, \pi_p (a_1,\ldots,a_n) =(a_{p+1},\ldots,a_n) $.
 \end{Def}
-\begin{prop}
-Pour tout $1 \leq p \leq n-1$, la projection $\pi_p$ est une application surjective.
-\end{prop}
-\subsubsection{Géométrie de l'élimination}
-Soit $V=Z(f_1,\ldots,f_s) \subset \C^n $
 \begin{Lemme}
 \label{lemme_inclus}
-Soit $I_p $ le $p $ème idéal d'élimination de l'idéal $\left\langle f_1,\ldots,f_s \right \rangle $ de $\C[X_1,\ldots,X_n] $.\\ Alors, dans $\C^{n-p} $, $\pi_p (V) \subset Z (I_p) $.
+Soit $I_p $ le $p $ème idéal d'élimination de l'idéal $\left\langle f_1,\ldots,f_s \right \rangle $ de $\C[X_1,\ldots,X_n] $. Alors, dans $\C^{n-p} $, $\pi_p (V) \subset Z (I_p) $.
 \end{Lemme}
 \begin{proof}
  Pour montrer cette égalité, il faut montrer que $\forall a \in \pi_p (V),\forall f \in I_p, f (a)=0$.\\
@@ -293,36 +256,32 @@ $\subset  $ : Soit $a:=(a_2,\ldots,a_n) \in Z (I_1)$ .
 Alors si $a\notin\left\langle g_1,\ldots,g_s \right \rangle $, on a, d'après le théorème d'extension, l'existence d'un $a_1 \in \C $ tel que $(a_1,\ldots,a_n) \in V$ et donc  $a \in \pi_1 (V) $.\\
 Sinon $a \in \left\langle g_1,\ldots,g_s \right \rangle$ et donc dans $\left\langle g_1,\ldots,g_s \right \rangle \cap Z (I_1) $
 \end{proof}
-En d'autres termes, d'après le théorème d'extension, une solution partielle de $Z(I_1)$ peut soit être étendue en une solution de $Z(I)$ (\emph{i.e.} appartient à $\pi(V)$) soit est un zéro commun des $g_i$. \\
-
-Le théorème suivant décrit de manière plus précise le lien entre les projections de variété et les zéros de ses idéaux d'élimination.
 \begin{Thm}[de fermeture]
 
- Soit $V=Z(f_1,\ldots,f_s) \subset \C^n$ et soit $I_p$ le $p$ème idéal d'élimination de $\left\langle f_1,\ldots,f_s \right\rangle$. Alors  
+ Soit $V=Z(f_1,\ldots,f_s) \subset \C^n$ et soit $I_p$ le $p$ème idéal d'élimination de $\left\langle f_1,\ldots,f_s \right\rangle$. Alors \ 
 \begin{enumerate}
 \item $Z(I_p)$ est la plus petite (au sens de l'inclusion) variété contenant $\pi_p(V)$
 
-\item Si $V \neq \emptyset$, alors il existe une variété affine $W \subsetneqq Z(I_p)$ telle que $Z(I_p) \setminus W \subset \pi_p(V)$
+\item Si $V \neq 0$, alors il existe une variété affine $W \subsetneqq Z(I_p)$ telle que $Z(I_p) \setminus W \subset \pi_p(V)$
 \end{enumerate}
 \end{Thm}
 \begin{cor}
-Supposons qu'il existe $i \in [\![1,n]\!]$ tel que $f_i$ s'écrit de la forme : \\
-$f_i=cX_1^{N}$+termes de degré $<N$ en $X_1$ où $N> 0$ et $c \in \mathbb{C}\setminus \{0\}$.  \\Alors $\pi(V)=Z(I_1)$.
+Supposons qu'il existe $i \in [\![1,n]\!]$ tel que $f_i$ s'écrit de la forme : 
+$f_i=cX_1^{N}$+termes de degré $<N$ en $X_1$\\ où $N> 0$ et $c \in \mathbb{C}\setminus \{0\}$. Alors $\pi(V)=Z(I_1)$.
 \end{cor}
 
 \section{Implicitation}
-Nous allons maintenant étudier le dernier problème que l'on s'est posé : l'implicitation.\\
 Soit $S$ l'ensemble param\'etr\'e par le syst\`eme suivant : $ \begin{cases}
 x_1=f_1(t_1,\ldots,t_m)& \\
 \vdots & (\dagger) \\
 x_n=f_n(t_1,\ldots,t_m)& \\
-\end{cases} $\\ o\`u $f_i \in k[T_1,\ldots,T_m]$ et $(t_1,\ldots,t_m) \in k^m$ .\\
-On peut voir $S$ comme l'image de la fonction $F : k^m \to k^n$ d\'efinie par : 
+\end{cases} $ o\`u $f_i \in k[T_1,\ldots,T_m]$ et $(t_1,\ldots,t_m) \in k^m$ .\\
+On peut voir $S$ comme l'image de la fonction $F : k^m \to k^n$ d\'efinie par : \\
 $\forall t \in k^m, F(t)=(f_1(t),\ldots,f_n(t))$.\\
-$S$ n'est pas n\'ecessairement une vari\'et\'e affine (\emph{c.f.} exemple \ref{Whitney}).\\
+$S$ n'est pas n\'ecessairement une vari\'et\'e affine (cf exercices).\\
 Le syst\`eme $(\dagger)$ d\'efini tout de même une vari\'et\'e $V=Z(X_1-f_1,\ldots,X_n-f_n) \subset k^{n+m}$.\\
 On a donc $V=\{(t_1,\ldots,t_n,x_1,\ldots,x_m)\in k^{n+m} | \forall i \in [\![1,m]\!],x_i-f_i(t_1,\ldots,t_n)=0 \}$\\
-D'o\`u,  $V=\{(t_1,\ldots,t_n,f_1(t_1,\ldots,t_n),\ldots,f_m(t_1,\ldots,t_n))\in k^{n+m} | (t_1,\ldots,t_m) \in k^m \} $. Autrement dit, $V$ est le graphe de $F$.\\
+D'o\`u,  $V=\{(t_1,\ldots,t_n,f_1(t_1,\ldots,t_n),\ldots,f_m(t_1,\ldots,t_n))\in k^{n+m} | (t_1,\ldots,t_m) \in k^m \} (*)$. Autrement dit, $V$ est le graphe de $F$.\\
 De plus, on peut remarquer que $V$ est l'image de l'application 
 $\begin{array}{ccccc}
 i & : & k^m & \to & k ^{n+m} \\
@@ -348,25 +307,13 @@ Posons $Z_k(I):=\{ x \in k^n | \forall f \in I, f(x)=0\} \subset Z_\C(I):=\{ x \
 On cherche à montrer que $Z_k(I_m)$ est la plus petite variété de $k^n$ contenant $F(k^m)$. \\
 Remarquons, tout d'abord, que $F(k^m)=\pi_m(V) \subset Z_k(I_m)$ (\emph{c.f.} lemme \ref{lemme_inclus}).\\ 
 Ensuite, considérons une variété $V_k:=Z_k(g_1,\ldots,g_s)$ contenant $F(k^m)$ et montrons que $Z_k(I_m) \subset V_k$. \\
-Soit $i \in [\![1,s]\!]$. Alors $g_i$ s'annule sur $V_k$(par définition) et en particulier sur $F(k^m)$. D'où $g_i\circ F$ s'annule sur $k^m$. \\ Comme $g_i \circ F \in k[T_1,\ldots,T_m]$ et que $k$ est infini, alors $g_i \circ F$ est le polynôme nul. \\
+Soit $i \in [\![1,s]\!]$. Alors $g_i$ s'annule sur $V_k$(par définition) et en particulier sur $F(k^m)$. D'où $g_i\circ F$ s'annule sur $k^m$. \\ Comme $g_i \circ F \in k[T_1,\ldots,T_m]$ et que $k$ est infini, alors, d'après le lemme $\ref{}$, $g_i \circ F$ est le polynôme nul. \\
 On en déduit que $g_i \circ F$ s'annule sur $\C^m$ ou encore que $g_i$ s'annule sur $F(\C^m)$. \\
 D'où $F(\C^m) \subset V_\C$. D'après ce que l'on a montré pour le cas $k=\C$, on a $Z_\C(I_m) \subset V_\C$. En intersectant par $k^n$ à gauche et à droite de l'inclusion, on obtient $Z_k(I_m) \subset V_k$.
+
+
 \end{proof}
-\begin{Ex}
-\label{Whitney}
-On appelle parapluie de Withney l'ensemble $\Gamma_k$ paramétré par $\begin{cases} x=uv \\ y=u\\ z=v^2\end{cases} $ pour $u,v \in k^2$. On note par $F $  la fonction $(u,v)\mapsto (x,y,z) $. \\
-En appliquant le théorème précédent, on obtient que $V_k:=Z( X^2-Y^2Z)\subset k^n $ est la plus petite variété contenant $\Gamma_k $. Examinons maintenant s'il y a une égalité :
-\begin{itemize}
-\item Supposons que $k=\R $ et considérons la variété $G_a:= \{z=a\}\cap V_\R$ pour $a\in \R $. Si $a <0$ alors l'équation $x^2-ay^2=0$ a pour unique solution $(0,0) $. De ce fait, $G_a=\{(0,0,a)\} $. Cependant ce point n'appartient pas à  $\Gamma_\R$ car $z\geq 0$.\\
-Si $a \geq 0$ alors, on a l'équivalence  : $x^2-ay^2=0 \Leftrightarrow x=\pm \sqrt{a}y$ et donc $G_a=\{(\pm\sqrt{a}y,y,a)| y \in \R \}=\{F (y,\pm\sqrt{a}) | y \in \R \} \subset \Gamma $.
-On en conclut que $V_\R=\Gamma_\R\cup \{ (0,0,a) | a <0 \} $. De ce fait, $\Gamma_\R$ n'est pas une variété.
-\item Si $k=\C $, la situation est différente : \\
-Soient  $a \in \C$, $\alpha $ tel que $\alpha ^2=a $ et $G_a:=\{z=a\} \cap V_\C $. \\
-On a l'équivalence suivante : $x^2-ay^2=0 \Leftrightarrow x=\pm \alpha y $. De ce fait, $G_a=\{F (y,\pm \alpha)| y \in k\} \subset \Gamma_\C $. \\
-Ce qui permet de conclure que $V_\C=\Gamma_\C $.\\
-\end{itemize}
-On en déduit que les restrictions à un sous-corps ne préserve pas les égalités entre ensemble décrit par des équations paramétriques et variété associée.
-\end{Ex}
+
 
 \nocite{*}
 \bibliographystyle{plain}
