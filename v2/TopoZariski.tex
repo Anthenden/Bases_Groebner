@@ -1,0 +1,23 @@
+\section{Topologie de Zariski}
+On définit les fermés de la topologie $\mathscr{T}_n$ de Zariski sur $\C^n$ comme les lieux d'annulation des polynômes de $\C[X_1,\ldots,X_n]$.\\
+
+$\emptyset=Z(1), \C^n=Z(0) \in \mathscr{T}_n$\\
+Soit $(F_i)_{i\in I}=(Z(f_{i1},\ldots,f_{ip_i}))_{i \in I} \subset \mathscr{T}_n$\\
+$\cap_{i \in I} F_i=Z(f_{ij} | i \in I, 1 \leq j  \leq p_i) \in  \mathscr{T}_n$ \\
+Soit $F=Z(f_i | 1 \leq i \leq s), G=Z(g_i | 1 \leq i \leq r)$\\
+$F \cup G=Z(f_ig_j | 1 \leq i \leq s, 1 \leq j \leq r ) \in \mathscr{T}_n$\\
+
+Exemple : Pour $n=1$, 
+Soit $F=Z(I) \subset \C$. Par principalité de $\C[X]$,
+$F=Z(P\C[X])=Z(P))= \begin{cases}\emptyset &\text{ si } P=1 \\\C &\text{ si } P=0 \\\{x_1,\ldots,x_p\} &\text{ sinon }   \end{cases}$
+
+Cette topologie n'est pas séparé. \\
+
+Fixons $x,y \in \C^n$.\\ Soient $V=Z(f_1,\ldots,f_s)^c \ni \mathcal{V}(x),W=Z(g_1,\ldots,g_r)^c \ni \mathcal{V}(y)$. \\
+$V \cap W=(Z(f_1,\ldots,f_s)\cup Z(g_1,\ldots,g_r))^c=Z(f_ig_j)^c\neq \emptyset$ \\
+
+Soit $f : (\C^n,\mathscr{T}_n) \to (\C^m,\mathscr{T}_m)$ une fonction (à composantes) polynomiales. Montrons que $f$ est continue sur $\C^n$. \\
+
+Soit $a \in \C^n$. Soit $V=Z(f_1,\ldots,f_s)^c \ni f(a)$. \\
+Fixons $W=Z(f_1 \circ f, \ldots,f_s \circ f)^c$. Alors $a \in W$.\\
+Soit $y \in W$ alors pour tout $i$, $f_i \circ f(y) \neq 0$ i.e. $f(y) \in Z(f_1,\ldots,f_s)^c=V$ 
