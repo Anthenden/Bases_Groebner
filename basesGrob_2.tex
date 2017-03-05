@@ -94,7 +94,7 @@ Une base de Gröbner d'un idéal est une famille de "bons" générateurs de cet idéa
 
 Dans ce mémoire, nous allons, à travers l'étude des bases de Gröbner, traiter les quatre problèmes suivants : 
 \begin{enumerate}
-\item  La description d'un idéal : Peut-on trouver une famille génératrice pour chaque idéal $I \subset k[X_1,\ldots,X_n]$?
+\item  La description d'un idéal : Peut-on trouver une famille génératrice préférée  pour chaque idéal $I \subset k[X_1,\ldots,X_n]$?
 \item L'appartenance à un idéal : Soit $f \in k[X_1,\ldots,X_n]$ et un idéal $I:=\left \langle f_1,\ldots,f_s \right \rangle$. Comment montrer que $f \in I$ ?
  \item La résolution de systèmes polynomiaux : Trouver les zéros communs dans $k^n$ d'une famille de polynômes.
  \item Le problème d'implicitation : Soit $V$  le sous-ensemble de $k^n $ paramétré par : $x_i=g_i(t_1,\ldots,t_n) , 1 \leq i \leq n $ où les $g_i$ est des polynômes ou des fractions rationelles.
@@ -124,20 +124,20 @@ En effectuant la division euclidienne de $f$ par $P$, on a : $f=PQ+R$ où $\deg(R
 On a alors la caractérisation suivante :  $f \in I \Leftrightarrow R=0$. \\
 Ce qui règle les problèmes 1 et 2 de l'introduction pour $k[X]$.\\
 
-Cependant, lorsque $n>1$, $k[X_1,\ldots,X_n]$ n'est plus euclidien et même plus principal. Nous allons montrer ce résultat et définir la notion plus faible d'anneau noethérien qui convient à $k[X_1,\ldots,X_n]$
+Cependant, lorsque $n>1$, $k[X_1,\ldots,X_n]$ n'est plus euclidien et même plus principal (il est tout de même factoriel). Nous allons montrer ce résultat et afin de décrire ses idéaux, définir la notion plus faible d'anneau noethérien qui convient à $k[X_1,\ldots,X_n]$
 
 \subsection{$k[X_1,\ldots,X_n]$ n'est pas principal}
 Pour montrer que $k[X_1,\ldots,X_n]$ n'est pas principal, nous allons montrer deux lemmes : le premier qui est la réciproque à la principalité de $k[X]$ et le second pour faire marcher l'autre lemme dans une récurrence sur le nombre d'indéterminées.
 \begin{Lemme}
-Soit $A$ un anneau intègre commutatif.\\
+Soit $A$ un anneau intègre commutatif.
 $A[X]$ est principal si, et seulement si, $A$ est un corps. 
 \end{Lemme}
 \begin{proof} 
 $\Leftarrow$  : $A[X] $ est euclidien pour le stathme euclidien du degré. Comme $A[X]$ est aussi intègre alors $A[X]$ est principal.\\
-$\Rightarrow$ : Soit  $a \in A\setminus\{0\}$.\\
-Soit $I=\left\langle a,X \right\rangle=\left\langle P \right\rangle$ car $A[X]$ est principal.\\
-Comme $P$ divise $a$ et que $A[X]$ est intègre(car $A$ est intègre) alors $P$ est constant (degré).\\
-De plus, comme $P$ divise $X$ alors il existe $a,b \in A$ tel que $X=P(aX+b)$ (degré).\\
+$\Rightarrow$ : Soit  $a \in A\setminus\{0\}$.
+Soit $I=\left\langle a,X \right\rangle=\left\langle P \right\rangle$ car $A[X]$ est principal.
+Comme $P$ divise $a$ et que $A[X]$ est intègre(car $A$ est intègre) alors $P$ est constant (degré).
+De plus, comme $P$ divise $X$ alors il existe $a,b \in A$ tel que $X=P(aX+b)$ (degré).
 D'où $X=aPX+bP$ ou encore, par unicité des coefficients, $aP=1$ et donc $a$ est inversible.
 \end{proof}
 \begin{Lemme}
@@ -151,42 +151,36 @@ $k[X_1,\ldots,X_n]$ n'est pas principal pour $n>1$.
 \end{Thm}
 \begin{proof}
 On le montre par récurrence sur le nombre d'indéterminées : \\
-En utilisant les deux lemmes précédents, on obtient que $ k[X_1,X_2]=k[X_1][X_2]$ n'est pas principal car $k[X_1]$ n'est pas un corps.\\
-Soit $n>1$ et supposons que $k[X_1,\ldots,X_n]$ n'est pas principal (et \emph{ a fortiori } n'est pas un corps).\\
+En utilisant les deux lemmes précédents, on obtient que $ k[X_1,X_2]=k[X_1][X_2]$ n'est pas principal car $k[X_1]$ n'est pas un corps. Soit $n>1$ et supposons que $k[X_1,\ldots,X_n]$ n'est pas principal (et \emph{ a fortiori } n'est pas un corps).
 $k[X_1,\ldots,X_{n+1}]=k[X_1,\ldots,X_n][X_{n+1}]$ n'est pas principal par le lemme $1$.
 \end{proof}
 \subsection{$k[X_1,\ldots,X_n]$ est noethérien}
-
 \begin{Def}
 Soit $A$ un anneau commutatif. On dit que $A$ est un anneau noethérien si tout idéal $I$ de $A$ est engendré par un nombre fini d'éléments.
 \end{Def}
 Dans la suite, on aura aussi besoin d'une autre caractérisation des anneaux noethériens
-\begin{Rq}
+\begin{prop}
 Une suite croissante d'idéaux d'un anneau noethérien est stationnaire.
-\end{Rq}
-\begin{Ex} Tout anneau principal est noethérien car chaque idéal d'un anneau principal $A$  est de la forme $aA$ où $a \in A$.\\
-En particulier, tout corps est noethérien (les idéaux d'un corps sont $\{0\}$ et lui-même).
+\end{prop}
+\begin{Ex} Tout anneau principal est noethérien car chaque idéal d'un anneau principal $A$  est de la forme $aA$ où $a \in A$. En particulier, tout corps est noethérien (les idéaux d'un corps sont $\{0\}$ et lui-même).
 \end{Ex}
-
 Maintenant que nous avons la définition d'anneau noethérien, nous allons montrer que $k[X_1,\ldots,X_n]$ est noethérien grâce au théorème de transfert suivant : 
 \begin{Thm}[de la base de Hilbert]
-
 Soit $A$ un anneau noethérien. Alors $A[X]$ est aussi un anneau noethérien.
 \end{Thm}
 
 \begin{proof}
 
-Soient $I$ un idéal de $A[X]$. Soit $J$ l'idéal engendré par les coefficients dominants des polynômes de $A[X]$ et pour tout $n \in \mathbb{N}$, $J_n$ l'idéal engendré par les coefficient en $X^n$ de $A_{n+1}[X]$, deux idéaux de $A$.\\
-Comme $A$ est noethérien alors il existe $x_1,\ldots,x_r \in I$,tels que $J=\left\langle x_1,\ldots,x_r\right\rangle$ et pour tout $n \in \mathbb{N}, y_{1,n},\ldots,y_{m_n,n}$ tels que $J_n=\left\langle y_{1,n},\ldots,y_{m_n,n} \right\rangle$.\\
-Il existe donc des polynômes $Q_1,\ldots,Q_r$ de $I$ ayant pour coefficient dominant $x_i$ et pour tout $n \in \mathbb{N}$, des polynômes $R_{1,n},\ldots R_{m_n,n} \in I \cap A_n[X] $ dont le coefficient en $X^n$ est $y_{m_n,n}$.\\
-Montrons que $I=\left\langle  Q_1,\ldots,Q_r, R_{1,1},\ldots,R_{m_1,1},\ldots,R_{1,N},\ldots,R_{m_N,N} \right \rangle$ où $N:=\max_i \; deg(Q_i)$.\\
+Soient $I$ un idéal de $A[X]$. Soit $J$ l'idéal engendré par les coefficients dominants des polynômes de $A[X]$ et pour tout $d \in \mathbb{N}$, $J_d$ l'idéal engendré par les coefficients dominants des polynômes de degré $d$.\\
+Comme $A$ est noethérien alors il existe $x_1,\ldots,x_r \in I$,tels que $J=\left\langle x_1,\ldots,x_r\right\rangle$ et pour tout $n \in \mathbb{N}, y_{1,n},\ldots,y_{m_n,n}$ tels que $J_n=\left\langle y_{1,n},\ldots,y_{m_d,d} \right\rangle$.\\
+Il existe donc des polynômes $Q_1,\ldots,Q_r$ de $I$ ayant pour coefficient dominant $x_i$ et pour tout $n \in \mathbb{N}$, des polynômes $R_{1,d},\ldots R_{m_d,d} \in I \cap A_d[X] $ dont le coefficient en $X^d$ est, respectivement, $y_{1,d},\ldots,y_{m_d,d}$.\\
+Montrons que $I=\left\langle  Q_1,\ldots,Q_r, R_{1,1},\ldots,R_{m_1,1},\ldots,R_{1,N},\ldots,R_{m_N,N} \right \rangle$ où $N:=\max_i \; \deg(Q_i)$.\\
 Notons $I'$  cet idéal (inclus dans $I$ car engendré par des éléments de $I$). \\
-Pour montrer l'inclusion réciproque, il suffit de montrer que, pour tout $d \in \mathbb{N}$, $I \cap A_d[X] \subset I'$
-Montrons donc,par récurrence, la propriété suivante : \\$\forall d \in \mathbb{N}, \forall P \in I, deg(P) <d \Rightarrow P \in I'$
+Pour montrer l'inclusion réciproque, il suffit de montrer que, pour tout $d \in \mathbb{N}$, $I \cap A_d[X] \subset I'$. Montrons donc,par récurrence, que la propriété  $ \forall P \in I, \deg(P) <d \Rightarrow P \in I'$ est vraie pour tout $d \in \mathbb{N}$.
 
-\textbf{Initialisation }: Si $n=0$, $I \cap A_n[X]=\{0\} \subset I' $ (car $0$ est le seul polynôme de degré strictement négatif et $0$ est dans tout idéal de $A[X]$)
+\textbf{Initialisation }: Si $d=0$, $I \cap A_n[X]=\{0\} \subset I' $ (car $0$ est le seul polynôme de degré strictement négatif et $0$ est dans tout idéal de $A[X]$)
 
-\textbf{Hérédité} : Soit $n \in \mathbb{N}$ et supposons que pour tout polynômes $P$ de $I$ de degré strictement inférieur à $n$ appartient à $I$.\\
+\textbf{Hérédité} : Soit $d \in \mathbb{N}$ et supposons que tout polynômes $P$ de $I$ de degré strictement inférieur à $d$ appartienne à $I$.\\
 Soit $P:=\sum_{k=0}^n a_k X^k \in I$.
 \begin{itemize}
 \item Si $d \leq N-1$ alors $a_d \in J_d$, il existe donc $\lambda_1,\ldots,\lambda_{m_d}$ tel que $a_d=\sum_{k=1}^{m_d} \lambda_k y_{k,d}$. On en déduit que $T:=P-\sum_{k=1}^{m_d} \lambda_k R_{k,d}$ est de degré inférieur à $d-1$. Comme $P$ et les $R_{k,d}$ sont dans $I$ alors $T$ aussi et par hypothèse de récurrence $T \in I$. Comme les $R_{k,d}$ sont aussi dans $I'$ alors $P=T+\sum_{k=1}^{m_d} \lambda_k R_{k,d}$ est dans $I'$.
@@ -215,12 +209,11 @@ Un ordre monomial est une relation d'ordre total $\geq$ de $\mathscr{M}$ telle q
 	\item  $\forall \alpha,\beta,\gamma \in \mathbb{N}^n, X^\alpha \geq X^\beta \Rightarrow X^{\alpha+\gamma} \geq X^{\beta +\gamma}$(compatibilité avec le produit)
  \item $\geq$ est un bon ordre
 \end{enumerate}
-On note $X^\alpha > X^\beta$ si $X^\alpha \geq X^\beta$ et $\alpha \neq \beta$  et $X^\alpha \leq X^\beta $ si $X^\beta \geq X^\alpha $
 \end{Def}
 On peut remarquer que l'ordre induit par le degré dans $k[X]$ est un ordre monomial.
 
 \begin{Def}
-Soit $P:=\sum_{\alpha} p_{\alpha}X^\alpha \in k[X_1,\ldots,X_n]$ et $\geq$ un ordre monomial. \\
+Soit $P:=\sum_{\alpha} p_{\alpha}X^\alpha \in k[X_1,\ldots,X_n]$ et $\geq$ un ordre monomial. 
 \begin{enumerate}
 	\item  Le monôme dominant de $P$ est : $\LM(P):=\max\{X^\alpha \in \mathscr{M} | p_\alpha \neq 0\}$
 \item Le multidegré de $f$ est l'élément de $\mathbb{N}^n$, noté $\multideg(P)$, tel que $x^{\multideg(P)}=LM(P)$
@@ -242,11 +235,11 @@ $\geq_{lex}$ est un ordre monomial.
 \begin{proof}
 Montrons, par l'absurde, que $\geq_{lex}$ est un bon ordre. \\
 Supposons donc que  $\geq_{lex}$ n'est pas un bon ordre et donc qu'il existe une suite $u:=\left(X^{(a_{1,i}\ldots,a_{n,i})}\right)_{i \in \mathbb{N}}$ strictement décroissante.\\
-On en déduit que la suite $u_1:=(a_{1,i})_{i \in \mathbb{N}}$ est décroissante (sinon $u$ ne serait pas décroissante) et est donc stationnaire car $\mathbb{N}$ est bien ordonné.\\
+On en déduit que la suite $u_1:=(a_{1,i})_{i \in \mathbb{N}}$ est décroissante (sinon $u$ ne serait pas décroissante) et est donc stationnaire car $\mathbb{N}$ est bien ordonné.
 Alors il existe $N_1 \in \mathbb{N}$ tel que $\forall p \geq N,u_{1,p}=u_{1,N_1}$. \\
 Considérons maintenant la suite $u_2:=(a_{2,i})_{i \geq N_1}$. Elle est décroissante et donc stationnaire ... \\
-On construit ainsi une suite $(N_i)_{i \geq 1}$ telle que : $\forall i \in \N^*,\forall n \geq N_i, u_{i,n} = u_{i,N_i}$.\\
-On en déduit que $\forall p \geq N_n,\forall i \in [\![1,n]\!], u_{i,p}=u_{i,N_n}$ ou encore \\$\forall p \geq N_n, X^{u_{1,p},\ldots,u_{n,p}}=X^{u_{1,N_n},\ldots,u_{n,N_n}}$, ce qui est contradictoire avec la stricte décroissance de $u$.
+On construit ainsi une suite $(N_i)_{i \geq 1}$ telle que : $\forall i \in \N^*,\forall n \geq N_i, u_{i,n} = u_{i,N_i}$.On en déduit que $\forall p \geq N_n,\forall i \in [\![1,n]\!], u_{i,p}=u_{i,N_n}$ ou encore \\
+$\forall p \geq N_n, X^{u_{1,p},\ldots,u_{n,p}}=X^{u_{1,N_n},\ldots,u_{n,N_n}}$, ce qui est contradictoire avec la stricte décroissance de $u$.
 \end{proof}
 Les deux ordres suivants comparent les degrés totaux des monômes.
 \begin{Def}
@@ -264,10 +257,7 @@ $X^\alpha \geq_{grevlex} X^\beta$ si, et seulement si, $|\alpha|>|\beta|$ ou ($|
 \end{Def}
 La différence entre ses deux ordres sont dans la manière où ils décident des égalités des monômes de même degré total : le premier se base sur l'ordre lexicographique et le second sur un ordre lexicographique "renversé", dans le sens où il commence par la droite et regarde la première entrée négative de $\alpha-\beta$.
 \begin{Ex}
-On va comparer les polynômes $f=X^2Z^2$,$g=X^2Z$ et $h=XY^2Z$ de  $k[X,Y,Z]$ avec ces trois différents ordres : \\
-$f>_{lex}g >_{lex}h$ \\
-$f>_{grlex}h >_{grlex}g$ \\
-$h>_{grevlex}f >_{grevlex}g$ \\
+On va comparer les polynômes $f=X^2Z^2$,$g=X^2Z$ et $h=XY^2Z$ de  $k[X,Y,Z]$ avec ces trois différents ordres : $f>_{lex}g >_{lex}h$,$f>_{grlex}h >_{grlex}g$, $h>_{grevlex}f >_{grevlex}g$ \\
 \end{Ex}
 
 \subsection{Algorithme de division}
@@ -283,7 +273,7 @@ Dans ce paragraphe, nous allons énoncer et démontrer l'algorithme de division.
 	\end{Lemme}
 	\begin{proof}
 	Soit $f = \sum a_lX^l$ et posons $\beta:=\LM(f)$. \\
-	Alors $\LT(pf)=p a_\beta X^\beta=p\LT(f)$ et $\LT(X^\alpha f)=a_\beta X^{\beta+\alpha}=X^\alpha\LT(f)$ car si pour tout $l \in \N^n, X^l \leq X^\beta$ alors, par compatibilité de l'ordre monomial avec le produit,$\forall l \in \N^n, X^{l + \alpha} \leq X^{\alpha+\beta}$ 
+	Alors $\LT(pf)=p a_\beta X^\beta=p\LT(f)$ et $\LT(X^\alpha f)=a_\beta X^{\beta+\alpha}=X^\alpha\LT(f)$ car si, pour tout $l \in \N^n, X^l \leq X^\beta$ alors, par compatibilité de l'ordre monomial avec le produit,$\forall l \in \N^n, X^{l + \alpha} \leq X^{\alpha+\beta}$ 
 	
 	\end{proof}
 
@@ -325,8 +315,7 @@ Soit $\geq$ un ordre monomial et $(f_1,\ldots,f_s)$ un $n$-uplet de polynôme de 
 
 \end{algorithm}
 \begin{proof}
-Pour montrer ce théorème, nous allons que l'algorithme ci-dessus donne le bon résultat et finit pour tous polynômes mis en entrée du polynôme.\\
-
+Pour montrer ce théorème, nous allons que l'algorithme ci-dessus donne le bon résultat et finit pour tous polynômes mis en entrée de l'algorithme.\\
 Remarquons tout d'abord que lors de chaque itération de la boucle, une de ses deux instructions est exécutée :
 \begin{enumerate}
 	\item Si $\LT(f_i) | \LT(p)$ alors on fait la division de $p$ par $f_i$
@@ -334,15 +323,14 @@ Remarquons tout d'abord que lors de chaque itération de la boucle, une de ses de
 \end{enumerate}
 Montrons d'abord que l'algorithme s'arrête i.e. il existe une étape où $p=0$. \\
 Pour cela, montrons que la suite des monômes dominants des différentes valeurs de $p$ est strictement décroissante tant que $p \neq 0$. Si l'algorithme ne s'arrêtait pas, on aurait alors une suite infinie strictement croissante ce qui contredirait le fait que $\geq$ soit un bon ordre. \\
-
 -Si on fait une division (par $f_j$) alors $p$ prend la valeur $p':=p-\frac{\LT(p)}{\LT(f_j)}f_j$. \\
-Si cette valeur est nulle alors l'algorithme s'arrête sinon, grâce à l'égalité obtenue avec le lemme \ref{LT_prod} : \\$\LT\left(\underbrace{\frac{\LT(p)}{\LT(f_j)}}_{\in k^*\mathscr{M}}f_j\right)=\frac{\LT(p)}{\LT(f_j)}\LT(f_j)=\LT(p)$ \\alors, d'après le lemme \ref{LM_dec}, on a que $LM(p') <LM(p)$. \\
+Si cette valeur est nulle alors l'algorithme s'arrête sinon, grâce à l'égalité obtenue avec le lemme \ref{LT_prod} : \\$\LT\left(\frac{\LT(p)}{\LT(f_j)}\right)=\frac{\LT(p)}{\LT(f_j)}\LT(f_j)=\LT(p)$ car $\frac{\LT(p)}{\LT(f_j)} \in k^*\mathscr{M}$ \\alors, d'après le lemme \ref{LM_dec}, on a que $LM(p') <LM(p)$. \\
 -Sinon, $p$ prend la valeur $p-\LT(p)$. Par le même argument que précédemment, $LM(p-\LT(p))<\LT(p)$. \\
 Ce qui permet de conclure. \\
 Montrons maintenant qu'à chaque étape que $f=\sum_{i=0}^s a_if_i +p+r$. \\
 Initialisation de l'algorithme ("0ème itération") : Comme $a_1=\ldots=a_s=r=0$ et $p=f$ alors l'égalité est vérifiée. \\
 Hérédité : Soit $n \in \mathbb{N}$ et supposons qu'à la $n$ème itération de la boucle, $f=\sum_{i=0}^s a_if_i +p+r=\sum_{i=0,i \neq j}^s a_if_i +a_jf_j+p+r$ pour tout $j\in [\![1,n]\!]$  alors : \\
-- si on fait une division ( $p$ avec $f_j$) alors : la nouvelle valeur $p'$ de $p$ est $p-\frac{\LT(p)}{\LT(f_j)}f_j$ et celle de $a_i$ est $a'_j=a_j+\frac{\LT(p)}{\LT(f_j)}$. et donc : \\
+- si on fait une division ( $p$ avec $f_j$) alors : la nouvelle valeur $p'$ de $p$ est $p-\frac{\LT(p)}{\LT(f_j)}f_j$ et celle de $a_i$ est $a'_j=a_j+\frac{\LT(p)}{\LT(f_j)}$. et donc : 
 $\sum_{i=0,i \neq j}^s a_if_i +a'_jf_j+p'+r=\sum_{i=0,i \neq j}^s a_if_i +\left(a_j+\frac{\LT(p)}{\LT(f_j)}\right)f_j+p-\frac{\LT(p)}{\LT(f_j)}f_j+r$ \\
 $=\sum_{i=0,i \neq j}^s a_if_i +a_jf_j+p+r=f$.\\
 - sinon, $f=\sum_{i=0,i \neq j}^s a_if_i +a_jf_j+p+r=\sum_{i=0,i \neq j}^s a_if_i +a_jf_j+(p-\LT(p))+(r+\LT(p))$. \\
@@ -414,7 +402,7 @@ Nous allons maintenant montrer la propriété des bases de Gröbner promise à la fi
 \begin{proof}
  L'algorithme de division nous donne l'existence d'un tel $r$. Montrons son unicité. \\
 Supposons, par l'absurde, l'existence de deux restes $r_1$ et $r_2$, $r_1 \neq r_2$ vérifiant $(1)$ et $(2)$. \\
-Alors : $\begin{cases} f=g_1+r_1 \\f=g_2+r_2 \end{cases}$ et donc $r_1-r_2=g_1-g_2 \in I$. \\
+Alors : $\begin{cases} f=g_1+r_1 \\f=g_2+r_2 \end{cases}$ et donc $r_1-r_2=g_1-g_2 \in I$. 
 D'où, comme $r_1 \neq r_2$ alors $LT(r_1-r_2) \in \left\langle LT(I) \right\rangle=\left\langle g_1,\ldots,g_s \right\rangle$ et donc $LT(r_1-r_2)$ est divisé par un des $LT(g_i)$ (cf Lemme \ref{lem_div}). On obtient donc une contradiction car aucun terme de $r_1$ et $r_2$ n'est divisible par des $LT(g_i)$. D'où $r_1=r_2$. \\
 \end{proof}
 
@@ -423,8 +411,9 @@ D'où, comme $r_1 \neq r_2$ alors $LT(r_1-r_2) \in \left\langle LT(I) \right\rang
  
 Ce corollaire nous permet de répondre au problème 2 de l'introduction : l'appartenance d'un polynôme à un idéal donné. Maintenant pour pouvoir appliquer ce corollaire, on va énoncer une caractérisation des bases de Gröbner plus maniable que celle de la définition.
 
-\begin{Not} On notera $\overline{f}^G$ le reste de $f$ par la base de Gröbner $G$.
+\begin{Not} On notera $\overline{f}^F$ le reste de $f$ par la famille $F=(f_1,\ldots,f_s)$.
 \end{Not}
+Si $F$ est une base de Gröbner, on peut juste considérer $F$ comme un ensemble. 
 
 \begin{Def} Soient $f,g \in k[X_1,\ldots,X_n]$ des polynômes non nuls.
 \begin{enumerate}
@@ -587,7 +576,7 @@ Soit $i,j \in [\![1,r]\!]$,$ i<j$.\\
 Comme $S(g_i,g_j)$ est de la forme $Pg_i+Qg_j$ ($P,Q \in k[X_{p+1},\ldots,X_n]$) et $I_p$ est un idéal alors $S(g_i,g_j) \in I_p \subset I$ d'où comme $G$ est une base de Gröbner alors $\overline{S(g_i,g_j)}^{G}=0$ et donc d'après $(*)$, $\overline{S(g_i,g_j)}^{G_k}=0$. Ce qui permet de conclure.
 \end{proof}
 \begin{Ex}
-Avec les $f,g,h$ de l'exemple \ref{ex}, le premier idéal d'élimination est : \\$I_1=\left\langle X - YZ^2 + Y, Y^2 + 2*Z^2 - 5, Z^4 - 7/2Z^2 + 3\right\rangle$ et le second $I_2=\left\langle X - YZ^2 + Y, Y^2 + 2Z^2 - 5, Z^4 - 7/2Z^2 + 3\right\rangle$
+Avec les $f,g,h$ de l'exemple \ref{ex}, le premier idéal d'élimination est : \\$I_1=\left\langle X - YZ^2 + Y, Y^2 + 2*Z^2 - 5, Z^4 - 7/2Z^2 + 3\right\rangle$ et le second $I_2=\left\langle Z^4 - 7/2Z^2 + 3\right\rangle$
 \end{Ex}
 Lorsque l'on a calculé le $(n-1)$ème idéal d'élimination, on obtient lorsqu'il n'est pas réduit à 0, un idéal de la forme $\left\langle P\right\rangle$ (car $k[X_n]$ est principal) et donc un nombre fini de solutions. On va essayer d'étendre les solutions partielles des idéaux d'élimination en des solutions de l'idéal de départ. Pour cela, on va commencer par présenter des résultats sur les résultants qui vont permettre de montrer le théorème d'extension.
 \subsection{Résultant}
@@ -595,35 +584,33 @@ Soient $A $ un anneau commutatif intègre et $K $ son corps de fractions.\\
 Soient $f\in A[X] $ et $g \in A[X] $. Soient $p,q \in \N$, tels que $p\geq\deg f $ et $q\geq\deg g $.\\
 Soit $\varphi_{f,g} : K_{q}[X]\times K_{p}[X] \to K_{p+q}[X] $ l'application linéaire définie par : $\forall (u,v) \in K_{q}[X]\times K_{p}[X], \varphi(u,v)=fu+gv $.\\
 On appelle matrice de Sylvester la matrice associée à l'application $\varphi_{f,g} $ dans la base $\B=((X^i,X^j) | 0 \leq i \leq q-1 ; 0 \leq j \leq p-1) $ que l'on notera $\Syl_{p,q}(f,g)$.\\
-On notera $\Res_{p,q}(f,g)$ le déterminant de $\Syl_{p,q}(f,g)$
+On notera $\Res_{p,q}(f,g)$ le déterminant de $\Syl_{p,q}(f,g)$. 
 On appelle résultant de $f $ et $g $  l'élément $\Res_{\deg(f),\deg(q)}(f,g)$.
 
 \begin{Not}
 \begin{itemize}
-	\item On note $Z(I)$ l'ensemble des zéros communs à tous les polynômes de $I$ i.e. //$Z(I):=\{a \in k^n | \forall f \in I, f(a)=0 \}$.
+	\item On note $Z(I)$ l'ensemble des zéros communs à tous les polynômes de $I$ i.e. \\$Z(I):=\{a \in k^n | \forall f \in I, f(a)=0 \}$.
 	\item Soient $f,g \in k[X_1,\ldots,X_n]$. On note par $\Syl_{X_i}(f,g), \Res_{X_i}(f,g)$ la matrice de Sylvester (resp. résultant) de $f$ et $g$ vus comme polynômes de $k[X_1,\ldots,X_{i-1},X_{i+1},\ldots,X_n][X_i]$
 \end{itemize}
 
 \end{Not}
 \begin{prop}
- $\Res (f, g)\in\left\langle f,g \right \rangle \cap A $
+ $\Res (f, g)\in\left\langle f,g \right \rangle \cap k[X_2,\ldots,X_n]=I_1 $
 
 \end{prop}
 
 \begin{proof}
 
- $\Res (f,g) \in A $ car le déterminant est polynomial en les coordonnées de la matrice et les composantes de $\Syl(f,g) $ sont dans $A$. \\
+ $\Res (f,g) \in k[X_2,\ldots,X_n] $ car le déterminant est polynomial en les coordonnées de la matrice et les composantes de $\Syl(f,g) $ sont dans $k[X_2,\ldots,X_n]$. \\
 Montrons maintenant que $\Res (f,g) \in \left\langle f,g \right\rangle $.\\
 Notons $M $ la matrice de Sylvester de $f $ et $g $. \\
 Alors $M {}^t \Com(M)=\det (M)I_{\deg(f)+\deg(g)} $ $(*) $ où $\Com(M)$ est la matrice des cofacteurs de $M$. \\
-Comme les cofacteurs de $M $ sont dans $A $ (car ceux-ci sont polynomiaux en les coordonnées) alors $\Com (M) $ est dans $\Mcal_{\deg(f)+\deg(g)}(A) $. \\
+Comme les cofacteurs de $M $ sont dans $k[X_2,\ldots,X_n] $ (car ceux-ci sont polynomiaux en les coordonnées) alors $\Com (M) $ est dans $\Mcal_{\deg(f)+\deg(g)}(k[X_2,\ldots,X_n]) $. \\
 Donc, en posant $M=(C_1,\ldots,C_{\deg(f)+\deg(g)})$, on a, d'après $(*) $, : \\
-$MC_1=\begin{pmatrix} \det (A) \\ 0 \\ \vdots\\ 0 \end{pmatrix} $. \\
-En notant par $c $ l'élément de $ A_{\deg(g)}[X]\times A_{\deg(f)}[X] $ de colonne de coordonnées $C_1$ dans la base $\B  $ définie plus haut, on a : $\varphi_{f,g}(c)=\det (A) $, ce qui permet de conclure.
+$MC_1=\begin{pmatrix} \det (M) \\ 0 \\ \vdots\\ 0 \end{pmatrix} $. \\
+En notant par $c $ l'élément de $ (k[X_2,\ldots,X_n])_{\deg(g)}[X]\times (k[X_2,\ldots,X_n])_{\deg(f)}[X] $ de colonne de coordonnées $C_1$ dans la base $\B  $ définie plus haut, on a : $\varphi_{f,g}(c)=\det (M) $, ce qui permet de conclure.
 \end{proof}
-\begin{cor}
-Si $A=k[X_2,\ldots,X_n]$ alors $Res(f,g) \in I_1$
-\end{cor}
+
 \begin{Rq}
 \begin{enumerate}
 \item Si $f=a_1(X_2,\ldots,X_n)X_1+a_0(X_2,\ldots,X_n)$ et $g=b_1(X_2,\ldots,X_n)X_1+b_0(X_2,\ldots,X_n)$ sont des polynômes de degré 1  alors leur résultant $a_0b_1-a_1b_0$, ce qui est le m\^eme résultat que l'on obtient lorsqu'on applique le pivot de Gauss à $f$ et $g$.
@@ -721,7 +708,7 @@ En effet,$x \in V \cap W$ si, et seulement si, pour tous $i,j$, $f_i(x)=g_j(x)=0
 \begin{prop} Si $\{f_1,\ldots,f_s\}$ et $\{g_1,\ldots,g_r\}$ sont des bases d'un même idéal $I$ de $k[X_1,\ldots,X_n]$ alors $Z(f_1,\ldots,f_s)=Z(g_1,\ldots,g_r)$
 \end{prop}
 \begin{proof}
-Comme $\{f_1,\ldots,f_s\}$ et $\{g_1,\ldots,g_r\}$ sont des bases d'un même idéal alors on peut écrire les $g_i$ sous la forme $\sum_{i=1}^s h_{i,j}f_i$. De ce fait, si $x \in Z(f_1,\ldots,f_s)$ alors pour tout $j$, $f_j(x)=0$  et donc $g_i(x)=sum_{i=1}^s h_{i,j}(x)f_i(x)=0$. Et donc $x\in Z(g_1,\ldots,g_r)$.\\
+Comme $\{f_1,\ldots,f_s\}$ et $\{g_1,\ldots,g_r\}$ sont des bases d'un même idéal alors on peut écrire les $g_i$ sous la forme $\sum_{i=1}^s h_{i,j}f_i$. De ce fait, si $x \in Z(f_1,\ldots,f_s)$ alors pour tout $j$, $f_j(x)=0$  et donc $g_i(x)=\sum_{i=1}^s h_{i,j}(x)f_i(x)=0$. Et donc $x\in Z(g_1,\ldots,g_r)$.\\
 Par symétrie de rôles, on obtient l'inclusion réciproque.
 \end{proof}
 En particulier, $Z(f_1,\ldots,f_s)=Z(\left\langle f_1,\ldots,f_s\right\rangle)$
@@ -797,7 +784,7 @@ où $\pi_m : k^{n+m} \to k^n$ est une projection définie de manière analogue à \r
 On a donc $\pi_m(V)=F(k^m)$.\\
 Autrement dit, l'image d'une param\'etrisation est la projection de son graphe.
 \begin{Thm}
-Soit $F:k^m \to k^n$ une fonction d\'etermin\'ee par la param\'etrisation polynomiale $(\dagger)$.\\ Soit $I$ l'id\'eal $\left\langle X_1-f_1,\ldots,X_n-f_n \right\rangle \subset k[T_1,\ldots,T_m,X_1,\ldots,X_n]$ et $I_m$ son $m$ \`eme id\'eal d'\'elimination. Alors $Z(I_m)$ est le plus petit id\'eal de $k^n$ contenant $F(k^m)$.
+Soit $F:k^m \to k^n$ une fonction d\'etermin\'ee par la param\'etrisation polynomiale $(\dagger)$.\\ Soit $I$ l'id\'eal $\left\langle X_1-f_1,\ldots,X_n-f_n \right\rangle \subset k[T_1,\ldots,T_m,X_1,\ldots,X_n]$ et $I_m$ son $m$ \`eme id\'eal d'\'elimination. Alors $Z(I_m)$ est le plus petit variété de $k^n$ contenant $F(k^m)$.
 \end{Thm}
 \begin{proof}
 Supposons que $k$ est un sous-corps de $\C$. \\
