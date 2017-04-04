@@ -46,6 +46,8 @@
 \newcommand{\Acal}{\mathcal{A}}
 \newcommand{\Lcal}{\mathcal{L}}
 \newcommand{\Rscr}{\mathscr{R}}
+\newcommand{\Cscr}{\mathscr{C}}
+\newcommand{\Dscr}{\mathscr{D}}
 \newcommand{\Ebar}{\overline{E}}
 \newcommand{\xbar}{\overline{x}}
 \newcommand{\ybar}{\overline{y}}
@@ -57,6 +59,7 @@
 \DeclareMathOperator{\LT}{\mathrm{LT}}
 \DeclareMathOperator{\LC}{\mathrm{LC}}
 \DeclareMathOperator{\PPCM}{\mathrm{PPCM}}
+\DeclareMathOperator{\PGCD}{\mathrm{PGCD}}
 \DeclareMathOperator{\Syl}{\mathrm{Syl}}
 \DeclareMathOperator{\Res}{\mathrm{Res}}
 \DeclareMathOperator{\Com}{\mathrm{Com}}
@@ -97,7 +100,7 @@ Dans ce mémoire, nous allons, à travers l'étude des bases de Gröbner, traiter le
 \item  La description d'un idéal : Peut-on trouver une famille génératrice préférée  pour chaque idéal $I \subset k[X_1,\ldots,X_n]$?
 \item L'appartenance à un idéal : Soit $f \in k[X_1,\ldots,X_n]$ et un idéal $I:=\left \langle f_1,\ldots,f_s \right \rangle$. Comment montrer que $f \in I$ ?
  \item La résolution de systèmes polynomiaux : Trouver les zéros communs dans $k^n$ d'une famille de polynômes.
- \item Le problème d'implicitation : Soit $V$  le sous-ensemble de $k^n $ paramétré par : $x_i=g_i(t_1,\ldots,t_n) , 1 \leq i \leq n $ où les $g_i$ est des polynômes ou des fractions rationelles.
+ \item Le problème d'implicitation : Soit $V$  le sous-ensemble de $k^n $ paramétré par : $x_i=g_i(t_1,\ldots,t_n) , 1 \leq i \leq n $ où les $g_i$ sont des polynômes ou des fractions rationelles.
 Peut-on trouver des équations polynomiales en $X_i$ décrivant $V$ ?
 \end{enumerate}
 
@@ -116,14 +119,13 @@ On appelera base d'un idéal $I$ une famille $F=(f_1,\ldots,f_s)$ telle que $I=\l
 
 \section{Motivation}
 \subsection{Exemple introductif}
-On va commencer par traiter le cas simple de l'anneau des polynômes à un indéterminée $k[X]$. \\
-$k[X]$ est un anneau euclidien et donc principal. De ce fait, on a un description simple des idéaux de $k[X]$ qui sont tous engendrés par un unique élément. \\
+On va commencer par traiter le cas simple de l'anneau des polynômes à un indéterminée $k[X]$. 
+$k[X]$ est un anneau euclidien et donc principal. De ce fait, on a un description simple des idéaux de $k[X]$ qui sont tous engendrés par un unique élément. 
 De plus, grâce à l'algorithme d'Euclide, on peut aisément vérifier l'appartenance d'un polynôme à un idéal de $k[X]$. \\
-Soient $I=\left\langle P\right\rangle \subset k[X]$ et $f \in k[X]$. \\
-En effectuant la division euclidienne de $f$ par $P$, on a : $f=PQ+R$ où $\deg(R) < \deg(P)$. \\
-On a alors la caractérisation suivante :  $f \in I \Leftrightarrow R=0$. \\
+Soient $I=\left\langle P\right\rangle \subset k[X]$ et $f \in k[X]$. 
+En effectuant la division euclidienne de $f$ par $P$, on a : $f=PQ+R$ où $\deg(R) < \deg(P)$. 
+On a alors la caractérisation suivante :  $f \in I \Leftrightarrow R=0$. 
 Ce qui règle les problèmes 1 et 2 de l'introduction pour $k[X]$.\\
-
 Cependant, lorsque $n>1$, $k[X_1,\ldots,X_n]$ n'est plus euclidien et même plus principal (il est tout de même factoriel). Nous allons montrer ce résultat et afin de décrire ses idéaux, définir la notion plus faible d'anneau noethérien qui convient à $k[X_1,\ldots,X_n]$
 
 \subsection{$k[X_1,\ldots,X_n]$ n'est pas principal}
@@ -324,15 +326,18 @@ Remarquons tout d'abord que lors de chaque itération de la boucle, une de ses de
 Montrons d'abord que l'algorithme s'arrête i.e. il existe une étape où $p=0$. \\
 Pour cela, montrons que la suite des monômes dominants des différentes valeurs de $p$ est strictement décroissante tant que $p \neq 0$. Si l'algorithme ne s'arrêtait pas, on aurait alors une suite infinie strictement croissante ce qui contredirait le fait que $\geq$ soit un bon ordre. \\
 -Si on fait une division (par $f_j$) alors $p$ prend la valeur $p':=p-\frac{\LT(p)}{\LT(f_j)}f_j$. \\
-Si cette valeur est nulle alors l'algorithme s'arrête sinon, grâce à l'égalité obtenue avec le lemme \ref{LT_prod} : \\$\LT\left(\frac{\LT(p)}{\LT(f_j)}\right)=\frac{\LT(p)}{\LT(f_j)}\LT(f_j)=\LT(p)$ car $\frac{\LT(p)}{\LT(f_j)} \in k^*\mathscr{M}$ \\alors, d'après le lemme \ref{LM_dec}, on a que $LM(p') <LM(p)$. \\
+Si cette valeur est nulle alors l'algorithme s'arrête sinon, grâce à l'égalité obtenue avec le lemme \ref{LT_prod} : \\$\LT\left(\frac{\LT(p)}{\LT(f_j)}\right)=\frac{\LT(p)}{\LT(f_j)}\LT(f_j)=\LT(p)$ car $\frac{\LT(p)}{\LT(f_j)} \in k^*\mathscr{M}$. Alors, d'après le lemme \ref{LM_dec}, on a que $LM(p') <LM(p)$. \\
 -Sinon, $p$ prend la valeur $p-\LT(p)$. Par le même argument que précédemment, $LM(p-\LT(p))<\LT(p)$. \\
 Ce qui permet de conclure. \\
 Montrons maintenant qu'à chaque étape que $f=\sum_{i=0}^s a_if_i +p+r$. \\
 Initialisation de l'algorithme ("0ème itération") : Comme $a_1=\ldots=a_s=r=0$ et $p=f$ alors l'égalité est vérifiée. \\
 Hérédité : Soit $n \in \mathbb{N}$ et supposons qu'à la $n$ème itération de la boucle, $f=\sum_{i=0}^s a_if_i +p+r=\sum_{i=0,i \neq j}^s a_if_i +a_jf_j+p+r$ pour tout $j\in [\![1,n]\!]$  alors : \\
 - si on fait une division ( $p$ avec $f_j$) alors : la nouvelle valeur $p'$ de $p$ est $p-\frac{\LT(p)}{\LT(f_j)}f_j$ et celle de $a_i$ est $a'_j=a_j+\frac{\LT(p)}{\LT(f_j)}$. et donc : 
-$\sum_{i=0,i \neq j}^s a_if_i +a'_jf_j+p'+r=\sum_{i=0,i \neq j}^s a_if_i +\left(a_j+\frac{\LT(p)}{\LT(f_j)}\right)f_j+p-\frac{\LT(p)}{\LT(f_j)}f_j+r$ \\
-$=\sum_{i=0,i \neq j}^s a_if_i +a_jf_j+p+r=f$.\\
+\begin{tabular}{lll}
+   $\sum_{i=0,i \neq j}^s a_if_i +a'_jf_j+p'+r$&$=\sum_{i=0,i \neq j}^s a_if_i +\left(a_j+\frac{\LT(p)}{\LT(f_j)}\right)f_j+p-\frac{\LT(p)}{\LT(f_j)}f_j+r$ \\
+	&$=\sum_{i=0,i \neq j}^s a_if_i +a_jf_j+p+r=f$.\\
+\end{tabular}
+
 - sinon, $f=\sum_{i=0,i \neq j}^s a_if_i +a_jf_j+p+r=\sum_{i=0,i \neq j}^s a_if_i +a_jf_j+(p-\LT(p))+(r+\LT(p))$. \\
 On finit par obtenir que,lorsque $p=0$ (et on sait que cela arrivera),  $f=\sum_{i=1}^s a_if_i+r$ où $r$ est, par définition, une somme d'éléments non divisibles par les $\LT(f_i)$
 \end{proof}
@@ -381,11 +386,10 @@ Comme $k[X_1,\ldots,X_n]$ est un $k$-espace vectoriel de base canonique $\mathsc
 
 \begin{proof}
  Soit $I$ un idéal de $k[X_1,\ldots,X_n]$ non réduit à $\{0\}$ et $g_1,\ldots,g_s \in I$ tels que $\left\langle \LT(I)\right\rangle=\left\langle \LT(g_1),\ldots,\LT(g_s)\right\rangle$. 
-Comme les $g_i$ appartiennent à $I$ alors $I':=\LT(g_1),\ldots,\LT(g_s) \subset I$. Montrons l'inclusion réciproque : \\
+Comme les $g_i$ appartiennent à $I$ alors $I':=\left\langle \LT(g_1),\ldots,\LT(g_s)\right\rangle \subset I$. Montrons l'inclusion réciproque : \\
 Soit $f \in I$. Si $f=0$ alors, comme $I'$ est un idéal, $f \in I'$. \\
 Supposons donc $f \neq 0$.
-Comme $\LT(f) \in \left\langle \LT(I) \right\rangle$ alors il existe un $i$ tel que $\LT(g_i)$ divise $\LT(f)$ (d'après le lemme \ref{lem_div}). \\
-Alors $f-\frac{\LT(f)}{\LT(g_i)}g_i \in I$ (car $f$ et $g_i$ sont dans $I$).\\
+Comme $\LT(f) \in \left\langle \LT(I) \right\rangle$ alors il existe un $i$ tel que $\LT(g_i)$ divise $\LT(f)$ (d'après le lemme \ref{lem_div}) et donc $f-\frac{\LT(f)}{\LT(g_i)}g_i \in I$ (car $f$ et $g_i$ sont dans $I$).\\
 En itérant ce raisonnement, on obtient que le reste de la division de $f$ par $g_1,\ldots,g_s$ est nul car tous les termes dominants de polynôme de $I$ sont divisibles par un $LT(g_i)$. On en déduit que $f$ est de la forme $\sum g_ih_i$ et donc $f\in I'$.
 
 \end{proof}
@@ -424,7 +428,7 @@ Si $F$ est une base de Gröbner, on peut juste considérer $F$ comme un ensemble.
 
 \begin{Thm} Soit $I$ un idéal de $k[X_1,\ldots,X_n]$. Alors une base $G=\{g_1,\ldots,g_n\}$ de $I$ est une base de Gröbner de $I$ si, et seulement si, pour tout couple $(i,j)$, $i \neq j$, $\overline{S(g_i,g_j)}^G=0$
 \end{Thm}
-
+On admettra ici ce théorème.
 
 \subsection{Algorithme de Buchberger}
 Maintenant que l'on a une caractérisation simple à vérifier d'une base de Gröbner, on va l'utiliser afin de créer un algorithme permettant d'en construire une. On va présenter l'algorithme dit de Buchberger créé par celui-ci. Cet algorithme consiste, pour un ensemble $F$ de polynômes, à calculer tous les restes $\overline{S(g_i,g_j)}^F$ et les ajouter à l'ensemble s'ils sont non nuls et recommencer avec le nouvel ensemble obtenu jusqu'à ce que cela converge. 
@@ -495,9 +499,9 @@ Une base de Gröbner minimale $G$ d'un idéal $I $ de $k [X_1,\ldots,X_n] $ est un
  \item $\forall P \in G, \LT(P) \notin \left\langle \LT(G \setminus \{P\}) \right\rangle$
 \end{enumerate}
 \end{Def}
-Cependant pour un idéal donné, on n'a pas l'unicité de la base de Gröbner minimal, comme l'illustre cet exemple : 
+Cependant pour un idéal donné, on n'a pas l'unicité de la base de Gröbner minimale, comme l'illustre cet exemple : 
 \begin{Ex}
-Soit $I:= \left\langle X^2, XY, Y^2-1/2 X\right\rangle$ alors les familles $G_a=\{X^2+aXY, XY, Y^2-1/2 X \}$ sont des bases de Gröbner minimale de $I$ pour tout $a \in k$.\\
+Soit $I:= \left\langle X^2, XY, Y^2-1/2 X\right\rangle$ alors les familles $G_a=\{X^2+aXY, XY, Y^2-1/2 X \}$ sont des bases de Gröbner minimales de $I$ pour tout $a \in k$.\\
 \end{Ex}
 L'unicité est perdue à cause du fait qu'il y a des monômes d'un élément $f$ de la base de $G_a$ qui sont dans $G \setminus\{f\}$. La notion de base de Gröbner réduite permet de contourner ce problème.
 \begin{Def}
@@ -518,7 +522,7 @@ Soit $I $ un idéal non nul de $k [X_1,\ldots,X_n] $. \\
 Commençons par montrer l'existence d'une base de Gröbner réduite d'un idéal $I$. \\
 Soit $G$ une base de Gröbner minimale de $I$. $g \in G$ est dit réduit pour $G$ si aucun monôme de $g$ n'est dans $\left\langle \LT(G \setminus \{g\})\right\rangle$. \\
 On peut remarquer que $g$ est aussi réduite pour n'importe quel base de Gröbner minimale $G'$ telle que $\left\langle \LT(G)\right\rangle=\left\langle \LT(G')\right\rangle$.\\
-Pour $g \in G$, posons $g':=\overline{g}^{G \setminus \{g\}}$ et $G':=(G \setminus \{g\} \cup \{g'\}$. Montrons que $G'$ est une base de Gröbner minimale pour $I$. \\
+Pour $g \in G$, posons $g':=\overline{g}^{G \setminus \{g\}}$ et $G':=(G \setminus \{g\}) \cup \{g'\}$. Montrons que $G'$ est une base de Gröbner minimale pour $I$. \\
 Comme $G$ est une base de Gröbner minimale alors $\LT(g) \notin \left\langle \LT(G \setminus \{g\}) \right\rangle$ et donc lorsqu'on divise $g$ par $G\setminus \{g\}$, $\LT(g')$ est ajouté au reste. De ce fait, $\LT(g)=\LT(g')$ et donc $\left\langle \LT(G)\right\rangle=\left\langle \LT(G')\right\rangle$. Comme $g' \in I$ alors $G' \subset I'$ et donc $G$ est une base de Gröbner de $I$. De plus, la minimalité de $G'$ se déduit de celle de $G$ et $g'$ est réduit pour $G'$ par construction (grâce à la condition sur le reste de l'algorithme de division) \\
 En itérant ce procédé pour tous les éléments de $G$, on finit par obtenir une base de Gröbner réduite $G'$ car tous les $g$ sont réduits pour $G'$ (grâce à la remarque faite au début de la preuve).\\
 Montrons maintenant l'unicité. \\
@@ -536,16 +540,16 @@ Soient $I,J$ deux idéaux non nuls de $k[X_1,\ldots,X_n]$. Soient $G,H$ deux base
 Soit $f,g,h$ définie dans l'exemple \ref{ex}. Alors la base réduite de $\left\langle f,g,h\right\rangle $ est : $\{X - YZ^2 + Y, Y^2 + 2Z^2 - 5, Z^4 - 7/2Z^2 + 3\}$
 \end{Ex}
 
-\section{Résolution de système polynomiaux}
+\section{Résolution de systèmes polynomiaux}
 Dans cette section, nous allons étudier comment utiliser les bases de Gröbner afin de résoudre les systèmes d'équations polynomiales. On va commencer par donner l'exemple des polynômes de degré $1$ qui peuvent se résoudre avec le pivot de Gauss et voir que les idées du pivot peuvent se généraliser pour toutes familles de polynômes.
-\subsection{Exemples préliminaires}
-Comme dit plus haut, lorsque les $f_i$ sont des polynômes de degré 1, on peut résoudre les systèmes de la forme $$f_i(x_1,\ldots,x_n)=0, 1 \leq i \leq s \; (*)$$ en utilisant le pivot de Gauss.\\ 
-Le système $(*)$ se résume à : $AX=B$ où $A$ est la matrice représentative de la partie linéaire de $(f_1,\ldots,f_s)$ et $-B$ sa partie constante.\\
-Avec le pivot de Gauss, on obtient une matrice échelonnée $\widetilde{A}$ et une colonne de constante $\widetilde{B}=\begin{pmatrix} \widetilde{b_1} \\ \vdots \\ \widetilde{b_s} \end{pmatrix}$ tel que : \\$(*) \Leftrightarrow \widetilde{A}X=\widetilde{B}$. \\
+\subsection{Exemple préliminaire}
+Comme dit plus haut, lorsque les $f_i$ sont des polynômes de degré 1, on peut résoudre les systèmes de la forme $f_i(x_1,\ldots,x_n)=0, 1 \leq i \leq s \; (*)$ en utilisant le pivot de Gauss. 
+Le système $(*)$ se résume à : $AX=B$ où $A$ est la matrice représentative de la partie linéaire de $(f_1,\ldots,f_s)$ et $-B$ sa partie constante.
+Avec le pivot de Gauss, on obtient une matrice échelonnée $\widetilde{A}$ et une colonne de constante $\widetilde{B}$ telles que : $(*) \Leftrightarrow \widetilde{A}X=\widetilde{B}$. 
 Ce qui nous permet de trouver les solutions de $(*)$ : \\
 Soit $r=rg(A)(\leq \min(n,s))$
 \begin{itemize}
-	\item S'il existe un $\widetilde{b_k}$ avec $k>r$ alors $(*)$ n'a pas de solution. \\
+	\item S'il existe un $\widetilde{b_k} \neq 0$ avec $k>r$ alors $(*)$ n'a pas de solution. 
 \item Si $r<n$ alors on peut exprimer les $r$ premières coordonnées des solutions de $(*)$ grâce aux $n-r$ dernières. L'ensemble des solutions de $(*)$ est un espace affine de dimension $n-r$.
 \item Si $r=n$ alors $(*)$ admet une seule solution.
 \end{itemize}
@@ -570,10 +574,9 @@ On peut écrire, grâce à l'algorithme de division, $f \in I$ sous la forme $f=\su
 Or pour tout $p>r,  \LM(g_i) > X^{p+1} \geq \LM(f) $ et donc aucun terme de $f$ ne peut être divisible par un $\LT(g_i)$. L'algorithme n'incrémente pas les $h_p$(avec $p >r$) et donc ceux-ci sont tous nuls.  \\
 D'où, $f=\sum_{k=1}^r h_ig_i$ et donc $f_p \in \left \langle G_p \right\rangle$, ce qui finit de montrer l'égalité $\left \langle G_p \right\rangle = I_p$.\\
 (Le même argument permet de montrer que si $f \in I_p$, $\overline{f}^G=\overline{f}^{G_p}$ $(*)$ ).\\
-Montrons maintenant que $G$ est une base de Gröbner de $I_p$.\\
+Montrons maintenant que $G$ est une base de Gröbner de $I_p$.
 Il suffit, pour cela, de montrer que pour tout $1 \leq i < j \leq r$, $\overline{S(g_i,g_j)}^{G_p}=0$.\\
-Soit $i,j \in [\![1,r]\!]$,$ i<j$.\\
-Comme $S(g_i,g_j)$ est de la forme $Pg_i+Qg_j$ ($P,Q \in k[X_{p+1},\ldots,X_n]$) et $I_p$ est un idéal alors $S(g_i,g_j) \in I_p \subset I$ d'où comme $G$ est une base de Gröbner alors $\overline{S(g_i,g_j)}^{G}=0$ et donc d'après $(*)$, $\overline{S(g_i,g_j)}^{G_k}=0$. Ce qui permet de conclure.
+Soit $i,j \in [\![1,r]\!]$,$ i<j$. Comme $S(g_i,g_j)$ est de la forme $Pg_i+Qg_j$ ($P,Q \in k[X_{p+1},\ldots,X_n]$) et $I_p$ est un idéal alors $S(g_i,g_j) \in I_p \subset I$ d'où comme $G$ est une base de Gröbner alors $\overline{S(g_i,g_j)}^{G}=0$ et donc d'après $(*)$, $\overline{S(g_i,g_j)}^{G_k}=0$. Ce qui permet de conclure.
 \end{proof}
 \begin{Ex}
 Avec les $f,g,h$ de l'exemple \ref{ex}, le premier idéal d'élimination est : \\$I_1=\left\langle X - YZ^2 + Y, Y^2 + 2*Z^2 - 5, Z^4 - 7/2Z^2 + 3\right\rangle$ et le second $I_2=\left\langle Z^4 - 7/2Z^2 + 3\right\rangle$
@@ -607,17 +610,12 @@ Notons $M $ la matrice de Sylvester de $f $ et $g $. \\
 Alors $M {}^t \Com(M)=\det (M)I_{\deg(f)+\deg(g)} $ $(*) $ où $\Com(M)$ est la matrice des cofacteurs de $M$. \\
 Comme les cofacteurs de $M $ sont dans $k[X_2,\ldots,X_n] $ (car ceux-ci sont polynomiaux en les coordonnées) alors $\Com (M) $ est dans $\Mcal_{\deg(f)+\deg(g)}(k[X_2,\ldots,X_n]) $. \\
 Donc, en posant $M=(C_1,\ldots,C_{\deg(f)+\deg(g)})$, on a, d'après $(*) $, : \\
-$MC_1=\begin{pmatrix} \det (M) \\ 0 \\ \vdots\\ 0 \end{pmatrix} $. \\
+$MC_1={}^t\begin{pmatrix} \det (M) & 0 & \ldots & 0 \end{pmatrix} $. \\
 En notant par $c $ l'élément de $ (k[X_2,\ldots,X_n])_{\deg(g)}[X]\times (k[X_2,\ldots,X_n])_{\deg(f)}[X] $ de colonne de coordonnées $C_1$ dans la base $\B  $ définie plus haut, on a : $\varphi_{f,g}(c)=\det (M) $, ce qui permet de conclure.
 \end{proof}
 
-\begin{Rq}
-\begin{enumerate}
-\item Si $f=a_1(X_2,\ldots,X_n)X_1+a_0(X_2,\ldots,X_n)$ et $g=b_1(X_2,\ldots,X_n)X_1+b_0(X_2,\ldots,X_n)$ sont des polynômes de degré 1  alors leur résultant $a_0b_1-a_1b_0$, ce qui est le m\^eme résultat que l'on obtient lorsqu'on applique le pivot de Gauss à $f$ et $g$.
-\item Lorsqu'on considère un idéal engendré par $n$ polyn\^omes premiers entre eux, on peut utiliser le résultant afin d'avoir une idée suffisante de $I_{n-1}$ pour trouver toutes les solutions. En effet, à l'instar du pivot de Gauss utilisé pour les polyn\^omes de degré 1, on peut utilisé le résultant pour éliminer les variables d'un système : 
-Soit $I:=\left \langle f_1,\ldots,f_n \right\rangle$ alors les $n-1$ polynômes $\Res_{X_1}(f_1,f_2),\ldots, \Res_{X_1}(f_1,f_n)$ sont dans $I_1$. En itérant ce processus, on obtient un polyn\^ome $f$  non nul (car les $f_i$ sont premiers entre eux) qui est dans $I_{n-1}$. Comme $k[X_n]$ est principal alors $I_{n-1}$ est engendré par un seul polyn\^ome $P$  qui divise $f$. D'où l'ensemble des zéros de $P$ est inclus dans celui de $f$.
-\end{enumerate}
-\end{Rq}
+ Si $f=a_1(X_2,\ldots,X_n)X_1+a_0(X_2,\ldots,X_n)$ et $g=b_1(X_2,\ldots,X_n)X_1+b_0(X_2,\ldots,X_n)$ sont des polynômes de degré 1  alors leur résultant est $a_0b_1-a_1b_0$, ce qui est le m\^eme résultat que l'on obtient lorsqu'on applique le pivot de Gauss à $f$ et $g$.
+
 \begin{Ex} En reprenant les polynômes de l'exemple \ref{ex}, on a $P:=\Res_{X}(f,g)=g^2$, $Q:=\Res_{X}(f,h)=Y^4+Y^2Z^2-4Y^2+1$. Ensuite on a $\Res_Y(P,Q)=4Z^8 - 28Z^6 + 73Z^4 - 84Z^2 + 36=4(Z^4-7/2Z^2+3)^2$
 \end{Ex}
 
@@ -635,7 +633,44 @@ Soit $I:=\left \langle f_1,\ldots,f_n \right\rangle$ alors les $n-1$ polynômes $
 \label{zeros}
 Supposons le corps $K$ alg\'ebriquement clos. Alors $Res(A,B)=0$ si, et seulement si, les polyn\^omes $A$ et $B$ ont une racine commune.
 \end{Thm}
-C'est ce théorème qui va faire marcher la preuve du théorème d'extension.
+\begin{Thm}
+\label{eval}
+Soient $f=\sum_{i=0}^p f_i(X_2,\ldots,X_n)X_1^i,f=\sum_{i=0}^m g_i(X_2,\ldots,X_n)X_1^i \in k[X_1,\ldots,X_n]$. Soit $c \in k^{n-1}$. Alors $\Res_{X_1}(f,g)(c)=\Res_{p,q}(f(X_1,c),g(X_1,c))$.\\
+\end{Thm}
+
+\begin{proof}
+
+Considérons le morphisme d'anneaux $\varphi : k[X_1,\ldots,X_n]\to k[X_1]$ défini par : 
+$\forall f \in k[X_1,\ldots,X_n],\varphi(f)=f(X_1,c)$.\\
+On a donc $\Res_{X_1}(f,g)(c)=\varphi(\Res_{X_1}(f,g))$ (en identifiant $k[X_2,\ldots,X_n]$ avec le sous-anneau de $k[X_1,\ldots,X_n]$ des polynômes de degré 0 en $X_1$).
+Notons $\left(a_{i,j}(X_2,\ldots,X_n)\right)$ les coefficients de $\Syl_{X_1}(f,g)$.
+Alors, comme $\varphi$ est un morphisme d'anneaux, $\Res_{X_1}(f,g)(c)=\varphi(\Res_{X_1}(f,g))=\det(\varphi(\left(a_{i,j}(X_2,\ldots,X_n)\right)))=\det(\left(a_{i,j}(c)\right))$. \\
+Ce qui montre que $\Res_{X_1}(f,g)(c)=\Res_{p,q}(f(X_1,c),g(X_1,c))$.
+\end{proof}
+Ce sont ces deux théorèmes qui vont faire marcher la preuve du théorème d'extension. On va donner une utilisation du théorème \ref{eval} pour l'intersection des courbes algébriques planes. L'élimination par le résultant dans le cas à deux variables marche bien. En effet, le résultant de deux polynômes à deux variables est un multiple du générateur de l'idéal d'élimination.
+
+\subsubsection{Intersection de deux courbes algébriques planes}
+Soient les deux courbes algébriques planes $\Cscr=\{f=0\},\Dscr=\{g=0\} \subset \C^2$ où $f=\sum_{i=0}^m f_i(X)Y^i,g=\sum_{i=0}^n g_i(X)Y^i \in \C[X,Y]$.\\
+Pour trouver les points d'intersection de $X$ et de $Y$, nous allons tout d'abord trouver les éléments du projeté $\pi_x(\Cscr \cap \Dscr)$ de leur intersection  sur un des axes (celui des $x$ ici) grâce à la caractérisation suivante : \\
+Soit $a \in \C$ tel que $f_m(a)$ et $g_n(a)$ ne sont pas simultanément nuls. \\
+$a \in \pi_x(\Cscr \cap \Dscr) \Leftrightarrow \exists b \in \C, (a,b) \in X \cap Y \Leftrightarrow \exists b \in \C, f(a,b)=g(a,b)=0$\\
+$\Leftrightarrow  \PGCD(f(a,Y),g(a,Y))\neq 1$ car le PGCD de ces deux polynômes est divisible par $(X-b)$ grâce à l'équivalence précédente \\
+$\Leftrightarrow  \Res(f(a,Y),g(a,Y))=0$   grâce aux propriétés du résultant. \\
+$\Leftrightarrow  \Res_Y(f,g)(a)=0$    car $f_m(a)$ et $g_n(a)$ ne sont pas simultanément nuls.  \\
+Autrement dit, $\pi_x(\Cscr \cap \Dscr) \subset Z(\Res_Y(f,g))$.\\
+De plus, pour pouvoir (éventuellement) compléter une solution partielle $a$ de $\pi_x(\Cscr \cap \Dscr)$ en une solution de $X \cap Y$, il suffit de calculer les racines $\{x_1,\ldots,x_n\}$ de $\PGCD(f(a,Y),g(a,Y))$ et ensuite de vérifier si les couples $(a,x_i)$ appartiennent à $\Cscr \cap \Dscr$.
+\begin{Ex}
+Supposons $f=(Y^2+6)(X^2-1)-Y(X^2+1), g=(Y^2+6)(X^2-1)-Y(X^2+1)$. \\
+On commence par calculer le résultant de ces polynômes (en Y) :
+$\Res_Y(f,g)=2(X-2)^2(X-3)^2(X^2-X+4)$. 
+Ce polynôme a 4 racines $2,3,\frac{1+i\sqrt{15}}{2},\frac{1-i\sqrt{15}}{2}$. \\
+On essaie ensuite de compléter ces solutions partielles en calculant et en trouvant les racines de $\PGCD(f(\cdot,Y),g(\cdot,Y))$ : \\
+$\PGCD(f(2,Y),g(2,Y))=(Y-2)(Y-3)$,
+$\PGCD(f(3,Y),g(3,Y))=(Y-2)(Y-3)$\\
+$\PGCD(f(\frac{1-i\sqrt{15}}{2},Y),g(\frac{1-i\sqrt{15}}{2},Y))=Y-\frac{1+i\sqrt{15}}{2}$,
+$\PGCD(f(\frac{1+\sqrt{15}i}{2},Y),g(\frac{1+\sqrt{15}i}{2},Y))=Y-\frac{1-i\sqrt{15}}{2}$\\
+On obtient donc les 6 points d'intersection de $\Cscr \cap \Dscr$ : $(2,2),(2,3),(3,2),(3,3),\left(\frac{1+i\sqrt{15}}{2},\frac{1-i\sqrt{15}}{2}\right),\left(\frac{1+i\sqrt{15}}{2},\frac{1-i\sqrt{15}}{2}\right)$
+\end{Ex}
 \subsection{Théorème d'extension}
 
 \begin{Thm}[d'extension]
@@ -648,19 +683,12 @@ Supposons qu'on ait une solution partielle $(a_2,\ldots,a_n) \in Z(I_1)$. Si $(a
 \end{Thm}
 \begin{proof}
 Montrons ce résultat pour $s=2$. \\
-Soient $f=\sum_{i=0}^p f_i(X_2,\ldots,X_n)X_1^i$ et $g=\sum_{j=0}^q g_j(X_2,\ldots,X_n)X_1^j$ où $f_p \neq 0 \neq g_q$. \\
-Soit $I$ l'idéal engendré par $f$ et $g$ et $I_1$ son premier idéal d'élimination.\\
-Soit $c=(c_2,\ldots,c_n) \in Z(I_1)$.\\
+Soient $f=\sum_{i=0}^p f_i(X_2,\ldots,X_n)X_1^i$ et $g=\sum_{j=0}^q g_j(X_2,\ldots,X_n)X_1^j$ où $f_p \neq 0 \neq g_q$. 
+Soit $I$ l'idéal engendré par $f$ et $g$ et $I_1$ son premier idéal d'élimination.
+Soit $c=(c_2,\ldots,c_n) \in Z(I_1)$. Comme $\Res_{X_1}(f,g) \in I_1$ alors $\Res_{X_1}(f,g)$.\\
 Montrons que soit $f_p(c)=g_q(c)=0$ soit il existe $c_1 \in k$ tel que $(c_1,\ldots,c_n) \in Z(I)$.\\
-Pour cela, montrons, tout d'abord, que $\Res_{X_1}(f,g)(c)=\Res_{p,q}(f(X_1,c),g(X_1,c))$.\\
-Considérons,pour cela, le morphisme $\varphi : k[X_1,\ldots,X_n]\to k[X_1]$ défini par : 
-$\forall f \in k[X_1,\ldots,X_n],\varphi(f)=f(X_1,c)$.\\
-On a donc $\Res_{X_1}(f,g)(c)=\varphi(\Res_{X_1}(f,g))$ (en identifiant $k[X_2,\ldots,X_n]$ avec le sous-anneau de $k[X_1,\ldots,X_n]$ des polynômes de degré 0 en $X_1$).
-Notons $\left(a_{i,j}(X_2,\ldots,X_n)\right)$ les coefficients de $\Syl_{X_1}(f,g)$.
-Alors, comme $\varphi$ est un morphisme d'anneaux, $\Res_{X_1}(f,g)(c)=\varphi(\Res_{X_1}(f,g))=\varphi(\det\left(a_{i,j}(X_2,\ldots,X_n)\right))$. \\
-De plus, comme $c \in Z(I_1)$ et que $Res_{X_1}(f,g) \in I_1$ alors $\Res_{X_1}(f,g)(c)=0$ et donc $\Res_{p,q}(f(X_1,c),g(X_1,c))=0$.\\
-Supposons maintenant que $f_p(c) \neq 0$. \\
-Alors, d'après les propriétés du résultant (c.f. lemme \ref{result_deg}), on a : $\Res(A,B)=\left((-1)^pf_p(c)\right)^{deg(f(X_1,c))-q}Res_{p,q}(A,B)=0$.
+Supposons que $f_p(c) \neq 0$. 
+Alors, d'après les propriétés du résultant (c.f. lemme \ref{result_deg}) et du théorème \ref{eval}, on a :\\ $\Res(f(X_1,c),g(X_1,c))=\left((-1)^pf_p(c)\right)^{\deg(f(X_1,c))-q}\Res_{p,q}(f(X_1,c),g(X_1,c))=\Res_{X_1}(f,g)(c)=0$.
 Ce qui permet de conclure que $f(X_1,c)$ et $g(X_1,c)$ ont une racine commune $c_1$(grâce au théorème \ref{zeros}) et donc $(c_1,\ldots,c_n) \in Z(I)$.
 On obtient la m\^eme chose en supposant $g_q(c) \neq 0$.
 \end{proof}
