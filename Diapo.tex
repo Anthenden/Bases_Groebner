@@ -1,0 +1,665 @@
+\documentclass{beamer}
+\usepackage[frenchb]{babel}
+\usetheme{Warsaw}
+\usepackage[T1]{fontenc}
+\usepackage[Latin1]{inputenc}
+%\usepackage[francais]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{textcomp}
+\usepackage{mathrsfs}
+\usepackage{ algorithm , algorithmic }
+\usepackage[all]{xy}
+\usepackage{hyperref}
+
+%%% francisation des algorithmes
+
+\makeatletter
+
+\renewcommand*{\ALG@name}{Algorithme}
+
+\makeatother
+
+\renewcommand{\algorithmicrequire}{\textbf{\textsc {Entrées  :  } } }
+\renewcommand{\algorithmicensure}{\textbf{\textsc { Sortie  :  } } }
+\renewcommand{\algorithmicwhile}{\textbf{Tant que}}
+\renewcommand{\algorithmicdo}{\textbf{faire }}
+\renewcommand{\algorithmicif}{\textbf{Si}}
+\renewcommand{\algorithmicelse}{\textbf{Sinon}}
+\renewcommand{\algorithmicthen}{\textbf{alors }}
+\renewcommand{\algorithmicend}{\textbf{fin}}
+\renewcommand{\algorithmicfor}{\textbf{Pour}}
+\renewcommand{\algorithmicuntil}{\textbf{Jusqu'à}}
+\renewcommand{\algorithmicrepeat}{\textbf{Répéter}}
+
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\GL}{\mathcal{G}\mathcal{L}}
+\newcommand{\SL}{\mathcal{S}\mathcal{L}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Ccal}{\mathcal{C}}
+\newcommand{\Rcal}{\mathcal{R}}
+\newcommand{\Ecal}{\mathcal{E}}
+\newcommand{\Fcal}{\mathcal{F}}
+\newcommand{\Mcal}{\mathcal{M}}
+\newcommand{\Acal}{\mathcal{A}}
+\newcommand{\Lcal}{\mathcal{L}}
+\newcommand{\Rscr}{\mathscr{R}}
+\newcommand{\Cscr}{\mathscr{C}}
+\newcommand{\Dscr}{\mathscr{D}}
+\newcommand{\Ebar}{\overline{E}}
+\newcommand{\xbar}{\overline{x}}
+\newcommand{\ybar}{\overline{y}}
+\newcommand{\fbar}{\overline{f}}
+\newcommand\bigzero{\makebox(0,0){\text{\huge0}}}
+
+\DeclareMathOperator{\multideg}{\mathrm{multideg}}
+\DeclareMathOperator{\LM}{\mathrm{LM}}
+\DeclareMathOperator{\LT}{\mathrm{LT}}
+\DeclareMathOperator{\LC}{\mathrm{LC}}
+\DeclareMathOperator{\PPCM}{\mathrm{PPCM}}
+\DeclareMathOperator{\PGCD}{\mathrm{PGCD}}
+\DeclareMathOperator{\Syl}{\mathrm{Syl}}
+\DeclareMathOperator{\Res}{\mathrm{Res}}
+\DeclareMathOperator{\Com}{\mathrm{Com}}
+
+\begin{document}
+\title{Bases de Gröbner}
+\author{Antoine BOIVIN}
+\maketitle
+
+
+\newtheorem{Thm}{Théorème}[section]
+\newtheorem{prop}[Thm]{Propriété}
+\newtheorem{Lemme}[Thm]{Lemme}
+\newtheorem{cor}[Thm]{Corollaire}
+
+\theoremstyle{definition}
+
+\newtheorem{Ex}[Thm]{Exemple}
+\newtheorem{Def}[Thm]{Définition}
+\newtheorem{Not}[Thm]{Notation}
+\theoremstyle{remark}
+\newtheorem{Rq}[Thm]{Remarque}
+
+
+\section*{Introduction}
+
+\begin{frame}
+%La notion de base de Gröbner d'un idéal d'un anneau de polynômes a été introduite de manière indépendante par Heisuke Hironaka (qu'il nomma "bases standard") et un peu plus tard par Bruno Buchberger (qu'il nomma "Bases de Gröbner" en l'honneur de son directeur de thèse Wolgang Gröbner).
+
+%Une base de Gröbner d'un idéal est une famille de "bons" générateurs de cet idéal afin de décrire plus facilement celui-ci.
+Blabla d'intro 
+\end{frame}
+\begin{frame}
+
+\begin{enumerate}
+\item  La description d'un idéal : Peut-on trouver une famille génératrice préférée  pour chaque idéal $I \subset k[X_1,\ldots,X_n]$?
+\item L'appartenance à un idéal : Soit $f \in k[X_1,\ldots,X_n]$ et un idéal $I:=\left \langle f_1,\ldots,f_s \right \rangle$. Comment montrer que $f \in I$ ?
+ \item La résolution de systèmes polynomiaux : Trouver les zéros communs dans $k^n$ d'une famille de polynômes.
+ \item Le problème d'implicitation : Soit $V$  le sous-ensemble de $k^n $ paramétré par : $x_i=g_i(t_1,\ldots,t_n) , 1 \leq i \leq n $ où les $g_i$ sont des polynômes ou des fractions rationelles.
+Peut-on trouver des équations polynomiales en $X_i$ décrivant $V$ ?
+\end{enumerate}
+\end{frame}
+
+
+%\section*{Conventions et Notations}
+%\begin{frame}
+%Dans ce rapport, $k$ est un corps commutatif de caractéristique 0 et $n$ un entier naturel strictement positif. \\
+%On considérera l'anneau de polynômes $k[X_1,\ldots,X_n]$ à $n$ indéterminées $X_1,\ldots,X_n$ construit par récurrence par : $\forall k<n, k[X_1,\ldots,X_{k+1}]:=k[X_1,\ldots,X_k][X_{k+1}]$. On pourra identifier cet anneau à celui des fonctions polynômiales à $n$ variables (grâce à l'infinité de $k$). \\
+%On appelle monômes tout polynôme de la forme $X_1^{\alpha_1}\ldots X_n^{\alpha_n}$ où $\alpha_i \in \N$ que l'on abrégera $X^{(\alpha_1,\ldots,\alpha_n)}$. On notera $\mathscr{M}$ l'ensemble des monômes. Pour tout $p \in \N$ et pour tout anneau $A$, on appelera $A_p[X]$ l'ensemble des polynômes de degré strictement inférieur à $p$.\\
+%On appelera base d'un idéal $I$ une famille $F=(f_1,\ldots,f_s)$ telle que $I=\left\langle F\right\rangle$.
+%\end{frame}
+
+\section{Motivation}
+\subsection{Cas $k[X]$}
+\begin{frame}
+
+$k[X]$ est un anneau euclidien et donc principal. \\
+Idéal de $k[X]$ de la forme $Pk[X]$. \\
+Division euclidienne de $f$ par $P$, on a : $f=PQ+R$ où $\deg(R) < \deg(P)$.\\
+Caractérisation d'appartenance à $I$ :  $f \in I \Leftrightarrow R=0$.
+\end{frame}
+\begin{frame}
+
+\begin{Thm}
+$k[X_1,\ldots,X_n]$ n'est pas principal pour $n>1$.
+\end{Thm}
+
+Cela se démontre grâce aux deux lemmes suivants : 
+
+\begin{Lemme}
+Soit $A$ un anneau intègre commutatif.
+$A[X]$ est principal si, et seulement si, $A$ est un corps.
+\end{Lemme}
+
+\begin{Lemme}
+Soit $A$ un anneau intègre commutatif. $A[X]$ n'est pas un corps.
+\end{Lemme}
+
+\end{frame}
+
+\subsection{$k[X_1,\ldots,X_n]$ est noethérien}
+\begin{frame}
+\begin{Def}
+Soit $A$ un anneau commutatif. On dit que $A$ est un anneau noethérien si tout idéal $I$ de $A$ est engendré par un nombre fini d'éléments.
+\end{Def}
+Dans la suite, on aura aussi besoin d'une autre caractérisation des anneaux noethériens
+\begin{prop}
+Une suite croissante d'idéaux d'un anneau noethérien est stationnaire.
+\end{prop}
+\begin{Ex} Tout anneau principal est noethérien car chaque idéal d'un anneau principal $A$  est de la forme $aA$ où $a \in A$. En particulier, tout corps est noethérien (les idéaux d'un corps sont $\{0\}$ et lui-même).
+\end{Ex}
+\end{frame}
+\begin{frame}
+\begin{Thm}[de la base de Hilbert]
+Soit $A$ un anneau noethérien. Alors $A[X]$ est aussi un anneau noethérien.
+\end{Thm}
+\begin{cor}
+$k[X_1,\ldots,X_n]$ est un anneau noethérien.
+\end{cor}
+
+\end{frame}
+
+\section{Algorithme de division}
+\begin{frame}
+%Nous avons rappelé, dans la première section, que l'on a la caractérisation suivante dans $k[X]$ :
+%pour tout idéal $I:=\left\langle P \right\rangle$ et pour tout $f \in k[X]$, on peut écrire $f$ sous la forme $QP+R$ (grâce à l'algorithme d'Euclide) où $\deg R < \deg P$ et $f \in I \Leftrightarrow R=0$. \\
+Par analogie au cas à une indéterminée,il nous faut :  \\
+un algorithme permettant d'écrire $f$ sous la forme  $\sum g_if_i+r$. \\
+un bon ordre afin d'avoir un critère de fin pour cet algorithme.
+\end{frame}
+\subsection{Ordres monomiaux}
+\begin{frame}
+\subsubsection{Définitions}
+\begin{Def}
+Un ordre monomial est une relation d'ordre total $\geq$ de $\mathscr{M}$ telle que :
+
+\begin{enumerate}
+        \item  $\forall \alpha,\beta,\gamma \in \mathbb{N}^n, X^\alpha \geq X^\beta \Rightarrow X^{\alpha+\gamma} \geq X^{\beta +\gamma}$(compatibilité avec le produit)
+ \item $\geq$ est un bon ordre
+\end{enumerate}
+\end{Def}
+On peut remarquer que l'ordre induit par le degré dans $k[X]$ est un ordre monomial.
+\end{frame}
+\begin{frame}
+\begin{Def}
+Soit $P:=\sum_{\alpha} p_{\alpha}X^\alpha \in k[X_1,\ldots,X_n]$ et $\geq$ un ordre monomial.
+\begin{enumerate}
+        \item  Le monôme dominant de $P$ est : $\LM(P):=\max\{X^\alpha \in \mathscr{M} | p_\alpha \neq 0\}$
+\item Le multidegré de $f$ est l'élément de $\mathbb{N}^n$, noté $\multideg(P)$, tel que $x^{\multideg(P)}=LM(P)$
+ \item Le coefficient dominant de $P$ est $\LC(P):=p_{\multideg(P)}$
+\item Le terme dominant de $P$ est $\LT(P):=\LC(P)\cdot \LM(P)$
+\end{enumerate}
+\end{Def}
+\end{frame}
+
+
+\subsubsection{Exemples d'ordres monomiaux}
+\begin{frame}
+
+
+\begin{Def}[Ordre lexicographique $\geq_{lex}$]
+Soient $\alpha=(\alpha_1,\ldots,\alpha_n), \beta=(\beta_1,\ldots,\beta_n) \in \mathbb{N}^n$ alors
+$X^\alpha \geq_{lex} X^\beta$ si, et seulement si, $\alpha=\beta$ ou le premier coefficient non nul en lisant par la gauche de $\alpha -\beta $ est positif.
+\end{Def}
+\begin{prop}
+$\geq_{lex}$ est un ordre monomial.
+\end{prop}
+\end{frame}
+
+\begin{frame}
+\begin{Ex} 
+Dans $k[X,Y,Z]$, \\
+$X^3>_{lex}X^2 >_{lex}X$\\
+$X>_{lex}Y>_{lex}Z$\\
+ $X^2YZ^2>_{lex}X^2Z^4 >_{lex}XY^2Z$\\
+ 
+ 
+\end{Ex}
+\end{frame}
+\subsection{Algorithme de division}
+
+\begin{frame}
+\begin{Thm}[Algorithme de division]
+
+Soit $\geq$ un ordre monomial et $(f_1,\ldots,f_s)$ un $n$-uplet de polynôme de $k[X_1,\ldots,X_n]$. Alors tout polynôme $f$ de $k[X_1,\ldots,X_n]$ peut s'écrire sous la forme $f=\sum_{i=1}^n a_if_i+r$ où $a_i \in k[X_1,\ldots,X_n]$ et $r$ est une combinaison linéaire de monômes qui ne sont pas divisibles par les $\LT(f_i)$
+  
+
+\end{Thm}
+  \end{frame}
+  
+\begin{frame}
+\begin{algorithm}[H]
+\scriptsize
+\caption{Algorithme de division}
+
+\begin{algorithmic}
+\REQUIRE $f_1,\ldots,f_s,f$
+\ENSURE $a_1,\ldots,a_s,r$
+\STATE $a_1 :=0 ;\ldots ; a_s:=0 ; r:=0$
+\STATE $p:=f$
+\WHILE{$p \neq 0$}
+\STATE $i:=1$
+\STATE div:=false
+\WHILE{$i \leq s $ et div = false }
+\IF{$\LT (f_i) | \LT (p)$}
+\STATE $a_i:= a_i+\LT (p)/\LT (f_i)$
+\STATE $p:=p-(\LT(p)/\LT (f_i)) f_i$
+\ELSE
+\STATE $i:=i+1$
+\ENDIF
+\ENDWHILE
+\IF{div=false}
+\STATE $r:=r+\LT (p)$
+\STATE $p:=p-\LT (p) $
+\ENDIF
+\ENDWHILE
+\end{algorithmic}
+
+\end{algorithm}
+\end{frame}
+
+\begin{frame}
+Le reste dépend du $s$-uplet choisi et dans quel ordre sont les polynômes de celui-ci.
+\begin{Ex}
+\label{ex}
+Soient $f=X^2+Y^2+Z^2-4$, $g=Y^2+2Z^2-5$ et $h=XY-1$ trois polynômes de $k[X,Y,Z]$ et $P=YZf-Yg+2Zh$. L'algorithme de division pour l'ordre lexicographique nous donne :
+\begin{itemize}
+        \item Avec la famille $(f,g,h)$, on obtient $P=2Zf+(XZ-Y)g+(-2XZ^3+5XZ-YZ)$
+        \item Avec la famille $(h,g,f)$, on obtient $P=YZf-Yg+2Zh$
+\end{itemize}
+\end{Ex}
+
+
+
+\end{frame}
+
+\section{Bases de Gröbner}
+\begin{frame}
+
+\subsection{Généralités}
+\begin{Not}
+Soit $I$ un idéal de $k[X_1,\ldots,X_n]$ non nul. \\
+$LT(I)$ est l'ensemble des termes dominants des polynômes de $I$ i.e. $\LT(I):=\{\LT(f) |f \in I \}$.
+\end{Not}
+\begin{Def}
+Soit $\geq$ un ordre monomial. Un sous-ensemble $G=\{g_1,\ldots,g_s\}$ d'un idéal $I$ est une base de Gröbner si $\left\langle \LT(I) \right\rangle=\left\langle \LT(g_1),\ldots,\LT(g_s)\right\rangle$.
+\end{Def}
+\end{frame}
+\begin{frame}
+
+
+\begin{Lemme}
+\label{lem_div}
+Soit $I:=\left\langle X^{\alpha} | \alpha \in A \right\rangle$ un idéal de $k[X_1,\ldots,X_n]$. Alors $X^\beta \in I$ si, et seulement si, il existe un $\alpha \in A$ tel que $X^\alpha $divise $X^\beta$.
+\end{Lemme}
+
+
+\begin{prop}
+ Soit $\geq$ un ordre monomial. Alors tout idéal de $k[X_1,\ldots,X_n]$ non réduit à $\{0\}$ a une base de Gröbner. De plus, tout base de Gröbner est une base de $I$.
+\end{prop}
+
+\end{frame}
+\begin{frame}
+
+
+\begin{prop}
+ Soit $G=\{g_1,\ldots,g_s\}$ une base de Gröbner d'un idéal $I$ de $k[X_1,\ldots,X_n]$ et $f \in I$. Alors il existe un unique $r \in k[X_1,\ldots,X_n]$ vérifiant :
+\begin{enumerate}
+        \item  Tous les termes de $r$ ne sont divisible par aucun des $\LT(g_i)$
+\item Il existe $g \in I$ tel que $f=g+r$
+\end{enumerate}
+\end{prop}
+
+\begin{cor} Soit $G=\{g_1,\ldots,g_s\}$ une base de Gröbner d'un idéal $I$ de $k[X_,\ldots,X_n]$ et $f \in k[X_1,\ldots,X_n]$. Alors $f \in I$ si, et seulement si, le reste de la division de $f$ par $G$ est nul.
+\end{cor}
+ \end{frame}
+ \begin{frame}
+\begin{Not} On notera $\overline{f}^F$ le reste de $f$ par la famille $F=(f_1,\ldots,f_s)$.
+\end{Not}
+
+ \end{frame}
+
+\begin{frame}
+    \begin{Def} Soient $f,g \in k[X_1,\ldots,X_n]$ des polynômes non nuls.
+\begin{enumerate}
+\item Posons $\multideg(f)=(\alpha_1,\ldots,\alpha_n)$ et $\multideg(g)=(\beta_1,\ldots,\beta_n)$. Soit $\gamma=(\gamma_1,\ldots,\gamma_n)$ où $\gamma_i=\ma\alpha_i,\beta_i)$. $X^\gamma$ est appelé plus petit multiple commun de $\LM(f)$ et $\LM(g)$ et noté $\PPCM(\LM(f),\LM(g)):=X^\gamma$.
+\item Le $S$-polynôme de $f$ et $g$ est le polynôme : $S(f,g):=\frac{X^\gamma}{\LT(f)}f-\frac{X^\gamma}{\LT(g)} g$
+\end{enumerate}
+\end{Def}
+\end{frame}
+
+\begin{frame}
+\begin{Thm} Soit $I$ un idéal de $k[X_1,\ldots,X_n]$. Alors une base $G=\{g_1,\ldots,g_n\}$ de $I$ est une base de Gröbner de $I$ si, et seulement si, pour tout couple $(i,j)$, $i \neq j$, $\overline{S(g_i,g_j)}^G=0$
+\end{Thm}
+
+\end{frame}
+
+\subsection{Algorithme de Buchberger}
+
+\begin{frame}
+\begin{Thm}
+Soit $I:=\left\langle f_1,\ldots,f_s \right\rangle$ un idéal non nul de $k[X_1,\ldots,X_n]$. Alors on peut construire, en temps fini, une base de Gröbner de $I$ grâce à l'algorithme suivant.
+
+\end{Thm}
+\end{frame}
+\begin{frame}
+\begin{algorithm}[H]
+
+\caption{Algorithme de Buchberger}
+
+\begin{algorithmic}
+
+\REQUIRE $F=(f_1,\ldots,f_s)$
+
+\ENSURE Une base de Gröbner $G=(g_1,\ldots,g_t)$ de $I $, avec $F \subset G $
+
+\STATE $G:=F $
+
+\REPEAT
+
+\STATE $G':=G $
+
+\FOR{chaque paire $\{p,q\}\in G'^2$, $p \neq q $}
+
+\STATE $S:=\overline{S (p,q)}^{G'} $
+
+\IF{$S \neq 0$}
+
+\STATE $G:=G \cup \{S\} $
+
+\ENDIF
+\ENDFOR
+\UNTIL $G=G'$
+
+\end{algorithmic}
+
+\end{algorithm}
+\end{frame}
+
+\begin{frame}
+
+
+La base de Gröbner obtenue par cet algorithme contient trop d'éléments que nécessaire comme l'illustre cet exemple :
+\begin{Ex}
+Soit  $I:=\left\langle X^2 + Y^2 + Z^2 - 4, Y^2 + 2Z^2 - 5,XY - 1\right\rangle$. \\
+Avec l'algorithme de Buchberger, on obtient : \\
+$G=\{X^2 + Y^2 + Z^2 - 4, Y^2 + 2Z^2 - 5, XY - 1, X - YZ^2 +Y, 2XZ^2 - 5X + Y, -Z^4 + 7/2Z^2 - 3, 2YZ^6 - 12YZ^4+ 47/2YZ^2 - 15Y, -2Z^4 + 7Z^2 - 6, -YZ^4 + 7/2YZ^2 -3Y\}$. \\
+
+ $G \setminus \{ X^2+Y^2+Z^2-4\}$ est toujours une base de Gröbner.
+\end{Ex}
+\end{frame}
+\begin{frame}
+
+
+\begin{Lemme}
+Soit $G $ une base de Gröbner d'un idéal $I $ de $k[X_1,\ldots,X_n] $ et  $P\in G$ tel que $LT (P) \in \left\langle LT(G \setminus \{P\}) \right\rangle$. Alors $G \setminus \{P\} $ est une base de Gröbner de $I $.
+\end{Lemme}
+
+
+\begin{Def}
+Une base de Gröbner minimale $G$ d'un idéal $I $ de $k [X_1,\ldots,X_n] $ est une base de Gröbner de $I $ telle que :
+\begin{enumerate}
+        \item  $\forall P \in G,  \LC(P)=1$
+ \item $\forall P \in G, \LT(P) \notin \left\langle \LT(G \setminus \{P\}) \right\rangle$
+\end{enumerate}
+\end{Def}
+\end{frame}
+\begin{frame}
+Toujours pas d'unicité :
+\begin{Ex}
+Soit $I:= \left\langle X^2, XY, Y^2-1/2 X\right\rangle$ alors les familles $G_a=\{X^2+aXY, XY, Y^2-1/2 X \}$ sont des bases de Gröbner minimales de $I$ pour tout $a \in k$.\\
+\end{Ex}
+L'unicité est perdue à cause du fait qu'il y a des monômes d'un élément $f$ de la base de $G_a$ qui sont dans $G \setminus\{f\}$. La notion de base de Gröbner réduite permet de contourner ce problème.
+\end{frame}
+\begin{frame}
+
+\begin{Def}
+
+Une base de Gröbner réduite $G$ d'un idéal $I $ de $k [X_1,\ldots,X_n] $ est une base de Gröbner de $I $ telle que :
+\begin{enumerate}
+        \item $\forall P \in G,  \LC(P)=1$
+\item  Pour tout $P \in G$, aucun monôme de $P $ n'appartient à  $\left\langle \LT(G \setminus \{P\}) \right\rangle$.
+\end{enumerate}
+\end{Def}
+
+\begin{prop}
+Soit $I $ un idéal non nul de $k [X_1,\ldots,X_n] $. Alors, pour un ordre monomial fixé, $I $ a une unique base de Gröbner réduite.
+\end{prop}
+\end{frame}
+\begin{frame}
+
+
+
+\begin{cor}
+Soient $I,J$ deux idéaux non nuls de $k[X_1,\ldots,X_n]$. Soient $G,H$ deux bases de Gröbner réduites de respectivement $I, J$.Alors $G=H \Leftrightarrow I=J$.
+\end{cor}
+
+\begin{Ex}
+Soit $f,g,h$ définie dans l'exemple \ref{ex}. Alors la base réduite de $\left\langle f,g,h\right\rangle $ est : $\{X - YZ^2 + Y, Y^2 + 2Z^2 - 5, Z^4 - 7/2Z^2 + 3\}$
+
+% Peut-être un deuxième exemple
+\end{Ex}
+
+\end{frame}
+\section{Résolution de systèmes polynomiaux}
+
+\subsection{Théorème d'élimination}
+\begin{frame}
+\begin{Def}
+Soit $I=\left\langle f_1,\ldots,f_s \right\rangle $ un idéal de $k[X_1,\ldots,X_n]$. On appelle $p$ème idéal d'élimination de $I$ l'idéal $I_p$ de $k[X_{p+1},\ldots,X_n]$ définit par : $I_p=k[X_{p+1},\ldots,X_n] \cap I$, $0 \leq p \leq n-1$
+\end{Def}
+\begin{Thm}[d'élimination]
+Soit $I $ un idéal de $k[X_1,\ldots,X_n]$ et $G$ une base de Gröbner de $I$ selon l'ordre lexicographique (que l'on notera ici seulement $\geq$). Alors, pour tout $p \in [\![0,n]\!]$, l'ensemble $G_p =G \cap k[X_{p+1},\ldots,X_n]  $ est une base de Gröbner du $p$ème idéal d'élimination $I_p$.
+\end{Thm}
+\end{frame}
+\begin{frame}
+
+\begin{Ex}
+Avec les $f,g,h$ de l'exemple \ref{ex}, le premier idéal d'élimination est : \\$I_1=\left\langle X - YZ^2 + Y, Y^2 + 2*Z^2 - 5, Z^4 - 7/2Z^2 + 3\right\rangle$ et le second $I_2=\left\langle Z^4 - 7/2Z^2 + 3\right\rangle$
+\end{Ex}
+
+\end{frame}
+
+\subsection{Résultant}
+\begin{frame}
+Soient $f=\sum_{k=1}^p f_k X_i^k,g=f=\sum_{k=1}^q g_k X_i^k \in k[X_1,\ldots,X_n]$ avec $a_k,b_k \in k[X_1,\ldots,X_{i-1},X_{i+1},\ldots,X_n]$ et $a_p \neq 0 \neq b_q$. 
+Le résultant en $X_i$ de $f$ et $g$  est : 
+\scriptsize
+$\Res_{X_i}(f,g)=\det\begin{pmatrix}
+a_0 & 0 &\cdots & 0 & b_0 & 0 &0 & \cdots & 0 & 0 \\
+a_1 & a_0& \ddots & 0 &b_1 & b_0 &0 & \ddots & 0 & 0 \\
+\vdots & a_1 &\ddots & 0 &\vdots & b_1 &b_0 & \ddots & 0 & 0 \\
+\vdots & \vdots &\ddots & a_0 &\vdots & \vdots & b_1 & \ddots & 0 & 0 \\
+a_ {p-1} & \vdots& \ddots & a_1 &b_q & \vdots &\vdots & \ddots & b_0 & 0 \\
+a_p & a_{p-1} &\ddots & \vdots &0 & b_q &\vdots & \ddots & b_1 & b_0 \\
+0 & a_p &\ddots & \vdots &0 & 0 &b_q & \ddots & \vdots & b_1 \\
+\vdots & \vdots &\ddots & \vdots &\vdots & \vdots &0 & \ddots & \vdots & \vdots \\
+\vdots & \vdots &\ddots & a_{p-1} &\vdots & \vdots &0 & \ddots & b_q & \vdots \\
+0 & 0& \ldots & a_p &0 & 0 &0 & \cdots & 0 & b_q \\
+\end{pmatrix}$. \\
+\end{frame}
+
+% Mettre un exemple
+
+\begin{frame}
+\begin{Not}
+\begin{itemize}
+        \item On note $Z(I)$ l'ensemble des zéros communs à tous les polynômes de $I$ i.e. \\$Z(I):=\{a \in k^n | \forall f \in I, f(a)=0 \}$.
+        \item Soient $f,g \in k[X_1,\ldots,X_n]$. On note par $\Syl_{X_i}(f,g), \Res_{X_i}(f,g)$ la matrice de Sylvester (resp. résultant) de $f$ et $g$ vus comme polynômes de $k[X_1,\ldots,X_{i-1},X_{i+1},\ldots,X_n][X_i]$
+\end{itemize}
+
+\end{Not}\end{frame}
+\begin{frame}
+
+\begin{prop}
+ $\Res (f, g)\in\left\langle f,g \right \rangle \cap k[X_2,\ldots,X_n]=I_1 $
+
+\end{prop}
+
+\end{frame}
+
+\begin{frame}
+
+
+\begin{Thm}
+\label{zeros}
+Supposons le corps $K$ alg\'ebriquement clos. Alors $Res(A,B)=0$ si, et seulement si, les polyn\^omes $A$ et $B$ ont une racine commune.
+\end{Thm}
+\begin{Thm}
+\label{eval}
+Soient $f=\sum_{i=0}^p f_i(X_2,\ldots,X_n)X_1^i,f=\sum_{i=0}^m g_i(X_2,\ldots,X_n)X_1^i \in k[X_1,\ldots,X_n]$. Soit $c \in k^{n-1}$. Alors $\Res_{X_1}(f,g)(c)=\Res_{p,q}(f(X_1,c),g(X_1,c))$.\\
+\end{Thm}
+\end{frame}
+%A voir si on le met
+%\subsubsection{Intersection de deux courbes algébriques %planes}
+%\begin{frame}
+%Soient les deux courbes algébriques planes $\Cscr=\{f=0\},\Dscr=\{g=0\} \subset \C^2$ où $f=\sum_{i=0}^m f_i(X)Y^i,g=\sum_{i=0}^n g_i(X)Y^i \in \C[X,Y]$.\\
+%Pour trouver les points d'intersection de $X$ et de $Y$, nous allons tout d'abord trouver les éléments du projeté $\pi_x(\Cscr \cap \Dscr)$ de leur intersection  sur un des axes (celui des $x$ ici) grâce à la caractérisation suivante : \\
+%Soit $a \in \C$ tel que $f_m(a)$ et $g_n(a)$ ne sont pas simultanément nuls. \\
+%$a \in \pi_x(\Cscr \cap \Dscr) \Leftrightarrow \exists b \in \C, (a,b) \in X \cap Y \Leftrightarrow \exists b \in \C, f(a,b)=g(a,b)=0$\\
+%$\Leftrightarrow  \PGCD(f(a,Y),g(a,Y))\neq 1$ car le PGCD de ces deux polynômes est divisible par $(X-b)$ grâce à l'équivalence précédente \\
+%$\Leftrightarrow  \Res(f(a,Y),g(a,Y))=0$   grâce aux propriétés du résultant. \\
+%$\Leftrightarrow  \Res_Y(f,g)(a)=0$    car $f_m(a)$ et $g_n(a)$ ne sont pas simultanément nuls.  \\
+%Autrement dit, $\pi_x(\Cscr \cap \Dscr) \subset Z(\Res_Y(f,g))$.\\
+%De plus, pour pouvoir (éventuellement) compléter une solution partielle $a$ de $\pi_\Cscr \cap \Dscr)$ en une solution de $X \cap Y$, il suffit de calculer les racines $\{x_1,\ldots,x_n\}$ de $\PGCD(f(a,Y),g(a,Y))$ et ensuite de vérifier si les couples $(a,x_i)$ appartiennent à $\Cscr \cap \Dscr$.
+%\end{frame}
+%\begin{frame}
+
+%\begin{Ex}
+%Supposons $f=(Y^2+6)(X^2-1)-Y(X^2+1), g=(Y^2+6)(X^2-1)-Y(X^2+1)$. \\
+%On commence par calculer le résultant de ces polynômes (en Y) :
+%$\Res_Y(f,g)=2(X-2)^2(X-3)^2(X^2-X+4)$.
+%Ce polynôme a 4 racines $2,3,\frac{1+i\sqrt{15}}{2},\frac{1-i\sqrt{15}}{2}$. \\
+%On essaie ensuite de compléter ces solutions partielles en calculant et en trouvant les racines de $\PGCD(f(\cdot,Y),g(\cdot,Y))$ : \\
+%$\PGCD(f(2,Y),g(2,Y))=(Y-2)(Y-3)$,
+%$\PGCD(f(3,Y),g(3,Y))=(Y-2)(Y-3)$\\
+%$\PGCD(f(\frac{1-i\sqrt{15}}{2},Y),g(\frac{1-i\sqrt{15}}{2},Y))=Y-\frac{1+i\sqrt{15}}{2}$,
+%$\PGCD(f(\frac{1+\sqrt{15}i}{2},Y),g(\frac{1+\sqrt{15}i}{2},Y))=Y-\frac{1-i\sqrt{15}}{2}$\\
+%On obtient donc les 6 points d'intersection de $\Cscr \cap \Dscr$ : $(2,2),(2,3),(3,2),(3,3),\left(\frac{1+i\sqrt{15}}{2},\frac{1-i\sqrt{15}}{2}\right),\left(\frac{1+i\sqrt{15}}{2},\frac{1-i\sqrt{15}}{2}\right)$
+%\end{Ex}
+%\end{frame}
+\subsection{Théorème d'extension}
+\begin{frame}
+\begin{Thm}[d'extension]
+
+ Soit $I=\left \langle f_1,\ldots,f_s \right\rangle$ un idéal de $\C[X_1,\ldots,X_n]$ et $I_1$ le premier idéal d'élimination.\\
+Ecrivons, pour $i \in [\![1,s]\!]$, $f_i$ sous la forme :
+$f_i=g(X_2,\ldots,X_n)X_1^{N_i}$+termes de degré $<N_i$ en $X_1$\\
+où $N_i \geq 0$ et $g_i \in \mathbb{C}[X_2,\ldots,X_n]$ non nul si $f_i \neq 0$ ($g_i=0$ si $f_i=0$). \\
+Supposons qu'on ait une solution partielle $(a_2,\ldots,a_n) \in Z(I_1)$. Si $(a_2,\ldots,a_n) \notin Z(g_1,\ldots,g_s)$ alors il existe $a_1 \in \mathbb{C}$ tel que $(a_1,\ldots,a_n) \in Z(I)$.
+\end{Thm}
+\end{frame}
+\begin{frame}
+\begin{cor}
+
+ Soit $I=\left \langle f_1,\ldots,f_s \right\rangle$ un idéal de $\mathbb{C}[X_1,\ldots,X_n]$ et supposons qu'il existe $i \in [\![1,n]\!]$ tel que $f_i$ s'écrit de la forme :
+$f_i=cX_1^{N}$+termes de degré $<N$ en $X_1$\\
+où $N> 0$ et $c \in \mathbb{C}\setminus \{0\}$. Si $I_1$ est le premier idéal d'élimination de $I$ et $(a_2,\ldots,a_n) \in Z(I_1)$ alors il existe $a_1 \in \mathbb{C}$ tel que $(a_1,\ldots,a_n) \in Z(I)$
+\end{cor}
+\end{frame}
+
+\begin{frame}
+
+On va maintenant finir d'étudier notre exemple (celui de \ref{ex}).
+\begin{Ex}
+On a $I_1=\left\langle g,Z^4-7/2Z^2+3 \right\rangle$ et $I_2=\left\langle Z^4-7/2Z^2+3 \right\rangle$. \\
+On a $Z(I_2)=Z(\left\langle Z^4-7/2Z^2+3\right\rangle)=\{\pm \sqrt{2},\pm \sqrt{3/2}\}$. Puis, comme le terme dominant de $g$ est constant alors on peut utiliser le théorème d'extension pour montrer que $Z(I_1)=\{(\pm 1,\pm \sqrt{2}),(\pm\sqrt{2},\pm \sqrt{3/2})\}$ puis de la m\^eme façon, on a que $Z(I)=\{\pm(1,1,\pm\sqrt{2}),\pm(1/\sqrt{2},\sqrt{2},\pm\sqrt{2})\}$
+\end{Ex}
+\end{frame}
+\subsection{Géométrie de l'élimination}
+
+\subsubsection{Résultats préliminaires}
+\begin{frame}
+
+
+\begin{Def}
+Soit $f_1,\ldots,f_s$ des polynômes de $k[X_1,\ldots,X_n]$.\\ On appelle variété affine définie par $f_1,\ldots,f_s$ l'ensemble : $Z(f_1,\ldots,f_s)=\{(a_1,\ldots,a_n) \in k^n | \forall i \in [\![1,s]\!],f_i(a_1,\ldots,a_n)=0 \}$.
+\end{Def}
+\begin{Ex}
+Dans $\R^2$, le cercle ($=Z(X^2+Y^2-R^2)$ où $R\in \R$), la parabole ($=Z(2pX^2-Y)$ où $p\in \R$) et plus généralement, les coniques sont des variétés affines. \\
+Les sous-espaces affines de $k^n$ sont aussi des variétés affines.
+\end{Ex}
+\end{frame}
+\begin{frame}
+\begin{Lemme} : Si $V,W \subset k^n$ sont des variétés affines alors $V \cap W$ aussi.
+\end{Lemme}
+
+
+\begin{prop} Si $\{f_1,\ldots,f_s\}$ et $\{g_1,\ldots,g_r\}$ sont des bases d'un même idéal $I$ de $k[X_1,\ldots,X_n]$ alors $Z(f_1,\ldots,f_s)=Z(g_1,\ldots,g_r)$
+\end{prop}
+
+En particulier, $Z(f_1,\ldots,f_s)=Z(\left\langle f_1,\ldots,f_s\right\rangle)$
+\end{frame}
+\begin{frame}
+\begin{Def}
+\label{Def_proj}
+Soit $\pi_p $ la projection $\C^n \to \C^{n-p} $ définie par : $\forall (a_1,\ldots,a_n) \in \mathbb{C}^n, \pi_p (a_1,\ldots,a_n) =(a_{p+1},\ldots,a_n) $.
+\end{Def}
+\begin{prop}
+Pour tout $1 \leq p \leq n-1$, la projection $\pi_p$ est une application surjective.
+\end{prop}
+\end{frame}
+\subsubsection{Géométrie de l'élimination}
+\begin{frame}
+
+
+Soit $V=Z(f_1,\ldots,f_s) \subset \C^n $
+\begin{Lemme}
+\label{lemme_inclus}
+Soit $I_p $ le $p $ème idéal d'élimination de l'idéal $\left\langle f_1,\ldots,f_s \right \rangle $ de $\C[X_1,\ldots,X_n] $.\\ Alors, dans $\C^{n-p} $, $\pi_p (V) \subset Z (I_p) $.
+\end{Lemme}
+
+\begin{Thm}  Soit $g_i $ défini dans le théorème d'extension et $I_1$ le premier idéal d'élimination de $\left\langle f_1,\ldots,f_s \right\rangle$. On a alors l'égalité, dans $\C^{n-1} $,\\
+$Z (I_1)=\pi(V) \cup (Z (g_1,\ldots,g_s) \cap Z (I_1))$
+\end{Thm}
+
+En d'autres termes, d'après le théorème d'extension, un élément de $Z(I_1)$ peut soit être étendu en une solution de $Z(I)$ (\emph{i.e.} appartient à $\pi(V)$) soit est un zéro commun des $g_i$. \\
+\end{frame}
+\begin{frame}
+
+
+\begin{Thm}[de fermeture]
+
+ Soit $V=Z(f_1,\ldots,f_s) \subset \C^n$ et soit $I_p$ le $p$ème idéal d'élimination de $\left\langle f_1,\ldots,f_s \right\rangle$. Alors  
+\begin{enumerate}
+\item $Z(I_p)$ est la plus petite (au sens de l'inclusion) variété contenant $\pi_p(V)$
+
+\item Si $V \neq \emptyset$, alors il existe une variété affine $W \subsetneqq Z(I_p)$ telle que $Z(I_p) \setminus W \subset \pi_p(V)$
+\end{enumerate}
+\end{Thm}
+\begin{cor}
+Supposons qu'il existe $i \in [\![1,n]\!]$ tel que $f_i$ s'écrit de la forme : \\
+$f_i=cX_1^{N}$+termes de degré $<N$ en $X_1$ où $N> 0$ et $c \in \mathbb{C}\setminus \{0\}$.  \\Alors $\pi(V)=Z(I_1)$.
+\end{cor}
+\end{frame}
+\section{Implicitation}
+
+\begin{frame}
+
+
+\begin{Thm}
+Soit $F:k^m \to k^n$ une fonction d\'etermin\'ee par la param\'etrisation polynomiale $(\dagger)$.\\ Soit $I$ l'id\'eal $\left\langle X_1-f_1,\ldots,X_n-f_n \right\rangle \subset k[T_1,\ldots,T_m,X_1,\ldots,X_n]$ et $I_m$ son $m$ \`eme id\'eal d'\'elimination. Alors $Z(I_m)$ est le plus petit variété de $k^n$ contenant $F(k^m)$.
+\end{Thm}\end{frame}
+
+\begin{frame}
+\begin{Ex}
+\label{Whitney}
+On appelle parapluie de Withney l'ensemble $\Gamma_k$ paramétré par $\begin{cases} x=uv \\ y=u\\ z=v^2\end{cases} $ pour $u,v \in k^2$. 
+Sa variété associé est $V_k:=Z( X^2-Y^2Z)\subset k^n $.
+\begin{itemize}
+\item Supposons que $k=\R $. Alors : 
+$V_\R=\Gamma_\R\cup \{ (0,0,a) | a <0 \} $. 
+\item Si $k=\C $, la situation est différente : \\
+$V_\C=\Gamma_\C $.\\
+\end{itemize}
+
+\end{Ex}
+\end{frame}
+
+\end{document}

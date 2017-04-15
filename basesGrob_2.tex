@@ -112,9 +112,10 @@ Dans ce rapport, $k$ est un corps commutatif de caractéristique 0 et $n$ un enti
 On considérera l'anneau de polynômes $k[X_1,\ldots,X_n]$ à $n$ indéterminées $X_1,\ldots,X_n$ construit par récurrence par : $\forall k<n, k[X_1,\ldots,X_{k+1}]:=k[X_1,\ldots,X_k][X_{k+1}]$. On pourra identifier cet anneau à celui des fonctions polynômiales à $n$ variables (grâce à l'infinité de $k$). \\
 On appelle monômes tout polynôme de la forme $X_1^{\alpha_1}\ldots X_n^{\alpha_n}$ où $\alpha_i \in \N$ que l'on abrégera $X^{(\alpha_1,\ldots,\alpha_n)}$. On notera $\mathscr{M}$ l'ensemble des monômes. Pour tout $p \in \N$ et pour tout anneau $A$, on appelera $A_p[X]$ l'ensemble des polynômes de degré strictement inférieur à $p$.\\
 On appelera base d'un idéal $I$ une famille $F=(f_1,\ldots,f_s)$ telle que $I=\left\langle F\right\rangle$.
-
-%\tableofcontents
 \newpage
+%\setcounter{tocdepth}{4}
+%\tableofcontents
+%\newpage
 
 
 \section{Motivation}
@@ -545,7 +546,7 @@ Dans cette section, nous allons étudier comment utiliser les bases de Gröbner af
 \subsection{Exemple préliminaire}
 Comme dit plus haut, lorsque les $f_i$ sont des polynômes de degré 1, on peut résoudre les systèmes de la forme $f_i(x_1,\ldots,x_n)=0, 1 \leq i \leq s \; (*)$ en utilisant le pivot de Gauss. 
 Le système $(*)$ se résume à : $AX=B$ où $A$ est la matrice représentative de la partie linéaire de $(f_1,\ldots,f_s)$ et $-B$ sa partie constante.
-Avec le pivot de Gauss, on obtient une matrice échelonnée $\widetilde{A}$ et une colonne de constante $\widetilde{B}$ telles que : $(*) \Leftrightarrow \widetilde{A}X=\widetilde{B}$. 
+Avec le pivot de Gauss, on obtient une matrice échelonnée $\widetilde{A}$ et une colonne de constante $\widetilde{B}$ telles que : $(*) \Leftrightarrow \widetilde{A}X=\widetilde{B}={}^t(\widetilde{b_1},\ldots,\widetilde{b}_s)$. 
 Ce qui nous permet de trouver les solutions de $(*)$ : \\
 Soit $r=rg(A)(\leq \min(n,s))$
 \begin{itemize}
