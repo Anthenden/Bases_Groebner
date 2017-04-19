@@ -121,7 +121,7 @@ Peut-on trouver des équations polynomiales en $X_i$ décrivant $V$ ?
 
 $k[X]$ est un anneau euclidien et donc principal. \\
 Idéal de $k[X]$ de la forme $Pk[X]$. \\
-Division euclidienne de $f$ par $P$, on a : $f=PQ+R$ où $\deg(R) < \deg(P)$.\\
+Division euclidienne de $f$ par $P$ : $f=PQ+R$ où $\deg(R) < \deg(P)$.\\
 Caractérisation d'appartenance à $I$ :  $f \in I \Leftrightarrow R=0$.
 \end{frame}
 \begin{frame}
@@ -191,7 +191,7 @@ On peut remarquer que l'ordre induit par le degré dans $k[X]$ est un ordre monom
 Soit $P:=\sum_{\alpha} p_{\alpha}X^\alpha \in k[X_1,\ldots,X_n]$ et $\geq$ un ordre monomial.
 \begin{enumerate}
         \item  Le monôme dominant de $P$ est : $\LM(P):=\max\{X^\alpha \in \mathscr{M} | p_\alpha \neq 0\}$
-\item Le multidegré de $f$ est l'élément de $\mathbb{N}^n$, noté $\multideg(P)$, tel que $x^{\multideg(P)}=LM(P)$
+\item Le multidegré de $f$ est l'élément de $\mathbb{N}^n$, noté $\multideg(P)$, tel que $X^{\multideg(P)}=LM(P)$
  \item Le coefficient dominant de $P$ est $\LC(P):=p_{\multideg(P)}$
 \item Le terme dominant de $P$ est $\LT(P):=\LC(P)\cdot \LM(P)$
 \end{enumerate}
@@ -212,26 +212,26 @@ $\geq_{lex}$ est un ordre monomial.
 \end{prop}
 \end{frame}
 
-\begin{frame}
-\begin{Ex} 
-Dans $k[X,Y,Z]$, \\
-$X^3>_{lex}X^2 >_{lex}X$\\
-$X>_{lex}Y>_{lex}Z$\\
- $X^2YZ^2>_{lex}X^2Z^4 >_{lex}XY^2Z$\\
- 
- 
-\end{Ex}
-\end{frame}
+%\begin{frame}
+%\begin{Ex} 
+%Dans $k[X,Y,Z]$, \\
+%$X^3>_{lex}X^2 >_{lex}X$\\
+%$X>_{lex}Y>_{lex}Z$\\
+ %$X^2YZ^2>_{lex}X^2Z^4 >_{lex}XY^2Z$\\
+ %
+ %
+%\end{Ex}
+%\end{frame}
 \subsection{Algorithme de division}
 
-\begin{frame}
-\begin{Thm}[Algorithme de division]
-
-Soit $\geq$ un ordre monomial et $(f_1,\ldots,f_s)$ un $n$-uplet de polynôme de $k[X_1,\ldots,X_n]$. Alors tout polynôme $f$ de $k[X_1,\ldots,X_n]$ peut s'écrire sous la forme $f=\sum_{i=1}^n a_if_i+r$ où $a_i \in k[X_1,\ldots,X_n]$ et $r$ est une combinaison linéaire de monômes qui ne sont pas divisibles par les $\LT(f_i)$
-  
-
-\end{Thm}
-  \end{frame}
+%\begin{frame}
+%\begin{Thm}[Algorithme de division]
+%
+%Soit $\geq$ un ordre monomial et $(f_1,\ldots,f_s)$ un $n$-uplet de polynôme de $k[X_1,\ldots,X_n]$. Alors tout polynôme $f$ de $k[X_1,\ldots,X_n]$ peut s'écrire sous la forme $f=\sum_{i=1}^n a_if_i+r$ où $a_i \in k[X_1,\ldots,X_n]$ et $r$ est une combinaison linéaire de monômes qui ne sont pas divisibles par les $\LT(f_i)$
+  %
+%
+%\end{Thm}
+  %\end{frame}
   
 \begin{frame}
 \begin{algorithm}[H]
@@ -283,21 +283,18 @@ Soient $f=X^2+Y^2+Z^2-4$, $g=Y^2+2Z^2-5$ et $h=XY-1$ trois polynômes de $k[X,Y,Z
 \begin{frame}
 
 \subsection{Généralités}
-\begin{Not}
-Soit $I$ un idéal de $k[X_1,\ldots,X_n]$ non nul. \\
-$LT(I)$ est l'ensemble des termes dominants des polynômes de $I$ i.e. $\LT(I):=\{\LT(f) |f \in I \}$.
-\end{Not}
+%\begin{Not}
+%Soit $I$ un idéal de $k[X_1,\ldots,X_n]$ non nul. \\
+%$LT(I)$ est l'ensemble des termes dominants des polynômes de $I$ i.e. $\LT(I):=\{\LT(f) |f \in I \}$.
+%\end{Not}
 \begin{Def}
 Soit $\geq$ un ordre monomial. Un sous-ensemble $G=\{g_1,\ldots,g_s\}$ d'un idéal $I$ est une base de Gröbner si $\left\langle \LT(I) \right\rangle=\left\langle \LT(g_1),\ldots,\LT(g_s)\right\rangle$.
 \end{Def}
-\end{frame}
-\begin{frame}
 
-
-\begin{Lemme}
-\label{lem_div}
-Soit $I:=\left\langle X^{\alpha} | \alpha \in A \right\rangle$ un idéal de $k[X_1,\ldots,X_n]$. Alors $X^\beta \in I$ si, et seulement si, il existe un $\alpha \in A$ tel que $X^\alpha $divise $X^\beta$.
-\end{Lemme}
+%\begin{Lemme}
+%\label{lem_div}
+%Soit $I:=\left\langle X^{\alpha} | \alpha \in A \right\rangle$ un idéal de $k[X_1,\ldots,X_n]$. Alors $X^\beta \in I$ si, et seulement si, il existe un $\alpha \in A$ tel que $X^\alpha $divise $X^\beta$.
+%\end{Lemme}
 
 
 \begin{prop}
@@ -319,11 +316,7 @@ Soit $I:=\left\langle X^{\alpha} | \alpha \in A \right\rangle$ un idéal de $k[X_
 \begin{cor} Soit $G=\{g_1,\ldots,g_s\}$ une base de Gröbner d'un idéal $I$ de $k[X_,\ldots,X_n]$ et $f \in k[X_1,\ldots,X_n]$. Alors $f \in I$ si, et seulement si, le reste de la division de $f$ par $G$ est nul.
 \end{cor}
  \end{frame}
- \begin{frame}
-\begin{Not} On notera $\overline{f}^F$ le reste de $f$ par la famille $F=(f_1,\ldots,f_s)$.
-\end{Not}
-
- \end{frame}
+ 
 
 \begin{frame}
     \begin{Def} Soient $f,g \in k[X_1,\ldots,X_n]$ des polynômes non nuls.
@@ -342,12 +335,12 @@ Soit $I:=\left\langle X^{\alpha} | \alpha \in A \right\rangle$ un idéal de $k[X_
 
 \subsection{Algorithme de Buchberger}
 
-\begin{frame}
-\begin{Thm}
-Soit $I:=\left\langle f_1,\ldots,f_s \right\rangle$ un idéal non nul de $k[X_1,\ldots,X_n]$. Alors on peut construire, en temps fini, une base de Gröbner de $I$ grâce à l'algorithme suivant.
-
-\end{Thm}
-\end{frame}
+%\begin{frame}
+%\begin{Thm}
+%Soit $I:=\left\langle f_1,\ldots,f_s \right\rangle$ un idéal non nul de $k[X_1,\ldots,X_n]$. Alors on peut construire, en temps fini, une base de Gröbner de $I$ grâce à l'algorithme suivant.
+%
+%\end{Thm}
+%\end{frame}
 \begin{frame}
 \begin{algorithm}[H]
 
@@ -382,71 +375,71 @@ Soit $I:=\left\langle f_1,\ldots,f_s \right\rangle$ un idéal non nul de $k[X_1,\
 \end{algorithm}
 \end{frame}
 
-\begin{frame}
+%\begin{frame}
+
+%
+%La base de Gröbner obtenue par cet algorithme contient trop d'éléments que nécessaire comme l'illustre cet exemple :
+%\begin{Ex}
+%Soit  $I:=\left\langle X^2 + Y^2 + Z^2 - 4, Y^2 + 2Z^2 - 5,XY - 1\right\rangle$. \\
+%Avec l'algorithme de Buchberger, on obtient : \\
+%$G=\{X^2 + Y^2 + Z^2 - 4, Y^2 + 2Z^2 - 5, XY - 1, X - YZ^2 +Y, 2XZ^2 - 5X + Y, -Z^4 + 7/2Z^2 - 3, 2YZ^6 - 12YZ^4+ 47/2YZ^2 - 15Y, -2Z^4 + 7Z^2 - 6, -YZ^4 + 7/2YZ^2 -3Y\}$. \\
+%
+ %$G \setminus \{ X^2+Y^2+Z^2-4\}$ est toujours une base de Gröbner.
+%\end{Ex}
+%\end{frame}
+%\begin{frame}
+%
+%
+%\begin{Lemme}
+%Soit $G $ une base de Gröbner d'un idéal $I $ de $k[X_1,\ldots,X_n] $ et  $P\in G$ tel que $LT (P) \in \left\langle LT(G \setminus \{P\}) \right\rangle$. Alors $G \setminus \{P\} $ est une base de Gröbner de $I $.
+%\end{Lemme}
 
 
-La base de Gröbner obtenue par cet algorithme contient trop d'éléments que nécessaire comme l'illustre cet exemple :
-\begin{Ex}
-Soit  $I:=\left\langle X^2 + Y^2 + Z^2 - 4, Y^2 + 2Z^2 - 5,XY - 1\right\rangle$. \\
-Avec l'algorithme de Buchberger, on obtient : \\
-$G=\{X^2 + Y^2 + Z^2 - 4, Y^2 + 2Z^2 - 5, XY - 1, X - YZ^2 +Y, 2XZ^2 - 5X + Y, -Z^4 + 7/2Z^2 - 3, 2YZ^6 - 12YZ^4+ 47/2YZ^2 - 15Y, -2Z^4 + 7Z^2 - 6, -YZ^4 + 7/2YZ^2 -3Y\}$. \\
-
- $G \setminus \{ X^2+Y^2+Z^2-4\}$ est toujours une base de Gröbner.
-\end{Ex}
-\end{frame}
-\begin{frame}
-
-
-\begin{Lemme}
-Soit $G $ une base de Gröbner d'un idéal $I $ de $k[X_1,\ldots,X_n] $ et  $P\in G$ tel que $LT (P) \in \left\langle LT(G \setminus \{P\}) \right\rangle$. Alors $G \setminus \{P\} $ est une base de Gröbner de $I $.
-\end{Lemme}
-
-
-\begin{Def}
-Une base de Gröbner minimale $G$ d'un idéal $I $ de $k [X_1,\ldots,X_n] $ est une base de Gröbner de $I $ telle que :
-\begin{enumerate}
-        \item  $\forall P \in G,  \LC(P)=1$
- \item $\forall P \in G, \LT(P) \notin \left\langle \LT(G \setminus \{P\}) \right\rangle$
-\end{enumerate}
-\end{Def}
-\end{frame}
-\begin{frame}
-Toujours pas d'unicité :
-\begin{Ex}
-Soit $I:= \left\langle X^2, XY, Y^2-1/2 X\right\rangle$ alors les familles $G_a=\{X^2+aXY, XY, Y^2-1/2 X \}$ sont des bases de Gröbner minimales de $I$ pour tout $a \in k$.\\
-\end{Ex}
-L'unicité est perdue à cause du fait qu'il y a des monômes d'un élément $f$ de la base de $G_a$ qui sont dans $G \setminus\{f\}$. La notion de base de Gröbner réduite permet de contourner ce problème.
-\end{frame}
-\begin{frame}
-
-\begin{Def}
-
-Une base de Gröbner réduite $G$ d'un idéal $I $ de $k [X_1,\ldots,X_n] $ est une base de Gröbner de $I $ telle que :
-\begin{enumerate}
-        \item $\forall P \in G,  \LC(P)=1$
-\item  Pour tout $P \in G$, aucun monôme de $P $ n'appartient à  $\left\langle \LT(G \setminus \{P\}) \right\rangle$.
-\end{enumerate}
-\end{Def}
-
-\begin{prop}
-Soit $I $ un idéal non nul de $k [X_1,\ldots,X_n] $. Alors, pour un ordre monomial fixé, $I $ a une unique base de Gröbner réduite.
-\end{prop}
-\end{frame}
-\begin{frame}
-
-
-
-\begin{cor}
-Soient $I,J$ deux idéaux non nuls de $k[X_1,\ldots,X_n]$. Soient $G,H$ deux bases de Gröbner réduites de respectivement $I, J$.Alors $G=H \Leftrightarrow I=J$.
-\end{cor}
-
-\begin{Ex}
-Soit $f,g,h$ définie dans l'exemple \ref{ex}. Alors la base réduite de $\left\langle f,g,h\right\rangle $ est : $\{X - YZ^2 + Y, Y^2 + 2Z^2 - 5, Z^4 - 7/2Z^2 + 3\}$
-
-% Peut-être un deuxième exemple
-\end{Ex}
-
-\end{frame}
+%\begin{Def}
+%Une base de Gröbner minimale $G$ d'un idéal $I $ de $k [X_1,\ldots,X_n] $ est une base de Gröbner de $I $ telle que :
+%\begin{enumerate}
+        %\item  $\forall P \in G,  \LC(P)=1$
+ %\item $\forall P \in G, \LT(P) \notin \left\langle \LT(G \setminus \{P\}) \right\rangle$
+%\end{enumerate}
+%\end{Def}
+%\end{frame}
+%\begin{frame}
+%Toujours pas d'unicité :
+%\begin{Ex}
+%Soit $I:= \left\langle X^2, XY, Y^2-1/2 X\right\rangle$ alors les familles $G_a=\{X^2+aXY, XY, Y^2-1/2 X \}$ sont des bases de Gröbner minimales de $I$ pour tout $a \in k$.\\
+%\end{Ex}
+%L'unicité est perdue à cause du fait qu'il y a des monômes d'un élément $f$ de la base de $G_a$ qui sont dans $G \setminus\{f\}$. La notion de base de Gröbner réduite permet de contourner ce problème.
+%\end{frame}
+%\begin{frame}
+%
+%\begin{Def}
+%
+%Une base de Gröbner réduite $G$ d'un idéal $I $ de $k [X_1,\ldots,X_n] $ est une base de Gröbner de $I $ telle que :
+%\begin{enumerate}
+        %\item $\forall P \in G,  \LC(P)=1$
+%\item  Pour tout $P \in G$, aucun monôme de $P $ n'appartient à  $\left\langle \LT(G \setminus \{P\}) \right\rangle$.
+%\end{enumerate}
+%\end{Def}
+%
+%\begin{prop}
+%Soit $I $ un idéal non nul de $k [X_1,\ldots,X_n] $. Alors, pour un ordre monomial fixé, $I $ a une unique base de Gröbner réduite.
+%\end{prop}
+%\end{frame}
+%\begin{frame}
+%
+%
+%
+%\begin{cor}
+%Soient $I,J$ deux idéaux non nuls de $k[X_1,\ldots,X_n]$. Soient $G,H$ deux bases de Gröbner réduites de respectivement $I, J$.Alors $G=H \Leftrightarrow I=J$.
+%\end{cor}
+%
+%\begin{Ex}
+%Soit $f,g,h$ définie dans l'exemple \ref{ex}. Alors la base réduite de $\left\langle f,g,h\right\rangle $ est : $\{X - YZ^2 + Y, Y^2 + 2Z^2 - 5, Z^4 - 7/2Z^2 + 3\}$
+%
+%% Peut-être un deuxième exemple
+%\end{Ex}
+%
+%\end{frame}
 \section{Résolution de systèmes polynomiaux}
 
 \subsection{Théorème d'élimination}
@@ -455,7 +448,7 @@ Soit $f,g,h$ définie dans l'exemple \ref{ex}. Alors la base réduite de $\left\la
 Soit $I=\left\langle f_1,\ldots,f_s \right\rangle $ un idéal de $k[X_1,\ldots,X_n]$. On appelle $p$ème idéal d'élimination de $I$ l'idéal $I_p$ de $k[X_{p+1},\ldots,X_n]$ définit par : $I_p=k[X_{p+1},\ldots,X_n] \cap I$, $0 \leq p \leq n-1$
 \end{Def}
 \begin{Thm}[d'élimination]
-Soit $I $ un idéal de $k[X_1,\ldots,X_n]$ et $G$ une base de Gröbner de $I$ selon l'ordre lexicographique (que l'on notera ici seulement $\geq$). Alors, pour tout $p \in [\![0,n]\!]$, l'ensemble $G_p =G \cap k[X_{p+1},\ldots,X_n]  $ est une base de Gröbner du $p$ème idéal d'élimination $I_p$.
+Soit $I $ un idéal de $k[X_1,\ldots,X_n]$ et $G$ une base de Gröbner de $I$ selon l'ordre lexicographique. Alors, pour tout $p \in [\![0,n]\!]$, l'ensemble $G_p =G \cap k[X_{p+1},\ldots,X_n]  $ est une base de Gröbner du $p$ème idéal d'élimination $I_p$.
 \end{Thm}
 \end{frame}
 \begin{frame}
@@ -468,7 +461,7 @@ Avec les $f,g,h$ de l'exemple \ref{ex}, le premier idéal d'élimination est : \\$
 
 \subsection{Résultant}
 \begin{frame}
-Soient $f=\sum_{k=1}^p f_k X_i^k,g=f=\sum_{k=1}^q g_k X_i^k \in k[X_1,\ldots,X_n]$ avec $a_k,b_k \in k[X_1,\ldots,X_{i-1},X_{i+1},\ldots,X_n]$ et $a_p \neq 0 \neq b_q$. 
+Soient $f=\sum_{k=1}^p f_k X_i^k,g=\sum_{k=1}^q g_k X_i^k \in k[X_1,\ldots,X_n]$ avec $a_k,b_k \in k[X_1,\ldots,X_{i-1},X_{i+1},\ldots,X_n]$ et $a_p \neq 0 \neq b_q$. 
 Le résultant en $X_i$ de $f$ et $g$  est : 
 \scriptsize
 $\Res_{X_i}(f,g)=\det\begin{pmatrix}
@@ -487,33 +480,29 @@ a_p & a_{p-1} &\ddots & \vdots &0 & b_q &\vdots & \ddots & b_1 & b_0 \\
 
 % Mettre un exemple
 
-\begin{frame}
-\begin{Not}
-\begin{itemize}
-        \item On note $Z(I)$ l'ensemble des zéros communs à tous les polynômes de $I$ i.e. \\$Z(I):=\{a \in k^n | \forall f \in I, f(a)=0 \}$.
-        \item Soient $f,g \in k[X_1,\ldots,X_n]$. On note par $\Syl_{X_i}(f,g), \Res_{X_i}(f,g)$ la matrice de Sylvester (resp. résultant) de $f$ et $g$ vus comme polynômes de $k[X_1,\ldots,X_{i-1},X_{i+1},\ldots,X_n][X_i]$
-\end{itemize}
-
-\end{Not}\end{frame}
+%\begin{frame}
+%\begin{Not}
+%\begin{itemize}
+        %\item On note $Z(I)$ l'ensemble des zéros communs à tous les polynômes de $I$ i.e. \\$Z(I):=\{a \in k^n | \forall f \in I, f(a)=0 \}$.
+        %\item Soient $f,g \in k[X_1,\ldots,X_n]$. On note par $\Syl_{X_i}(f,g), \Res_{X_i}(f,g)$ la matrice de Sylvester (resp. résultant) de $f$ et $g$ vus comme polynômes de $k[X_1,\ldots,X_{i-1},X_{i+1},\ldots,X_n][X_i]$
+%\end{itemize}
+%
+%\end{Not}\end{frame}
 \begin{frame}
 
 \begin{prop}
- $\Res (f, g)\in\left\langle f,g \right \rangle \cap k[X_2,\ldots,X_n]=I_1 $
+ $\Res_{X_1} (f, g)\in\left\langle f,g \right \rangle \cap k[X_2,\ldots,X_n]=I_1 $
 
 \end{prop}
-
-\end{frame}
-
-\begin{frame}
 
 
 \begin{Thm}
 \label{zeros}
-Supposons le corps $K$ alg\'ebriquement clos. Alors $Res(A,B)=0$ si, et seulement si, les polyn\^omes $A$ et $B$ ont une racine commune.
+Supposons le corps $K$ alg\'ebriquement clos. Alors $Res(A,B)=0$ si, et seulement si, les polyn\^omes $A$ et $B$ ont une racine commune.  % A reformuler
 \end{Thm}
 \begin{Thm}
 \label{eval}
-Soient $f=\sum_{i=0}^p f_i(X_2,\ldots,X_n)X_1^i,f=\sum_{i=0}^m g_i(X_2,\ldots,X_n)X_1^i \in k[X_1,\ldots,X_n]$. Soit $c \in k^{n-1}$. Alors $\Res_{X_1}(f,g)(c)=\Res_{p,q}(f(X_1,c),g(X_1,c))$.\\
+Soient $f=\sum_{i=0}^p f_i(X_2,\ldots,X_n)X_1^i,g=\sum_{i=0}^m g_i(X_2,\ldots,X_n)X_1^i \in k[X_1,\ldots,X_n]$. Soit $c \in k^{n-1}$ tel que $f_p(c)$ et $g_q(c)$ ne s'annulent pas simultanément. Alors $\Res_{X_1}(f,g)(c)=0 \Leftrightarrow \Res(f(X_1,c),g(X_1,c))=0$.\\
 \end{Thm}
 \end{frame}
 %A voir si on le met
@@ -644,19 +633,18 @@ $f_i=cX_1^{N}$+termes de degré $<N$ en $X_1$ où $N> 0$ et $c \in \mathbb{C}\setm
 
 
 \begin{Thm}
-Soit $F:k^m \to k^n$ une fonction d\'etermin\'ee par la param\'etrisation polynomiale $(\dagger)$.\\ Soit $I$ l'id\'eal $\left\langle X_1-f_1,\ldots,X_n-f_n \right\rangle \subset k[T_1,\ldots,T_m,X_1,\ldots,X_n]$ et $I_m$ son $m$ \`eme id\'eal d'\'elimination. Alors $Z(I_m)$ est le plus petit variété de $k^n$ contenant $F(k^m)$.
+Soit $F:k^m \to k^n$ une fonction d\'etermin\'ee par la param\'etrisation polynomiale $(\dagger)$.\\ Soit $I$ l'id\'eal $\left\langle X_1-f_1,\ldots,X_n-f_n \right\rangle \subset k[T_1,\ldots,T_m,X_1,\ldots,X_n]$ et $I_m$ son $m$ \`eme id\'eal d'\'elimination. Alors $Z(I_m)$ est le plus petit variété de $k^n$ contenant $F(k^m)$.  % A arranger
+
 \end{Thm}\end{frame}
 
 \begin{frame}
 \begin{Ex}
 \label{Whitney}
-On appelle parapluie de Withney l'ensemble $\Gamma_k$ paramétré par $\begin{cases} x=uv \\ y=u\\ z=v^2\end{cases} $ pour $u,v \in k^2$. 
-Sa variété associé est $V_k:=Z( X^2-Y^2Z)\subset k^n $.
+Parapluie de Withney : $\Gamma_k$ $\begin{cases} x=uv \\ y=u\\ z=v^2\end{cases} ,\; u,v \in k^2$. \\
+Variété associée : $V_k:=Z( X^2-Y^2Z)\subset k^3 $.
 \begin{itemize}
-\item Supposons que $k=\R $. Alors : 
-$V_\R=\Gamma_\R\cup \{ (0,0,a) | a <0 \} $. 
-\item Si $k=\C $, la situation est différente : \\
-$V_\C=\Gamma_\C $.\\
+\item $V_\R=\Gamma_\R\cup \{ (0,0,a) | a <0 \} $. 
+\item $V_\C=\Gamma_\C $.\\
 \end{itemize}
 
 \end{Ex}
