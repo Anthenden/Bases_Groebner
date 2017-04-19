@@ -110,7 +110,7 @@ Nous allons ensuite discuter de l'élimination des variables dans les systèmes po
 \section*{Conventions et Notations}
 Dans ce rapport, $k$ est un corps commutatif de caractéristique 0 et $n$ un entier naturel strictement positif. \\
 On considérera l'anneau de polynômes $k[X_1,\ldots,X_n]$ à $n$ indéterminées $X_1,\ldots,X_n$ construit par récurrence par : $\forall k<n, k[X_1,\ldots,X_{k+1}]:=k[X_1,\ldots,X_k][X_{k+1}]$. On pourra identifier cet anneau à celui des fonctions polynômiales à $n$ variables (grâce à l'infinité de $k$). \\
-On appelle monômes tout polynôme de la forme $X_1^{\alpha_1}\ldots X_n^{\alpha_n}$ où $\alpha_i \in \N$ que l'on abrégera $X^{(\alpha_1,\ldots,\alpha_n)}$. On notera $\mathscr{M}$ l'ensemble des monômes. Pour tout $p \in \N$ et pour tout anneau $A$, on appelera $A_p[X]$ l'ensemble des polynômes de degré strictement inférieur à $p$.\\
+On appelle monômes tout polynôme de la forme $X_1^{\alpha_1}\ldots X_n^{\alpha_n}$ où $\alpha_i \in \N$ que l'on abrégera $X^{(\alpha_1,\ldots,\alpha_n)}$. On notera $\mathscr{M}$ l'ensemble des monômes. Pour tout $p \in \N$ et pour tout anneau commutatif $A$, on notera $A[X]_{\leq p}$ (resp. $A[X]_{< p}$)  l'ensemble des polynômes de degré $\leq$ (resp $<$) à $p$.\\
 On appelera base d'un idéal $I$ une famille $F=(f_1,\ldots,f_s)$ telle que $I=\left\langle F\right\rangle$.
 \newpage
 %\setcounter{tocdepth}{4}
@@ -174,22 +174,22 @@ Soit $A$ un anneau noethérien. Alors $A[X]$ est aussi un anneau noethérien.
 
 \begin{proof}
 
-Soient $I$ un idéal de $A[X]$. Soit $J$ l'idéal engendré par les coefficients dominants des polynômes de $A[X]$ et pour tout $d \in \mathbb{N}$, $J_d$ l'idéal engendré par les coefficients dominants des polynômes de degré $d$.\\
-Comme $A$ est noethérien alors il existe $x_1,\ldots,x_r \in I$,tels que $J=\left\langle x_1,\ldots,x_r\right\rangle$ et pour tout $n \in \mathbb{N}, y_{1,n},\ldots,y_{m_n,n}$ tels que $J_n=\left\langle y_{1,n},\ldots,y_{m_d,d} \right\rangle$.\\
-Il existe donc des polynômes $Q_1,\ldots,Q_r$ de $I$ ayant pour coefficient dominant $x_i$ et pour tout $n \in \mathbb{N}$, des polynômes $R_{1,d},\ldots R_{m_d,d} \in I \cap A_d[X] $ dont le coefficient en $X^d$ est, respectivement, $y_{1,d},\ldots,y_{m_d,d}$.\\
+Soient $I$ un idéal de $A[X]$. Soit $J$ l'idéal engendré par les coefficients dominants des polynômes de $A[X]$ et pour tout $d \in \mathbb{N}$, $J_d$ l'idéal engendré par les coefficients dominants des polynômes de $I$ de degré $d$.\\
+Comme $A$ est noethérien alors il existe $x_1,\ldots,x_r \in I$,tels que $J=\left\langle x_1,\ldots,x_r\right\rangle$ et pour tout $d \in \mathbb{N}, y_{1,d},\ldots,y_{m_d,d}$ tels que $J_d=\left\langle y_{1,d},\ldots,y_{m_d,d} \right\rangle$.\\
+Il existe donc des polynômes $Q_1,\ldots,Q_r$ de $I$ ayant pour coefficient dominant $x_i$ et pour tout $n \in \mathbb{N}$, des polynômes $R_{1,d},\ldots R_{m_d,d} \in I \cap A[X]_{\leq d} $ dont le coefficient en $X^d$ est, respectivement, $y_{1,d},\ldots,y_{m_d,d}$.\\
 Montrons que $I=\left\langle  Q_1,\ldots,Q_r, R_{1,1},\ldots,R_{m_1,1},\ldots,R_{1,N},\ldots,R_{m_N,N} \right \rangle$ où $N:=\max_i \; \deg(Q_i)$.\\
 Notons $I'$  cet idéal (inclus dans $I$ car engendré par des éléments de $I$). \\
-Pour montrer l'inclusion réciproque, il suffit de montrer que, pour tout $d \in \mathbb{N}$, $I \cap A_d[X] \subset I'$. Montrons donc,par récurrence, que la propriété  $ \forall P \in I, \deg(P) <d \Rightarrow P \in I'$ est vraie pour tout $d \in \mathbb{N}$.
+Pour montrer l'inclusion réciproque, il suffit de montrer que, pour tout $d \in \mathbb{N}$, $I \cap A[X]_{< d} \subset I'$. Montrons donc,par récurrence, que la propriété  $ \forall P \in I, \deg(P) <d \Rightarrow P \in I'$ est vraie pour tout $d \in \N$.
 
-\textbf{Initialisation }: Si $d=0$, $I \cap A_n[X]=\{0\} \subset I' $ (car $0$ est le seul polynôme de degré strictement négatif et $0$ est dans tout idéal de $A[X]$)
+\textbf{Initialisation }: Si $d=0$, $I \cap A[X]_{<0}=\{0\} \subset I' $ (car $0$ est le seul polynôme de degré strictement négatif et $0$ est dans tout idéal de $A[X]$)
 
-\textbf{Hérédité} : Soit $d \in \mathbb{N}$ et supposons que tout polynômes $P$ de $I$ de degré strictement inférieur à $d$ appartienne à $I$.\\
-Soit $P:=\sum_{k=0}^n a_k X^k \in I$.
+\textbf{Hérédité} : Soit $d \in \mathbb{N}$ et supposons que tout polynôme $P$ de $I$ de degré strictement inférieur à $d$ appartient à $I$.\\
+Soit $P:=\sum_{k=0}^d a_k X^k \in I$.
 \begin{itemize}
-\item Si $d \leq N-1$ alors $a_d \in J_d$, il existe donc $\lambda_1,\ldots,\lambda_{m_d}$ tel que $a_d=\sum_{k=1}^{m_d} \lambda_k y_{k,d}$. On en déduit que $T:=P-\sum_{k=1}^{m_d} \lambda_k R_{k,d}$ est de degré inférieur à $d-1$. Comme $P$ et les $R_{k,d}$ sont dans $I$ alors $T$ aussi et par hypothèse de récurrence $T \in I$. Comme les $R_{k,d}$ sont aussi dans $I'$ alors $P=T+\sum_{k=1}^{m_d} \lambda_k R_{k,d}$ est dans $I'$.
-\item Si $d \geq N$, alors $a_d \in J$,il existe donc $\lambda_1,\ldots,\lambda_r \in A$ tel que $a=\sum_{k=1}^r \lambda_k x_k$ et donc $P-\sum_{k=1}^m \lambda_i X^{d-deg(Q_i)} Q_i$ est de degré inférieur à $d-1$. On en déduit de la même façon que dans le cas précédent que $P\in I'$.
+\item Si $d \leq N-1$ alors $a_d \in J_d$, il existe donc $\lambda_1,\ldots,\lambda_{m_d}$ tel que $a_d=\sum_{k=1}^{m_d} \lambda_k y_{k,d}$. On en déduit que $T:=P-\sum_{k=1}^{m_d} \lambda_k R_{k,d}$ est de degré strictement inférieur à $d$. Comme $P$ et les $R_{k,d}$ sont dans $I$ alors $T$ aussi et par hypothèse de récurrence, $T \in I'$. Comme les $R_{k,d}$ sont aussi dans $I'$ alors $P=T+\sum_{k=1}^{m_d} \lambda_k R_{k,d}$ est dans $I'$.
+\item Si $d \geq N$, alors $a_d \in J$,il existe donc $\lambda_1,\ldots,\lambda_r \in A$ tel que $a=\sum_{k=1}^r \lambda_k x_k$ et donc $P-\sum_{k=1}^m \lambda_i X^{d-deg(Q_i)} Q_i$ est de degré strictement inférieur à $d$. On en déduit de la même façon que dans le cas précédent que $P\in I'$.
 \end{itemize}
-Conclusion : D'après le principe de récurrence, pour tout $d \in \mathbb{N}$, $I \cap A_d[X] \subset I'$.\\
+Conclusion : D'après le principe de récurrence, pour tout $d \in \mathbb{N}$, $I \cap A[X]_{<d} \subset I'$.\\
 On en déduit que $I \subset I'$  et donc $I=I'$. 
 Ce qui nous permet de conclure que $I$ est engendré par un nombre fini d'éléments. \\
 Ce qui montre que $A[X]$ est donc noethérien.
@@ -432,7 +432,7 @@ Si $F$ est une base de Gröbner, on peut juste considérer $F$ comme un ensemble.
 On admettra ici ce théorème.
 
 \subsection{Algorithme de Buchberger}
-Maintenant que l'on a une caractérisation simple à vérifier d'une base de Gröbner, on va l'utiliser afin de créer un algorithme permettant d'en construire une. On va présenter l'algorithme dit de Buchberger créé par celui-ci. Cet algorithme consiste, pour un ensemble $F$ de polynômes, à calculer tous les restes $\overline{S(g_i,g_j)}^F$ et les ajouter à l'ensemble s'ils sont non nuls et recommencer avec le nouvel ensemble obtenu jusqu'à ce que cela converge. 
+Maintenant que l'on a une caractérisation simple à vérifier d'une base de Gröbner, on va l'utiliser afin de créer un algorithme permettant d'en construire une. On va présenter l'algorithme dit de Buchberger créé par celui-ci. Cet algorithme consiste, pour un ensemble $F$ de polynômes, à calculer tous les restes $\overline{S(g_i,g_j)}^F$ et les ajouter à l'ensemble s'ils sont non nuls et recommencer avec le nouvel ensemble obtenu jusqu'à ce que cela stationne. 
 \begin{Thm}
 Soit $I:=\left\langle f_1,\ldots,f_s \right\rangle$ un idéal non nul de $k[X_1,\ldots,X_n]$. Alors on peut construire, en temps fini, une base de Gröbner de $I$ grâce à l'algorithme suivant.
 
@@ -580,16 +580,16 @@ Il suffit, pour cela, de montrer que pour tout $1 \leq i < j \leq r$, $\overline
 Soit $i,j \in [\![1,r]\!]$,$ i<j$. Comme $S(g_i,g_j)$ est de la forme $Pg_i+Qg_j$ ($P,Q \in k[X_{p+1},\ldots,X_n]$) et $I_p$ est un idéal alors $S(g_i,g_j) \in I_p \subset I$ d'où comme $G$ est une base de Gröbner alors $\overline{S(g_i,g_j)}^{G}=0$ et donc d'après $(*)$, $\overline{S(g_i,g_j)}^{G_k}=0$. Ce qui permet de conclure.
 \end{proof}
 \begin{Ex}
-Avec les $f,g,h$ de l'exemple \ref{ex}, le premier idéal d'élimination est : \\$I_1=\left\langle X - YZ^2 + Y, Y^2 + 2*Z^2 - 5, Z^4 - 7/2Z^2 + 3\right\rangle$ et le second $I_2=\left\langle Z^4 - 7/2Z^2 + 3\right\rangle$
+Avec les $f,g,h$ de l'exemple \ref{ex}, le premier idéal d'élimination est : \\$I_1=\left\langle X - YZ^2 + Y, Y^2 + 2Z^2 - 5, Z^4 - 7/2Z^2 + 3\right\rangle$ et le second $I_2=\left\langle Z^4 - 7/2Z^2 + 3\right\rangle$
 \end{Ex}
 Lorsque l'on a calculé le $(n-1)$ème idéal d'élimination, on obtient lorsqu'il n'est pas réduit à 0, un idéal de la forme $\left\langle P\right\rangle$ (car $k[X_n]$ est principal) et donc un nombre fini de solutions. On va essayer d'étendre les solutions partielles des idéaux d'élimination en des solutions de l'idéal de départ. Pour cela, on va commencer par présenter des résultats sur les résultants qui vont permettre de montrer le théorème d'extension.
 \subsection{Résultant}
 Soient $A $ un anneau commutatif intègre et $K $ son corps de fractions.\\
 Soient $f\in A[X] $ et $g \in A[X] $. Soient $p,q \in \N$, tels que $p\geq\deg f $ et $q\geq\deg g $.\\
-Soit $\varphi_{f,g} : K_{q}[X]\times K_{p}[X] \to K_{p+q}[X] $ l'application linéaire définie par : $\forall (u,v) \in K_{q}[X]\times K_{p}[X], \varphi(u,v)=fu+gv $.\\
-On appelle matrice de Sylvester la matrice associée à l'application $\varphi_{f,g} $ dans la base $\B=((X^i,X^j) | 0 \leq i \leq q-1 ; 0 \leq j \leq p-1) $ que l'on notera $\Syl_{p,q}(f,g)$.\\
+Soit $\varphi_{f,g} : K[X]_{<q}\times K[X]_{<p} \to K[X]_{<p+q} $ l'application linéaire définie par : $\forall (u,v) \in K[X]_{<q}\times K[X]_{<p}, \varphi(u,v)=fu+gv $.\\
+On appelle matrice de Sylvester la matrice associée à l'application $\varphi_{f,g} $ dans la base $\B=((X^i,X^j) | 0 \leq i \leq q-1 ; 0 \leq j \leq p-1) $ de $K[X]_{<q}\times K[X]_{<p}$ et dans la base canonique de $K[X]_{<p+q}$  que l'on notera $\Syl_{p,q}(f,g)$.\\
 On notera $\Res_{p,q}(f,g)$ le déterminant de $\Syl_{p,q}(f,g)$. 
-On appelle résultant de $f $ et $g $  l'élément $\Res_{\deg(f),\deg(q)}(f,g)$.
+On appelle résultant de $f $ et $g $  l'élément $\Res_{\deg(f),\deg(g)}(f,g)$.
 
 \begin{Not}
 \begin{itemize}
@@ -607,12 +607,10 @@ On appelle résultant de $f $ et $g $  l'élément $\Res_{\deg(f),\deg(q)}(f,g)$.
 
  $\Res (f,g) \in k[X_2,\ldots,X_n] $ car le déterminant est polynomial en les coordonnées de la matrice et les composantes de $\Syl(f,g) $ sont dans $k[X_2,\ldots,X_n]$. \\
 Montrons maintenant que $\Res (f,g) \in \left\langle f,g \right\rangle $.\\
-Notons $M $ la matrice de Sylvester de $f $ et $g $. \\
-Alors $M {}^t \Com(M)=\det (M)I_{\deg(f)+\deg(g)} $ $(*) $ où $\Com(M)$ est la matrice des cofacteurs de $M$. \\
-Comme les cofacteurs de $M $ sont dans $k[X_2,\ldots,X_n] $ (car ceux-ci sont polynomiaux en les coordonnées) alors $\Com (M) $ est dans $\Mcal_{\deg(f)+\deg(g)}(k[X_2,\ldots,X_n]) $. \\
-Donc, en posant $M=(C_1,\ldots,C_{\deg(f)+\deg(g)})$, on a, d'après $(*) $, : \\
-$MC_1={}^t\begin{pmatrix} \det (M) & 0 & \ldots & 0 \end{pmatrix} $. \\
-En notant par $c $ l'élément de $ (k[X_2,\ldots,X_n])_{\deg(g)}[X]\times (k[X_2,\ldots,X_n])_{\deg(f)}[X] $ de colonne de coordonnées $C_1$ dans la base $\B  $ définie plus haut, on a : $\varphi_{f,g}(c)=\det (M) $, ce qui permet de conclure.
+Notons $M $ la matrice de Sylvester de $f $ et $g $. Alors $M {}^t \Com(M)=\det (M)I_{\deg(f)+\deg(g)} $ $(*) $ où $\Com(M)$ est la matrice des cofacteurs de $M$. \\
+Comme les cofacteurs de $M $ sont dans $k[X_2,\ldots,X_n] $ (car ceux-ci sont polynomiaux en les coordonnées) alors $\Com (M) $ est dans $\Mcal_{\deg(f)+\deg(g)}(k[X_2,\ldots,X_n]) $. 
+Donc, en posant $M=(C_1,\ldots,C_{\deg(f)+\deg(g)})$, on a, d'après $(*) $, $MC_1={}^t\begin{pmatrix} \det (M) & 0 & \ldots & 0 \end{pmatrix} $. \\
+En notant par $c $ l'élément de $ (k[X_2,\ldots,X_n])[X]_{<\deg(g)}\times (k[X_2,\ldots,X_n])[X]_{<\deg(f)} $ de colonne de coordonnées $C_1$ dans la base $\B  $ définie plus haut, on a : $\varphi_{f,g}(c)=\det (M) $, ce qui permet de conclure.
 \end{proof}
 
  Si $f=a_1(X_2,\ldots,X_n)X_1+a_0(X_2,\ldots,X_n)$ et $g=b_1(X_2,\ldots,X_n)X_1+b_0(X_2,\ldots,X_n)$ sont des polynômes de degré 1  alors leur résultant est $a_0b_1-a_1b_0$, ce qui est le m\^eme résultat que l'on obtient lorsqu'on applique le pivot de Gauss à $f$ et $g$.
@@ -670,7 +668,7 @@ $\PGCD(f(2,Y),g(2,Y))=(Y-2)(Y-3)$,
 $\PGCD(f(3,Y),g(3,Y))=(Y-2)(Y-3)$\\
 $\PGCD(f(\frac{1-i\sqrt{15}}{2},Y),g(\frac{1-i\sqrt{15}}{2},Y))=Y-\frac{1+i\sqrt{15}}{2}$,
 $\PGCD(f(\frac{1+\sqrt{15}i}{2},Y),g(\frac{1+\sqrt{15}i}{2},Y))=Y-\frac{1-i\sqrt{15}}{2}$\\
-On obtient donc les 6 points d'intersection de $\Cscr \cap \Dscr$ : $(2,2),(2,3),(3,2),(3,3),\left(\frac{1+i\sqrt{15}}{2},\frac{1-i\sqrt{15}}{2}\right),\left(\frac{1+i\sqrt{15}}{2},\frac{1-i\sqrt{15}}{2}\right)$
+On obtient donc les 6 points d'intersection de $\Cscr$ et $\Dscr$ : $(2,2),(2,3),(3,2),(3,3),\left(\frac{1+i\sqrt{15}}{2},\frac{1-i\sqrt{15}}{2}\right),\left(\frac{1+i\sqrt{15}}{2},\frac{1-i\sqrt{15}}{2}\right)$
 \end{Ex}
 \subsection{Théorème d'extension}
 
@@ -781,6 +779,7 @@ Le théorème suivant décrit de manière plus précise le lien entre les projections
 \end{enumerate}
 \end{Thm}
 \begin{cor}
+\label{cor_ferm}
 Supposons qu'il existe $i \in [\![1,n]\!]$ tel que $f_i$ s'écrit de la forme : \\
 $f_i=cX_1^{N}$+termes de degré $<N$ en $X_1$ où $N> 0$ et $c \in \mathbb{C}\setminus \{0\}$.  \\Alors $\pi(V)=Z(I_1)$.
 \end{cor}
@@ -830,15 +829,13 @@ D'où $F(\C^m) \subset V_\C$. D'après ce que l'on a montré pour le cas $k=\C$, on
 \begin{Ex}
 \label{Whitney}
 On appelle parapluie de Withney l'ensemble $\Gamma_k$ paramétré par $\begin{cases} x=uv \\ y=u\\ z=v^2\end{cases} $ pour $u,v \in k^2$. On note par $F $  la fonction $(u,v)\mapsto (x,y,z) $. \\
-En appliquant le théorème précédent, on obtient que $V_k:=Z( X^2-Y^2Z)\subset k^n $ est la plus petite variété contenant $\Gamma_k $. Examinons maintenant s'il y a une égalité :
+En appliquant le théorème précédent, on obtient que $V_k:=Z( X^2-Y^2Z)\subset k^3 $ est la plus petite variété contenant $\Gamma_k $. Examinons maintenant s'il y a une égalité :
 \begin{itemize}
 \item Supposons que $k=\R $ et considérons la variété $G_a:= \{z=a\}\cap V_\R$ pour $a\in \R $. Si $a <0$ alors l'équation $x^2-ay^2=0$ a pour unique solution $(0,0) $. De ce fait, $G_a=\{(0,0,a)\} $. Cependant ce point n'appartient pas à  $\Gamma_\R$ car $z\geq 0$.\\
-Si $a \geq 0$ alors, on a l'équivalence  : $x^2-ay^2=0 \Leftrightarrow x=\pm \sqrt{a}y$ et donc $G_a=\{(\pm\sqrt{a}y,y,a)| y \in \R \}=\{F (y,\pm\sqrt{a}) | y \in \R \} \subset \Gamma $.
+Si $a \geq 0$ alors, on a l'équivalence  : $x^2-ay^2=0 \Leftrightarrow x=\pm \sqrt{a}y$ et donc $G_a=\{(\pm\sqrt{a}y,y,a)| y \in \R \}=\{F (y,\pm\sqrt{a}) | y \in \R \} \subset \Gamma_\R $.
 On en conclut que $V_\R=\Gamma_\R\cup \{ (0,0,a) | a <0 \} $. De ce fait, $\Gamma_\R$ n'est pas une variété.
 \item Si $k=\C $, la situation est différente : \\
-Soient  $a \in \C$, $\alpha $ tel que $\alpha ^2=a $ et $G_a:=\{z=a\} \cap V_\C $. \\
-On a l'équivalence suivante : $x^2-ay^2=0 \Leftrightarrow x=\pm \alpha y $. De ce fait, $G_a=\{F (y,\pm \alpha)| y \in k\} \subset \Gamma_\C $. \\
-Ce qui permet de conclure que $V_\C=\Gamma_\C $.\\
+$V_\C=\Gamma_\C $ grâce au corollaire(\ref{cor_ferm}) du théorème de fermeture .\\
 \end{itemize}
 On en déduit que les restrictions à un sous-corps ne préserve pas les égalités entre ensemble décrit par des équations paramétriques et variété associée.
 \end{Ex}
