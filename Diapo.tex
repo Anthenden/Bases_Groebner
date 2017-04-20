@@ -176,48 +176,45 @@ un bon ordre afin d'avoir un critère de fin pour cet algorithme.
 \subsection{Ordres monomiaux}
 \begin{frame}
 \subsubsection{Définitions}
-\begin{Def}
-Un ordre monomial est une relation d'ordre total $\geq$ de $\mathscr{M}$ telle que :
 
-\begin{enumerate}
-        \item  $\forall \alpha,\beta,\gamma \in \mathbb{N}^n, X^\alpha \geq X^\beta \Rightarrow X^{\alpha+\gamma} \geq X^{\beta +\gamma}$(compatibilité avec le produit)
- \item $\geq$ est un bon ordre
-\end{enumerate}
-\end{Def}
-On peut remarquer que l'ordre induit par le degré dans $k[X]$ est un ordre monomial.
-\end{frame}
-\begin{frame}
-\begin{Def}
-Soit $P:=\sum_{\alpha} p_{\alpha}X^\alpha \in k[X_1,\ldots,X_n]$ et $\geq$ un ordre monomial.
+Ordre monomial = relation de bon ordre total de $\mathscr{M}$ compatible avec le produit 
+
+%\begin{enumerate}
+        %\item  $\forall \alpha,\beta,\gamma \in \mathbb{N}^n, X^\alpha \geq X^\beta \Rightarrow X^{\alpha+\gamma} \geq X^{\beta +\gamma}$(compatibilité avec le produit)
+ %\item $\geq$ est un bon ordre
+%\end{enumerate}
+
+
+Pour $P:=\sum_{\alpha} p_{\alpha}X^\alpha \in k[X_1,\ldots,X_n]$ et $\geq$ un ordre monomial 
 \begin{enumerate}
         \item  Le monôme dominant de $P$ est : $\LM(P):=\max\{X^\alpha \in \mathscr{M} | p_\alpha \neq 0\}$
 \item Le multidegré de $f$ est l'élément de $\mathbb{N}^n$, noté $\multideg(P)$, tel que $X^{\multideg(P)}=LM(P)$
  \item Le coefficient dominant de $P$ est $\LC(P):=p_{\multideg(P)}$
 \item Le terme dominant de $P$ est $\LT(P):=\LC(P)\cdot \LM(P)$
 \end{enumerate}
-\end{Def}
+
 \end{frame}
 
 
-\subsubsection{Exemples d'ordres monomiaux}
+
 \begin{frame}
 
 
-\begin{Def}[Ordre lexicographique $\geq_{lex}$]
-Soient $\alpha=(\alpha_1,\ldots,\alpha_n), \beta=(\beta_1,\ldots,\beta_n) \in \mathbb{N}^n$ alors
-$X^\alpha \geq_{lex} X^\beta$ si, et seulement si, $\alpha=\beta$ ou le premier coefficient non nul en lisant par la gauche de $\alpha -\beta $ est positif.
-\end{Def}
-\begin{prop}
-$\geq_{lex}$ est un ordre monomial.
-\end{prop}
+Ordre lexicographique $\geq_{lex}$ : \\
+
+$\alpha=(\alpha_1,\ldots,\alpha_n), \beta=(\beta_1,\ldots,\beta_n) \in \mathbb{N}^n$, \\
+$X^\alpha \geq_{lex} X^\beta$ ssi $\alpha=\beta$ ou le premier coefficient non nul en lisant par la gauche de $\alpha -\beta $ est positif.\\
+
+Dans $k[X,Y,Z]$, \\
+$X^3>_{lex}X^2 >_{lex}X$\\
+$X>_{lex}Y>_{lex}Z$\\
+ $X^2YZ^2>_{lex}X^2Z^4 >_{lex}XY^2Z$\\
+
 \end{frame}
 
 %\begin{frame}
 %\begin{Ex} 
-%Dans $k[X,Y,Z]$, \\
-%$X^3>_{lex}X^2 >_{lex}X$\\
-%$X>_{lex}Y>_{lex}Z$\\
- %$X^2YZ^2>_{lex}X^2Z^4 >_{lex}XY^2Z$\\
+
  %
  %
 %\end{Ex}
@@ -283,13 +280,19 @@ Soient $f=X^2+Y^2+Z^2-4$, $g=Y^2+2Z^2-5$ et $h=XY-1$ trois polynômes de $k[X,Y,Z
 \begin{frame}
 
 \subsection{Généralités}
+
+% On se fixe un ordre monomial $\leq$.
+
 %\begin{Not}
 %Soit $I$ un idéal de $k[X_1,\ldots,X_n]$ non nul. \\
-%$LT(I)$ est l'ensemble des termes dominants des polynômes de $I$ i.e. $\LT(I):=\{\LT(f) |f \in I \}$.
+%$\LT(I)$ est l'ensemble des termes dominants des polynômes de $I$ i.e. $\LT(I):=\{\LT(f) |f \in I \}$.
 %\end{Not}
-\begin{Def}
-Soit $\geq$ un ordre monomial. Un sous-ensemble $G=\{g_1,\ldots,g_s\}$ d'un idéal $I$ est une base de Gröbner si $\left\langle \LT(I) \right\rangle=\left\langle \LT(g_1),\ldots,\LT(g_s)\right\rangle$.
-\end{Def}
+$I$ un idéal de $k[X_1,\ldots,X_n]$  non réduit à $\{0\}$ \\
+$\LT(I):=\{\LT(f) |f \in I \}$.
+
+Base de Gröbner : $G=\{g_1,\ldots,g_s\} \subset I$ tel que : \\
+$\left\langle \LT(I) \right\rangle=\left\langle \LT(g_1),\ldots,\LT(g_s)\right\rangle$.
+
 
 %\begin{Lemme}
 %\label{lem_div}
@@ -297,37 +300,35 @@ Soit $\geq$ un ordre monomial. Un sous-ensemble $G=\{g_1,\ldots,g_s\}$ d'un idéa
 %\end{Lemme}
 
 
-\begin{prop}
- Soit $\geq$ un ordre monomial. Alors tout idéal de $k[X_1,\ldots,X_n]$ non réduit à $\{0\}$ a une base de Gröbner. De plus, tout base de Gröbner est une base de $I$.
-\end{prop}
+
 
 \end{frame}
 \begin{frame}
-
-
-\begin{prop}
- Soit $G=\{g_1,\ldots,g_s\}$ une base de Gröbner d'un idéal $I$ de $k[X_1,\ldots,X_n]$ et $f \in I$. Alors il existe un unique $r \in k[X_1,\ldots,X_n]$ vérifiant :
-\begin{enumerate}
-        \item  Tous les termes de $r$ ne sont divisible par aucun des $\LT(g_i)$
-\item Il existe $g \in I$ tel que $f=g+r$
-\end{enumerate}
-\end{prop}
-
-\begin{cor} Soit $G=\{g_1,\ldots,g_s\}$ une base de Gröbner d'un idéal $I$ de $k[X_,\ldots,X_n]$ et $f \in k[X_1,\ldots,X_n]$. Alors $f \in I$ si, et seulement si, le reste de la division de $f$ par $G$ est nul.
-\end{cor}
+%\begin{prop}
+%Alors tout idéal de $k[X_1,\ldots,X_n]$ non réduit à $\{0\}$ a une base de Gröbner. De plus, tout base de Gröbner est une base de $I$.
+%\end{prop}
+Tout idéal a une base de Gröbner \\
+Une base de Gröbner est une base de l'idéal  \\
+%
+%\begin{prop}
+ %Soit $G=\{g_1,\ldots,g_s\}$ une base de Gröbner d'un idéal $I$ de $k[X_1,\ldots,X_n]$ et $f \in I$. Alors il existe un unique $r \in k[X_1,\ldots,X_n]$ vérifiant :
+%\begin{enumerate}
+        %\item  Tous les termes de $r$ ne sont divisible par aucun des $\LT(g_i)$
+%\item Il existe $g \in I$ tel que $f=g+r$
+%\end{enumerate}
+%\end{prop}
+Division par une base de Gröbner ne dépend pas du reste.
+%\begin{cor} Soit $G=\{g_1,\ldots,g_s\}$ une base de Gröbner d'un idéal $I$ de $k[X_,\ldots,X_n]$ et $f \in k[X_1,\ldots,X_n]$. Alors $f \in I$ si, et seulement si, le reste de la division de $f$ par $G$ est nul.
+%\end{cor}
  \end{frame}
  
 
 \begin{frame}
-    \begin{Def} Soient $f,g \in k[X_1,\ldots,X_n]$ des polynômes non nuls.
-\begin{enumerate}
-\item Posons $\multideg(f)=(\alpha_1,\ldots,\alpha_n)$ et $\multideg(g)=(\beta_1,\ldots,\beta_n)$. Soit $\gamma=(\gamma_1,\ldots,\gamma_n)$ où $\gamma_i=\ma\alpha_i,\beta_i)$. $X^\gamma$ est appelé plus petit multiple commun de $\LM(f)$ et $\LM(g)$ et noté $\PPCM(\LM(f),\LM(g)):=X^\gamma$.
-\item Le $S$-polynôme de $f$ et $g$ est le polynôme : $S(f,g):=\frac{X^\gamma}{\LT(f)}f-\frac{X^\gamma}{\LT(g)} g$
-\end{enumerate}
-\end{Def}
-\end{frame}
+ Soient $f,g \in k[X_1,\ldots,X_n]$ des polynômes non nuls.
 
-\begin{frame}
+Le $S$-polynôme de $f$ et $g$ est le polynôme : $S(f,g):=\frac{X^\gamma}{\LT(f)}f-\frac{X^\gamma}{\LT(g)} g$\\ où les coordonnées de $\gamma$ sont les maximum des coefficients de $\multideg(f)$ et $\multideg(g)$
+
+
 \begin{Thm} Soit $I$ un idéal de $k[X_1,\ldots,X_n]$. Alors une base $G=\{g_1,\ldots,g_n\}$ de $I$ est une base de Gröbner de $I$ si, et seulement si, pour tout couple $(i,j)$, $i \neq j$, $\overline{S(g_i,g_j)}^G=0$
 \end{Thm}
 
@@ -444,18 +445,17 @@ Soit $\geq$ un ordre monomial. Un sous-ensemble $G=\{g_1,\ldots,g_s\}$ d'un idéa
 
 \subsection{Théorème d'élimination}
 \begin{frame}
-\begin{Def}
-Soit $I=\left\langle f_1,\ldots,f_s \right\rangle $ un idéal de $k[X_1,\ldots,X_n]$. On appelle $p$ème idéal d'élimination de $I$ l'idéal $I_p$ de $k[X_{p+1},\ldots,X_n]$ définit par : $I_p=k[X_{p+1},\ldots,X_n] \cap I$, $0 \leq p \leq n-1$
-\end{Def}
+
+$I=\left\langle f_1,\ldots,f_s \right\rangle $ un idéal de $k[X_1,\ldots,X_n]$. \\
+ $p$ème idéal d'élimination de $I$ :  $I_p:=k[X_{p+1},\ldots,X_n] \cap I$
+
 \begin{Thm}[d'élimination]
 Soit $I $ un idéal de $k[X_1,\ldots,X_n]$ et $G$ une base de Gröbner de $I$ selon l'ordre lexicographique. Alors, pour tout $p \in [\![0,n]\!]$, l'ensemble $G_p =G \cap k[X_{p+1},\ldots,X_n]  $ est une base de Gröbner du $p$ème idéal d'élimination $I_p$.
 \end{Thm}
-\end{frame}
-\begin{frame}
 
-\begin{Ex}
+
 Avec les $f,g,h$ de l'exemple \ref{ex}, le premier idéal d'élimination est : \\$I_1=\left\langle X - YZ^2 + Y, Y^2 + 2*Z^2 - 5, Z^4 - 7/2Z^2 + 3\right\rangle$ et le second $I_2=\left\langle Z^4 - 7/2Z^2 + 3\right\rangle$
-\end{Ex}
+
 
 \end{frame}
 
@@ -544,14 +544,14 @@ où $N_i \geq 0$ et $g_i \in \mathbb{C}[X_2,\ldots,X_n]$ non nul si $f_i \neq 0$ 
 Supposons qu'on ait une solution partielle $(a_2,\ldots,a_n) \in Z(I_1)$. Si $(a_2,\ldots,a_n) \notin Z(g_1,\ldots,g_s)$ alors il existe $a_1 \in \mathbb{C}$ tel que $(a_1,\ldots,a_n) \in Z(I)$.
 \end{Thm}
 \end{frame}
-\begin{frame}
-\begin{cor}
-
- Soit $I=\left \langle f_1,\ldots,f_s \right\rangle$ un idéal de $\mathbb{C}[X_1,\ldots,X_n]$ et supposons qu'il existe $i \in [\![1,n]\!]$ tel que $f_i$ s'écrit de la forme :
-$f_i=cX_1^{N}$+termes de degré $<N$ en $X_1$\\
-où $N> 0$ et $c \in \mathbb{C}\setminus \{0\}$. Si $I_1$ est le premier idéal d'élimination de $I$ et $(a_2,\ldots,a_n) \in Z(I_1)$ alors il existe $a_1 \in \mathbb{C}$ tel que $(a_1,\ldots,a_n) \in Z(I)$
-\end{cor}
-\end{frame}
+%\begin{frame}
+%\begin{cor}
+%
+ %Soit $I=\left \langle f_1,\ldots,f_s \right\rangle$ un idéal de $\mathbb{C}[X_1,\ldots,X_n]$ et supposons qu'il existe $i \in [\![1,n]\!]$ tel que $f_i$ s'écrit de la forme :
+%$f_i=cX_1^{N}$+termes de degré $<N$ en $X_1$\\
+%où $N> 0$ et $c \in \mathbb{C}\setminus \{0\}$. Si $I_1$ est le premier idéal d'élimination de $I$ et $(a_2,\ldots,a_n) \in Z(I_1)$ alors il existe $a_1 \in \mathbb{C}$ tel que $(a_1,\ldots,a_n) \in Z(I)$
+%\end{cor}
+%\end{frame}
 
 \begin{frame}
 
@@ -585,15 +585,15 @@ Les sous-espaces affines de $k^n$ sont aussi des variétés affines.
 
 En particulier, $Z(f_1,\ldots,f_s)=Z(\left\langle f_1,\ldots,f_s\right\rangle)$
 \end{frame}
-\begin{frame}
-\begin{Def}
-\label{Def_proj}
-Soit $\pi_p $ la projection $\C^n \to \C^{n-p} $ définie par : $\forall (a_1,\ldots,a_n) \in \mathbb{C}^n, \pi_p (a_1,\ldots,a_n) =(a_{p+1},\ldots,a_n) $.
-\end{Def}
-\begin{prop}
-Pour tout $1 \leq p \leq n-1$, la projection $\pi_p$ est une application surjective.
-\end{prop}
-\end{frame}
+%\begin{frame}
+%\begin{Def}
+%\label{Def_proj}
+%Soit $\pi_p $ la projection $\C^n \to \C^{n-p} $ définie par : $\forall (a_1,\ldots,a_n) \in \mathbb{C}^n, \pi_p (a_1,\ldots,a_n) =(a_{p+1},\ldots,a_n) $.
+%\end{Def}
+%\begin{prop}
+%Pour tout $1 \leq p \leq n-1$, la projection $\pi_p$ est une application surjective.
+%\end{prop}
+%\end{frame}
 \subsubsection{Géométrie de l'élimination}
 \begin{frame}
 
@@ -622,10 +622,7 @@ En d'autres termes, d'après le théorème d'extension, un élément de $Z(I_1)$ peut
 \item Si $V \neq \emptyset$, alors il existe une variété affine $W \subsetneqq Z(I_p)$ telle que $Z(I_p) \setminus W \subset \pi_p(V)$
 \end{enumerate}
 \end{Thm}
-\begin{cor}
-Supposons qu'il existe $i \in [\![1,n]\!]$ tel que $f_i$ s'écrit de la forme : \\
-$f_i=cX_1^{N}$+termes de degré $<N$ en $X_1$ où $N> 0$ et $c \in \mathbb{C}\setminus \{0\}$.  \\Alors $\pi(V)=Z(I_1)$.
-\end{cor}
+
 \end{frame}
 \section{Implicitation}
 
