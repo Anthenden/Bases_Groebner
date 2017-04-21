@@ -98,11 +98,10 @@ Blabla d'intro
 \begin{frame}
 
 \begin{enumerate}
-\item  La description d'un idéal : Peut-on trouver une famille génératrice préférée  pour chaque idéal $I \subset k[X_1,\ldots,X_n]$?
-\item L'appartenance à un idéal : Soit $f \in k[X_1,\ldots,X_n]$ et un idéal $I:=\left \langle f_1,\ldots,f_s \right \rangle$. Comment montrer que $f \in I$ ?
- \item La résolution de systèmes polynomiaux : Trouver les zéros communs dans $k^n$ d'une famille de polynômes.
- \item Le problème d'implicitation : Soit $V$  le sous-ensemble de $k^n $ paramétré par : $x_i=g_i(t_1,\ldots,t_n) , 1 \leq i \leq n $ où les $g_i$ sont des polynômes ou des fractions rationelles.
-Peut-on trouver des équations polynomiales en $X_i$ décrivant $V$ ?
+\item  La description d'un idéal 
+\item L'appartenance à un idéal 
+ \item La résolution de systèmes polynomiaux 
+ \item Le problème d'implicitation 
 \end{enumerate}
 \end{frame}
 
@@ -125,43 +124,36 @@ Division euclidienne de $f$ par $P$ : $f=PQ+R$ où $\deg(R) < \deg(P)$.\\
 Caractérisation d'appartenance à $I$ :  $f \in I \Leftrightarrow R=0$.
 \end{frame}
 \begin{frame}
-
+% A changer aussi dans le rapport
 \begin{Thm}
 $k[X_1,\ldots,X_n]$ n'est pas principal pour $n>1$.
 \end{Thm}
 
-Cela se démontre grâce aux deux lemmes suivants : 
-
-\begin{Lemme}
-Soit $A$ un anneau intègre commutatif.
-$A[X]$ est principal si, et seulement si, $A$ est un corps.
-\end{Lemme}
-
-\begin{Lemme}
-Soit $A$ un anneau intègre commutatif. $A[X]$ n'est pas un corps.
-\end{Lemme}
+nombre fini de générateurs ?
 
 \end{frame}
 
 \subsection{$k[X_1,\ldots,X_n]$ est noethérien}
 \begin{frame}
-\begin{Def}
-Soit $A$ un anneau commutatif. On dit que $A$ est un anneau noethérien si tout idéal $I$ de $A$ est engendré par un nombre fini d'éléments.
-\end{Def}
-Dans la suite, on aura aussi besoin d'une autre caractérisation des anneaux noethériens
-\begin{prop}
-Une suite croissante d'idéaux d'un anneau noethérien est stationnaire.
-\end{prop}
-\begin{Ex} Tout anneau principal est noethérien car chaque idéal d'un anneau principal $A$  est de la forme $aA$ où $a \in A$. En particulier, tout corps est noethérien (les idéaux d'un corps sont $\{0\}$ et lui-même).
-\end{Ex}
+
+Soit $A$ un anneau commutatif. \\
+2 conditions équivalentes pour que $A$ soit un anneau noethérien  : 
+
+\begin{itemize}
+	\item tout idéal $I$ de $A$ est engendré par un nombre fini d'éléments.
+
+\item Une suite croissante d'idéaux d'un anneau noethérien est stationnaire.
+\end{itemize}
+
+
 \end{frame}
 \begin{frame}
 \begin{Thm}[de la base de Hilbert]
 Soit $A$ un anneau noethérien. Alors $A[X]$ est aussi un anneau noethérien.
 \end{Thm}
-\begin{cor}
-$k[X_1,\ldots,X_n]$ est un anneau noethérien.
-\end{cor}
+
+Conséquence immédiate : $k[X_1,\ldots,X_n]$ est un anneau noethérien.
+
 
 \end{frame}
 
@@ -187,10 +179,10 @@ Ordre monomial = relation de bon ordre total de $\mathscr{M}$ compatible avec le
 
 Pour $P:=\sum_{\alpha} p_{\alpha}X^\alpha \in k[X_1,\ldots,X_n]$ et $\geq$ un ordre monomial 
 \begin{enumerate}
-        \item  Le monôme dominant de $P$ est : $\LM(P):=\max\{X^\alpha \in \mathscr{M} | p_\alpha \neq 0\}$
-\item Le multidegré de $f$ est l'élément de $\mathbb{N}^n$, noté $\multideg(P)$, tel que $X^{\multideg(P)}=LM(P)$
- \item Le coefficient dominant de $P$ est $\LC(P):=p_{\multideg(P)}$
-\item Le terme dominant de $P$ est $\LT(P):=\LC(P)\cdot \LM(P)$
+\item  Monôme dominant de $P$ : $\LM(P):=\max\{X^\alpha \in \mathscr{M} | p_\alpha \neq 0\}$
+\item Multidegré de $f$, noté $\multideg(P)$, défini par : $X^{\multideg(P)}=LM(P)$
+ \item Coefficient dominant de $P$ : $\LC(P):=p_{\multideg(P)}$
+\item Terme dominant de $P$ : $\LT(P):=\LC(P)\cdot \LM(P)$
 \end{enumerate}
 
 \end{frame}
@@ -262,15 +254,14 @@ $X>_{lex}Y>_{lex}Z$\\
 \end{frame}
 
 \begin{frame}
-Le reste dépend du $s$-uplet choisi et dans quel ordre sont les polynômes de celui-ci.
-\begin{Ex}
-\label{ex}
-Soient $f=X^2+Y^2+Z^2-4$, $g=Y^2+2Z^2-5$ et $h=XY-1$ trois polynômes de $k[X,Y,Z]$ et $P=YZf-Yg+2Zh$. L'algorithme de division pour l'ordre lexicographique nous donne :
+Le reste dépend du $s$-uplet choisi et dans quel ordre sont les polynômes de celui-ci.\\
+
+$f=X^2+Y^2+Z^2-4$, $g=Y^2+2Z^2-5$, $h=XY-1$ et $P=YZf-Yg+2Zh$. 
 \begin{itemize}
         \item Avec la famille $(f,g,h)$, on obtient $P=2Zf+(XZ-Y)g+(-2XZ^3+5XZ-YZ)$
         \item Avec la famille $(h,g,f)$, on obtient $P=YZf-Yg+2Zh$
 \end{itemize}
-\end{Ex}
+
 
 
 
@@ -454,7 +445,9 @@ Soit $I $ un idéal de $k[X_1,\ldots,X_n]$ et $G$ une base de Gröbner de $I$ selo
 \end{Thm}
 
 
-Avec les $f,g,h$ de l'exemple \ref{ex}, le premier idéal d'élimination est : \\$I_1=\left\langle X - YZ^2 + Y, Y^2 + 2*Z^2 - 5, Z^4 - 7/2Z^2 + 3\right\rangle$ et le second $I_2=\left\langle Z^4 - 7/2Z^2 + 3\right\rangle$
+Avec les $f,g,h$ de l'exemple précédent, 
+\\$I_1=\left\langle X - YZ^2 + Y, Y^2 + 2*Z^2 - 5, Z^4 - 7/2Z^2 + 3\right\rangle$ \\ 
+$I_2=\left\langle Z^4 - 7/2Z^2 + 3\right\rangle$
 
 
 \end{frame}
@@ -498,12 +491,26 @@ a_p & a_{p-1} &\ddots & \vdots &0 & b_q &\vdots & \ddots & b_1 & b_0 \\
 
 \begin{Thm}
 \label{zeros}
-Supposons le corps $K$ alg\'ebriquement clos. Alors $Res(A,B)=0$ si, et seulement si, les polyn\^omes $A$ et $B$ ont une racine commune.  % A reformuler
+Soit $A,B \in \C[X]$. Alors $Res(A,B)=0$ si, et seulement si, les polyn\^omes $A$ et $B$ ont une racine commune.  
 \end{Thm}
 \begin{Thm}
 \label{eval}
 Soient $f=\sum_{i=0}^p f_i(X_2,\ldots,X_n)X_1^i,g=\sum_{i=0}^m g_i(X_2,\ldots,X_n)X_1^i \in k[X_1,\ldots,X_n]$. Soit $c \in k^{n-1}$ tel que $f_p(c)$ et $g_q(c)$ ne s'annulent pas simultanément. Alors $\Res_{X_1}(f,g)(c)=0 \Leftrightarrow \Res(f(X_1,c),g(X_1,c))=0$.\\
 \end{Thm}
+\end{frame}
+\begin{frame}
+
+
+
+Variété affine définie par $f_1,\ldots,f_s$ : \\
+$Z(f_1,\ldots,f_s)=\{(a_1,\ldots,a_n) \in k^n | \forall i \in [\![1,s]\!],f_i(a_1,\ldots,a_n)=0 \}$.
+
+
+Intersection de deux variétés est une variété. 
+
+Si $\left\langle F \right\rangle=\left\langle G\right\rangle$ alors $Z(F)=Z(G)$
+
+En particulier, $Z(f_1,\ldots,f_s)=Z(\left\langle f_1,\ldots,f_s\right\rangle)$
 \end{frame}
 %A voir si on le met
 %\subsubsection{Intersection de deux courbes algébriques %planes}
@@ -555,36 +562,18 @@ Supposons qu'on ait une solution partielle $(a_2,\ldots,a_n) \in Z(I_1)$. Si $(a
 
 \begin{frame}
 
-On va maintenant finir d'étudier notre exemple (celui de \ref{ex}).
-\begin{Ex}
-On a $I_1=\left\langle g,Z^4-7/2Z^2+3 \right\rangle$ et $I_2=\left\langle Z^4-7/2Z^2+3 \right\rangle$. \\
-On a $Z(I_2)=Z(\left\langle Z^4-7/2Z^2+3\right\rangle)=\{\pm \sqrt{2},\pm \sqrt{3/2}\}$. Puis, comme le terme dominant de $g$ est constant alors on peut utiliser le théorème d'extension pour montrer que $Z(I_1)=\{(\pm 1,\pm \sqrt{2}),(\pm\sqrt{2},\pm \sqrt{3/2})\}$ puis de la m\^eme façon, on a que $Z(I)=\{\pm(1,1,\pm\sqrt{2}),\pm(1/\sqrt{2},\sqrt{2},\pm\sqrt{2})\}$
-\end{Ex}
+Reprenons l'exemple précédent : \\ 
+
+$I_1=\left\langle g,Z^4-7/2Z^2+3 \right\rangle$ et $I_2=\left\langle Z^4-7/2Z^2+3 \right\rangle$. \\
+$Z(I_2)=Z(\left\langle Z^4-7/2Z^2+3\right\rangle)=\{\pm \sqrt{2},\pm \sqrt{3/2}\}$. 
+$Z(I_1)=\{(\pm 1,\pm \sqrt{2}),(\pm\sqrt{2},\pm \sqrt{3/2})\}$ \\
+$Z(I)=\{\pm(1,1,\pm\sqrt{2}),\pm(1/\sqrt{2},\sqrt{2},\pm\sqrt{2})\}$
+
 \end{frame}
 \subsection{Géométrie de l'élimination}
 
-\subsubsection{Résultats préliminaires}
-\begin{frame}
 
 
-\begin{Def}
-Soit $f_1,\ldots,f_s$ des polynômes de $k[X_1,\ldots,X_n]$.\\ On appelle variété affine définie par $f_1,\ldots,f_s$ l'ensemble : $Z(f_1,\ldots,f_s)=\{(a_1,\ldots,a_n) \in k^n | \forall i \in [\![1,s]\!],f_i(a_1,\ldots,a_n)=0 \}$.
-\end{Def}
-\begin{Ex}
-Dans $\R^2$, le cercle ($=Z(X^2+Y^2-R^2)$ où $R\in \R$), la parabole ($=Z(2pX^2-Y)$ où $p\in \R$) et plus généralement, les coniques sont des variétés affines. \\
-Les sous-espaces affines de $k^n$ sont aussi des variétés affines.
-\end{Ex}
-\end{frame}
-\begin{frame}
-\begin{Lemme} : Si $V,W \subset k^n$ sont des variétés affines alors $V \cap W$ aussi.
-\end{Lemme}
-
-
-\begin{prop} Si $\{f_1,\ldots,f_s\}$ et $\{g_1,\ldots,g_r\}$ sont des bases d'un même idéal $I$ de $k[X_1,\ldots,X_n]$ alors $Z(f_1,\ldots,f_s)=Z(g_1,\ldots,g_r)$
-\end{prop}
-
-En particulier, $Z(f_1,\ldots,f_s)=Z(\left\langle f_1,\ldots,f_s\right\rangle)$
-\end{frame}
 %\begin{frame}
 %\begin{Def}
 %\label{Def_proj}
@@ -598,17 +587,16 @@ En particulier, $Z(f_1,\ldots,f_s)=Z(\left\langle f_1,\ldots,f_s\right\rangle)$
 \begin{frame}
 
 
-Soit $V=Z(f_1,\ldots,f_s) \subset \C^n $
-\begin{Lemme}
-\label{lemme_inclus}
-Soit $I_p $ le $p $ème idéal d'élimination de l'idéal $\left\langle f_1,\ldots,f_s \right \rangle $ de $\C[X_1,\ldots,X_n] $.\\ Alors, dans $\C^{n-p} $, $\pi_p (V) \subset Z (I_p) $.
-\end{Lemme}
+$V=Z(f_1,\ldots,f_s) \subset \C^n $, $I_p$ les idéaux d'élimination de $\left\langle f_1,\ldots,f_s\right\rangle$
 
-\begin{Thm}  Soit $g_i $ défini dans le théorème d'extension et $I_1$ le premier idéal d'élimination de $\left\langle f_1,\ldots,f_s \right\rangle$. On a alors l'égalité, dans $\C^{n-1} $,\\
+ $\pi_p (V) \subset Z (I_p) $.
+
+
+\begin{Thm}  Soit $g_i $ défini dans le théorème d'extension. Alors : \\
 $Z (I_1)=\pi(V) \cup (Z (g_1,\ldots,g_s) \cap Z (I_1))$
 \end{Thm}
 
-En d'autres termes, d'après le théorème d'extension, un élément de $Z(I_1)$ peut soit être étendu en une solution de $Z(I)$ (\emph{i.e.} appartient à $\pi(V)$) soit est un zéro commun des $g_i$. \\
+
 \end{frame}
 \begin{frame}
 
@@ -630,12 +618,12 @@ En d'autres termes, d'après le théorème d'extension, un élément de $Z(I_1)$ peut
 
 
 \begin{Thm}
-Soit $F:k^m \to k^n$ une fonction d\'etermin\'ee par la param\'etrisation polynomiale $(\dagger)$.\\ Soit $I$ l'id\'eal $\left\langle X_1-f_1,\ldots,X_n-f_n \right\rangle \subset k[T_1,\ldots,T_m,X_1,\ldots,X_n]$ et $I_m$ son $m$ \`eme id\'eal d'\'elimination. Alors $Z(I_m)$ est le plus petit variété de $k^n$ contenant $F(k^m)$.  % A arranger
+Soit $F=(f_1,\ldots,f_n):k^m \to k^n$ une application à composantes polynomiales .\\ Soit $I$ l'id\'eal $\left\langle X_1-f_1,\ldots,X_n-f_n \right\rangle \subset k[T_1,\ldots,T_m,X_1,\ldots,X_n]$ et $I_m$ son $m$ \`eme id\'eal d'\'elimination. Alors $Z(I_m)$ est la plus petite variété de $k^n$ contenant $F(k^m)$.  
 
 \end{Thm}\end{frame}
 
 \begin{frame}
-\begin{Ex}
+
 \label{Whitney}
 Parapluie de Withney : $\Gamma_k$ $\begin{cases} x=uv \\ y=u\\ z=v^2\end{cases} ,\; u,v \in k^2$. \\
 Variété associée : $V_k:=Z( X^2-Y^2Z)\subset k^3 $.
@@ -644,7 +632,7 @@ Variété associée : $V_k:=Z( X^2-Y^2Z)\subset k^3 $.
 \item $V_\C=\Gamma_\C $.\\
 \end{itemize}
 
-\end{Ex}
+
 \end{frame}
 
 \end{document}
