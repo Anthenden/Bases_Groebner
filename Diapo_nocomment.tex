@@ -100,53 +100,61 @@ Blabla d'intro
 \begin{enumerate}
 \item  La description d'un idéal 
 \vspace{2\baselineskip}
+\pause
 \item L'appartenance à un idéal
 \vspace{2\baselineskip} 
+\pause
  \item La résolution de systèmes polynomiaux
 \vspace{2\baselineskip} 
+\pause
  \item Le problème d'implicitation 
 \end{enumerate}
 \end{frame}
 
 
-\section{Motivation}
+\section{Description des idéaux de $k[X_1,\ldots,X_n]$}
 \subsection{Cas $k[X]$}
 \begin{frame}
 
 \begin{itemize}
 	\item $k[X]$ est un anneau euclidien et donc principal. \\
 \vspace{\baselineskip} 
+\pause
 \item Idéal de $k[X]$ de la forme $Pk[X]$. \\
-\vspace{\baselineskip} 
+\vspace{\baselineskip}
+\pause 
 \item Division euclidienne de $f$ par $P$ : $f=PQ+R$ où $\deg(R) < \deg(P)$.\\
 \vspace{\baselineskip} 
+\pause
 \item Caractérisation d'appartenance à $I$ :  $f \in I \Leftrightarrow R=0$.
 \end{itemize}
 
 \end{frame}
 \begin{frame}
-
+\subsection{$k[X_1,\ldots,X_n]$ est noethérien}
 \begin{Thm}
 $k[X_1,\ldots,X_n]$ n'est pas principal pour $n>1$.
 \end{Thm}
 \vspace{3\baselineskip} 
-
+\pause
 \begin{itemize}
-\item nombre fini de générateurs ?
+\item Nombre fini de générateurs ?
 \end{itemize}
 
 \end{frame}
 
-\subsection{$k[X_1,\ldots,X_n]$ est noethérien}
+
 \begin{frame}
 
 Soit $A$ un anneau commutatif. \\
 \vspace{2\baselineskip} 
 2 conditions équivalentes pour que $A$ soit un anneau noethérien  : 
 \vspace{\baselineskip} 
+\pause
 \begin{itemize}
 	\item tout idéal $I$ de $A$ est engendré par un nombre fini d'éléments.
 \vspace{\baselineskip} 
+\pause
 \item Une suite croissante d'idéaux d'un anneau noethérien est stationnaire.
 \end{itemize}
 
@@ -156,6 +164,7 @@ Soit $A$ un anneau commutatif. \\
 \begin{Thm}[de la base de Hilbert]
 Soit $A$ un anneau noethérien. Alors $A[X]$ est aussi un anneau noethérien.
 \end{Thm}
+\pause
 \vspace{2\baselineskip} 
 \begin{itemize}
 	\item Conséquence immédiate : $k[X_1,\ldots,X_n]$ est un anneau noethérien.
@@ -171,8 +180,10 @@ Soit $A$ un anneau noethérien. Alors $A[X]$ est aussi un anneau noethérien.
 Par analogie au cas à une indéterminée,il nous faut :  \\
 \vspace{2\baselineskip} 
 \begin{itemize}
+\pause
 	\item un algorithme permettant d'écrire $f$ sous la forme  $\sum g_if_i+r$. \\
-	\vspace{2\baselineskip} 
+	\vspace{2\baselineskip}
+	\pause
 \item un bon ordre afin d'avoir un critère de fin pour cet algorithme.
 \end{itemize}
 \end{frame}
@@ -181,7 +192,7 @@ Par analogie au cas à une indéterminée,il nous faut :  \\
 \subsubsection{Définitions}
 
 Ordre monomial = relation de bon ordre total de $\mathscr{M}$ compatible avec le produit 
-
+\pause
 
 \vspace{2\baselineskip}
 Pour $P:=\sum_{\alpha} p_{\alpha}X^\alpha \in k[X_1,\ldots,X_n]$ et $\geq$ un ordre monomial 
@@ -205,6 +216,7 @@ Ordre lexicographique $\geq_{lex}$ : \\
 $\alpha=(\alpha_1,\ldots,\alpha_n), \beta=(\beta_1,\ldots,\beta_n) \in \mathbb{N}^n$, \\
 $X^\alpha \geq_{lex} X^\beta$ ssi $\alpha=\beta$ ou le premier coefficient non nul en lisant par la gauche de $\alpha -\beta $ est positif.\\
 \vspace{2\baselineskip} 
+\pause
 Dans $k[X,Y,Z]$, \\
 $X^3>_{lex}X^2 >_{lex}X$\\
 $X>_{lex}Y>_{lex}Z$\\
@@ -252,9 +264,11 @@ Le reste dépend du $s$-uplet choisi et dans quel ordre sont les polynômes de cel
 \vspace{3\baselineskip} 
 $f=X^2+Y^2+Z^2-4$, $g=Y^2+2Z^2-5$, $h=XY-1$ et $P=YZf-Yg+2Zh$. 
 \vspace{\baselineskip} 
+\pause
 \begin{itemize}
         \item Avec la famille $(f,g,h)$, on obtient $P=2Zf+(XZ-Y)g+(-2XZ^3+5XZ-YZ)$
 				\vspace{\baselineskip} 
+				\pause
         \item Avec la famille $(h,g,f)$, on obtient $P=YZf-Yg+2Zh$
 \end{itemize}
 
@@ -273,6 +287,7 @@ $I$ un idéal de $k[X_1,\ldots,X_n]$  non réduit à $\{0\}$ \\
 \vspace{2\baselineskip} 
 $\LT(I):=\{\LT(f) |f \in I \}$. \\
 \vspace{2\baselineskip} 
+\pause
 Base de Gröbner : $G=\{g_1,\ldots,g_s\} \subset I$ tel que : \\
 $\left\langle \LT(I) \right\rangle=\left\langle \LT(g_1),\ldots,\LT(g_s)\right\rangle$.
 
@@ -284,8 +299,10 @@ $\left\langle \LT(I) \right\rangle=\left\langle \LT(g_1),\ldots,\LT(g_s)\right\r
 \begin{itemize}
 	\item Tout idéal a une base de Gröbner 
 	\vspace{3\baselineskip} 
+	\pause
 \item Une base de Gröbner est une base de l'idéal  \\
 \vspace{3\baselineskip} 
+\pause
 \item Division par une base de Gröbner ne dépend pas du reste.
 \end{itemize}
 
@@ -297,7 +314,7 @@ $\left\langle \LT(I) \right\rangle=\left\langle \LT(g_1),\ldots,\LT(g_s)\right\r
 
 Le $S$-polynôme de $f$ et $g$ est le polynôme : $S(f,g):=\frac{X^\gamma}{\LT(f)}f-\frac{X^\gamma}{\LT(g)} g$\\ où les coordonnées de $\gamma$ sont les maximum des coefficients de $\multideg(f)$ et $\multideg(g)$
 
-
+\pause
 \begin{Thm} Soit $I$ un idéal de $k[X_1,\ldots,X_n]$. Alors une base $G=\{g_1,\ldots,g_n\}$ de $I$ est une base de Gröbner de $I$ si, et seulement si, pour tout couple $(i,j)$, $i \neq j$, $\overline{S(g_i,g_j)}^G=0$
 \end{Thm}
 
@@ -348,12 +365,12 @@ Le $S$-polynôme de $f$ et $g$ est le polynôme : $S(f,g):=\frac{X^\gamma}{\LT(f)}
 
 $I=\left\langle f_1,\ldots,f_s \right\rangle $ un idéal de $k[X_1,\ldots,X_n]$. \\
  $p$ème idéal d'élimination de $I$ :  $I_p:=k[X_{p+1},\ldots,X_n] \cap I$
-
+\pause
 \begin{Thm}[d'élimination]
 Soit $I $ un idéal de $k[X_1,\ldots,X_n]$ et $G$ une base de Gröbner de $I$ selon l'ordre lexicographique. Alors, pour tout $p \in [\![0,n]\!]$, l'ensemble $G_p =G \cap k[X_{p+1},\ldots,X_n]  $ est une base de Gröbner du $p$ème idéal d'élimination $I_p$.
 \end{Thm}
 
-
+\pause
 Avec les $f,g,h$ de l'exemple précédent, 
 \\$I_1=\left\langle X - YZ^2 + Y, Y^2 + 2Z^2 - 5, Z^4 - 7/2Z^2 + 3\right\rangle$ \\ 
 $I_2=\left\langle Z^4 - 7/2Z^2 + 3\right\rangle$
@@ -386,17 +403,19 @@ a_p & a_{p-1} &\ddots & \vdots &0 & b_q &\vdots & \ddots & b_1 & b_0 \\
  $\Res_{X_1} (f, g)\in\left\langle f,g \right \rangle \cap k[X_2,\ldots,X_n]=I_1 $
 
 \end{prop}
-
+\pause
 
 \begin{Thm}
 \label{zeros}
 Soit $A,B \in \C[X]$. Alors $Res(A,B)=0$ si, et seulement si, les polyn\^omes $A$ et $B$ ont une racine commune.  
 \end{Thm}
+\pause
 \begin{Thm}
 \label{eval}
 Soient $f=\sum_{i=0}^p f_i(X_2,\ldots,X_n)X_1^i,g=\sum_{i=0}^m g_i(X_2,\ldots,X_n)X_1^i \in k[X_1,\ldots,X_n]$. Soit $c \in k^{n-1}$ tel que $f_p(c)$ et $g_q(c)$ ne s'annulent pas simultanément. Alors $\Res_{X_1}(f,g)(c)=0 \Leftrightarrow \Res(f(X_1,c),g(X_1,c))=0$.\\
 \end{Thm}
 \end{frame}
+\subsection{Géométrie}
 \begin{frame}
 
 
@@ -404,13 +423,15 @@ Soient $f=\sum_{i=0}^p f_i(X_2,\ldots,X_n)X_1^i,g=\sum_{i=0}^m g_i(X_2,\ldots,X_
 	\item Variété affine définie par $f_1,\ldots,f_s$ : \\
 $Z(f_1,\ldots,f_s)=\{a \in k^n | \forall i \in [\![1,s]\!],f_i(a)=0 \}$.
 \vspace{3\baselineskip} 
+\pause
 \item Intersection de deux variétés est une variété. \\
-\vspace{3\baselineskip} 
+\vspace{3\baselineskip} \pause
 \item Si $\left\langle F \right\rangle=\left\langle G\right\rangle$ alors $Z(F)=Z(G)$ \\
-\vspace{\baselineskip} 
+\vspace{\baselineskip} \pause
 En particulier, $Z(f_1,\ldots,f_s)=Z(\left\langle f_1,\ldots,f_s\right\rangle)$
 \end{itemize}
 \end{frame}
+
 
 \subsection{Théorème d'extension}
 \begin{frame}
@@ -428,13 +449,13 @@ Supposons qu'on ait une solution partielle $(a_2,\ldots,a_n) \in Z(I_1)$. Si $(a
 \begin{frame}
 
 Reprenons l'exemple précédent : \\ 
-\vspace{2\baselineskip} 
+\vspace{2\baselineskip} \pause
 $I_1=\left\langle g,Z^4-7/2Z^2+3 \right\rangle$ et $I_2=\left\langle Z^4-7/2Z^2+3 \right\rangle$. \\
-\vspace{\baselineskip} 
+\vspace{\baselineskip} \pause
 $Z(I_2)=Z(\left\langle Z^4-7/2Z^2+3\right\rangle)=\{\pm \sqrt{2},\pm \sqrt{3/2}\}$. \\
-\vspace{\baselineskip} 
+\vspace{\baselineskip} \pause
 $Z(I_1)=\{(\pm 1,\pm \sqrt{2}),(\pm\sqrt{2},\pm \sqrt{3/2})\}$ \\
-\vspace{\baselineskip} 
+\vspace{\baselineskip}\pause 
 $Z(I)=\{\pm(1,1,\pm\sqrt{2}),\pm(1/\sqrt{2},\sqrt{2},\pm\sqrt{2})\}$
 
 \end{frame}
@@ -442,16 +463,16 @@ $Z(I)=\{\pm(1,1,\pm\sqrt{2}),\pm(1/\sqrt{2},\sqrt{2},\pm\sqrt{2})\}$
 
 
 
-\subsubsection{Géométrie de l'élimination}
+
 \begin{frame}
 
 
 $V=Z(f_1,\ldots,f_s) \subset \C^n $, $I_p$ les idéaux d'élimination de $\left\langle f_1,\ldots,f_s\right\rangle$ \\
-\vspace{2\baselineskip} 
+\vspace{2\baselineskip} \pause
 \begin{itemize}
 	\item  $\pi_p (V) \subset Z (I_p) $. \\
 \end{itemize}
-\vspace{2\baselineskip} 
+\vspace{2\baselineskip} \pause
 \begin{Thm}  Soit $g_i $ défini dans le théorème d'extension. Alors : \\
 $Z (I_1)=\pi(V) \cup (Z (g_1,\ldots,g_s) \cap Z (I_1))$
 \end{Thm}
@@ -487,8 +508,8 @@ Soit $F=(f_1,\ldots,f_n):k^m \to k^n$ une application à composantes polynomiales
 \label{Whitney}
 Parapluie de Withney : $\Gamma_k$ $\begin{cases} x=uv \\ y=u\\ z=v^2\end{cases} ,\; u,v \in k^2$. \\
 Variété associée : $V_k:=Z( X^2-Y^2Z)\subset k^3 $.
-\begin{itemize}
-\item $V_\R=\Gamma_\R\cup \{ (0,0,a) | a <0 \} $. 
+\begin{itemize}\pause
+\item $V_\R=\Gamma_\R\cup \{ (0,0,a) | a <0 \} $. \pause
 \item $V_\C=\Gamma_\C $.\\
 \end{itemize}
 
