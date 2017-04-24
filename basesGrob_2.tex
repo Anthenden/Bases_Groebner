@@ -109,7 +109,7 @@ Nous allons ensuite discuter de l'élimination des variables dans les systèmes po
 
 \section*{Conventions et Notations}
 Dans ce rapport, $k$ est un corps commutatif de caractéristique 0 et $n$ un entier naturel strictement positif. \\
-On considérera l'anneau de polynômes $k[X_1,\ldots,X_n]$ à $n$ indéterminées $X_1,\ldots,X_n$ construit par récurrence par : $\forall k<n, k[X_1,\ldots,X_{k+1}]:=k[X_1,\ldots,X_k][X_{k+1}]$. On pourra identifier cet anneau à celui des fonctions polynômiales à $n$ variables (grâce à l'infinité de $k$). \\
+On considérera l'anneau de polynômes $k[X_1,\ldots,X_n]$ à $n$ indéterminées $X_1,\ldots,X_n$ construit par récurrence comme suit : $\forall p<n, k[X_1,\ldots,X_{p+1}]:=k[X_1,\ldots,X_p][X_{p+1}]$. On pourra identifier cet anneau à celui des fonctions polynômiales à $n$ variables (grâce à l'infinité de $k$). \\
 On appelle monômes tout polynôme de la forme $X_1^{\alpha_1}\ldots X_n^{\alpha_n}$ où $\alpha_i \in \N$ que l'on abrégera $X^{(\alpha_1,\ldots,\alpha_n)}$. On notera $\mathscr{M}$ l'ensemble des monômes. Pour tout $p \in \N$ et pour tout anneau commutatif $A$, on notera $A[X]_{\leq p}$ (resp. $A[X]_{< p}$)  l'ensemble des polynômes de degré $\leq$ (resp $<$) à $p$.\\
 On appelera base d'un idéal $I$ une famille $F=(f_1,\ldots,f_s)$ telle que $I=\left\langle F\right\rangle$.
 \newpage
@@ -129,35 +129,17 @@ On a alors la caractérisation suivante :  $f \in I \Leftrightarrow R=0$.
 Ce qui règle les problèmes 1 et 2 de l'introduction pour $k[X]$.\\
 Cependant, lorsque $n>1$, $k[X_1,\ldots,X_n]$ n'est plus euclidien et même plus principal (il est tout de même factoriel). Nous allons montrer ce résultat et afin de décrire ses idéaux, définir la notion plus faible d'anneau noethérien qui convient à $k[X_1,\ldots,X_n]$
 
-\subsection{$k[X_1,\ldots,X_n]$ n'est pas principal} % A modifier
-Pour montrer que $k[X_1,\ldots,X_n]$ n'est pas principal, nous allons montrer deux lemmes : le premier qui est la réciproque à la principalité de $k[X]$ et le second pour faire marcher l'autre lemme dans une récurrence sur le nombre d'indéterminées.
-\begin{Lemme}
-Soit $A$ un anneau intègre commutatif.
-$A[X]$ est principal si, et seulement si, $A$ est un corps. 
-\end{Lemme}
-\begin{proof} 
-$\Leftarrow$  : $A[X] $ est euclidien pour le stathme euclidien du degré. Comme $A[X]$ est aussi intègre alors $A[X]$ est principal.\\
-$\Rightarrow$ : Soit  $a \in A\setminus\{0\}$.
-Soit $I=\left\langle a,X \right\rangle=\left\langle P \right\rangle$ car $A[X]$ est principal.
-Comme $P$ divise $a$ et que $A[X]$ est intègre(car $A$ est intègre) alors $P$ est constant (degré).
-De plus, comme $P$ divise $X$ alors il existe $a,b \in A$ tel que $X=P(aX+b)$ (degré).
-D'où $X=aPX+bP$ ou encore, par unicité des coefficients, $aP=1$ et donc $a$ est inversible.
-\end{proof}
-\begin{Lemme}
-Soit $A$ un anneau intègre commutatif. $A[X]$ n'est pas un corps.
-\end{Lemme}
-\begin{proof} 
-$X$ n'a pas d'inverse pour des questions de degré (par intégrité de $A$).
-\end{proof}
+\subsection{$k[X_1,\ldots,X_n]$ est noethérien}
+Contrairement au cas à une indéterminée, lorsque $n>1$, $k[X_1,\ldots,X_n]$ n'est plus euclidien et même plus principal (il est tout de même factoriel). Nous allons montrer ce résultat et afin de décrire ses idéaux, définir la notion plus faible d'anneau noethérien qui convient à $k[X_1,\ldots,X_n]$
 \begin{Thm}
 $k[X_1,\ldots,X_n]$ n'est pas principal pour $n>1$.
 \end{Thm}
 \begin{proof}
-On le montre par récurrence sur le nombre d'indéterminées : \\
-En utilisant les deux lemmes précédents, on obtient que $ k[X_1,X_2]=k[X_1][X_2]$ n'est pas principal car $k[X_1]$ n'est pas un corps. Soit $n>1$ et supposons que $k[X_1,\ldots,X_n]$ n'est pas principal (et \emph{ a fortiori } n'est pas un corps).
-$k[X_1,\ldots,X_{n+1}]=k[X_1,\ldots,X_n][X_{n+1}]$ n'est pas principal par le lemme $1$.
+Supposons, par l'absurde, que $k[X_1,\ldots,X_n]$ est principal et considérons l'idéal $\left\langle X_1,\ldots,X_n\right\rangle$ qui serait donc engendré par un polynôme $P$ non nul. On a alors : $\deg_{X_i}(P) \leq \deg_{X_i}(X_j)=0$ pour $i \neq j$ et donc $\deg_{X_i}(P)=0$ pour tout $1 \leq i \leq n$. On en déduit que $P$ est une constante non nul. Comme $P \in\left\langle X_1,\ldots,X_n\right\rangle$ alors $P(0,\ldots,0)=0$, d'où une contradiction.
 \end{proof}
-\subsection{$k[X_1,\ldots,X_n]$ est noethérien}
+
+
+
 \begin{Def}
 Soit $A$ un anneau commutatif. On dit que $A$ est un anneau noethérien si tout idéal $I$ de $A$ est engendré par un nombre fini d'éléments.
 \end{Def}
@@ -219,7 +201,7 @@ On peut remarquer que l'ordre induit par le degré dans $k[X]$ est un ordre monom
 Soit $P:=\sum_{\alpha} p_{\alpha}X^\alpha \in k[X_1,\ldots,X_n]$ et $\geq$ un ordre monomial. 
 \begin{enumerate}
 	\item  Le monôme dominant de $P$ est : $\LM(P):=\max\{X^\alpha \in \mathscr{M} | p_\alpha \neq 0\}$
-\item Le multidegré de $f$ est l'élément de $\mathbb{N}^n$, noté $\multideg(P)$, tel que $x^{\multideg(P)}=LM(P)$
+\item Le multidegré de $f$ est l'élément de $\mathbb{N}^n$, noté $\multideg(P)$, tel que $X^{\multideg(P)}=LM(P)$
  \item Le coefficient dominant de $P$ est $\LC(P):=p_{\multideg(P)}$
 \item Le terme dominant de $P$ est $\LT(P):=\LC(P)\cdot \LM(P)$
 \end{enumerate}
@@ -246,7 +228,7 @@ $\forall p \geq N_n, X^{u_{1,p},\ldots,u_{n,p}}=X^{u_{1,N_n},\ldots,u_{n,N_n}}$,
 \end{proof}
 Les deux ordres suivants comparent les degrés totaux des monômes.
 \begin{Def}
-Le degré total du monôme $X_1^{\alpha_1}\ldots X_n^{\alpha_n}$ est $|\alpha_1,\ldots,\alpha_n|:=\sum \alpha_i$\\
+Le degré total du monôme $X_1^{\alpha_1}\ldots X_n^{\alpha_n}$ est $|(\alpha_1,\ldots,\alpha_n)|:=\sum \alpha_i$\\
 Le degré d'un polynôme $f \in k[X_1,\ldots,X_n]$ est le maximum des degrés totaux des monômes le constituant.
 
 \end{Def}
@@ -269,7 +251,7 @@ Dans ce paragraphe, nous allons énoncer et démontrer l'algorithme de division.
 	\label{LM_dec}
 	\end{Lemme}
 	\begin{proof}
-	Soit $\alpha,\alpha_1,\ldots,\alpha_n \in \mathbb{N}^n $ tel que : $X^\alpha >X^{\alpha_1}>\ldots >X^{\alpha_n}$ et $f=pX^\alpha+\sum p_{\alpha_i}X^{\alpha_i}$ et $g=pX^\alpha+\sum q_{\alpha_i}X^{\alpha_i}$ alors $\LM(f-g)=\LM(\sum (p_{\alpha_i}-q_{\alpha_i})X^{\alpha_i}) \leq X^{\alpha_1} < X^\alpha=\LM(f)=\LM(g)$\end{proof}
+	Soient $\alpha,\alpha_1,\ldots,\alpha_p \in \mathbb{N}^n $ tel que : $X^\alpha >X^{\alpha_1}>\ldots >X^{\alpha_p}$ tels que $f=pX^\alpha+\sum p_{\alpha_i}X^{\alpha_i}$ et $g=pX^\alpha+\sum q_{\alpha_i}X^{\alpha_i}$ alors $\LM(f-g)=\LM(\sum (p_{\alpha_i}-q_{\alpha_i})X^{\alpha_i}) \leq X^{\alpha_1} < X^\alpha=\LM(f)=\LM(g)$\end{proof}
 	\begin{Lemme} Soit $f \in k[X_1,\ldots,X_n]$, $\alpha \in \N^n$ et $p \in k^*$.
 	Alors $\LT(pX^\alpha f)=pX^\alpha \LT(f)$
 	\label{LT_prod}
@@ -373,7 +355,7 @@ Soit $I:=\left\langle X^{\alpha} | \alpha \in A \right\rangle$ un idéal de $k[X_
 
 \begin{proof}
 $\Rightarrow $ Si $X^\beta \in I$ alors il existe une famille de polynômes $P_1,\ldots,P_s \in k[X_1,\ldots,X_n]$ et d'exposants $\alpha_1,\ldots,\alpha_s \in A$ telle que $X^\beta = \sum_{i=1}^s P_i X^{\alpha_i}$. \\
-On peut alors remarquer, en utilisant les expressions $P_i:=\sum p_{i,\alpha} X^\alpha$, que $X^\beta$ est de la forme $\sum_{\gamma \in \Gamma} p_\gamma X^{\gamma}$ où $\Gamma:=\{\gamma \in \mathbb{N}^n | \exists n \in \mathbb{N}^n,\exists i \in [\![1,s]\!],\gamma=\alpha_i+n\}$. 
+On peut alors remarquer, en utilisant les expressions $P_i:=\sum p_{i,\alpha} X^\alpha$, que $X^\beta$ est de la forme $\sum_{\gamma \in \Gamma} p_\gamma X^{\gamma}$ où $\Gamma:=\{\gamma \in \mathbb{N}^n | \exists p \in \mathbb{N}^n,\exists i \in [\![1,s]\!],\gamma=\alpha_i+p\}$. 
 Et donc $X^\beta- \sum_{\gamma \in \Gamma} p_\gamma X^{\gamma}=0 \; (*)$ \\
 Comme $k[X_1,\ldots,X_n]$ est un $k$-espace vectoriel de base canonique $\mathscr{M}$, on déduit de $(*)$ que $p_\gamma=\begin{cases}
  0 \text{ si } \gamma \neq \beta \\
@@ -398,7 +380,7 @@ En itérant ce raisonnement, on obtient que le reste de la division de $f$ par $g
 Nous allons maintenant montrer la propriété des bases de Gröbner promise à la fin de la section précédente : l'unicité du reste de la division par une base de Gröbner.
 
 \begin{prop}
- Soit $G=\{g_1,\ldots,g_s\}$ une base de Gröbner d'un idéal $I$ de $k[X_1,\ldots,X_n]$ et $f \in I$. Alors il existe un unique $r \in k[X_1,\ldots,X_n]$ vérifiant : 
+ Soit $G=\{g_1,\ldots,g_s\}$ une base de Gröbner d'un idéal $I$ de $k[X_1,\ldots,X_n]$ et $f \in k[X_1,\ldots,X_n]$. Alors il existe un unique $r \in k[X_1,\ldots,X_n]$ vérifiant : 
 \begin{enumerate}
 	\item  Tous les termes de $r$ ne sont divisible par aucun des $\LT(g_i)$
 \item Il existe $g \in I$ tel que $f=g+r$
@@ -622,10 +604,10 @@ En notant par $c $ l'élément de $ (k[X_2,\ldots,X_n])[X]_{<\deg(g)}\times (k[X_2
 \begin{prop}
 \begin{itemize}
 \label{result_deg}
-    \item Si $p=deg(A)$ et $q=deg(B)$ alors, par d\'efinition, $Res(A,B)=Res_{p,q}(A,B)$
-    \item Si $p=deg(A)$ et $q>deg(B)$ alors $Res_{p,q}(A,B)=((-1)^p a_p)^{q-deg B}Res(A,B)$
-    \item Si $p>deg(A)$ et $q=deg(B)$ alors $Res_{p,q}(A,B)=b_q^{p-deg A}Res(A,B)$
-    \item Si $p>deg(A)$ et $q>deg(B)$ alors $Res_{p,q}(A,B)=0$
+    \item Si $p=\deg(A)$ et $q=\deg(B)$ alors, par d\'efinition, $\Res(A,B)=\Res_{p,q}(A,B)$
+    \item Si $p=\deg(A)$ et $q>\deg(B)$ alors $\Res_{p,q}(A,B)=((-1)^p a_p)^{q-deg B}\Res(A,B)$
+    \item Si $p>\deg(A)$ et $q=\deg(B)$ alors $\Res_{p,q}(A,B)=b_q^{p-deg A}\Res(A,B)$
+    \item Si $p>\deg(A)$ et $q>\deg(B)$ alors $\Res_{p,q}(A,B)=0$
 \end{itemize}
 \end{prop}
 \begin{Thm}
@@ -657,7 +639,7 @@ $\Leftrightarrow  \PGCD(f(a,Y),g(a,Y))\neq 1$ car le PGCD de ces deux polynômes 
 $\Leftrightarrow  \Res(f(a,Y),g(a,Y))=0$   grâce aux propriétés du résultant. \\
 $\Leftrightarrow  \Res_Y(f,g)(a)=0$    car $f_m(a)$ et $g_n(a)$ ne sont pas simultanément nuls.  \\
 Autrement dit, $\pi_x(\Cscr \cap \Dscr) \subset Z(\Res_Y(f,g))$.\\
-De plus, pour pouvoir (éventuellement) compléter une solution partielle $a$ de $\pi_x(\Cscr \cap \Dscr)$ en une solution de $X \cap Y$, il suffit de calculer les racines $\{x_1,\ldots,x_n\}$ de $\PGCD(f(a,Y),g(a,Y))$ et ensuite de vérifier si les couples $(a,x_i)$ appartiennent à $\Cscr \cap \Dscr$.
+De plus, pour pouvoir (éventuellement) compléter une solution partielle $a$ de $\pi_x(\Cscr \cap \Dscr)$ en une solution de $X \cap Y$, il suffit de calculer les racines $\{x_1,\ldots,x_n\}$ de $\PGCD(f(a,Y),g(a,Y))$ (comme on peut le voir à la première équivalence ci-dessus) et ensuite de vérifier si les couples $(a,x_i)$ appartiennent à $\Cscr \cap \Dscr$.
 \begin{Ex}
 Supposons $f=(Y^2+6)(X^2-1)-Y(X^2+1), g=(Y^2+6)(X^2-1)-Y(X^2+1)$. \\
 On commence par calculer le résultant de ces polynômes (en Y) :
@@ -692,7 +674,6 @@ Ce qui permet de conclure que $f(X_1,c)$ et $g(X_1,c)$ ont une racine commune $c
 On obtient la m\^eme chose en supposant $g_q(c) \neq 0$.
 \end{proof}
 \begin{cor}
-
  Soit $I=\left \langle f_1,\ldots,f_s \right\rangle$ un idéal de $\mathbb{C}[X_1,\ldots,X_n]$ et supposons qu'il existe $i \in [\![1,n]\!]$ tel que $f_i$ s'écrit de la forme :
 $f_i=cX_1^{N}$+termes de degré $<N$ en $X_1$\\
 où $N> 0$ et $c \in \mathbb{C}\setminus \{0\}$. Si $I_1$ est le premier idéal d'élimination de $I$ et $(a_2,\ldots,a_n) \in Z(I_1)$ alors il existe $a_1 \in \mathbb{C}$ tel que $(a_1,\ldots,a_n) \in Z(I)$
@@ -704,7 +685,7 @@ On peut calculer une base de Gröbner de $I$ : $I=\left\langle X^2-Z,Y-Z\right\ra
 On peut remarquer que les termes dominants de $X^2-Y$ et $X^2-Z$ ne s'annulent pas. D'où, d'après le théorème d'extension, on peut étendre toutes les solutions partielles dans $\C$.\\
 Si on travaille dans $\R$, on peut étendre la solution $(c,c)$ en une solution de $S_1$ si, et seulement si $c\geq 0$ car les solutions de $S_1$ ont leur deuxième et troisième coordonnées positives. \\
 Soit $S_2$ le syst\`eme $\begin{cases}xy=1 \\ xz=1 \end{cases}$ et $I=\left\langle XY-1,XZ-1 \right\rangle$. \\
-On peut calculer une base de Gröbner de $I$ : $I=\left\langle xz-1,y-z\right\rangle$ d'où $I_1=<y-z>$.
+On peut calculer une base de Gröbner de $I$ : $I=\left\langle XZ-1,Y-Z\right\rangle$ d'où $I_1=<Y-Z>$.
 On en déduit que $Z(I_1)=\{(c,c) | c \in \C\}$ \\
 On peut étendre toutes les solutions partielles sauf la solution $(0,0)$ (car $0x=1$ n'a pas de solutions) où les termes dominants de $XY-1$ et $XZ-1$ en $X$ s'annulent
 \end{Ex}
@@ -735,17 +716,18 @@ En effet,$x \in V \cap W$ si, et seulement si, pour tous $i,j$, $f_i(x)=g_j(x)=0
 \begin{prop} Si $\{f_1,\ldots,f_s\}$ et $\{g_1,\ldots,g_r\}$ sont des bases d'un même idéal $I$ de $k[X_1,\ldots,X_n]$ alors $Z(f_1,\ldots,f_s)=Z(g_1,\ldots,g_r)$
 \end{prop}
 \begin{proof}
-Comme $\{f_1,\ldots,f_s\}$ et $\{g_1,\ldots,g_r\}$ sont des bases d'un même idéal alors on peut écrire les $g_i$ sous la forme $\sum_{i=1}^s h_{i,j}f_i$. De ce fait, si $x \in Z(f_1,\ldots,f_s)$ alors pour tout $j$, $f_j(x)=0$  et donc $g_i(x)=\sum_{i=1}^s h_{i,j}(x)f_i(x)=0$. Et donc $x\in Z(g_1,\ldots,g_r)$.\\
+Comme $\{f_1,\ldots,f_s\}$ et $\{g_1,\ldots,g_r\}$ sont des bases d'un même idéal alors on peut écrire les $g_j$ sous la forme $\sum_{i=1}^s h_{i,j}f_i$. De ce fait, si $x \in Z(f_1,\ldots,f_s)$ alors pour tout $j$, $f_j(x)=0$  et donc $g_j(x)=\sum_{i=1}^s h_{i,j}(x)f_i(x)=0$. Et donc $x\in Z(g_1,\ldots,g_r)$.\\
 Par symétrie de rôles, on obtient l'inclusion réciproque.
 \end{proof}
-En particulier, $Z(f_1,\ldots,f_s)=Z(\left\langle f_1,\ldots,f_s\right\rangle)$
+En particulier, $Z(f_1,\ldots,f_s)=Z(\left\langle f_1,\ldots,f_s\right\rangle)$. \\
+
+On va, dans la suite, considérer des projections de variété affine comme l'analogue géométrique de l'élimination des variables.
 \begin{Def} 
 \label{Def_proj}
-Soit $\pi_p $ la projection $\C^n \to \C^{n-p} $ définie par : $\forall (a_1,\ldots,a_n) \in \mathbb{C}^n, \pi_p (a_1,\ldots,a_n) =(a_{p+1},\ldots,a_n) $.
+Soit $\pi_p $ la projection (surjective) $\C^n \to \C^{n-p} $ définie par : $\forall (a_1,\ldots,a_n) \in \mathbb{C}^n, \pi_p (a_1,\ldots,a_n) =(a_{p+1},\ldots,a_n) $.
 \end{Def}
-\begin{prop}
-Pour tout $1 \leq p \leq n-1$, la projection $\pi_p$ est une application surjective.
-\end{prop}
+
+
 \subsubsection{Géométrie de l'élimination}
 Soit $V=Z(f_1,\ldots,f_s) \subset \C^n $
 \begin{Lemme}
@@ -767,6 +749,11 @@ Alors si $a\notin\left\langle g_1,\ldots,g_s \right \rangle $, on a, d'après le 
 Sinon $a \in \left\langle g_1,\ldots,g_s \right \rangle$ et donc dans $\left\langle g_1,\ldots,g_s \right \rangle \cap Z (I_1) $
 \end{proof}
 En d'autres termes, d'après le théorème d'extension, une solution partielle de $Z(I_1)$ peut soit être étendue en une solution de $Z(I)$ (\emph{i.e.} appartient à $\pi(V)$) soit est un zéro commun des $g_i$. \\
+On a, de la même façon que pour le théorème d'extension, le corollaire suivant : 
+\begin{cor}
+Supposons qu'il existe $i \in [\![1,n]\!]$ tel que $f_i$ s'écrit de la forme : \\
+$f_i=cX_1^{N}$+termes de degré $<N$ en $X_1$ où $N> 0$ et $c \in \mathbb{C}\setminus \{0\}$.  \\Alors $\pi(V)=Z(I_1)$.
+\end{cor}
 
 Le théorème suivant décrit de manière plus précise le lien entre les projections de variété et les zéros de ses idéaux d'élimination.
 \begin{Thm}[de fermeture]
@@ -778,11 +765,7 @@ Le théorème suivant décrit de manière plus précise le lien entre les projections
 \item Si $V \neq \emptyset$, alors il existe une variété affine $W \subsetneqq Z(I_p)$ telle que $Z(I_p) \setminus W \subset \pi_p(V)$
 \end{enumerate}
 \end{Thm}
-\begin{cor}
-\label{cor_ferm}
-Supposons qu'il existe $i \in [\![1,n]\!]$ tel que $f_i$ s'écrit de la forme : \\
-$f_i=cX_1^{N}$+termes de degré $<N$ en $X_1$ où $N> 0$ et $c \in \mathbb{C}\setminus \{0\}$.  \\Alors $\pi(V)=Z(I_1)$.
-\end{cor}
+
 
 \section{Implicitation}
 Nous allons maintenant étudier le dernier problème que l'on s'est posé : l'implicitation.\\
@@ -835,7 +818,8 @@ En appliquant le théorème précédent, on obtient que $V_k:=Z( X^2-Y^2Z)\subset k^
 Si $a \geq 0$ alors, on a l'équivalence  : $x^2-ay^2=0 \Leftrightarrow x=\pm \sqrt{a}y$ et donc $G_a=\{(\pm\sqrt{a}y,y,a)| y \in \R \}=\{F (y,\pm\sqrt{a}) | y \in \R \} \subset \Gamma_\R $.
 On en conclut que $V_\R=\Gamma_\R\cup \{ (0,0,a) | a <0 \} $. De ce fait, $\Gamma_\R$ n'est pas une variété.
 \item Si $k=\C $, la situation est différente : \\
-$V_\C=\Gamma_\C $ grâce au corollaire(\ref{cor_ferm}) du théorème de fermeture .\\
+Soient $a \in \C$, $\alpha $ tel que $\alpha ^2=a $ et $G_a:=\{z=a\} \cap V_\C $. 
+On a l'équivalence suivante : $x^2-ay^2=0 \Leftrightarrow x=\pm \alpha y $. De ce fait, $G_a=\{F (y,\pm \alpha)| y \in k\} \subset \Gamma $. \\
 \end{itemize}
 On en déduit que les restrictions à un sous-corps ne préserve pas les égalités entre ensemble décrit par des équations paramétriques et variété associée.
 \end{Ex}
