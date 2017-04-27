@@ -1,0 +1,40 @@
+$\begin{cases}
+x^2-yz=4 \\
+y^2-xz=5 \\
+z^2-xz=6
+\end{cases}$
+Base de Gröbner réduite : [Z^2 - 256/45, X + 7/8*Z, Y - 1/16*Z]
+I2=Z^2 - 256/45
+I1=Y - 1/16*Z,Z^2 - 256/45
+
+
+
+\begin{Thm}
+Soit $F:k^m \setminus Z(g_1 \ldots g_n) \to k^n$ une fonction d\'etermin\'ee par la param\'etrisation rationnelle $(\ddagger)$.\\ Soit $I$ l'id\'eal $\left\langle g_1X_1-f_1,\ldots,g_nX_n-f_n,1-g_1 \ldots g_n Y \right\rangle \subset k[Y,T_1,\ldots,T_m,X_1,\ldots,X_n]$ et $I_{m+1}$ son $m+1$ \`eme id\'eal d'\'elimination. Alors $Z(I_{m+1})$ est la plus petite variété de $k^n$ contenant $F(k^m \setminus W)$.
+\end{Thm}
+
+$\begin{cases}
+x=\frac{u^2}{v} \\
+y=\frac{v^2}{u}\\
+z=u
+\end{cases}$
+
+$I=\left\langle VX-U^2,UY-V^2,Z-U\right\rangle$
+Base de Gröbner : [U - Z, V^2 - Y*Z, V*X - Z^2, V*Z^2 - X*Y*Z, X^2*Y*Z - Z^4]
+I_2=X^2YZ - Z^4
+Z(I_2)=Z(X^2Y - Z^3) \cup Z(Z)
+Donc $Z(I_2)$ n'est la plus petite variété contenant $F((k^*)^2)$.
+
+Folium de Descartes
+$\begin{cases} 
+x=\frac{3t}{1+t^3} \\
+y=\frac{3t^2}{1+t^3}\\
+
+\end{cases}$
+
+Base de Gröbner [T^2*Y - 3*T + X, T*X - Y, T*Y^2 + X^2 - 3*Y, X^3 - 3*X*Y + Y^3]
+
+X^3 - 3*X*Y + Y^3
+
+$S=Z(X^3 - 3*X*Y + Y^3)=:V$ 
+En considérant les points d'intersection de $V$ et des droites $\Dscr_t$ d'équation $y=tx$, $t \in \R^*$ : $(0,0)$, $(\frac{3t}{1+t^3},\frac{3t^2}{1+t^3})$, on montre l'égalité entre la variété $V$ et $S$.
