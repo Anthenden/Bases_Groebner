@@ -68,7 +68,7 @@
 \oddsidemargin=-1cm
 \evensidemargin=-1cm
 \textwidth=18cm
-\textheight=22cm
+\textheight=23cm
 \parindent=0mm
 \begin{document}
 \title{Bases de Gröbner}
@@ -97,7 +97,7 @@ Une base de Gröbner d'un idéal est une famille de "bons" générateurs de cet idéa
 
 Dans ce mémoire, nous allons, à travers l'étude des bases de Gröbner, traiter les quatre problèmes suivants : 
 \begin{enumerate}
-\item  La description d'un idéal : Peut-on trouver une famille génératrice préférée  pour chaque idéal $I \subset k[X_1,\ldots,X_n]$?
+\item  La description d'un idéal : Peut-on trouver une famille génératrice préférée pour chaque idéal $I \subset k[X_1,\ldots,X_n]$?
 \item L'appartenance à un idéal : Soit $f \in k[X_1,\ldots,X_n]$ et un idéal $I:=\left \langle f_1,\ldots,f_s \right \rangle$. Comment montrer que $f \in I$ ?
  \item La résolution de systèmes polynomiaux : Trouver les zéros communs dans $k^n$ d'une famille de polynômes.
  \item Le problème d'implicitation : Soit $V$  le sous-ensemble de $k^n $ paramétré par : $x_i=g_i(t_1,\ldots,t_n) , 1 \leq i \leq n $ où les $g_i$ sont des polynômes ou des fractions rationelles.
@@ -118,7 +118,7 @@ On appelera base d'un idéal $I$ une famille $F=(f_1,\ldots,f_s)$ telle que $I=\l
 %\newpage
 
 
-\section{Motivation}
+\section{Description des idéaux de $k[X_1,\ldots,X_n]$}
 \subsection{Exemple introductif}
 On va commencer par traiter le cas simple de l'anneau des polynômes à un indéterminée $k[X]$. 
 $k[X]$ est un anneau euclidien et donc principal. De ce fait, on a un description simple des idéaux de $k[X]$ qui sont tous engendrés par un unique élément. 
@@ -130,6 +130,7 @@ Ce qui règle les problèmes 1 et 2 de l'introduction pour $k[X]$.\\
 Cependant, lorsque $n>1$, $k[X_1,\ldots,X_n]$ n'est plus euclidien et même plus principal (il est tout de même factoriel). Nous allons montrer ce résultat et afin de décrire ses idéaux, définir la notion plus faible d'anneau noethérien qui convient à $k[X_1,\ldots,X_n]$
 
 \subsection{$k[X_1,\ldots,X_n]$ est noethérien}
+
 Contrairement au cas à une indéterminée, lorsque $n>1$, $k[X_1,\ldots,X_n]$ n'est plus euclidien et même plus principal (il est tout de même factoriel). Nous allons montrer ce résultat et afin de décrire ses idéaux, définir la notion plus faible d'anneau noethérien qui convient à $k[X_1,\ldots,X_n]$
 \begin{Thm}
 $k[X_1,\ldots,X_n]$ n'est pas principal pour $n>1$.
@@ -525,7 +526,7 @@ Soit $f,g,h$ définie dans l'exemple \ref{ex}. Alors la base réduite de $\left\la
 
 \section{Résolution de systèmes polynomiaux}
 Dans cette section, nous allons étudier comment utiliser les bases de Gröbner afin de résoudre les systèmes d'équations polynomiales. On va commencer par donner l'exemple des polynômes de degré $1$ qui peuvent se résoudre avec le pivot de Gauss et voir que les idées du pivot peuvent se généraliser pour toutes familles de polynômes.
-\subsection{Exemple préliminaire}
+\subsection{Exemples préliminaires}
 Comme dit plus haut, lorsque les $f_i$ sont des polynômes de degré 1, on peut résoudre les systèmes de la forme $f_i(x_1,\ldots,x_n)=0, 1 \leq i \leq s \; (*)$ en utilisant le pivot de Gauss. 
 Le système $(*)$ se résume à : $AX=B$ où $A$ est la matrice représentative de la partie linéaire de $(f_1,\ldots,f_s)$ et $-B$ sa partie constante.
 Avec le pivot de Gauss, on obtient une matrice échelonnée $\widetilde{A}$ et une colonne de constante $\widetilde{B}$ telles que : $(*) \Leftrightarrow \widetilde{A}X=\widetilde{B}={}^t(\widetilde{b_1},\ldots,\widetilde{b}_s)$. 
@@ -538,7 +539,16 @@ Soit $r=rg(A)(\leq \min(n,s))$
 \end{itemize}
 ~\\
 On peut voir que le pivot de Gauss consiste à obtenir, à partir des polynômes données au départ, des polynômes ayant une variable en moins puis continuer jusqu'à ce que l'on obtienne un système échelonné. On "remonte" ensuite le système afin de trouver les solutions du système. \\
-Dans la suite, nous allons montrer le théorème d'élimination qui va nous permettre d'éliminer les variables dans les système polynomiaux et ensuite le théorème d'extension pour obtenir les solutions dudit système à partir de celles obtenues par les sytèmes ayant des variables éliminées .
+Dans la suite, nous allons montrer le théorème d'élimination qui va nous permettre d'éliminer les variables dans les système polynomiaux et ensuite le théorème d'extension pour obtenir les solutions dudit système à partir de celles obtenues par les sytèmes ayant des variables éliminées.
+
+Voici un exemple illustrant cette idée pour des polynômes non linéaires : \\
+Considérons le système : $\begin{cases}
+x^2-yz=4 \\
+y^2-xz=5 \\
+z^2-xz=6
+\end{cases}$ et son idéal associé $\left\langle X^2-YZ-4,Y^2-XZ-5,Z^2-XY-6 \right\rangle$. \\
+Lorsque l'on calcule la Base de Gröbner réduite de $I$, on obtient $\{ X + 7/8Z, Y - 1/16Z,Z^2 - 256/45\}$, on remarque que l'on a obtenu des polynômes de l'idéal où l'on a éliminé les variables et que l'on peut résoudre le système en partant de l'équation $z^2=256/45$ où l'on a éliminé $X$ et $Y$ et en complétant ses solutions $\{\pm 8/(3\sqrt{5}) \}$ avec les deux autres équations. On obtient donc les deux solutions du système :  $\{\mp 7/(3\sqrt{5}), \pm 1/(6\sqrt{5}),\pm 8/(3\sqrt{5})\}$.
+
 
 \subsection{Théorème d'élimination}
 \begin{Def}
@@ -774,18 +784,17 @@ x_1=f_1(t_1,\ldots,t_m)& \\
 \vdots & (\dagger) \\
 x_n=f_n(t_1,\ldots,t_m)& \\
 \end{cases} $\\ o\`u $f_i \in k[T_1,\ldots,T_m]$ et $(t_1,\ldots,t_m) \in k^m$ .\\
-On peut voir $S$ comme l'image de la fonction $F : k^m \to k^n$ d\'efinie par : 
-$\forall t \in k^m, F(t)=(f_1(t),\ldots,f_n(t))$.\\
-$S$ n'est pas n\'ecessairement une vari\'et\'e affine (\emph{c.f.} exemple \ref{Whitney}).\\
-Le syst\`eme $(\dagger)$ d\'efini tout de même une vari\'et\'e $V=Z(X_1-f_1,\ldots,X_n-f_n) \subset k^{n+m}$.\\
+On peut tout d'abord remarquer que $S$ est l'image de $k^m$ par la fonction $F=(f_1,\ldots,f_n) : k^m \to k^n$.
+$S$ n'est pas n\'ecessairement une vari\'et\'e affine (\emph{c.f.} exemple \ref{Whitney}). Le syst\`eme $(\dagger)$ peut d\'efinir tout de même une vari\'et\'e $V:=Z(X_1-f_1,\ldots,X_n-f_n) \subset k^{n+m}$.\\
 On a donc $V=\{(t_1,\ldots,t_n,x_1,\ldots,x_m)\in k^{n+m} | \forall i \in [\![1,m]\!],x_i-f_i(t_1,\ldots,t_n)=0 \}$\\
-D'o\`u,  $V=\{(t_1,\ldots,t_n,f_1(t_1,\ldots,t_n),\ldots,f_m(t_1,\ldots,t_n))\in k^{n+m} | (t_1,\ldots,t_m) \in k^m \} $. Autrement dit, $V$ est le graphe de $F$.\\
+D'o\`u,  $V=\{(t_1,\ldots,t_n,f_1(t_1,\ldots,t_n),\ldots,f_m(t_1,\ldots,t_n))\in k^{n+m} | (t_1,\ldots,t_m) \in k^m \} $. 
+Autrement dit, $V$ est le graphe de $F$.\\
 De plus, on peut remarquer que $V$ est l'image de l'application 
 $\begin{array}{ccccc}
 i & : & k^m & \to & k ^{n+m} \\
  & & (t_1,\ldots,t_m) & \mapsto & (t_1,\ldots,t_n,f_1(t_1,\ldots,t_n),\ldots,f_m(t_1,\ldots,t_n))\\
 \end{array}$\\
-On en déduit le diagramme suivant :  \\
+On en déduit le diagramme commutatif suivant :  \\
  \xymatrix{
    &k^{n+m} \ar[rd]^{\pi_m}&  \\
     k^m \ar[ru]^i\ar[rr]^F&& k^n
@@ -795,10 +804,11 @@ où $\pi_m : k^{n+m} \to k^n$ est une projection définie de manière analogue à \r
 On a donc $\pi_m(V)=F(k^m)$.\\
 Autrement dit, l'image d'une param\'etrisation est la projection de son graphe.
 \begin{Thm}
+\label{impli_polyn}
+Supposons que $k$ est un sous-corps de $\C$. \\
 Soit $F:k^m \to k^n$ une fonction d\'etermin\'ee par la param\'etrisation polynomiale $(\dagger)$.\\ Soit $I$ l'id\'eal $\left\langle X_1-f_1,\ldots,X_n-f_n \right\rangle \subset k[T_1,\ldots,T_m,X_1,\ldots,X_n]$ et $I_m$ son $m$ \`eme id\'eal d'\'elimination. Alors $Z(I_m)$ est la plus petite variété de $k^n$ contenant $F(k^m)$.
 \end{Thm}
 \begin{proof}
-Supposons que $k$ est un sous-corps de $\C$. \\
 Si $k=\C$ alors, d'après le théorème de fermeture, $Z(I_m)$ est la plus petite variété contenant $\pi_m(V)=F(k^m)$. \\
 Si $k$ est un sous-corps strict de $\C$ alors on ne peut pas utiliser le théorème de fermeture immédiatement. \\
 Posons $Z_k(I):=\{ x \in k^n | \forall f \in I, f(x)=0\} \subset Z_\C(I):=\{ x \in \C^n | \forall f \in I, f(x)=0\}$. \\
@@ -822,6 +832,40 @@ Soient $a \in \C$, $\alpha $ tel que $\alpha ^2=a $ et $G_a:=\{z=a\} \cap V_\C $
 On a l'équivalence suivante : $x^2-ay^2=0 \Leftrightarrow x=\pm \alpha y $. De ce fait, $G_a=\{F (y,\pm \alpha)| y \in k\} \subset \Gamma $. \\
 \end{itemize}
 On en déduit que les restrictions à un sous-corps ne préserve pas les égalités entre ensemble décrit par des équations paramétriques et variété associée.
+\end{Ex}
+
+De la même façon, on peut étudier le cas où l'ensemble est paramétré par des fractions rationnelles i.e. pour \\$ \begin{cases}
+x_1=\frac{f_1(t_1,\ldots,t_m)}{g_1(t_1,\ldots,t_m)}& \\
+\vdots & (\ddagger) \\
+x_n=\frac{f_n(t_1,\ldots,t_m)}{g_n(t_1,\ldots,t_m)}& \\
+\end{cases} $\\ où $f_i,g_i \in k[T_1,\ldots,T_m]$ et $(t_1,\ldots,t_m) \in k^m \setminus Z(g_1 \ldots g_n) $ .\\
+Alors l'analogue du théorème \ref{impli_polyn} pour le système $(\ddagger)$ est : 
+
+\begin{Thm}
+Supposons que $k$ est un sous-corps de $\C$. \\
+Soit $F:k^m \setminus Z(g_1 \ldots g_n) \to k^n$ une fonction déterminée par la paramétrisation rationnelle $(\ddagger)$.\\ Soit $I$ l'id\'eal $\left\langle g_1X_1-f_1,\ldots,g_nX_n-f_n,1-g_1 \ldots g_n Y \right\rangle \subset k[Y,T_1,\ldots,T_m,X_1,\ldots,X_n]$ et $I_{m+1}$ son $m+1$ \`eme id\'eal d'\'elimination. Alors $Z(I_{m+1})$ est la plus petite variété de $k^n$ contenant $F(k^m \setminus Z(g_1 \ldots g_n) )$.
+\end{Thm}
+
+
+ Cet énoncé appelle quelques remarques : \\
+Tout d'abord, on a ôté $Z(g_1 \ldots g_n)$ du domaine de définition car c'est l'ensemble des points $x$ pour lesquels un $g_i(x)$ s'annule. Ensuite, on a dû ajouter le polynôme $1-g_1 \ldots g_n Y$ pour garder l'information que les $g_i$ ne doivent pas s'annuler dans l'idéal après avoir "chassé" les dénominateurs. En effet, on voit que cela est nécessaire grâce à l'exemple suivant :
+$\begin{cases}
+x=\frac{u^2}{v} \\
+y=\frac{v^2}{u}\\
+z=u
+\end{cases}$ et $I=\left\langle VX-U^2,UY-V^2,Z-U\right\rangle$. \\
+Lorqu'on calcule la base de Gröbner de $I$, on obtient $\{U - Z, V^2 - YZ, VX - Z^2, VZ^2 - XYZ, X^2YZ - Z^4\}$ et donc $Z(I_2)=Z(X^2YZ - Z^4)=Z(X^2Y - Z^3) \cup Z(Z)$, c'est-à-dire $Z(I_2)$ n'est pas la plus petite variété contenant $F((k^*)^2)$.
+
+ On va finir par un exemple d'implicitation avec des fractions rationnelles : \\
+\begin{Ex}[Folium de Descartes]
+$(S)\begin{cases} 
+x=\frac{3t}{1+t^3} \\
+y=\frac{3t^2}{1+t^3}\\
+
+\end{cases}$\\
+En calculant l'idéal d'élimination, on obtient que la variété associée est $V=Z(X^3 - 3XY + Y^3)$.
+En considérant les points d'intersection de $V$ avec les droites $\Dscr_t$ d'équation $y=tx$, $t \in \R \setminus \{-1\}$ : $(0,0)$, $(\frac{3t}{1+t^3},\frac{3t^2}{1+t^3})$, on montre l'égalité entre la variété $V$ et $S$.
+
 \end{Ex}
 
 \nocite{*}
