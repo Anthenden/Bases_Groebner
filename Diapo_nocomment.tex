@@ -190,10 +190,12 @@ Par analogie au cas à une indéterminée,il nous faut :  \\
 \vspace{2\baselineskip} 
 \begin{itemize}
 \pause
-	\item un algorithme permettant d'écrire $f$ sous la forme  $\sum g_if_i+r$. \\
+	\item un algorithme de division : \\ 
+	Ecrire $f$ sous la forme  $\sum g_if_i+r$. \\
 	\vspace{2\baselineskip}
 	\pause
-\item un bon ordre afin d'avoir un critère de fin pour cet algorithme.
+\item un bon ordre \\
+ Critère de fin pour cet algorithme.
 \end{itemize}
 \end{frame}
 \subsection{Ordres monomiaux}
@@ -222,7 +224,6 @@ Pour $P:=\sum_{\alpha} p_{\alpha}X^\alpha \in k[X_1,\ldots,X_n]$ et $\geq$ un or
 
 Ordre lexicographique $\geq_{lex}$ : \\
 \vspace{\baselineskip} 
-$\alpha=(\alpha_1,\ldots,\alpha_n), \beta=(\beta_1,\ldots,\beta_n) \in \mathbb{N}^n$, \\
 $X^\alpha \geq_{lex} X^\beta$ ssi $\alpha=\beta$ ou le premier coefficient non nul en lisant par la gauche de $\alpha -\beta $ est positif.\\
 \vspace{2\baselineskip} 
 \pause
@@ -269,7 +270,7 @@ $X>_{lex}Y>_{lex}Z$\\
 \end{frame}
 
 \begin{frame}
-Le reste dépend du $s$-uplet choisi et dans quel ordre sont les polynômes de celui-ci.\\
+Le reste ne dépend pas que de l'idéal.\\
 \vspace{3\baselineskip} 
 $f=X^2+Y^2+Z^2-4$, $g=Y^2+2Z^2-5$, $h=XY-1$ et $P=YZf-Yg+2Zh$. 
 \vspace{\baselineskip} 
@@ -312,7 +313,7 @@ $\left\langle \LT(I) \right\rangle=\left\langle \LT(g_1),\ldots,\LT(g_s)\right\r
 \item Une base de Gröbner est une base de l'idéal  \\
 \vspace{3\baselineskip} 
 \pause
-\item Division par une base de Gröbner ne dépend pas du reste.
+\item $f \in I$ ssi le reste est nul
 \end{itemize}
 
  \end{frame}
@@ -370,60 +371,26 @@ Le $S$-polynôme de $f$ et $g$ est le polynôme : $S(f,g):=\frac{X^\gamma}{\LT(f)}
 \section{Résolution de systèmes polynomiaux}
 
 \subsection{Théorème d'élimination}
+
 \begin{frame}
 
+Avec les $f,g,h$ de l'exemple précédent,  
+$I=\left\langle X - YZ^2 + Y, Y^2 + 2Z^2 - 5, Z^4 - 7/2Z^2 + 3\right\rangle$ \\
+\pause
+\vspace{1\baselineskip} 
 $I=\left\langle f_1,\ldots,f_s \right\rangle $ un idéal de $k[X_1,\ldots,X_n]$. \\
  $p$ème idéal d'élimination de $I$ :  $I_p:=k[X_{p+1},\ldots,X_n] \cap I$
 \pause
 \begin{Thm}[d'élimination]
 Soit $I $ un idéal de $k[X_1,\ldots,X_n]$ et $G$ une base de Gröbner de $I$ selon l'ordre lexicographique. Alors, pour tout $p \in [\![0,n]\!]$, l'ensemble $G_p =G \cap k[X_{p+1},\ldots,X_n]  $ est une base de Gröbner du $p$ème idéal d'élimination $I_p$.
 \end{Thm}
-
 \pause
-Avec les $f,g,h$ de l'exemple précédent, 
-\\$I_1=\left\langle X - YZ^2 + Y, Y^2 + 2Z^2 - 5, Z^4 - 7/2Z^2 + 3\right\rangle$ \\ 
+$I_1=\left\langle  Y^2 + 2Z^2 - 5, Z^4 - 7/2Z^2 + 3\right\rangle$ \\ 
 $I_2=\left\langle Z^4 - 7/2Z^2 + 3\right\rangle$
 
-
 \end{frame}
 
-\subsection{Résultant}
-\begin{frame}
-Soient $f=\sum_{k=1}^p f_k X_i^k,g=\sum_{k=1}^q g_k X_i^k \in k[X_1,\ldots,X_n]$ avec $a_k,b_k \in k[X_1,\ldots,X_{i-1},X_{i+1},\ldots,X_n]$ et $a_p \neq 0 \neq b_q$. 
-Le résultant en $X_i$ de $f$ et $g$  est : 
-\scriptsize
-$\Res_{X_i}(f,g)=\det\begin{pmatrix}
-a_0 & 0 &\cdots & 0 & b_0 & 0 &0 & \cdots & 0 & 0 \\
-a_1 & a_0& \ddots & 0 &b_1 & b_0 &0 & \ddots & 0 & 0 \\
-\vdots & a_1 &\ddots & 0 &\vdots & b_1 &b_0 & \ddots & 0 & 0 \\
-\vdots & \vdots &\ddots & a_0 &\vdots & \vdots & b_1 & \ddots & 0 & 0 \\
-a_ {p-1} & \vdots& \ddots & a_1 &b_q & \vdots &\vdots & \ddots & b_0 & 0 \\
-a_p & a_{p-1} &\ddots & \vdots &0 & b_q &\vdots & \ddots & b_1 & b_0 \\
-0 & a_p &\ddots & \vdots &0 & 0 &b_q & \ddots & \vdots & b_1 \\
-\vdots & \vdots &\ddots & \vdots &\vdots & \vdots &0 & \ddots & \vdots & \vdots \\
-\vdots & \vdots &\ddots & a_{p-1} &\vdots & \vdots &0 & \ddots & b_q & \vdots \\
-0 & 0& \ldots & a_p &0 & 0 &0 & \cdots & 0 & b_q \\
-\end{pmatrix}$. \\
-\end{frame}
 
-\begin{frame}
-
-\begin{prop}
- $\Res_{X_1} (f, g)\in\left\langle f,g \right \rangle \cap k[X_2,\ldots,X_n]=I_1 $
-
-\end{prop}
-\pause
-
-\begin{Thm}
-\label{zeros}
-Soit $A,B \in \C[X]$. Alors $Res(A,B)=0$ si, et seulement si, les polyn\^omes $A$ et $B$ ont une racine commune.  
-\end{Thm}
-\pause
-\begin{Thm}
-\label{eval}
-Soient $f=\sum_{i=0}^p f_i(X_2,\ldots,X_n)X_1^i,g=\sum_{i=0}^m g_i(X_2,\ldots,X_n)X_1^i \in k[X_1,\ldots,X_n]$. Soit $c \in k^{n-1}$ tel que $f_p(c)$ et $g_q(c)$ ne s'annulent pas simultanément. Alors $\Res_{X_1}(f,g)(c)=0 \Leftrightarrow \Res(f(X_1,c),g(X_1,c))=0$.\\
-\end{Thm}
-\end{frame}
 \subsection{Géométrie}
 \begin{frame}
 
@@ -459,7 +426,7 @@ Supposons qu'on ait une solution partielle $(a_2,\ldots,a_n) \in Z(I_1)$. Si $(a
 
 Reprenons l'exemple précédent : \\ 
 \vspace{2\baselineskip} \pause
-$I_1=\left\langle g,Z^4-7/2Z^2+3 \right\rangle$ et $I_2=\left\langle Z^4-7/2Z^2+3 \right\rangle$. \\
+$I_1=\left\langle Y^2 + 2Z^2 - 5,Z^4-7/2Z^2+3 \right\rangle$ et $I_2=\left\langle Z^4-7/2Z^2+3 \right\rangle$. \\
 \vspace{\baselineskip} \pause
 $Z(I_2)=Z(\left\langle Z^4-7/2Z^2+3\right\rangle)=\{\pm \sqrt{2},\pm \sqrt{3/2}\}$. \\
 \vspace{\baselineskip} \pause
