@@ -370,7 +370,7 @@ Comme $k[X_1,\ldots,X_n]$ est un $k$-espace vectoriel de base canonique $\mathsc
 
 \begin{proof}
  Soit $I$ un idéal de $k[X_1,\ldots,X_n]$ non réduit à $\{0\}$ et $g_1,\ldots,g_s \in I$ tels que $\left\langle \LT(I)\right\rangle=\left\langle \LT(g_1),\ldots,\LT(g_s)\right\rangle$. 
-Comme les $g_i$ appartiennent à $I$ alors $I':=\left\langle \LT(g_1),\ldots,\LT(g_s)\right\rangle \subset I$. Montrons l'inclusion réciproque : \\
+Comme les $g_i$ appartiennent à $I$ alors $I':=\left\langle g_1,\ldots,g_s\right\rangle \subset I$. Montrons l'inclusion réciproque : \\
 Soit $f \in I$. Si $f=0$ alors, comme $I'$ est un idéal, $f \in I'$. \\
 Supposons donc $f \neq 0$.
 Comme $\LT(f) \in \left\langle \LT(I) \right\rangle$ alors il existe un $i$ tel que $\LT(g_i)$ divise $\LT(f)$ (d'après le lemme \ref{lem_div}) et donc $f-\frac{\LT(f)}{\LT(g_i)}g_i \in I$ (car $f$ et $g_i$ sont dans $I$).\\
@@ -391,7 +391,7 @@ Nous allons maintenant montrer la propriété des bases de Gröbner promise à la fi
  L'algorithme de division nous donne l'existence d'un tel $r$. Montrons son unicité. \\
 Supposons, par l'absurde, l'existence de deux restes $r_1$ et $r_2$, $r_1 \neq r_2$ vérifiant $(1)$ et $(2)$. \\
 Alors : $\begin{cases} f=g_1+r_1 \\f=g_2+r_2 \end{cases}$ et donc $r_1-r_2=g_1-g_2 \in I$. 
-D'où, comme $r_1 \neq r_2$ alors $LT(r_1-r_2) \in \left\langle LT(I) \right\rangle=\left\langle g_1,\ldots,g_s \right\rangle$ et donc $LT(r_1-r_2)$ est divisé par un des $LT(g_i)$ (cf Lemme \ref{lem_div}). On obtient donc une contradiction car aucun terme de $r_1$ et $r_2$ n'est divisible par des $LT(g_i)$. D'où $r_1=r_2$. \\
+D'où, comme $r_1 \neq r_2$ alors $LT(r_1-r_2) \in \left\langle LT(I) \right\rangle=\left\langle \LT(g_1),\ldots,\LT(g_s) \right\rangle$ et donc $LT(r_1-r_2)$ est divisé par un des $LT(g_i)$ (cf Lemme \ref{lem_div}). On obtient donc une contradiction car aucun terme de $r_1$ et $r_2$ n'est divisible par des $LT(g_i)$. D'où $r_1=r_2$. \\
 \end{proof}
 
 \begin{cor} Soit $G=\{g_1,\ldots,g_s\}$ une base de Gröbner d'un idéal $I$ de $k[X_,\ldots,X_n]$ et $f \in k[X_1,\ldots,X_n]$. Alors $f \in I$ si, et seulement si, le reste de la division de $f$ par $G$ est nul.
