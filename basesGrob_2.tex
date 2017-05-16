@@ -4,7 +4,7 @@
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{textcomp}
 \usepackage{mathrsfs}
-\usepackage{ algorithm , algorithmic }
+\usepackage{ algcompatible,algorithm  }
 \usepackage[all]{xy}
 \usepackage{hyperref}
 
@@ -110,7 +110,7 @@ Nous allons ensuite discuter de l'élimination des variables dans les systèmes po
 \section*{Conventions et Notations}
 Dans ce rapport, $k$ est un corps commutatif de caractéristique 0 et $n$ un entier naturel strictement positif. \\
 On considérera l'anneau de polynômes $k[X_1,\ldots,X_n]$ à $n$ indéterminées $X_1,\ldots,X_n$ construit par récurrence comme suit : $\forall p<n, k[X_1,\ldots,X_{p+1}]:=k[X_1,\ldots,X_p][X_{p+1}]$. On pourra identifier cet anneau à celui des fonctions polynômiales à $n$ variables (grâce à l'infinité de $k$). \\
-On appelle monômes tout polynôme de la forme $X_1^{\alpha_1}\ldots X_n^{\alpha_n}$ où $\alpha_i \in \N$ que l'on abrégera $X^{(\alpha_1,\ldots,\alpha_n)}$. On notera $\mathscr{M}$ l'ensemble des monômes. Pour tout $p \in \N$ et pour tout anneau commutatif $A$, on notera $A[X]_{\leq p}$ (resp. $A[X]_{< p}$)  l'ensemble des polynômes de degré $\leq$ (resp $<$) à $p$.\\
+On appelle monôme tout polynôme de la forme $X_1^{\alpha_1}\ldots X_n^{\alpha_n}$ où $\alpha_i \in \N$ que l'on abrégera $X^{(\alpha_1,\ldots,\alpha_n)}$. On notera $\mathscr{M}$ l'ensemble des monômes. Pour tout $p \in \N$ et pour tout anneau commutatif $A$, on notera $A[X]_{\leq p}$ (resp. $A[X]_{< p}$)  l'ensemble des polynômes de degré supérieur ou égal (resp strictement supérieur) à $p$.\\
 On appelera base d'un idéal $I$ une famille $F=(f_1,\ldots,f_s)$ telle que $I=\left\langle F\right\rangle$.
 \newpage
 %\setcounter{tocdepth}{4}
@@ -127,16 +127,16 @@ Soient $I=\left\langle P\right\rangle \subset k[X]$ et $f \in k[X]$.
 En effectuant la division euclidienne de $f$ par $P$, on a : $f=PQ+R$ où $\deg(R) < \deg(P)$. 
 On a alors la caractérisation suivante :  $f \in I \Leftrightarrow R=0$. 
 Ce qui règle les problèmes 1 et 2 de l'introduction pour $k[X]$.\\
-Cependant, lorsque $n>1$, $k[X_1,\ldots,X_n]$ n'est plus euclidien et même plus principal (il est tout de même factoriel). Nous allons montrer ce résultat et afin de décrire ses idéaux, définir la notion plus faible d'anneau noethérien qui convient à $k[X_1,\ldots,X_n]$
+
 
 \subsection{$k[X_1,\ldots,X_n]$ est noethérien}
 
-Contrairement au cas à une indéterminée, lorsque $n>1$, $k[X_1,\ldots,X_n]$ n'est plus euclidien et même plus principal (il est tout de même factoriel). Nous allons montrer ce résultat et afin de décrire ses idéaux, définir la notion plus faible d'anneau noethérien qui convient à $k[X_1,\ldots,X_n]$
+Contrairement au cas à une indéterminée, lorsque $n>1$, $k[X_1,\ldots,X_n]$ n'est plus euclidien et même plus principal (il est, tout de même, factoriel). Nous allons montrer ce résultat et afin de décrire ses idéaux, définir la notion plus faible d'anneau noethérien qui convient mieux à $k[X_1,\ldots,X_n]$
 \begin{Thm}
 $k[X_1,\ldots,X_n]$ n'est pas principal pour $n>1$.
 \end{Thm}
 \begin{proof}
-Supposons, par l'absurde, que $k[X_1,\ldots,X_n]$ est principal et considérons l'idéal $\left\langle X_1,\ldots,X_n\right\rangle$ qui serait donc engendré par un polynôme $P$ non nul. On a alors : $\deg_{X_i}(P) \leq \deg_{X_i}(X_j)=0$ pour $i \neq j$ et donc $\deg_{X_i}(P)=0$ pour tout $1 \leq i \leq n$. On en déduit que $P$ est une constante non nul. Comme $P \in\left\langle X_1,\ldots,X_n\right\rangle$ alors $P(0,\ldots,0)=0$, d'où une contradiction.
+Supposons, par l'absurde, que $k[X_1,\ldots,X_n]$ est principal et considérons l'idéal $\left\langle X_1,\ldots,X_n\right\rangle$ qui serait donc engendré par un polynôme $P$ non nul. On a alors : $\deg_{X_i}(P) \leq \deg_{X_i}(X_j)=0$ pour $i \neq j$ et donc $\deg_{X_i}(P)=0$ pour tout $1 \leq i \leq n$. On en déduit que $P$ est un polynôme constant non nul. Comme $P \in\left\langle X_1,\ldots,X_n\right\rangle$ alors $P(0,\ldots,0)=0$, d'où une contradiction.
 \end{proof}
 
 
@@ -146,6 +146,7 @@ Soit $A$ un anneau commutatif. On dit que $A$ est un anneau noethérien si tout i
 \end{Def}
 Dans la suite, on aura aussi besoin d'une autre caractérisation des anneaux noethériens
 \begin{prop}
+\label{Autre_carac}
 Une suite croissante d'idéaux d'un anneau noethérien est stationnaire.
 \end{prop}
 \begin{Ex} Tout anneau principal est noethérien car chaque idéal d'un anneau principal $A$  est de la forme $aA$ où $a \in A$. En particulier, tout corps est noethérien (les idéaux d'un corps sont $\{0\}$ et lui-même).
@@ -159,15 +160,15 @@ Soit $A$ un anneau noethérien. Alors $A[X]$ est aussi un anneau noethérien.
 
 Soient $I$ un idéal de $A[X]$. Soit $J$ l'idéal engendré par les coefficients dominants des polynômes de $A[X]$ et pour tout $d \in \mathbb{N}$, $J_d$ l'idéal engendré par les coefficients dominants des polynômes de $I$ de degré $d$.\\
 Comme $A$ est noethérien alors il existe $x_1,\ldots,x_r \in I$,tels que $J=\left\langle x_1,\ldots,x_r\right\rangle$ et pour tout $d \in \mathbb{N}, y_{1,d},\ldots,y_{m_d,d}$ tels que $J_d=\left\langle y_{1,d},\ldots,y_{m_d,d} \right\rangle$.\\
-Il existe donc des polynômes $Q_1,\ldots,Q_r$ de $I$ ayant pour coefficient dominant $x_i$ et pour tout $n \in \mathbb{N}$, des polynômes $R_{1,d},\ldots R_{m_d,d} \in I \cap A[X]_{\leq d} $ dont le coefficient en $X^d$ est, respectivement, $y_{1,d},\ldots,y_{m_d,d}$.\\
+Il existe donc des polynômes $Q_1,\ldots,Q_r$ de $I$ ayant pour coefficient dominant $x_i$ et pour tout $d \in \mathbb{N}$, il existe des polynômes $R_{1,d},\ldots R_{m_d,d} \in I \cap A[X]_{\leq d} $ dont le coefficient en $X^d$ est, respectivement, $y_{1,d},\ldots,y_{m_d,d}$.\\
 Montrons que $I=\left\langle  Q_1,\ldots,Q_r, R_{1,1},\ldots,R_{m_1,1},\ldots,R_{1,N},\ldots,R_{m_N,N} \right \rangle$ où $N:=\max_i \; \deg(Q_i)$.\\
 Notons $I'$  cet idéal (inclus dans $I$ car engendré par des éléments de $I$). \\
 Pour montrer l'inclusion réciproque, il suffit de montrer que, pour tout $d \in \mathbb{N}$, $I \cap A[X]_{< d} \subset I'$. Montrons donc,par récurrence, que la propriété  $ \forall P \in I, \deg(P) <d \Rightarrow P \in I'$ est vraie pour tout $d \in \N$.
 
 \textbf{Initialisation }: Si $d=0$, $I \cap A[X]_{<0}=\{0\} \subset I' $ (car $0$ est le seul polynôme de degré strictement négatif et $0$ est dans tout idéal de $A[X]$)
 
-\textbf{Hérédité} : Soit $d \in \mathbb{N}$ et supposons que tout polynôme $P$ de $I$ de degré strictement inférieur à $d$ appartient à $I$.\\
-Soit $P:=\sum_{k=0}^d a_k X^k \in I$.
+\textbf{Hérédité} : Soit $d \in \mathbb{N}$ et supposons que tout polynôme de $I$ de degré strictement inférieur à $d$ appartient à $I'$.\\
+Soit $P:=\sum_{k=0}^d a_k X^k \in I,a_d \neq 0$.
 \begin{itemize}
 \item Si $d \leq N-1$ alors $a_d \in J_d$, il existe donc $\lambda_1,\ldots,\lambda_{m_d}$ tel que $a_d=\sum_{k=1}^{m_d} \lambda_k y_{k,d}$. On en déduit que $T:=P-\sum_{k=1}^{m_d} \lambda_k R_{k,d}$ est de degré strictement inférieur à $d$. Comme $P$ et les $R_{k,d}$ sont dans $I$ alors $T$ aussi et par hypothèse de récurrence, $T \in I'$. Comme les $R_{k,d}$ sont aussi dans $I'$ alors $P=T+\sum_{k=1}^{m_d} \lambda_k R_{k,d}$ est dans $I'$.
 \item Si $d \geq N$, alors $a_d \in J$,il existe donc $\lambda_1,\ldots,\lambda_r \in A$ tel que $a=\sum_{k=1}^r \lambda_k x_k$ et donc $P-\sum_{k=1}^m \lambda_i X^{d-deg(Q_i)} Q_i$ est de degré strictement inférieur à $d$. On en déduit de la même façon que dans le cas précédent que $P\in I'$.
@@ -196,13 +197,13 @@ Un ordre monomial est une relation d'ordre total $\geq$ de $\mathscr{M}$ telle q
  \item $\geq$ est un bon ordre
 \end{enumerate}
 \end{Def}
-On peut remarquer que l'ordre induit par le degré dans $k[X]$ est un ordre monomial.
-
+On peut remarquer que l'ordre induit par le degré dans $k[X]$ est un ordre monomial. \\
+On peut ensuite définir quelques termes associés à un ordre sur les polynômes.
 \begin{Def}
 Soit $P:=\sum_{\alpha} p_{\alpha}X^\alpha \in k[X_1,\ldots,X_n]$ et $\geq$ un ordre monomial. 
 \begin{enumerate}
 	\item  Le monôme dominant de $P$ est : $\LM(P):=\max\{X^\alpha \in \mathscr{M} | p_\alpha \neq 0\}$
-\item Le multidegré de $f$ est l'élément de $\mathbb{N}^n$, noté $\multideg(P)$, tel que $X^{\multideg(P)}=LM(P)$
+\item Le multidegré de $P$ est l'élément de $\mathbb{N}^n$, noté $\multideg(P)$, tel que $X^{\multideg(P)}=LM(P)$
  \item Le coefficient dominant de $P$ est $\LC(P):=p_{\multideg(P)}$
 \item Le terme dominant de $P$ est $\LT(P):=\LC(P)\cdot \LM(P)$
 \end{enumerate}
@@ -212,7 +213,7 @@ Soit $P:=\sum_{\alpha} p_{\alpha}X^\alpha \in k[X_1,\ldots,X_n]$ et $\geq$ un or
 Nous allons maintenant donner quelques exemples d'ordres monomiaux et en premier lieu, l'ordre lexicographique que nous allons utiliser pour l'élimination.
 
 \begin{Def}[Ordre lexicographique $\geq_{lex}$]
-Soient $\alpha=(\alpha_1,\ldots,\alpha_n), \beta=(\beta_1,\ldots,\beta_n) \in \mathbb{N}^n$ alors
+Soient $\alpha, \beta \in \mathbb{N}^n$ alors
 $X^\alpha \geq_{lex} X^\beta$ si, et seulement si, $\alpha=\beta$ ou le premier coefficient non nul en lisant par la gauche de $\alpha -\beta $ est positif.
 \end{Def}
 \begin{prop}
@@ -221,27 +222,27 @@ $\geq_{lex}$ est un ordre monomial.
 \begin{proof}
 Montrons, par l'absurde, que $\geq_{lex}$ est un bon ordre. \\
 Supposons donc que  $\geq_{lex}$ n'est pas un bon ordre et donc qu'il existe une suite $u:=\left(X^{(a_{1,i}\ldots,a_{n,i})}\right)_{i \in \mathbb{N}}$ strictement décroissante.\\
-On en déduit que la suite $u_1:=(a_{1,i})_{i \in \mathbb{N}}$ est décroissante (sinon $u$ ne serait pas décroissante) et est donc stationnaire car $\mathbb{N}$ est bien ordonné.
-Alors il existe $N_1 \in \mathbb{N}$ tel que $\forall p \geq N,u_{1,p}=u_{1,N_1}$. \\
-Considérons maintenant la suite $u_2:=(a_{2,i})_{i \geq N_1}$. Elle est décroissante et donc stationnaire ... \\
-On construit ainsi une suite $(N_i)_{i \geq 1}$ telle que : $\forall i \in \N^*,\forall n \geq N_i, u_{i,n} = u_{i,N_i}$.On en déduit que $\forall p \geq N_n,\forall i \in [\![1,n]\!], u_{i,p}=u_{i,N_n}$ ou encore \\
+On en déduit que la suite $(a_{1,i})_{i \in \mathbb{N}}$ est décroissante (sinon $u$ ne serait pas décroissante) et est donc stationnaire car $\mathbb{N}$ est bien ordonné.
+Alors il existe $N_1 \in \mathbb{N}$ tel que $\forall p \geq N,u_{1,p}=u_{1,N_1}$. 
+Considérons maintenant la suite $(a_{2,i})_{i \geq N_1}$. Elle est décroissante et donc stationnaire,et ainsi de suite... \\
+On construit, de cette façon, une suite $(N_i)_{i \geq 1}$ telle que : $\forall i \in \N^*,\forall n \geq N_i, u_{i,n} = u_{i,N_i}$.On en déduit que $\forall p \geq N_n,\forall i \in [\![1,n]\!], u_{i,p}=u_{i,N_n}$ ou encore
 $\forall p \geq N_n, X^{u_{1,p},\ldots,u_{n,p}}=X^{u_{1,N_n},\ldots,u_{n,N_n}}$, ce qui est contradictoire avec la stricte décroissance de $u$.
 \end{proof}
 Les deux ordres suivants comparent les degrés totaux des monômes.
 \begin{Def}
-Le degré total du monôme $X_1^{\alpha_1}\ldots X_n^{\alpha_n}$ est $|(\alpha_1,\ldots,\alpha_n)|:=\sum \alpha_i$\\
+Le degré total du monôme $X_1^{\alpha_1}\ldots X_n^{\alpha_n}$ est $|(\alpha_1,\ldots,\alpha_n)|:=\sum_{i=1}^n \alpha_i$\\
 Le degré d'un polynôme $f \in k[X_1,\ldots,X_n]$ est le maximum des degrés totaux des monômes le constituant.
 
 \end{Def}
 \begin{Def}[Ordre lexicographique gradué $\geq_{grlex}$]
-Soient $\alpha=(\alpha_1,\ldots,\alpha_n), \beta=(\beta_1,\ldots,\beta_n) \in \mathbb{N}^n$ alors
+Soient $\alpha, \beta \in \mathbb{N}^n$ alors
 $X^\alpha \geq_{grlex} X^\beta$ si, et seulement si, $|\alpha|>|\beta|$ ou ($|\alpha|=|\beta|$ et $\alpha\geq_{lex} \beta$).
 \end{Def}
 \begin{Def}[Ordre lexicographique gradué renversé $\geq_{grevlex}$]
-Soient $\alpha=(\alpha_1,\ldots,\alpha_n), \beta=(\beta_1,\ldots,\beta_n) \in \mathbb{N}^n$ alors
+Soient $\alpha, \beta\in \mathbb{N}^n$ alors
 $X^\alpha \geq_{grevlex} X^\beta$ si, et seulement si, $|\alpha|>|\beta|$ ou ($|\alpha|=|\beta|$ et le premier coefficient non nul en lisant par la droite de $\beta - \alpha $ est positif).
 \end{Def}
-La différence entre ses deux ordres sont dans la manière où ils décident des égalités des monômes de même degré total : le premier se base sur l'ordre lexicographique et le second sur un ordre lexicographique "renversé", dans le sens où il commence par la droite et regarde la première entrée négative de $\alpha-\beta$.
+La différence entre ses deux ordres est dans la manière où ils départagent les égalités entre monômes de même degré total : le premier se base sur l'ordre lexicographique et le second sur un ordre lexicographique "renversé", dans le sens où il commence par la droite et regarde la première entrée négative de $\alpha-\beta$.
 \begin{Ex}
 On va comparer les polynômes $f=X^2Z^2$,$g=X^2Z$ et $h=XY^2Z$ de  $k[X,Y,Z]$ avec ces trois différents ordres : $f>_{lex}g >_{lex}h$,$f>_{grlex}h >_{grlex}g$, $h>_{grevlex}f >_{grevlex}g$ \\
 \end{Ex}
@@ -252,7 +253,7 @@ Dans ce paragraphe, nous allons énoncer et démontrer l'algorithme de division.
 	\label{LM_dec}
 	\end{Lemme}
 	\begin{proof}
-	Soient $\alpha,\alpha_1,\ldots,\alpha_p \in \mathbb{N}^n $ tel que : $X^\alpha >X^{\alpha_1}>\ldots >X^{\alpha_p}$ tels que $f=pX^\alpha+\sum p_{\alpha_i}X^{\alpha_i}$ et $g=pX^\alpha+\sum q_{\alpha_i}X^{\alpha_i}$ alors $\LM(f-g)=\LM(\sum (p_{\alpha_i}-q_{\alpha_i})X^{\alpha_i}) \leq X^{\alpha_1} < X^\alpha=\LM(f)=\LM(g)$\end{proof}
+	Soient $\alpha,\alpha_1,\ldots,\alpha_p \in \mathbb{N}^n,p \in k^*,p_i,q_i \in k $ tels que : $X^\alpha >X^{\alpha_1}>\ldots >X^{\alpha_p}$ et tels que $f=pX^\alpha+\sum p_{\alpha_i}X^{\alpha_i}$ et $g=pX^\alpha+\sum q_{\alpha_i}X^{\alpha_i}$ alors $\LM(f-g)=\LM(\sum (p_{\alpha_i}-q_{\alpha_i})X^{\alpha_i}) \leq X^{\alpha_1} < X^\alpha=\LM(f)=\LM(g)$\end{proof}
 	\begin{Lemme} Soit $f \in k[X_1,\ldots,X_n]$, $\alpha \in \N^n$ et $p \in k^*$.
 	Alors $\LT(pX^\alpha f)=pX^\alpha \LT(f)$
 	\label{LT_prod}
@@ -267,7 +268,7 @@ Dans ce paragraphe, nous allons énoncer et démontrer l'algorithme de division.
 
 \begin{Thm}[Algorithme de division]
 
-Soit $\geq$ un ordre monomial et $(f_1,\ldots,f_s)$ un $n$-uplet de polynôme de $k[X_1,\ldots,X_n]$. Alors tout polynôme $f$ de $k[X_1,\ldots,X_n]$ peut s'écrire sous la forme $f=\sum_{i=1}^n a_if_i+r$ où $a_i \in k[X_1,\ldots,X_n]$ et $r$ est une combinaison linéaire de monômes qui ne sont pas divisibles par les $\LT(f_i)$
+Soit $\geq$ un ordre monomial et $(f_1,\ldots,f_s)$ un $s$-uplet de polynôme de $k[X_1,\ldots,X_n]$. Alors tout polynôme $f$ de $k[X_1,\ldots,X_n]$ peut s'écrire sous la forme $f=\sum_{i=1}^n a_if_i+r$ où $a_i \in k[X_1,\ldots,X_n]$ et $r$ est une combinaison linéaire de monômes qui ne sont pas divisibles par les $\LT(f_i)$
    
 
 \end{Thm}
@@ -288,6 +289,12 @@ Soit $\geq$ un ordre monomial et $(f_1,\ldots,f_s)$ un $n$-uplet de polynôme de 
 \IF{$\LT (f_i) | \LT (p)$}
 \STATE $a_i:= a_i+\LT (p)/\LT (f_i)$
 \STATE $p:=p-(\LT(p)/\LT (f_i)) f_i$
+\algstore{myalg}
+\end{algorithmic}
+\end{algorithm}
+\begin{algorithm}                     
+\begin{algorithmic} [1]                   % enter the algorithmic environment
+\algrestore{myalg}
 \ELSE
 \STATE $i:=i+1$
 \ENDIF
@@ -301,7 +308,7 @@ Soit $\geq$ un ordre monomial et $(f_1,\ldots,f_s)$ un $n$-uplet de polynôme de 
 
 \end{algorithm}
 \begin{proof}
-Pour montrer ce théorème, nous allons que l'algorithme ci-dessus donne le bon résultat et finit pour tous polynômes mis en entrée de l'algorithme.\\
+Pour montrer ce théorème, nous allons montrer que l'algorithme ci-dessus donne le bon résultat et finit pour tout polynôme mis en entrée de l'algorithme.\\
 Remarquons tout d'abord que lors de chaque itération de la boucle, une de ses deux instructions est exécutée :
 \begin{enumerate}
 	\item Si $\LT(f_i) | \LT(p)$ alors on fait la division de $p$ par $f_i$
@@ -328,7 +335,7 @@ On finit par obtenir que,lorsque $p=0$ (et on sait que cela arrivera),  $f=\sum_
 Cet algorithme ne permet pas de savoir, en général, si un polynôme appartient à un idéal. En effet, le reste dépend du $s$-uplet choisi et dans quel ordre sont les polynômes de celui-ci, comme l'illustre cet exemple.
 \begin{Ex}
 \label{ex}
-Soient $f=X^2+Y^2+Z^2-4$, $g=Y^2+2*Z^2-5$ et $h=XY-1$ trois polynômes de $k[X,Y,Z]$ et appliquons au polynôme $P=YZf-Yg+2Zh$ l'algorithme de division pour l'ordre lexicographique.
+Soient $f=X^2+Y^2+Z^2-4$, $g=Y^2+2Z^2-5$ et $h=XY-1$ trois polynômes de $k[X,Y,Z]$ et appliquons au polynôme $P=YZf-Yg+2Zh$ l'algorithme de division pour l'ordre lexicographique.
 \begin{itemize}
 	\item Avec la famille $(f,g,h)$, on obtient $P=2Zf+(XZ-Y)g+(-2XZ^3+5XZ-YZ)$
 	\item Avec la famille $(h,g,f)$, on obtient $P=YZf-Yg+2Zh$
@@ -365,7 +372,7 @@ Comme $k[X_1,\ldots,X_n]$ est un $k$-espace vectoriel de base canonique $\mathsc
 (dans le cas contraire, on aurait une combinaison linéaire (d'élément d'une base) nulle à coefficients non nuls). On en déduit que $\beta \in \Gamma$ et donc qu'il existe un $p \in \mathbb{N}^n$ et un  $i \in [\![1,s]\!]$, $\beta=a_i+p $ c'est-à-dire qu'il existe un $i \in [\![1,s]\!]$ tel que $X^{\alpha_i}$ divise $X^\beta$.
 \end{proof}
 \begin{prop}
- Soit $\geq$ un ordre monomial. Alors tout idéal de $k[X_1,\ldots,X_n]$ non réduit à $\{0\}$ a une base de Gröbner. De plus, tout base de Gröbner est une base de $I$.
+ Soit $\geq$ un ordre monomial. Alors tout idéal de $k[X_1,\ldots,X_n]$ non réduit à $\{0\}$ a une base de Gröbner. 
 \end{prop}
 
 \begin{proof}
@@ -377,7 +384,7 @@ Comme $\LT(f) \in \left\langle \LT(I) \right\rangle$ alors il existe un $i$ tel 
 En itérant ce raisonnement, on obtient que le reste de la division de $f$ par $g_1,\ldots,g_s$ est nul car tous les termes dominants de polynôme de $I$ sont divisibles par un $LT(g_i)$. On en déduit que $f$ est de la forme $\sum g_ih_i$ et donc $f\in I'$.
 
 \end{proof}
-
+Cette démonstration nous montre aussi que tout base de Gröbner est une base de $I$ car la base $\{g_1,\ldots,g_s\}$ est une base de Gröbner par construction. \\
 Nous allons maintenant montrer la propriété des bases de Gröbner promise à la fin de la section précédente : l'unicité du reste de la division par une base de Gröbner.
 
 \begin{prop}
@@ -391,7 +398,7 @@ Nous allons maintenant montrer la propriété des bases de Gröbner promise à la fi
  L'algorithme de division nous donne l'existence d'un tel $r$. Montrons son unicité. \\
 Supposons, par l'absurde, l'existence de deux restes $r_1$ et $r_2$, $r_1 \neq r_2$ vérifiant $(1)$ et $(2)$. \\
 Alors : $\begin{cases} f=g_1+r_1 \\f=g_2+r_2 \end{cases}$ et donc $r_1-r_2=g_1-g_2 \in I$. 
-D'où, comme $r_1 \neq r_2$ alors $LT(r_1-r_2) \in \left\langle LT(I) \right\rangle=\left\langle \LT(g_1),\ldots,\LT(g_s) \right\rangle$ et donc $LT(r_1-r_2)$ est divisé par un des $LT(g_i)$ (cf Lemme \ref{lem_div}). On obtient donc une contradiction car aucun terme de $r_1$ et $r_2$ n'est divisible par des $LT(g_i)$. D'où $r_1=r_2$. \\
+D'où, comme $r_1 \neq r_2$ alors $LT(r_1-r_2) \in \left\langle \LT(I) \right\rangle=\left\langle \LT(g_1),\ldots,\LT(g_s) \right\rangle$ et donc $\LT(r_1-r_2)$ est divisible par un des $\LT(g_i)$ (cf Lemme \ref{lem_div}). On obtient donc une contradiction car aucun terme de $r_1$ et $r_2$ n'est divisible par des $\LT(g_i)$. D'où $r_1=r_2$. \\
 \end{proof}
 
 \begin{cor} Soit $G=\{g_1,\ldots,g_s\}$ une base de Gröbner d'un idéal $I$ de $k[X_,\ldots,X_n]$ et $f \in k[X_1,\ldots,X_n]$. Alors $f \in I$ si, et seulement si, le reste de la division de $f$ par $G$ est nul.
@@ -409,7 +416,7 @@ Si $F$ est une base de Gröbner, on peut juste considérer $F$ comme un ensemble.
 \item Le $S$-polynôme de $f$ et $g$ est le polynôme : $S(f,g):=\frac{X^\gamma}{\LT(f)}f-\frac{X^\gamma}{\LT(g)} g$
 \end{enumerate}
 \end{Def}
-
+Une obstruction au fait que $\{f_1,\ldots,f_s\}$ soit une base de Gröbner est que le monôme dominant d'une combinaison de $f_i$, $\sum \alpha_if_i$ ne soit pas une combinaison de ceux des $\LT(f_i)$. Pour cela, il est nécessaire que $\LT(\sum\alpha_kf_k)<f_i$. Les $S$-polynômes sont de cette inégalité et nous donnent une condition nécessaire et suffisante pour qu'il n'ait pas cette obstruction.  
 \begin{Thm} Soit $I$ un idéal de $k[X_1,\ldots,X_n]$. Alors une base $G=\{g_1,\ldots,g_n\}$ de $I$ est une base de Gröbner de $I$ si, et seulement si, pour tout couple $(i,j)$, $i \neq j$, $\overline{S(g_i,g_j)}^G=0$
 \end{Thm}
 On admettra ici ce théorème.
@@ -457,7 +464,7 @@ Tout d'abord, on peut remarquer que $G \subset I$ à chaque étape de l'algorithme
 Montrons maintenant que l'algorithme termine, c'est-à-dire que l'on a obtenu un ensemble $G$ tel que pour tout $p,q \in G, \overline{S(p,q)}^G=0$ c'est-à-dire une base de Gröbner. \\
 Considérons pour cela la suite $(G_j)_{j \in \N}$ définie comme la suite d'ensemble obtenu grâce à cet algorithme.\\
 Comme pour tout $j \in \N$, $G_j \subset G_{j+1}$ alors $\left\langle \LT(G_j)\right\rangle\subset\left\langle \LT(G_{j+1})\right\rangle$. De plus, si $G_j \neq G_{j+1}$ alors $\left\langle \LT(G_j)\right\rangle\neq\left\langle \LT(G_{j+1})\right\rangle$. En effet, si $r \in G_{j+1} \setminus G_j$ alors, par définition du reste, $\LT(r)$ n'est pas divisible par aucun des éléments de $G_j$ et donc n'appartient pas à $\LT(G_j)$.
-De plus, comme $k[X_1,\ldots,X_n]$est noethérien alors la suite $(\left\langle \LT(G_j)\right\rangle)$ croissante est stationnaire et donc la suite $(G_j)$ est stationnaire, ce qui montre que l'algorithme termine.
+De plus, comme $k[X_1,\ldots,X_n]$est noethérien alors la suite $(\left\langle \LT(G_j)\right\rangle)$ croissante est stationnaire (c.f. propriété \label{Autre_carac}) et donc la suite $(G_j)$ est stationnaire, ce qui montre que l'algorithme termine.
 \end{proof}
 
 
@@ -469,10 +476,10 @@ Lorsqu'on calcule une base de Gröbner pour l'idéal $\left\langle X^2 + Y^2 + Z^2
 \end{Ex}
 Le lemme suivant généralise cette remarque :
 \begin{Lemme}
-Soit $G $ une base de Gröbner d'un idéal $I $ de $k[X_1,\ldots,X_n] $ et  $P\in G$ tel que $LT (P) \in \left\langle LT(G \setminus \{P\}) \right\rangle$. Alors $G \setminus \{P\} $ est une base de Gröbner de $I $.
+Soit $G $ une base de Gröbner d'un idéal $I $ de $k[X_1,\ldots,X_n] $ et  $P\in G$ tel que $\LT (P) \in \left\langle LT(G \setminus \{P\}) \right\rangle$. Alors $G \setminus \{P\} $ est une base de Gröbner de $I $.
 \end{Lemme}
 \begin{proof}
-Comme $G $ est une base de Gröbner de $I $ alors $\left\langle LT(G)\right\rangle=\left\langle LT(I) \right\rangle$. Si $LT (P) \in \left\langle LT(G \setminus \{P\}) \right\rangle$ alors $\left\langle LT(G \setminus \{P\} )\right\rangle=\left\langle LT(G )\right\rangle=\left\langle LT(I) \right\rangle$, d'où $G \setminus \{P\} $ est une base de Gröbner de $I $.
+Comme $G $ est une base de Gröbner de $I $ alors $\left\langle \LT(G)\right\rangle=\left\langle \LT(I) \right\rangle$. Si $\LT (P) \in \left\langle \LT(G \setminus \{P\}) \right\rangle$ alors $\left\langle \LT(G \setminus \{P\} )\right\rangle=\left\langle \LT(G )\right\rangle=\left\langle \LT(I) \right\rangle$, d'où $G \setminus \{P\} $ est une base de Gröbner de $I $.
 \end{proof}
 En itérant ce processus, on obtient une base de Gröbner minimale :
 \begin{Def}
@@ -507,12 +514,12 @@ Commençons par montrer l'existence d'une base de Gröbner réduite d'un idéal $I$.
 Soit $G$ une base de Gröbner minimale de $I$. $g \in G$ est dit réduit pour $G$ si aucun monôme de $g$ n'est dans $\left\langle \LT(G \setminus \{g\})\right\rangle$. \\
 On peut remarquer que $g$ est aussi réduite pour n'importe quel base de Gröbner minimale $G'$ telle que $\left\langle \LT(G)\right\rangle=\left\langle \LT(G')\right\rangle$.\\
 Pour $g \in G$, posons $g':=\overline{g}^{G \setminus \{g\}}$ et $G':=(G \setminus \{g\}) \cup \{g'\}$. Montrons que $G'$ est une base de Gröbner minimale pour $I$. \\
-Comme $G$ est une base de Gröbner minimale alors $\LT(g) \notin \left\langle \LT(G \setminus \{g\}) \right\rangle$ et donc lorsqu'on divise $g$ par $G\setminus \{g\}$, $\LT(g')$ est ajouté au reste. De ce fait, $\LT(g)=\LT(g')$ et donc $\left\langle \LT(G)\right\rangle=\left\langle \LT(G')\right\rangle$. Comme $g' \in I$ alors $G' \subset I'$ et donc $G$ est une base de Gröbner de $I$. De plus, la minimalité de $G'$ se déduit de celle de $G$ et $g'$ est réduit pour $G'$ par construction (grâce à la condition sur le reste de l'algorithme de division) \\
+Comme $G$ est une base de Gröbner minimale alors $\LT(g) \notin \left\langle \LT(G \setminus \{g\}) \right\rangle$ et donc lorsqu'on divise $g$ par $G\setminus \{g\}$, $\LT(g')$ est ajouté au reste. De ce fait, $\LT(g)=\LT(g')$ et donc $\left\langle \LT(G)\right\rangle=\left\langle \LT(G')\right\rangle$. Comme $g' \in I$ alors $G' \subset I$ et donc $G$ est une base de Gröbner de $I$. De plus, la minimalité de $G'$ se déduit de celle de $G$ et $g'$ est réduit pour $G'$ par construction (grâce à la condition sur le reste de l'algorithme de division) \\
 En itérant ce procédé pour tous les éléments de $G$, on finit par obtenir une base de Gröbner réduite $G'$ car tous les $g$ sont réduits pour $G'$ (grâce à la remarque faite au début de la preuve).\\
 Montrons maintenant l'unicité. \\
 Soit $G,\widetilde{G}$ deux bases de Gröbner réduites de $I$. \\
 Montrons tout d'abord que $\LT(G)=\LT(\widetilde{G})$. Comme $G$ et $G'$ sont des bases de Gröbner de $I$ alors $\left\langle \LT(G)\right\rangle=\left\langle \LT(\widetilde{G})\right\rangle$.\\
-Soit $g \in G$ alors $\LT(g) \in \left\langle \LT(G') \right\rangle$ et donc d'après le lemme \label{lem_div} il existe $g' \in \widetilde{G}$ tel que $\LT(g')$ divise $\LT(g)$. De la même façon, comme $\LT(g') \in \left\langle \LT(G)\right\rangle$ alors il existe $g'' \in G$ tel que $\LT(g'')$ divise $\LT(g')$ (et donc $\LT(g)$. Par minimalité de $G$ et $G'$, $\LT(g)=\LT(g')=\LT(g'')$ et donc $\LT(g) \in G'$. D'où $\LT(G) \subset \LT(g')$. Par symétrie de rôle, $\LT(G)=\LT(\widetilde{G})$. \\
+Soit $g \in G$ alors $\LT(g) \in \left\langle \LT(G') \right\rangle$ et donc d'après le lemme \label{lem_div} il existe $g' \in \widetilde{G}$ tel que $\LT(g')$ divise $\LT(g)$. De la même façon, comme $\LT(g') \in \left\langle \LT(G)\right\rangle$ alors il existe $g'' \in G$ tel que $\LT(g'')$ divise $\LT(g')$ (et donc $\LT(g)$. Par minimalité de $G$ et $G'$, $\LT(g)=\LT(g')=\LT(g'')$ et donc $\LT(g) \in G'$. D'où $\LT(G) \subset \LT(\widetilde{G})$. Par symétrie de rôle, $\LT(G)=\LT(\widetilde{G})$. \\
 Soit $g \in G$ alors il existe un élément $\widetilde{g} $ tel que $\LT(g)=\LT(\widetilde{g})$. Pour montrer que $G=\widetilde{G}$, il suffit de montrer que $g=\widetilde{g}$. \\
 Comme $G$ est une base de Gröbner de $I$ et que $g-\widetilde{g}\in I$ alors $\overline{g-\widetilde{g}}^G=0$. Comme $G$ et $\widetilde{G}'$ sont réduites, alors aucun monôme de $g-\widetilde{g}$ n'est divisible par un élément de $\LT(G)$ d'où par l'algorithme de division, $\overline{g-\widetilde{g}}^G=g-\widetilde{g}$ et donc $g-\widetilde{g}=0$ 
 \end{proof}
@@ -545,9 +552,9 @@ Voici un exemple illustrant cette idée pour des polynômes non linéaires : \\
 Considérons le système : $\begin{cases}
 x^2-yz=4 \\
 y^2-xz=5 \\
-z^2-xz=6
+z^2-xy=6
 \end{cases}$ et son idéal associé $\left\langle X^2-YZ-4,Y^2-XZ-5,Z^2-XY-6 \right\rangle$. \\
-Lorsque l'on calcule la Base de Gröbner réduite de $I$, on obtient $\{ X + 7/8Z, Y - 1/16Z,Z^2 - 256/45\}$, on remarque que l'on a obtenu des polynômes de l'idéal où l'on a éliminé les variables et que l'on peut résoudre le système en partant de l'équation $z^2=256/45$ où l'on a éliminé $X$ et $Y$ et en complétant ses solutions $\{\pm 8/(3\sqrt{5}) \}$ avec les deux autres équations. On obtient donc les deux solutions du système :  $\{\mp 7/(3\sqrt{5}), \pm 1/(6\sqrt{5}),\pm 8/(3\sqrt{5})\}$.
+Lorsque l'on calcule la Base de Gröbner réduite de $I$, on obtient $\{ X + 7/8Z, Y - 1/16Z,Z^2 - 256/45\}$, on remarque que l'on a obtenu des polynômes de l'idéal où l'on a éliminé les variables et que l'on peut résoudre le système en partant de l'équation $z^2=256/45$ où l'on a éliminé $X$ et $Y$ et en complétant ses solutions $\{\pm 16/(3\sqrt{5}) \}$ avec les deux autres équations. On obtient donc les deux solutions du système :  $\{\pm(- 14/(3\sqrt{5}), 1/(3\sqrt{5}), 16/(3\sqrt{5}))\}$.
 
 
 \subsection{Théorème d'élimination}
@@ -562,7 +569,7 @@ Soit $I $ un idéal de $k[X_1,\ldots,X_n]$ et $G$ une base de Gröbner de $I$ selo
 
 Soit $p \in [\![0,n]\!]$. Posons $G=\{g_1,\ldots,g_m\}$ et tel que $G_p=\{g_1,\ldots,g_r\}$ (quitte à renommer les éléments). \\
 Montrons que $G_p$ est une base de $I_p$. \\
-Comme $G_p \subset I_p$ (car $G \subset I$) alors $\left \langle G_p \right\rangle \subset I_p$.\\
+Comme $G_p \subset I_p$ (car $G \subset I$) alors $\left \langle G_p \right\rangle \subset I_p$.
 On peut écrire, grâce à l'algorithme de division, $f \in I$ sous la forme $f=\sum_{k=1}^m h_ig_i$, l'absence de reste est assuré par le fait que $G$ est une base de Gröbner de $I$ et $f \in I$.\\
 Or pour tout $p>r,  \LM(g_i) > X^{p+1} \geq \LM(f) $ et donc aucun terme de $f$ ne peut être divisible par un $\LT(g_i)$. L'algorithme n'incrémente pas les $h_p$(avec $p >r$) et donc ceux-ci sont tous nuls.  \\
 D'où, $f=\sum_{k=1}^r h_ig_i$ et donc $f_p \in \left \langle G_p \right\rangle$, ce qui finit de montrer l'égalité $\left \langle G_p \right\rangle = I_p$.\\
@@ -574,12 +581,12 @@ Soit $i,j \in [\![1,r]\!]$,$ i<j$. Comme $S(g_i,g_j)$ est de la forme $Pg_i+Qg_j
 \begin{Ex}
 Avec les $f,g,h$ de l'exemple \ref{ex}, le premier idéal d'élimination est : \\$I_1=\left\langle X - YZ^2 + Y, Y^2 + 2Z^2 - 5, Z^4 - 7/2Z^2 + 3\right\rangle$ et le second $I_2=\left\langle Z^4 - 7/2Z^2 + 3\right\rangle$
 \end{Ex}
-Lorsque l'on a calculé le $(n-1)$ème idéal d'élimination, on obtient lorsqu'il n'est pas réduit à 0, un idéal de la forme $\left\langle P\right\rangle$ (car $k[X_n]$ est principal) et donc un nombre fini de solutions. On va essayer d'étendre les solutions partielles des idéaux d'élimination en des solutions de l'idéal de départ. Pour cela, on va commencer par présenter des résultats sur les résultants qui vont permettre de montrer le théorème d'extension.
+Lorsque l'on a calculé le $(n-1)$ème idéal d'élimination, on obtient lorsqu'il n'est pas réduit à $\{0\}$, un idéal de la forme $\left\langle P\right\rangle$ (car $k[X_n]$ est principal) et donc un nombre fini de solutions. On va essayer d'étendre les solutions partielles des idéaux d'élimination en des solutions de l'idéal de départ. Pour cela, on va commencer par présenter des résultats sur les résultants qui vont permettre de montrer le théorème d'extension.
 \subsection{Résultant}
 Soient $A $ un anneau commutatif intègre et $K $ son corps de fractions.\\
 Soient $f\in A[X] $ et $g \in A[X] $. Soient $p,q \in \N$, tels que $p\geq\deg f $ et $q\geq\deg g $.\\
 Soit $\varphi_{f,g} : K[X]_{<q}\times K[X]_{<p} \to K[X]_{<p+q} $ l'application linéaire définie par : $\forall (u,v) \in K[X]_{<q}\times K[X]_{<p}, \varphi(u,v)=fu+gv $.\\
-On appelle matrice de Sylvester la matrice associée à l'application $\varphi_{f,g} $ dans la base $\B=((X^i,X^j) | 0 \leq i \leq q-1 ; 0 \leq j \leq p-1) $ de $K[X]_{<q}\times K[X]_{<p}$ et dans la base canonique de $K[X]_{<p+q}$  que l'on notera $\Syl_{p,q}(f,g)$.\\
+On appelle matrice de Sylvester la matrice associée à l'application $\varphi_{f,g} $ dans la base $\B=((X^i,0),(0,X^j) | 0 \leq i \leq q-1 ; 0 \leq j \leq p-1) $ de $K[X]_{<q}\times K[X]_{<p}$ et dans la base canonique de $K[X]_{<p+q}$  que l'on notera $\Syl_{p,q}(f,g)$.\\
 On notera $\Res_{p,q}(f,g)$ le déterminant de $\Syl_{p,q}(f,g)$. 
 On appelle résultant de $f $ et $g $  l'élément $\Res_{\deg(f),\deg(g)}(f,g)$.
 
@@ -620,6 +627,9 @@ En notant par $c $ l'élément de $ (k[X_2,\ldots,X_n])[X]_{<\deg(g)}\times (k[X_2
     \item Si $p>\deg(A)$ et $q>\deg(B)$ alors $\Res_{p,q}(A,B)=0$
 \end{itemize}
 \end{prop}
+\begin{proof}
+On écrit la matrice de Sylvester et on développe le déterminant en ligne.
+\end{proof}
 \begin{Thm}
 \label{zeros}
 Supposons le corps $K$ alg\'ebriquement clos. Alors $Res(A,B)=0$ si, et seulement si, les polyn\^omes $A$ et $B$ ont une racine commune.
@@ -628,9 +638,7 @@ Supposons le corps $K$ alg\'ebriquement clos. Alors $Res(A,B)=0$ si, et seulemen
 \label{eval}
 Soient $f=\sum_{i=0}^p f_i(X_2,\ldots,X_n)X_1^i,f=\sum_{i=0}^m g_i(X_2,\ldots,X_n)X_1^i \in k[X_1,\ldots,X_n]$. Soit $c \in k^{n-1}$. Alors $\Res_{X_1}(f,g)(c)=\Res_{p,q}(f(X_1,c),g(X_1,c))$.\\
 \end{Thm}
-
 \begin{proof}
-
 Considérons le morphisme d'anneaux $\varphi : k[X_1,\ldots,X_n]\to k[X_1]$ défini par : 
 $\forall f \in k[X_1,\ldots,X_n],\varphi(f)=f(X_1,c)$.\\
 On a donc $\Res_{X_1}(f,g)(c)=\varphi(\Res_{X_1}(f,g))$ (en identifiant $k[X_2,\ldots,X_n]$ avec le sous-anneau de $k[X_1,\ldots,X_n]$ des polynômes de degré 0 en $X_1$).
@@ -638,7 +646,7 @@ Notons $\left(a_{i,j}(X_2,\ldots,X_n)\right)$ les coefficients de $\Syl_{X_1}(f,
 Alors, comme $\varphi$ est un morphisme d'anneaux, $\Res_{X_1}(f,g)(c)=\varphi(\Res_{X_1}(f,g))=\det(\varphi(\left(a_{i,j}(X_2,\ldots,X_n)\right)))=\det(\left(a_{i,j}(c)\right))$. \\
 Ce qui montre que $\Res_{X_1}(f,g)(c)=\Res_{p,q}(f(X_1,c),g(X_1,c))$.
 \end{proof}
-Ce sont ces deux théorèmes qui vont faire marcher la preuve du théorème d'extension. On va donner une utilisation du théorème \ref{eval} pour l'intersection des courbes algébriques planes. L'élimination par le résultant dans le cas à deux variables marche bien. En effet, le résultant de deux polynômes à deux variables est un multiple du générateur de l'idéal d'élimination.
+Ce sont ces deux théorèmes qui vont faire marcher la preuve du théorème d'extension. On va donner une utilisation du théorème \ref{eval} pour l'intersection des courbes algébriques planes. L'élimination par le résultant dans le cas à deux variables marche bien. En effet, le résultant de deux polynômes à deux variables est un multiple du générateur de l'idéal d'élimination (car $k[X]$ est principal).
 
 \subsubsection{Intersection de deux courbes algébriques planes}
 Soient les deux courbes algébriques planes $\Cscr=\{f=0\},\Dscr=\{g=0\} \subset \C^2$ où $f=\sum_{i=0}^m f_i(X)Y^i,g=\sum_{i=0}^n g_i(X)Y^i \in \C[X,Y]$.\\
@@ -646,13 +654,13 @@ Pour trouver les points d'intersection de $X$ et de $Y$, nous allons tout d'abor
 Soit $a \in \C$ tel que $f_m(a)$ et $g_n(a)$ ne sont pas simultanément nuls. \\
 $a \in \pi_x(\Cscr \cap \Dscr) \Leftrightarrow \exists b \in \C, (a,b) \in X \cap Y \Leftrightarrow \exists b \in \C, f(a,b)=g(a,b)=0$\\
 $\Leftrightarrow  \PGCD(f(a,Y),g(a,Y))\neq 1$ car le PGCD de ces deux polynômes est divisible par $(X-b)$ grâce à l'équivalence précédente \\
-$\Leftrightarrow  \Res(f(a,Y),g(a,Y))=0$   grâce aux propriétés du résultant. \\
-$\Leftrightarrow  \Res_Y(f,g)(a)=0$    car $f_m(a)$ et $g_n(a)$ ne sont pas simultanément nuls.  \\
+$\Leftrightarrow  \Res(f(a,Y),g(a,Y))=0$   (cf théorème \ref{zeros} \\
+$\Leftrightarrow  \Res_Y(f,g)(a)=0$    car $f_m(a)$ et $g_n(a)$ ne sont pas simultanément nuls (cf théorème \ref{eval}).  \\
 Autrement dit, $\pi_x(\Cscr \cap \Dscr) \subset Z(\Res_Y(f,g))$.\\
-De plus, pour pouvoir (éventuellement) compléter une solution partielle $a$ de $\pi_x(\Cscr \cap \Dscr)$ en une solution de $X \cap Y$, il suffit de calculer les racines $\{x_1,\ldots,x_n\}$ de $\PGCD(f(a,Y),g(a,Y))$ (comme on peut le voir à la première équivalence ci-dessus) et ensuite de vérifier si les couples $(a,x_i)$ appartiennent à $\Cscr \cap \Dscr$.
+On en déduit que pour pouvoir (éventuellement) compléter une solution partielle $a$ de $\pi_x(\Cscr \cap \Dscr)$ en une solution de $X \cap Y$, il suffit de calculer les racines $\{x_1,\ldots,x_n\}$ de $\PGCD(f(a,Y),g(a,Y))$ (comme on peut le voir à la première équivalence ci-dessus) et ensuite de vérifier si les couples $(a,x_i)$ appartiennent à $\Cscr \cap \Dscr$.
 \begin{Ex}
-Supposons $f=(Y^2+6)(X^2-1)-Y(X^2+1), g=(Y^2+6)(X^2-1)-Y(X^2+1)$. \\
-On commence par calculer le résultant de ces polynômes (en Y) :
+Soit $f=(Y^2+6)(X^2-1)-Y(X^2+1), g=(Y^2+6)(X^2-1)-Y(X^2+1)$. \\
+On commence par calculer le résultant de ces polynômes (en $Y$) :
 $\Res_Y(f,g)=2(X-2)^2(X-3)^2(X^2-X+4)$. 
 Ce polynôme a 4 racines $2,3,\frac{1+i\sqrt{15}}{2},\frac{1-i\sqrt{15}}{2}$. \\
 On essaie ensuite de compléter ces solutions partielles en calculant et en trouvant les racines de $\PGCD(f(\cdot,Y),g(\cdot,Y))$ : \\
@@ -683,6 +691,7 @@ Alors, d'après les propriétés du résultant (c.f. lemme \ref{result_deg}) et du t
 Ce qui permet de conclure que $f(X_1,c)$ et $g(X_1,c)$ ont une racine commune $c_1$(grâce au théorème \ref{zeros}) et donc $(c_1,\ldots,c_n) \in Z(I)$.
 On obtient la m\^eme chose en supposant $g_q(c) \neq 0$.
 \end{proof}
+On obtient le corollaire suivant en supposant que un $g_i$ constant (non nul) et que donc $Z(g_1,\ldots,g_s)=\emptyset$.
 \begin{cor}
  Soit $I=\left \langle f_1,\ldots,f_s \right\rangle$ un idéal de $\mathbb{C}[X_1,\ldots,X_n]$ et supposons qu'il existe $i \in [\![1,n]\!]$ tel que $f_i$ s'écrit de la forme :
 $f_i=cX_1^{N}$+termes de degré $<N$ en $X_1$\\
@@ -701,7 +710,7 @@ On peut étendre toutes les solutions partielles sauf la solution $(0,0)$ (car $0
 \end{Ex}
 On va maintenant finir d'étudier notre exemple (celui de \ref{ex}).
 \begin{Ex}
-On a $I_1=\left\langle g,Z^4-7/2Z^2+3 \right\rangle$ et $I_2=\left\langle Z^4-7/2Z^2+3 \right\rangle$. \\
+On a $I_1=\left\langle Y^2+2Z^2-5,Z^4-7/2Z^2+3 \right\rangle$ et $I_2=\left\langle Z^4-7/2Z^2+3 \right\rangle$. \\
 On a $Z(I_2)=Z(\left\langle Z^4-7/2Z^2+3\right\rangle)=\{\pm \sqrt{2},\pm \sqrt{3/2}\}$. Puis, comme le terme dominant de $g$ est constant alors on peut utiliser le théorème d'extension pour montrer que $Z(I_1)=\{(\pm 1,\pm \sqrt{2}),(\pm\sqrt{2},\pm \sqrt{3/2})\}$ puis de la m\^eme façon, on a que $Z(I)=\{\pm(1,1,\pm\sqrt{2}),\pm(1/\sqrt{2},\sqrt{2},\pm\sqrt{2})\}$
 \end{Ex}
 Ces deux théorèmes permettent de répondre à la troisième question de l'introduction.
@@ -709,7 +718,7 @@ Ces deux théorèmes permettent de répondre à la troisième question de l'introduct
 Nous allons, dans cette sous-section, donner une interprétation géométrique aux théorèmes d'élimination et d'extension. On va commencer par donner quelques résultats de géométrie.
 \subsubsection{Résultats préliminaires}
 \begin{Def}
-Soit $f_1,\ldots,f_s$ des polynômes de $k[X_1,\ldots,X_n]$.\\ On appelle variété affine définie par $f_1,\ldots,f_s$ l'ensemble : $Z(f_1,\ldots,f_s)=\{(a_1,\ldots,a_n) \in k^n | \forall i \in [\![1,s]\!],f_i(a_1,\ldots,a_n)=0 \}$.
+Soit $f_1,\ldots,f_s$ des polynômes de $k[X_1,\ldots,X_n]$.\\ On appelle variété affine définie par $f_1,\ldots,f_s$ l'ensemble définie précédemment $Z(f_1,\ldots,f_s):=\{(a_1,\ldots,a_n) \in k^n | \forall i \in [\![1,n]\!],f_i(a_1,\ldots,a_n)=0 \}$.
 \end{Def}
 \begin{Ex}
 Dans $\R^2$, le cercle ($=Z(X^2+Y^2-R^2)$ où $R\in \R$), la parabole ($=Z(2pX^2-Y)$ où $p\in \R$) et plus généralement, les coniques sont des variétés affines. \\
@@ -726,15 +735,15 @@ En effet,$x \in V \cap W$ si, et seulement si, pour tous $i,j$, $f_i(x)=g_j(x)=0
 \begin{prop} Si $\{f_1,\ldots,f_s\}$ et $\{g_1,\ldots,g_r\}$ sont des bases d'un même idéal $I$ de $k[X_1,\ldots,X_n]$ alors $Z(f_1,\ldots,f_s)=Z(g_1,\ldots,g_r)$
 \end{prop}
 \begin{proof}
-Comme $\{f_1,\ldots,f_s\}$ et $\{g_1,\ldots,g_r\}$ sont des bases d'un même idéal alors on peut écrire les $g_j$ sous la forme $\sum_{i=1}^s h_{i,j}f_i$. De ce fait, si $x \in Z(f_1,\ldots,f_s)$ alors pour tout $j$, $f_j(x)=0$  et donc $g_j(x)=\sum_{i=1}^s h_{i,j}(x)f_i(x)=0$. Et donc $x\in Z(g_1,\ldots,g_r)$.\\
+Comme $\{f_1,\ldots,f_s\}$ et $\{g_1,\ldots,g_r\}$ sont des bases d'un même idéal alors on peut écrire les $g_j$ sous la forme $\sum_{i=1}^s h_{i,j}f_{i}$. De ce fait, si $x \in Z(f_1,\ldots,f_s)$ alors pour tout $i$, $f_i(x)=0$  et donc $g_j(x)=\sum_{i=1}^s h_{i,j}(x)f_i(x)=0$. Et donc $x\in Z(g_1,\ldots,g_r)$.\\
 Par symétrie de rôles, on obtient l'inclusion réciproque.
 \end{proof}
-En particulier, $Z(f_1,\ldots,f_s)=Z(\left\langle f_1,\ldots,f_s\right\rangle)$. \\
+De la même façon, on peut montrer que  $Z(f_1,\ldots,f_s)=Z(\left\langle f_1,\ldots,f_s\right\rangle)$. \\
 
 On va, dans la suite, considérer des projections de variété affine comme l'analogue géométrique de l'élimination des variables.
 \begin{Def} 
 \label{Def_proj}
-Soit $\pi_p $ la projection (surjective) $\C^n \to \C^{n-p} $ définie par : $\forall (a_1,\ldots,a_n) \in \mathbb{C}^n, \pi_p (a_1,\ldots,a_n) =(a_{p+1},\ldots,a_n) $.
+Soit $\pi_p $ la projection $\C^n \to \C^{n-p} $ définie par : $\forall (a_1,\ldots,a_n) \in \mathbb{C}^n, \pi_p (a_1,\ldots,a_n) =(a_{p+1},\ldots,a_n) $.
 \end{Def}
 
 
@@ -747,7 +756,7 @@ Soit $I_p $ le $p $ème idéal d'élimination de l'idéal $\left\langle f_1,\ldots,f
 \begin{proof}
  Pour montrer cette égalité, il faut montrer que $\forall a \in \pi_p (V),\forall f \in I_p, f (a)=0$.\\
 Soient $a=(a_{p+1},\ldots,a_n) \in \pi_p(V) $ et $f\in I_p  $.\\
-Comme $\pi_p $ est surjective alors il existe un $a'=(a_1,\ldots,a_n) $ qui appartient à $V $. Alors $f (a') =0$ (car $f \in \left\langle f_1,\ldots,f_s \right\rangle$). Or comme $f $ ne dépend que de $X_{p+1},\ldots,X_n$ alors $f (a)=f (a')=0$. \\
+Comme $\pi_p $ est surjective alors il existe un $a'=(a_1,\ldots,a_n) \in V $ tel que $\pi_p(a)=a'$ . Alors $f (a') =0$ (car $f \in \left\langle f_1,\ldots,f_s \right\rangle$). Or comme $f $ ne dépend que de $X_{p+1},\ldots,X_n$ alors $f (a)=f (a')=0$. \\
 \end{proof}
 \begin{Thm}  Soit $g_i $ défini dans le théorème d'extension et $I_1$ le premier idéal d'élimination de $\left\langle f_1,\ldots,f_s \right\rangle$. On a alors l'égalité, dans $\C^{n-1} $,\\
 $Z (I_1)=\pi(V) \cup (Z (g_1,\ldots,g_s) \cap Z (I_1))$
@@ -755,8 +764,8 @@ $Z (I_1)=\pi(V) \cup (Z (g_1,\ldots,g_s) \cap Z (I_1))$
 \begin{proof}
 $\supset $ : c.f. Lemme \ref{lemme_inclus} \\
 $\subset  $ : Soit $a:=(a_2,\ldots,a_n) \in Z (I_1)$ .
-Alors si $a\notin\left\langle g_1,\ldots,g_s \right \rangle $, on a, d'après le théorème d'extension, l'existence d'un $a_1 \in \C $ tel que $(a_1,\ldots,a_n) \in V$ et donc  $a \in \pi_1 (V) $.\\
-Sinon $a \in \left\langle g_1,\ldots,g_s \right \rangle$ et donc dans $\left\langle g_1,\ldots,g_s \right \rangle \cap Z (I_1) $
+Alors si $a\notin Z( g_1,\ldots,g_s)$, on a, d'après le théorème d'extension, l'existence d'un $a_1 \in \C $ tel que $(a_1,\ldots,a_n) \in V$ et donc  $a \in \pi_1 (V) $.\\
+Sinon $a \in \left\langle g_1,\ldots,g_s \right \rangle$ et donc dans $Z( g_1,\ldots,g_s ) \cap Z (I_1) $
 \end{proof}
 En d'autres termes, d'après le théorème d'extension, une solution partielle de $Z(I_1)$ peut soit être étendue en une solution de $Z(I)$ (\emph{i.e.} appartient à $\pi(V)$) soit est un zéro commun des $g_i$. \\
 On a, de la même façon que pour le théorème d'extension, le corollaire suivant : 
@@ -765,7 +774,7 @@ Supposons qu'il existe $i \in [\![1,n]\!]$ tel que $f_i$ s'écrit de la forme : \
 $f_i=cX_1^{N}$+termes de degré $<N$ en $X_1$ où $N> 0$ et $c \in \mathbb{C}\setminus \{0\}$.  \\Alors $\pi(V)=Z(I_1)$.
 \end{cor}
 
-Le théorème suivant décrit de manière plus précise le lien entre les projections de variété et les zéros de ses idéaux d'élimination.
+Le théorème suivant décrit de manière plus précise le lien entre les projections de variété et les zéros de ses idéaux d'élimination et va nous permettre d'étudier les ensembles paramétrés.
 \begin{Thm}[de fermeture]
 
  Soit $V=Z(f_1,\ldots,f_s) \subset \C^n$ et soit $I_p$ le $p$ème idéal d'élimination de $\left\langle f_1,\ldots,f_s \right\rangle$. Alors  
@@ -781,9 +790,9 @@ Le théorème suivant décrit de manière plus précise le lien entre les projections
 Nous allons maintenant étudier le dernier problème que l'on s'est posé : l'implicitation.\\
 Soit $S$ l'ensemble param\'etr\'e par le syst\`eme suivant : $ \begin{cases}
 x_1=f_1(t_1,\ldots,t_m)& \\
-\vdots & (\dagger) \\
+\vdots &   (t_1,\ldots,t_m) \in k^m \;(\dagger) \\
 x_n=f_n(t_1,\ldots,t_m)& \\
-\end{cases} $\\ o\`u $f_i \in k[T_1,\ldots,T_m]$ et $(t_1,\ldots,t_m) \in k^m$ .\\
+\end{cases} $\\ o\`u $f_i \in k[T_1,\ldots,T_m]$   .\\
 On peut tout d'abord remarquer que $S$ est l'image de $k^m$ par la fonction $F=(f_1,\ldots,f_n) : k^m \to k^n$.
 $S$ n'est pas n\'ecessairement une vari\'et\'e affine (\emph{c.f.} exemple \ref{Whitney}). Le syst\`eme $(\dagger)$ peut d\'efinir tout de même une vari\'et\'e $V:=Z(X_1-f_1,\ldots,X_n-f_n) \subset k^{n+m}$.\\
 On a donc $V=\{(t_1,\ldots,t_n,x_1,\ldots,x_m)\in k^{n+m} | \forall i \in [\![1,m]\!],x_i-f_i(t_1,\ldots,t_n)=0 \}$\\
@@ -794,15 +803,10 @@ $\begin{array}{ccccc}
 i & : & k^m & \to & k ^{n+m} \\
  & & (t_1,\ldots,t_m) & \mapsto & (t_1,\ldots,t_n,f_1(t_1,\ldots,t_n),\ldots,f_m(t_1,\ldots,t_n))\\
 \end{array}$\\
-On en déduit le diagramme commutatif suivant :  \\
- \xymatrix{
-   &k^{n+m} \ar[rd]^{\pi_m}&  \\
-    k^m \ar[ru]^i\ar[rr]^F&& k^n
-  }
-i.e. $F=\pi_m \circ i$.\\
-où $\pi_m : k^{n+m} \to k^n$ est une projection définie de manière analogue à \ref{Def_proj}. \\
-On a donc $\pi_m(V)=F(k^m)$.\\
+ \\
+On a donc $\pi_m(V)=F(k^m)$ où $\pi_m : k^{n+m} \to k^n$ est une projection définie de manière analogue à \ref{Def_proj}.\\
 Autrement dit, l'image d'une param\'etrisation est la projection de son graphe.
+En comparant ce résultat avec le théorème de fermeture, on peut trouver la plus petite variété contenant $F(k^m)$.
 \begin{Thm}
 \label{impli_polyn}
 Supposons que $k$ est un sous-corps de $\C$. \\
@@ -836,19 +840,20 @@ On en déduit que les restrictions à un sous-corps ne préserve pas les égalités e
 
 De la même façon, on peut étudier le cas où l'ensemble est paramétré par des fractions rationnelles i.e. pour \\$ \begin{cases}
 x_1=\frac{f_1(t_1,\ldots,t_m)}{g_1(t_1,\ldots,t_m)}& \\
-\vdots & (\ddagger) \\
+\vdots & (t_1,\ldots,t_m) \in k^m \setminus Z(g_1 \ldots g_n) \;(\ddagger) \\
 x_n=\frac{f_n(t_1,\ldots,t_m)}{g_n(t_1,\ldots,t_m)}& \\
-\end{cases} $\\ où $f_i,g_i \in k[T_1,\ldots,T_m]$ et $(t_1,\ldots,t_m) \in k^m \setminus Z(g_1 \ldots g_n) $ .\\
+\end{cases} $\\ où $f_i,g_i \in k[T_1,\ldots,T_m]$  .\\
 Alors l'analogue du théorème \ref{impli_polyn} pour le système $(\ddagger)$ est : 
 
 \begin{Thm}
+\label{impli_ratio}
 Supposons que $k$ est un sous-corps de $\C$. \\
 Soit $F:k^m \setminus Z(g_1 \ldots g_n) \to k^n$ une fonction déterminée par la paramétrisation rationnelle $(\ddagger)$.\\ Soit $I$ l'id\'eal $\left\langle g_1X_1-f_1,\ldots,g_nX_n-f_n,1-g_1 \ldots g_n Y \right\rangle \subset k[Y,T_1,\ldots,T_m,X_1,\ldots,X_n]$ et $I_{m+1}$ son $m+1$ \`eme id\'eal d'\'elimination. Alors $Z(I_{m+1})$ est la plus petite variété de $k^n$ contenant $F(k^m \setminus Z(g_1 \ldots g_n) )$.
 \end{Thm}
 
 
  Cet énoncé appelle quelques remarques : \\
-Tout d'abord, on a ôté $Z(g_1 \ldots g_n)$ du domaine de définition car c'est l'ensemble des points $x$ pour lesquels un $g_i(x)$ s'annule. Ensuite, on a dû ajouter le polynôme $1-g_1 \ldots g_n Y$ pour garder l'information que les $g_i$ ne doivent pas s'annuler dans l'idéal après avoir "chassé" les dénominateurs. En effet, on voit que cela est nécessaire grâce à l'exemple suivant :
+Tout d'abord, on a ôté $Z(g_1 \ldots g_n)$ du domaine de définition car c'est l'ensemble des points $x$ pour lesquels au moins un $g_i(x)$ s'annule. Ensuite, on a dû ajouter le polynôme $1-g_1 \ldots g_n Y$ pour garder l'information que les $g_i$ ne doivent pas s'annuler dans l'idéal après avoir "chassé" les dénominateurs. En effet, on voit que cela est nécessaire grâce à l'exemple suivant :
 $\begin{cases}
 x=\frac{u^2}{v} \\
 y=\frac{v^2}{u}\\
@@ -856,7 +861,7 @@ z=u
 \end{cases}$ et $I=\left\langle VX-U^2,UY-V^2,Z-U\right\rangle$. \\
 Lorqu'on calcule la base de Gröbner de $I$, on obtient $\{U - Z, V^2 - YZ, VX - Z^2, VZ^2 - XYZ, X^2YZ - Z^4\}$ et donc $Z(I_2)=Z(X^2YZ - Z^4)=Z(X^2Y - Z^3) \cup Z(Z)$, c'est-à-dire $Z(I_2)$ n'est pas la plus petite variété contenant $F((k^*)^2)$.
 
- On va finir par un exemple d'implicitation avec des fractions rationnelles : \\
+ On va finir par un exemple d'utilisation du théorème \ref{impli_ratio} : \\
 \begin{Ex}[Folium de Descartes]
 $(S)\begin{cases} 
 x=\frac{3t}{1+t^3} \\
