@@ -1,0 +1,111 @@
+\documentclass[a4page,10pt]{article}
+\usepackage[Latin1]{inputenc}
+\usepackage[francais]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{textcomp}
+\usepackage{mathrsfs}
+\usepackage{ algorithm , algorithmic }
+\usepackage[all]{xy}
+\usepackage{hyperref}
+
+%%% francisation des algorithmes
+
+\makeatletter
+
+\renewcommand*{\ALG@name}{Algorithme}
+
+\makeatother
+
+\renewcommand{\algorithmicrequire}{\textbf{\textsc {Entrées  :  } } }
+\renewcommand{\algorithmicensure}{\textbf{\textsc { Sortie  :  } } }
+\renewcommand{\algorithmicwhile}{\textbf{Tant que}}
+\renewcommand{\algorithmicdo}{\textbf{faire }}
+\renewcommand{\algorithmicif}{\textbf{Si}}
+\renewcommand{\algorithmicelse}{\textbf{Sinon}}
+\renewcommand{\algorithmicthen}{\textbf{alors }}
+\renewcommand{\algorithmicend}{\textbf{fin}}
+\renewcommand{\algorithmicfor}{\textbf{Pour}}
+\renewcommand{\algorithmicuntil}{\textbf{Jusqu'à}}
+\renewcommand{\algorithmicrepeat}{\textbf{Répéter}}
+
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\GL}{\mathcal{G}\mathcal{L}}
+\newcommand{\SL}{\mathcal{S}\mathcal{L}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Ccal}{\mathcal{C}}
+\newcommand{\Rcal}{\mathcal{R}}
+\newcommand{\Ecal}{\mathcal{E}}
+\newcommand{\Fcal}{\mathcal{F}}
+\newcommand{\Mcal}{\mathcal{M}}
+\newcommand{\Acal}{\mathcal{A}}
+\newcommand{\Lcal}{\mathcal{L}}
+\newcommand{\Rscr}{\mathscr{R}}
+\newcommand{\Cscr}{\mathscr{C}}
+\newcommand{\Dscr}{\mathscr{D}}
+\newcommand{\Ebar}{\overline{E}}
+\newcommand{\xbar}{\overline{x}}
+\newcommand{\ybar}{\overline{y}}
+\newcommand{\fbar}{\overline{f}}
+\newcommand\bigzero{\makebox(0,0){\text{\huge0}}}
+
+\DeclareMathOperator{\multideg}{\mathrm{multideg}}
+\DeclareMathOperator{\LM}{\mathrm{LM}}
+\DeclareMathOperator{\LT}{\mathrm{LT}}
+\DeclareMathOperator{\LC}{\mathrm{LC}}
+\DeclareMathOperator{\PPCM}{\mathrm{PPCM}}
+\DeclareMathOperator{\PGCD}{\mathrm{PGCD}}
+\DeclareMathOperator{\Syl}{\mathrm{Syl}}
+\DeclareMathOperator{\Res}{\mathrm{Res}}
+\DeclareMathOperator{\Com}{\mathrm{Com}}
+\headheight=0mm
+\topmargin=-10mm
+\oddsidemargin=-1cm
+\evensidemargin=-1cm
+\textwidth=18cm
+\textheight=22cm
+\parindent=0mm
+\begin{document}
+\newtheorem{Thm}{Théorème}[section]
+\newtheorem{prop}[Thm]{Propriété}
+\newtheorem{Lemme}[Thm]{Lemme}
+\newtheorem{cor}[Thm]{Corollaire}
+
+\theoremstyle{definition}
+
+\newtheorem{Ex}[Thm]{Exemple}
+\newtheorem{Def}[Thm]{Définition}
+\newtheorem{Not}[Thm]{Notation}
+\theoremstyle{remark}
+\newtheorem{Rq}[Thm]{Remarque}
+
+Soient les deux courbes algébriques planes $\Cscr=\{f=0\},\Dscr=\{g=0\} \subset \C^2$ où $f=\sum_{i=0}^m f_i(X)Y^i,g=\sum_{i=0}^n g_i(X)Y^i \in \C[X,Y]$.\\
+Pour trouver les points d'intersection de $X$ et de $Y$, nous allons tout d'abord trouver les éléments du projeté $\pi_x(\Cscr \cap \Dscr)$ de leur intersection  sur un des axes (celui des $x$ ici) grâce à la caractérisation suivante : \\
+Soit $a \in \C$ tel que $f_m(a)$ et $g_n(a)$ ne sont pas simultanément nuls. \\
+$a \in \pi_x(\Cscr \cap \Dscr) \Leftrightarrow \exists b \in \C, (a,b) \in X \cap Y \Leftrightarrow \exists b \in \C, f(a,b)=g(a,b)=0$\\
+$\Leftrightarrow  \PGCD(f(a,Y),g(a,Y))\neq 1$ car le PGCD de ces deux polynômes est divisible par $(X-b)$ grâce à l'équivalence précédente \\
+$\Leftrightarrow  \Res(f(a,Y),g(a,Y))=0$   grâce aux propriétés du résultant. \\
+$\Leftrightarrow  \Res_Y(f,g)(a)=0$    car $f_m(a)$ et $g_n(a)$ ne sont pas simultanément nuls.  \\
+Autrement dit, $\pi_x(\Cscr \cap \Dscr) \subset Z(\Res_Y(f,g))$.\\
+De plus, pour pouvoir (éventuellement) compléter une solution partielle $a$ de $\pi_x(\Cscr \cap \Dscr)$ en une solution de $X \cap Y$, il suffit de calculer les racines $\{x_1,\ldots,x_n\}$ de $\PGCD(f(a,Y),g(a,Y))$ et ensuite de vérifier si les couples $(a,x_i)$ appartiennent à $\Cscr \cap \Dscr$.
+\begin{Ex}
+Supposons $f=(Y^2+6)(X^2-1)-Y(X^2+1), g=(Y^2+6)(X^2-1)-Y(X^2+1)$. \\
+On commence par calculer le résultant de ces polynômes (en Y) :
+$\Res_Y(f,g)=2(X-2)^2(X-3)^2(X^2-X+4)$. 
+Ce polynôme a 4 racines $2,3,\frac{1+i\sqrt{15}}{2},\frac{1-i\sqrt{15}}{2}$. \\
+On essaie ensuite de compléter ces solutions partielles en calculant et en trouvant les racines de $\PGCD(f(\cdot,Y),g(\cdot,Y))$ : \\
+$\PGCD(f(2,Y),g(2,Y))=(Y-2)(Y-3)$,
+$\PGCD(f(3,Y),g(3,Y))=(Y-2)(Y-3)$\\
+$\PGCD(f(\frac{1-i\sqrt{15}}{2},Y),g(\frac{1-i\sqrt{15}}{2},Y))=Y-\frac{1+i\sqrt{15}}{2}$,
+$\PGCD(f(\frac{1+\sqrt{15}i}{2},Y),g(\frac{1+\sqrt{15}i}{2},Y))=Y-\frac{1-i\sqrt{15}}{2}$\\
+On obtient donc les 6 points d'intersection de $\Cscr \cap \Dscr$ : $(2,2),(2,3),(3,2),(3,3),\left(\frac{1+i\sqrt{15}}{2},\frac{1-i\sqrt{15}}{2}\right),\left(\frac{1+i\sqrt{15}}{2},\frac{1-i\sqrt{15}}{2}\right)$
+\end{Ex}
+
+
+
+\end{document}
