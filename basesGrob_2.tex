@@ -372,7 +372,10 @@ Comme $k[X_1,\ldots,X_n]$ est un $k$-espace vectoriel de base canonique $\mathsc
 (dans le cas contraire, on aurait une combinaison linéaire (d'élément d'une base) nulle à coefficients non nuls). On en déduit que $\beta \in \Gamma$ et donc qu'il existe un $p \in \mathbb{N}^n$ et un  $i \in [\![1,s]\!]$, $\beta=a_i+p $ c'est-à-dire qu'il existe un $i \in [\![1,s]\!]$ tel que $X^{\alpha_i}$ divise $X^\beta$.
 \end{proof}
 \begin{prop}
- Soit $\geq$ un ordre monomial. Alors tout idéal de $k[X_1,\ldots,X_n]$ non réduit à $\{0\}$ a une base de Gröbner. 
+ Soit $\geq$ un ordre monomial. Soit $I$ un idéal de de $k[X_1,\ldots,X_n]$. Toute base de Gröbner de $I$ est une base de $I$.
+
+
+ Alors tout idéal de $k[X_1,\ldots,X_n]$ non réduit à $\{0\}$ a une base de Gröbner. 
 \end{prop}
 
 \begin{proof}
@@ -384,7 +387,7 @@ Comme $\LT(f) \in \left\langle \LT(I) \right\rangle$ alors il existe un $i$ tel 
 En itérant ce raisonnement, on obtient que le reste de la division de $f$ par $g_1,\ldots,g_s$ est nul car tous les termes dominants de polynôme de $I$ sont divisibles par un $LT(g_i)$. On en déduit que $f$ est de la forme $\sum g_ih_i$ et donc $f\in I'$.
 
 \end{proof}
-Cette démonstration nous montre aussi que tout base de Gröbner est une base de $I$ car la base $\{g_1,\ldots,g_s\}$ est une base de Gröbner par construction. \\
+Cette démonstration nous montre aussi que tout idéal de $k[X_1,\ldots,X_n]$ non réduit à $\{0\}$ a une base de Gröbner car la base $\{g_1,\ldots,g_s\}$ est une base de Gröbner par construction. \\
 Nous allons maintenant montrer la propriété des bases de Gröbner promise à la fin de la section précédente : l'unicité du reste de la division par une base de Gröbner.
 
 \begin{prop}
@@ -416,7 +419,8 @@ Si $F$ est une base de Gröbner, on peut juste considérer $F$ comme un ensemble.
 \item Le $S$-polynôme de $f$ et $g$ est le polynôme : $S(f,g):=\frac{X^\gamma}{\LT(f)}f-\frac{X^\gamma}{\LT(g)} g$
 \end{enumerate}
 \end{Def}
-Une obstruction au fait que $\{f_1,\ldots,f_s\}$ soit une base de Gröbner est que le monôme dominant d'une combinaison de $f_i$, $\sum \alpha_if_i$ ne soit pas une combinaison de ceux des $\LT(f_i)$. Pour cela, il est nécessaire que $\LT(\sum\alpha_kf_k)<f_i$. Les $S$-polynômes sont de cette inégalité et nous donnent une condition nécessaire et suffisante pour qu'il n'ait pas cette obstruction.  
+
+Une obstruction au fait que $\{f_1,\ldots,f_s\}$ soit une base de Gröbner est que le monôme dominant d'une combinaison de $f_i$, $\sum \alpha_if_i$ ne soit pas une combinaison de ceux des $\LT(f_i)$. Pour cela, il est nécessaire que $\sum\LT(\alpha_kf_k)=0$. Les $S$-polynômes vérifient cette égalité et nous donnent une condition nécessaire et suffisante pour qu'il n'ait pas cette obstruction.  
 \begin{Thm} Soit $I$ un idéal de $k[X_1,\ldots,X_n]$. Alors une base $G=\{g_1,\ldots,g_n\}$ de $I$ est une base de Gröbner de $I$ si, et seulement si, pour tout couple $(i,j)$, $i \neq j$, $\overline{S(g_i,g_j)}^G=0$
 \end{Thm}
 On admettra ici ce théorème.
