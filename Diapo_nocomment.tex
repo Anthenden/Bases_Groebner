@@ -91,8 +91,8 @@
 
 \begin{frame}
 \begin{itemize}
-	\item Introduite par Heisuke Hironaka et Bruno Buchberger dans les années 1960.
-\vspace{3\baselineskip}
+	\item Introduites par Heisuke Hironaka et Bruno Buchberger dans les années 1960.
+\vspace{3\baselineskip} \pause
 \item Famille de "bons" générateurs d'un idéal
 \end{itemize}
  
@@ -194,15 +194,14 @@ Par analogie au cas à une indéterminée,il nous faut :  \\
 	Ecrire $f$ sous la forme  $\sum g_if_i+r$. \\
 	\vspace{2\baselineskip}
 	\pause
-\item un bon ordre \\
- Critère de fin pour cet algorithme.
+\item Ordre adéquat
 \end{itemize}
 \end{frame}
 \subsection{Ordres monomiaux}
 \begin{frame}
 \subsubsection{Définitions}
 
-Ordre monomial = relation de bon ordre total de $\mathscr{M}$ compatible avec le produit 
+Ordre monomial = relation de bon ordre total sur les monômes compatible avec le produit 
 \pause
 
 \vspace{2\baselineskip}
@@ -210,7 +209,7 @@ Pour $P:=\sum_{\alpha} p_{\alpha}X^\alpha \in k[X_1,\ldots,X_n]$ et $\geq$ un or
  \vspace{\baselineskip} 
 \begin{enumerate}
 \item  Monôme dominant de $P$ : $\LM(P):=\max\{X^\alpha \in \mathscr{M} | p_\alpha \neq 0\}$
-\item Multidegré de $f$, noté $\multideg(P)$, défini par : $X^{\multideg(P)}=LM(P)$
+\item Multidegré de $f$, noté $\multideg(P)$, défini par : $X^{\multideg(P)}=\LM(P)$
  \item Coefficient dominant de $P$ : $\LC(P):=p_{\multideg(P)}$
 \item Terme dominant de $P$ : $\LT(P):=\LC(P)\cdot \LM(P)$
 \end{enumerate}
@@ -294,9 +293,8 @@ $f=X^2+Y^2+Z^2-4$, $g=Y^2+2Z^2-5$, $h=XY-1$ et $P=YZf-Yg+2Zh$.
 
 
 $I$ un idéal de $k[X_1,\ldots,X_n]$  non réduit à $\{0\}$ \\
-\vspace{2\baselineskip} 
-$\LT(I):=\{\LT(f) |f \in I \}$. \\
-\vspace{2\baselineskip} 
+
+\vspace{3\baselineskip} 
 \pause
 Base de Gröbner : $G=\{g_1,\ldots,g_s\} \subset I$ tel que : \\
 $\left\langle \LT(I) \right\rangle=\left\langle \LT(g_1),\ldots,\LT(g_s)\right\rangle$.
@@ -322,10 +320,10 @@ $\left\langle \LT(I) \right\rangle=\left\langle \LT(g_1),\ldots,\LT(g_s)\right\r
 \begin{frame}
  Soient $f,g \in k[X_1,\ldots,X_n]$ des polynômes non nuls.
 
-Le $S$-polynôme de $f$ et $g$ est le polynôme : $S(f,g):=\frac{X^\gamma}{\LT(f)}f-\frac{X^\gamma}{\LT(g)} g$\\ où les coordonnées de $\gamma$ sont les maximum des coefficients de $\multideg(f)$ et $\multideg(g)$
+Le $S$-polynôme de $f$ et $g$ est le polynôme : $S(f,g):=\frac{X^\gamma}{\LT(f)}f-\frac{X^\gamma}{\LT(g)} g$\\ où les coordonnées de $\gamma$ sont les maxima des coordonnées de $\multideg(f)$ et $\multideg(g)$
 
 \pause
-\begin{Thm} Soit $I$ un idéal de $k[X_1,\ldots,X_n]$. Alors une base $G=\{g_1,\ldots,g_n\}$ de $I$ est une base de Gröbner de $I$ si, et seulement si, pour tout couple $(i,j)$, $i \neq j$, $\overline{S(g_i,g_j)}^G=0$
+\begin{Thm} Soit $I$ un idéal de $k[X_1,\ldots,X_n]$. Alors une base $G=\{g_1,\ldots,g_s\}$ de $I$ est une base de Gröbner de $I$ si, et seulement si, pour tout couple $(i,j)$, $i \neq j$, $\overline{S(g_i,g_j)}^G=0$
 \end{Thm}
 
 \end{frame}
@@ -373,7 +371,6 @@ Le $S$-polynôme de $f$ et $g$ est le polynôme : $S(f,g):=\frac{X^\gamma}{\LT(f)}
 \subsection{Théorème d'élimination}
 
 \begin{frame}
-
 Avec les $f,g,h$ de l'exemple précédent,  
 $I=\left\langle X - YZ^2 + Y, Y^2 + 2Z^2 - 5, Z^4 - 7/2Z^2 + 3\right\rangle$ \\
 \pause
@@ -385,6 +382,7 @@ $I=\left\langle f_1,\ldots,f_s \right\rangle $ un idéal de $k[X_1,\ldots,X_n]$. 
 Soit $I $ un idéal de $k[X_1,\ldots,X_n]$ et $G$ une base de Gröbner de $I$ selon l'ordre lexicographique. Alors, pour tout $p \in [\![0,n]\!]$, l'ensemble $G_p =G \cap k[X_{p+1},\ldots,X_n]  $ est une base de Gröbner du $p$ème idéal d'élimination $I_p$.
 \end{Thm}
 \pause
+
 $I_1=\left\langle  Y^2 + 2Z^2 - 5, Z^4 - 7/2Z^2 + 3\right\rangle$ \\ 
 $I_2=\left\langle Z^4 - 7/2Z^2 + 3\right\rangle$
 
@@ -402,7 +400,7 @@ $Z(f_1,\ldots,f_s)=\{a \in k^n | \forall i \in [\![1,s]\!],f_i(a)=0 \}$.
 \pause
 \item Intersection de deux variétés est une variété. \\
 \vspace{3\baselineskip} \pause
-\item Si $\left\langle F \right\rangle=\left\langle G\right\rangle$ alors $Z(F)=Z(G)$ \\
+\item Si $\left\langle \mathcal{F} \right\rangle=\left\langle \mathcal{G} \right\rangle$ alors $Z(\mathcal{F})=Z(\mathcal{G})$ \\
 \vspace{\baselineskip} \pause
 En particulier, $Z(f_1,\ldots,f_s)=Z(\left\langle f_1,\ldots,f_s\right\rangle)$
 \end{itemize}
@@ -444,12 +442,9 @@ $Z(I)=\{\pm(1,1,\pm\sqrt{2}),\pm(1/\sqrt{2},\sqrt{2},\pm\sqrt{2})\}$
 
 
 $V=Z(f_1,\ldots,f_s) \subset \C^n $, $I_p$ les idéaux d'élimination de $\left\langle f_1,\ldots,f_s\right\rangle$ \\
-\vspace{2\baselineskip} \pause
-\begin{itemize}
-	\item  $\pi_p (V) \subset Z (I_p) $. \\
-\end{itemize}
-\vspace{2\baselineskip} \pause
-\begin{Thm}  Soit $g_i $ défini dans le théorème d'extension. Alors : \\
+
+\vspace{3\baselineskip} 
+\begin{Thm}[d'extension version géométrique]  Soit $g_i $ défini dans le théorème d'extension. Alors : \\
 $Z (I_1)=\pi(V) \cup (Z (g_1,\ldots,g_s) \cap Z (I_1))$
 \end{Thm}
 
@@ -461,11 +456,9 @@ $Z (I_1)=\pi(V) \cup (Z (g_1,\ldots,g_s) \cap Z (I_1))$
 \begin{Thm}[de fermeture]
 
  Soit $V=Z(f_1,\ldots,f_s) \subset \C^n$ et soit $I_p$ le $p$ème idéal d'élimination de $\left\langle f_1,\ldots,f_s \right\rangle$. Alors  
-\begin{enumerate}
-\item $Z(I_p)$ est la plus petite (au sens de l'inclusion) variété contenant $\pi_p(V)$
 
-\item Si $V \neq \emptyset$, alors il existe une variété affine $W \subsetneqq Z(I_p)$ telle que $Z(I_p) \setminus W \subset \pi_p(V)$
-\end{enumerate}
+$Z(I_p)$ est la plus petite (au sens de l'inclusion) variété contenant $\pi_p(V)$
+
 \end{Thm}
 
 \end{frame}
@@ -482,8 +475,8 @@ Soit $F=(f_1,\ldots,f_n):k^m \to k^n$ une application à composantes polynomiales
 \begin{frame}
 
 \label{Whitney}
-Parapluie de Withney : $\Gamma_k$ $\begin{cases} x=uv \\ y=u\\ z=v^2\end{cases} ,\; u,v \in k^2$. \\
-Variété associée : $V_k:=Z( X^2-Y^2Z)\subset k^3 $.
+Parapluie de Withney : $\Gamma_k$ $\begin{cases} x=uv \\ y=u\\ z=v^2\end{cases} ,\; u,v \in k^2$. \\\pause
+Variété associée : $V_k:=Z( X^2-Y^2Z)\subset k^3 $. 
 \begin{itemize}\pause
 \item $V_\R=\Gamma_\R\cup \{ (0,0,a) | a <0 \} $. \pause
 \item $V_\C=\Gamma_\C $.\\
